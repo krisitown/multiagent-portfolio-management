@@ -43,3 +43,9 @@ def test_no_private_services_are_enabled_implicitly():
     assert config.get("research_backend") is None
     assert config.get("market_backend") is None
     assert config["model"]["api_key_env"] == "MODEL_API_KEY"
+
+
+def test_final_report_check_stays_enabled_without_optional_tokenizer():
+    config = module().make_config({})
+    assert config["fact_check"]["enabled"] is True
+    assert "tokenizer_path" not in config["fact_check"]

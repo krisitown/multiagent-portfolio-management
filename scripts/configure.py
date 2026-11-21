@@ -36,7 +36,7 @@ def make_config(env):
         "max_generations": 300,
         "deadline_seconds": float(env.get("RUN_DEADLINE_SECONDS", "7200")),
         "fact_check": {
-            "enabled": bool(tokenizer),
+            "enabled": True,
             "max_assessments": 3,
             "max_output_tokens": 8192,
             "reasoning_effort": env.get("MODEL_REASONING_EFFORT", "medium"),
@@ -72,8 +72,8 @@ def main():
         json.dump(config, stream, indent=2)
         stream.write("\n")
     print("Configuration written. Secret values were not serialized.")
-    if not config["fact_check"]["enabled"]:
-        print("Checker disabled: set MODEL_TOKENIZER_PATH before requesting a checked council report.")
+    if not config["fact_check"].get("tokenizer_path"):
+        print("Checker enabled with conservative context counting; a local tokenizer is optional.")
 
 
 if __name__ == "__main__":

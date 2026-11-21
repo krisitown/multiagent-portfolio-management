@@ -10,7 +10,7 @@
 | `MODEL_MAX_OUTPUT_TOKENS` | Per-generation output limit, including reasoning where applicable |
 | `RUN_DEADLINE_SECONDS`, `RUN_OUTPUT_DIR` | Shared run budget and private artifact location |
 | `PORTFOLIO_PATH` | Input path used by the CLI example; never a repository account default |
-| `MODEL_TOKENIZER_PATH` | Local tokenizer for checker context counting; enables checking in generated config |
+| `MODEL_TOKENIZER_PATH` | Optional matching local tokenizer for exact checker context counting |
 | `CONTINUITY_DIR` | Optional external, private file-memory root |
 | `RESEARCH_PYTHON`, `RESEARCH_CWD`, `RESEARCH_ENV_FILE` | Optional pre-existing Hermes read-only public-web bridge; all three or none |
 
@@ -20,11 +20,11 @@ The generated file uses absolute paths for selected repository resources so it w
 
 The core `openai` provider uses Chat Completions and sends `max_tokens`. Compatibility depends on the server, not only its API shape. Some hosted OpenAI models require `max_completion_tokens` or the Responses API; supply an appropriate model adapter rather than assuming the core client is interchangeable. Set `role_models` for explicit per-role overrides of `portfolio_manager`, `wheel_expert`, `dalio` and `buffett`.
 
-For the FinQwen template, supported effort labels are `low`, `medium` and `xhigh`; `high` is rejected. Effort is a model instruction, not a hard thinking-token budget. Separate `enable_thinking` support depends on the template. Model cards contain deployment-specific notes.
+For the PortfolioFinQwen template, supported effort labels are `low`, `medium` and `xhigh`; `high` is rejected. Effort is a model instruction, not a hard thinking-token budget. Separate `enable_thinking` support depends on the template. Model cards contain deployment-specific notes.
 
 ## Fact checking and continuity
 
-The generated example enables the checker only when `MODEL_TOKENIZER_PATH` is supplied. Without it, the example is a plumbing/research configuration and cannot satisfy the council prompt's mandatory final-report check. A real council report should enable the checker with a matching tokenizer. Checking is author-directed and fallible; prompts cannot guarantee that the final draft was checked correctly.
+The generated configuration enables the final-report checker by default. A matching local tokenizer and the optional `transformers` package allow exact context counting. Without them, the runtime uses a conservative UTF-8 byte bound plus framing allowance, which can reduce usable context. Checking is author-directed and fallible; prompts cannot guarantee that the final draft was checked correctly.
 
 Continuity is omitted unless an explicit root is provided. The runtime's memory tools operate on that external root. Your application is responsible for populating it with authorized, attributed context.
 

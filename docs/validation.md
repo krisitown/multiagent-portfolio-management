@@ -7,7 +7,7 @@ This is a source release of an experimentally deployed runtime, not a claim of p
 Validation performed on Python 3.13:
 
 - Public prompt loader: 9 role prompts and 30 indexed knowledge modules verified, including caller baseline hashes.
-- Unit and contract suites: **346 passed, 9 skipped**. Public JSON schemas were regenerated from the shipped validated models.
+- Unit and contract suites: **347 passed, 9 skipped**. Public JSON schemas were regenerated from the shipped validated models.
 - Council, direct-text handoff, continuity and completion-observer suites: **59 passed**.
 - Fact-check team suite: **5 passed**.
 - Scripted network-free demo: completed and wrote inspectable result/report artifacts.

@@ -76,7 +76,14 @@ Hermes is an optional host/connector, not the runtime. Brokerage acquisition, cr
 
 ## Optional model checkpoints
 
-This runtime supports independently configured OpenAI-compatible endpoints. Companion model releases and their benchmark cards will be linked here when available.
+This runtime supports independently configured OpenAI-compatible endpoints. The companion **PortfolioFinQwen-27B** releases are available in two formats:
+
+| Format | Model and benchmark card | Weight/config footprint |
+|---|---|---|
+| BF16 | [PortfolioFinQwen-27B-BF16](https://huggingface.co/kstoyanov99/PortfolioFinQwen-27B-BF16) | 54.7 GB |
+| NVFP4 | [PortfolioFinQwen-27B-NVFP4](https://huggingface.co/kstoyanov99/PortfolioFinQwen-27B-NVFP4) | 19.8 GB |
+
+The cards describe the adaptation goal, compatible serving setup, measured benchmark results and limitations. Results are mixed across tasks; the development evaluation is training-informed, and the BF16 export was not separately scored. File size is not a runtime memory requirement. Model downloads contain inference artifacts and licensing files; no private portfolio inputs or training records are included.
 
 ## License
 
