@@ -1,0 +1,6 @@
+{
+  "case_id": "offline-callable-delegation",
+  "question": "Explain synthetic assignment economics, investigate independent questions, and request expert follow-up when useful.",
+  "mode": "focused",
+  "scripted_transport": "Queued model outputs in delegation-config.json choose actual direct tools; no external inference."
+}

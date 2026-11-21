@@ -1,0 +1,129 @@
+{
+  "synthetic": true,
+  "capabilities": [
+    "universe",
+    "fundamentals",
+    "events",
+    "underlying_quotes",
+    "option_chains",
+    "source_documents"
+  ],
+  "requests": {
+    "universe-first": {
+      "schema_version": 1,
+      "query_id": "universe-first",
+      "capability": "universe",
+      "instrument_ids": [],
+      "parameters": {},
+      "as_of": null,
+      "cursor": null,
+      "limit": 2
+    },
+    "universe-second": {
+      "schema_version": 1,
+      "query_id": "universe-second",
+      "capability": "universe",
+      "instrument_ids": [],
+      "parameters": {},
+      "as_of": null,
+      "cursor": "synthetic-page-2",
+      "limit": 2
+    },
+    "universe-empty": {
+      "schema_version": 1,
+      "query_id": "universe-empty",
+      "capability": "universe",
+      "instrument_ids": [],
+      "parameters": {
+        "sector": "synthetic-empty"
+      },
+      "as_of": null,
+      "cursor": null,
+      "limit": 2
+    },
+    "fundamentals-partial": {
+      "schema_version": 1,
+      "query_id": "fundamentals-partial",
+      "capability": "fundamentals",
+      "instrument_ids": [
+        "SYN-A"
+      ],
+      "parameters": {},
+      "as_of": null,
+      "cursor": null,
+      "limit": 2
+    },
+    "quote-delayed": {
+      "schema_version": 1,
+      "query_id": "quote-delayed",
+      "capability": "underlying_quotes",
+      "instrument_ids": [
+        "SYN-A"
+      ],
+      "parameters": {},
+      "as_of": null,
+      "cursor": null,
+      "limit": 2
+    },
+    "quote-naive": {
+      "schema_version": 1,
+      "query_id": "quote-naive",
+      "capability": "underlying_quotes",
+      "instrument_ids": [
+        "SYN-NAIVE"
+      ],
+      "parameters": {},
+      "as_of": null,
+      "cursor": null,
+      "limit": 2
+    },
+    "quote-contradictory": {
+      "schema_version": 1,
+      "query_id": "quote-contradictory",
+      "capability": "underlying_quotes",
+      "instrument_ids": [
+        "SYN-CONFLICT"
+      ],
+      "parameters": {},
+      "as_of": null,
+      "cursor": null,
+      "limit": 2
+    },
+    "events": {
+      "schema_version": 1,
+      "query_id": "events",
+      "capability": "events",
+      "instrument_ids": [
+        "SYN-A"
+      ],
+      "parameters": {},
+      "as_of": null,
+      "cursor": null,
+      "limit": 2
+    },
+    "option-chain": {
+      "schema_version": 1,
+      "query_id": "option-chain",
+      "capability": "option_chains",
+      "instrument_ids": [
+        "SYN-A"
+      ],
+      "parameters": {},
+      "as_of": null,
+      "cursor": null,
+      "limit": 2
+    },
+    "source-document": {
+      "schema_version": 1,
+      "query_id": "source-document",
+      "capability": "source_documents",
+      "instrument_ids": [
+        "SYN-A"
+      ],
+      "parameters": {},
+      "as_of": null,
+      "cursor": null,
+      "limit": 2
+    }
+  }
+}

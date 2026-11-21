@@ -1,0 +1,21 @@
+# Copy outside the repository and configure privately. This grants no inference permission.
+# Run limits belong at the root; all generations, repairs and retries share this cap.
+# explorer_temperature is intentionally unset until the owner chooses its exact value.
+explorer_enabled = true
+max_generations = 1000
+analyst_concurrency = 5
+max_expert_consultations = 1
+deadline_seconds = 10800
+
+[model]
+provider = "openai"
+model_id = "OPERATOR_MODEL_ID_REQUIRED"
+endpoint = "http://MODEL_HOST_REQUIRED.invalid/v1"
+api_key_env = "WHEEL_MODEL_API_KEY"
+allow_inference_network = false
+timeout_seconds = 10800
+max_output_tokens = 65536
+# Unset sampling inherits backend defaults; explicit temperature selections are recorded.
+
+[prompts]
+mode = "development"

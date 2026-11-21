@@ -1,0 +1,12 @@
+{
+  "prompt_set_id": "private-portfolio-continuity",
+  "version": "2-pruned",
+  "status": "approved",
+  "owner_approval_ref": "Maintainer-approved reusable prompt bundle for the public runtime release.",
+  "roles": {
+    "continuity": {
+      "path": "continuity.md",
+      "content_hash": "c5aa87764d657ff292ad1240b698fb3d221b12571e6583169131ff33df689ca6"
+    }
+  }
+}

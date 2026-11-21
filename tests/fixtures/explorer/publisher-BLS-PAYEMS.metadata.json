@@ -1,0 +1,16 @@
+{
+  "name": "publisher-BLS-PAYEMS",
+  "source_url": "https://api.bls.gov/publicAPI/v1/timeseries/data/",
+  "request_json": {
+    "seriesid": [
+      "CES0000000001"
+    ],
+    "startyear": "2025",
+    "endyear": "2026"
+  },
+  "http_status": 200,
+  "capture_timestamp_utc": "2026-10-31T21:06:10.583830+00:00",
+  "content_type": "application/json",
+  "original_response_sha256": "627967dedafdb6cdfdd549194208d95ffce924d109a0a147b5421a276eb1d573",
+  "bytes": 2029
+}

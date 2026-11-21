@@ -1,0 +1,688 @@
+{
+  "team_lead": {
+    "explore": {
+      "name": "explore",
+      "description": "Explore public candidates/context; original output reaches expert automatically.\n\n        Final research tools and system prompt are owner-selected. This role does not\n        automatically receive the private portfolio. The lead assigns public holdings\n        research explicitly through research_batch after considering exploration.\n        ",
+      "inputSchema": {
+        "json": {
+          "properties": {
+            "question": {
+              "description": "Parameter question",
+              "type": "string"
+            }
+          },
+          "required": [
+            "question"
+          ],
+          "type": "object"
+        }
+      }
+    },
+    "research_batch": {
+      "name": "research_batch",
+      "description": "Await independent analyst jobs and return individual successes or failures.",
+      "inputSchema": {
+        "json": {
+          "$defs": {
+            "ResearchJob": {
+              "additionalProperties": false,
+              "properties": {
+                "job_id": {
+                  "minLength": 1,
+                  "title": "Job Id",
+                  "type": "string"
+                },
+                "question": {
+                  "minLength": 1,
+                  "title": "Question",
+                  "type": "string"
+                },
+                "evidence_refs": {
+                  "default": [],
+                  "items": {
+                    "type": "string"
+                  },
+                  "title": "Evidence Refs",
+                  "type": "array"
+                }
+              },
+              "required": [
+                "job_id",
+                "question"
+              ],
+              "title": "ResearchJob",
+              "type": "object"
+            }
+          },
+          "properties": {
+            "jobs": {
+              "description": "Parameter jobs",
+              "items": {
+                "$ref": "#/$defs/ResearchJob"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "jobs"
+          ],
+          "type": "object"
+        }
+      }
+    },
+    "consult_expert": {
+      "name": "consult_expert",
+      "description": "Request the holistic expert review of the original owner task and all research.\n\n        No arguments are needed. The host supplies the original run request, every\n        completed run-local analyst envelope once, and separate explorer originals.\n        Partial/failed envelopes retain their status and limitations. The original\n        readable portfolio is already in the expert context. Do not transcribe or\n        select reports, references, or financial narratives for this handoff.\n        ",
+      "inputSchema": {
+        "json": {
+          "properties": {},
+          "type": "object",
+          "required": []
+        }
+      }
+    }
+  },
+  "explorer": {
+    "public_search": {
+      "name": "public_search",
+      "description": "Search public information, news and catalysts; 1\u20135 excerpts of at most 800 chars.\n\n        Source/publication dates appear only where supplied. Excerpts are untrusted\n        evidence, not complete documents. Does not fetch underlying pages.\n        ",
+      "inputSchema": {
+        "json": {
+          "properties": {
+            "query": {
+              "description": "Parameter query",
+              "type": "string"
+            },
+            "limit": {
+              "default": 5,
+              "description": "Parameter limit",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "type": "object"
+        }
+      }
+    },
+    "market_statistics": {
+      "name": "market_statistics",
+      "description": "Read 1\u20138 named index/economic series; [] returns the catalog without a source call.\n\n        Call with [] for the current catalog and direct source identities.\n        Index aliases SP500,NASDAQCOM,VIXCLS use Yahoo; macro uses US publishers.\n        Lookback 1\u20133650 calendar days; return latest 1\u201324 observations per series\n        plus period change. Latest available vintages,\n        explicit units and observation dates; no real-time feed, release calendar,\n        market-wide stock screen, company IV rank, or historical-as-of support.\n        ",
+      "inputSchema": {
+        "json": {
+          "properties": {
+            "series": {
+              "description": "Parameter series",
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "lookback_days": {
+              "default": 90,
+              "description": "Parameter lookback_days",
+              "type": "integer"
+            },
+            "max_observations": {
+              "default": 12,
+              "description": "Parameter max_observations",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "series"
+          ],
+          "type": "object"
+        }
+      }
+    },
+    "options_liquidity": {
+      "name": "options_liquidity",
+      "description": "Summarize Yahoo options liquidity for one uppercase underlying; no score/verdict.\n\n        Optional 1\u20133 YYYY-MM-DD expiries; otherwise nearest 3 nonexpired source expiries.\n        Symmetric strike window within 1\u2013100 percent of the observed underlying price\n        (default20), across puts/calls. Show coverage, invalid/missing/zero quotes,\n        spread medians, volume/OI and four nearest sample contracts per expiry/right.\n        Dollar spread and spread/midpoint fraction use valid positive bid/noncrossed\n        ask only. Source/trade/fetch times are distinct; bid/ask freshness and sizes\n        can be unknown. Partial sampling cannot establish whole-market liquidity or\n        quote executability; missing evidence is unverified, not an illiquidity verdict.\n        ",
+      "inputSchema": {
+        "json": {
+          "properties": {
+            "symbol": {
+              "description": "Parameter symbol",
+              "type": "string"
+            },
+            "expiries": {
+              "default": null,
+              "description": "Parameter expiries",
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "strike_distance_pct": {
+              "default": 20,
+              "description": "Parameter strike_distance_pct",
+              "type": "number"
+            }
+          },
+          "required": [
+            "symbol"
+          ],
+          "type": "object"
+        }
+      }
+    }
+  },
+  "analyst": {
+    "evidence_read": {
+      "name": "evidence_read",
+      "description": "Read an immutable record using an exact record_ref from evidence_find.\n\n        Examples: evidence:quote-1, evidence:public-web:source-id, idea:idea-id@revision-id.\n        Bare evidence IDs are invalid. Discover references with evidence_find(kind=\"evidence\")\n        or the appropriate kind; do not guess a prefix or revision. view=\"compact\" (default)\n        selects fundamentals business/financial fields and declares omitted fields and full-read\n        arguments. view=\"full\" returns the exact complete stored record.\n        Other records are unchanged.\n        ",
+      "inputSchema": {
+        "json": {
+          "properties": {
+            "record_ref": {
+              "description": "Parameter record_ref",
+              "type": "string"
+            },
+            "view": {
+              "default": "compact",
+              "description": "Parameter view",
+              "enum": [
+                "compact",
+                "full"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "record_ref"
+          ],
+          "type": "object"
+        }
+      }
+    },
+    "evidence_find": {
+      "name": "evidence_find",
+      "description": "Discover a compact metadata index with canonical record_ref/result_refs, not bodies.\n\n        Valid kinds: evidence, calculation, snapshot, idea, review, quality. Source observations\n        use kind=\"evidence\"; quote, market_observation, research_result, underlying_quotes and\n        option_chains are NOT kinds. Query matches exact top-level fields, e.g.\n        {\"source\":\"yahoo-underlying-quotes\"}. Start with evidence_find(kind=\"evidence\").\n        limit defaults20, maximum50; offset defaults0. Follow next_offset to access omitted rows.\n        data.projection declares the metadata allowlist, field bounds and body_omitted once.\n        Content metadata selects only allowlisted string fields actually present in the record.\n        Each row retains dynamic omitted_fields/count and truncated_fields; no summary is invented.\n        Use evidence_read(record_ref=<exact returned record_ref>, view=\"full\") for complete source\n        text/tables and provenance. Example refs: evidence:quote-1; idea:idea-id@revision-id.\n        Never use bare IDs.\n        ",
+      "inputSchema": {
+        "json": {
+          "properties": {
+            "kind": {
+              "description": "Parameter kind",
+              "enum": [
+                "evidence",
+                "calculation",
+                "snapshot",
+                "idea",
+                "review",
+                "quality"
+              ],
+              "type": "string"
+            },
+            "query": {
+              "default": null,
+              "description": "Parameter query",
+              "type": "object"
+            },
+            "limit": {
+              "default": 20,
+              "description": "Parameter limit",
+              "type": "integer"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Parameter offset",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "kind"
+          ],
+          "type": "object"
+        }
+      }
+    },
+    "finance_calculate": {
+      "name": "finance_calculate",
+      "description": "Exact Decimal financial arithmetic; success verifies supplied arithmetic only.\n\n        Use decimal text, e.g. \"2.50\", never JSON floats/booleans. Positive option\n        quantity means whole CONTRACT COUNT in put/roll; Position.quantity is signed:\n        negative short, positive long. Option positions count contracts, stock counts\n        shares. Multiplier is shares per contract, never a second quantity conversion.\n        Example (synthetic arithmetic fixture): 2 contracts * 100 shares/contract =\n        200 shares; pass quantity=\"2\", multiplier=\"100\", NOT quantity=\"200\".\n        Reconcile returned quantities and units with the source holdings. The tool\n        cannot detect that a valid count describes the wrong intended position.\n\n        put_economics: inputs={quantity,premium,fees}; parameters={contract,price_basis}.\n        Premium/strike are currency/share; fees total currency (not per contract).\n        Contract={instrument_id,instrument_type:\"option\",currency,underlying_id,\n        expiry:\"YYYY-MM-DD\",option_right:\"put\",strike,multiplier}; strike/multiplier\n        use decimal text. price_basis labels the supplied price field, e.g. \"bid\";\n        omitted basis is unspecified. No price is certified executable.\n        Synthetic example: quantity=\"2\",premium=\"1.25\",fees=\"1\",strike=\"50\",\n        multiplier=\"100\" -> net premium 249, gross assignment funding 10000.\n\n        roll_economics: inputs={quantity,multiplier,close_debit,new_credit,fees,\n        original_credit?}; parameters={currency} optional. Prices are currency/share;\n        fees total. Equal-count, equal-multiplier short-option close/reopen only.\n        net_roll_cash = quantity*multiplier*(new_credit-close_debit)-fees;\n        positive cash is credit, negative cash debit; it is not realized profit.\n        original_credit is optional opening premium/share: omit unknown basis,\n        never substitute zero/current mark. Missing basis leaves old-leg realization\n        and combined-history cash unknown, but incremental roll cash calculable.\n        Synthetic example: quantity=\"2\",multiplier=\"100\",close_debit=\"3.10\",\n        new_credit=\"4.20\",fees=\"2\" -> net_roll_cash=\"218\" without opening basis.\n\n        expiry_payoff: inputs={underlying_id:spot_decimal_text}; parameters={positions:[\n        {position_id,contract,quantity,currency}]}. Stock contract requires\n        {instrument_id,instrument_type:\"stock\",currency}; option contract as above\n        with option_right \"put\" or \"call\". Stock spot key is instrument_id.\n        Returns signed stock value plus option intrinsic; excludes premiums, fees,\n        basis and dated mark-to-market. Multiple expiries mean simultaneous intrinsic\n        stress only, not a realizable value at one dated expiry.\n\n        match_coverage / analyze_portfolio: inputs={}; parameters EITHER {snapshot_ref}\n        using the exact supplied snapshot ID/run-local reference, OR explicit relevant\n        terms {positions:[Position,...],base_currency:\"USD\",as_of:\"ISO timezone date\"}.\n        Explicit terms are a partial analytic subset, not a portfolio JSON transport;\n        no complete account totals, NAV or current broker margin are inferred.\n        Coverage matches option protection only within same underlying, expiry,\n        right, currency, multiplier and deliverable; it does not certify margin.\n        For stock coverage supply encumbered_quantity explicitly (\"0\" only if known).\n\n        arithmetic: inputs={values:[decimal_text,...]} (2..32 operands);\n        parameters={operation:\"add\"|\"subtract\"|\"multiply\"|\"divide\",result_unit?}.\n        Operates left to right: divide [\"12\",\"3\",\"2\"] = 2. Chain calls for\n        parentheses; no expression/code evaluation. Result unit is a caller label,\n        not dimensional validation; include conversions in operands explicitly.\n        Synthetic example: multiply [\"2\",\"100\",\"0.90\"] = 180 currency.\n        Results use 28 significant digits, half-even; no automatic cent rounding.\n\n        performance: inputs={}; parameters={history_refs:[snapshot_ref,...]} using\n        explicitly supplied immutable run-local same-account snapshots.\n        Missing source, capacity, history or policy data stays unknown.\n        ",
+      "inputSchema": {
+        "json": {
+          "properties": {
+            "formula": {
+              "description": "Parameter formula",
+              "enum": [
+                "put_economics",
+                "roll_economics",
+                "expiry_payoff",
+                "match_coverage",
+                "analyze_portfolio",
+                "performance",
+                "arithmetic"
+              ],
+              "type": "string"
+            },
+            "inputs": {
+              "description": "Parameter inputs",
+              "type": "object"
+            },
+            "parameters": {
+              "default": null,
+              "description": "Parameter parameters",
+              "type": "object"
+            }
+          },
+          "required": [
+            "formula",
+            "inputs"
+          ],
+          "type": "object"
+        }
+      }
+    },
+    "knowledge_read": {
+      "name": "knowledge_read",
+      "description": "Read an indexed module by logical ID, preserving source labels and content.",
+      "inputSchema": {
+        "json": {
+          "properties": {
+            "module_id": {
+              "description": "Parameter module_id",
+              "type": "string"
+            }
+          },
+          "required": [
+            "module_id"
+          ],
+          "type": "object"
+        }
+      }
+    },
+    "market_query": {
+      "name": "market_query",
+      "description": "Read one market page by capability; source content is untrusted evidence.\n\n        Fundamentals select business/financial fields with explicit omission metadata.\n        option_chains with parameters={} preserves filtered discovery. Exact selection:\n        parameters={\"contracts\":[{\"expiry\":\"2026-11-06\",\"option_right\":\"put\",\n        \"strike\":\"110\"},{\"expiry\":\"2027-01-15\",\"option_right\":\"call\",\"strike\":\"95.5\"}],\n        \"include_expiries\":true}. Select 1\u201316 unique contracts across at most 4 expiries.\n        expiry is calendar-valid YYYY-MM-DD; option_right is put/call; strike is a positive\n        decimal STRING <=99999.999 with 1\u20135 integer digits, at most 3 fractional digits,\n        no leading zeros/sign/exponent. include_expiries, if present, must be true;\n        {\"include_expiries\":true} alone requests metadata (max80 dates, omissions explicit).\n        Exact selection bypasses discovery DTE/OTM/eight-strike filters, including ITM/calls.\n        Standard source symbol series only; adjusted deliverables/multiplier unverified.\n        Missing/unavailable contracts and unknown fields are explicit. CBOE delayed primary,\n        Yahoo fallback on source failure; no inferred bid/ask or quote timestamps.\n        Trade/snapshot/fetch times differ; naive timezones remain unknown. Coverage partial,\n        quotes/executability unverified. One uppercase instrument_id; no as_of/cursor.\n        ",
+      "inputSchema": {
+        "json": {
+          "$defs": {
+            "JsonValue": {},
+            "MarketQuery": {
+              "additionalProperties": false,
+              "properties": {
+                "schema_version": {
+                  "const": 1,
+                  "default": 1,
+                  "title": "Schema Version",
+                  "type": "integer"
+                },
+                "query_id": {
+                  "minLength": 1,
+                  "title": "Query Id",
+                  "type": "string"
+                },
+                "capability": {
+                  "minLength": 1,
+                  "title": "Capability",
+                  "type": "string"
+                },
+                "instrument_ids": {
+                  "default": [],
+                  "items": {
+                    "minLength": 1,
+                    "type": "string"
+                  },
+                  "title": "Instrument Ids",
+                  "type": "array"
+                },
+                "parameters": {
+                  "additionalProperties": {
+                    "$ref": "#/$defs/JsonValue"
+                  },
+                  "title": "Parameters",
+                  "type": "object"
+                },
+                "as_of": {
+                  "anyOf": [
+                    {
+                      "format": "date-time",
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "default": null,
+                  "title": "As Of"
+                },
+                "cursor": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ],
+                  "default": null,
+                  "title": "Cursor"
+                },
+                "limit": {
+                  "default": 100,
+                  "exclusiveMinimum": 0,
+                  "title": "Limit",
+                  "type": "integer"
+                }
+              },
+              "required": [
+                "query_id",
+                "capability"
+              ],
+              "title": "MarketQuery",
+              "type": "object"
+            }
+          },
+          "properties": {
+            "query": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/MarketQuery"
+                },
+                {
+                  "type": "string"
+                }
+              ],
+              "description": "Parameter query"
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "type": "object"
+        }
+      }
+    },
+    "public_search": {
+      "name": "public_search",
+      "description": "Search public sources (1\u20135 hits); source times remain unknown unless provided.",
+      "inputSchema": {
+        "json": {
+          "properties": {
+            "query": {
+              "description": "Parameter query",
+              "type": "string"
+            },
+            "limit": {
+              "default": 5,
+              "description": "Parameter limit",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "type": "object"
+        }
+      }
+    },
+    "fetch_sources": {
+      "name": "fetch_sources",
+      "description": "Fetch 1\u20135 public URLs as Markdown without LLM processing; total text cap 12,000.",
+      "inputSchema": {
+        "json": {
+          "properties": {
+            "urls": {
+              "description": "Parameter urls",
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "urls"
+          ],
+          "type": "object"
+        }
+      }
+    },
+    "fact_check": {
+      "name": "fact_check",
+      "description": "Ask a fresh reasoning checker about your exact message and selected originals.\n\n                Select only relevant evidence refs. Label unverified assumptions explicitly.\n                Feedback is natural language; completed reports execution, not factual approval.\n                Repair your own claims and explicitly recheck when needed. Max three calls.\n                ",
+      "inputSchema": {
+        "json": {
+          "properties": {
+            "message": {
+              "description": "Parameter message",
+              "type": "string"
+            },
+            "evidence_refs": {
+              "default": [],
+              "description": "Parameter evidence_refs",
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "assumptions": {
+              "default": [],
+              "description": "Parameter assumptions",
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "message"
+          ],
+          "type": "object"
+        }
+      }
+    }
+  },
+  "wheel_expert": {
+    "evidence_read": {
+      "name": "evidence_read",
+      "description": "Read an immutable record using an exact record_ref from evidence_find.\n\n        Examples: evidence:quote-1, evidence:public-web:source-id, idea:idea-id@revision-id.\n        Bare evidence IDs are invalid. Discover references with evidence_find(kind=\"evidence\")\n        or the appropriate kind; do not guess a prefix or revision. view=\"compact\" (default)\n        selects fundamentals business/financial fields and declares omitted fields and full-read\n        arguments. view=\"full\" returns the exact complete stored record.\n        Other records are unchanged.\n        ",
+      "inputSchema": {
+        "json": {
+          "properties": {
+            "record_ref": {
+              "description": "Parameter record_ref",
+              "type": "string"
+            },
+            "view": {
+              "default": "compact",
+              "description": "Parameter view",
+              "enum": [
+                "compact",
+                "full"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "record_ref"
+          ],
+          "type": "object"
+        }
+      }
+    },
+    "evidence_find": {
+      "name": "evidence_find",
+      "description": "Discover a compact metadata index with canonical record_ref/result_refs, not bodies.\n\n        Valid kinds: evidence, calculation, snapshot, idea, review, quality. Source observations\n        use kind=\"evidence\"; quote, market_observation, research_result, underlying_quotes and\n        option_chains are NOT kinds. Query matches exact top-level fields, e.g.\n        {\"source\":\"yahoo-underlying-quotes\"}. Start with evidence_find(kind=\"evidence\").\n        limit defaults20, maximum50; offset defaults0. Follow next_offset to access omitted rows.\n        data.projection declares the metadata allowlist, field bounds and body_omitted once.\n        Content metadata selects only allowlisted string fields actually present in the record.\n        Each row retains dynamic omitted_fields/count and truncated_fields; no summary is invented.\n        Use evidence_read(record_ref=<exact returned record_ref>, view=\"full\") for complete source\n        text/tables and provenance. Example refs: evidence:quote-1; idea:idea-id@revision-id.\n        Never use bare IDs.\n        ",
+      "inputSchema": {
+        "json": {
+          "properties": {
+            "kind": {
+              "description": "Parameter kind",
+              "enum": [
+                "evidence",
+                "calculation",
+                "snapshot",
+                "idea",
+                "review",
+                "quality"
+              ],
+              "type": "string"
+            },
+            "query": {
+              "default": null,
+              "description": "Parameter query",
+              "type": "object"
+            },
+            "limit": {
+              "default": 20,
+              "description": "Parameter limit",
+              "type": "integer"
+            },
+            "offset": {
+              "default": 0,
+              "description": "Parameter offset",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "kind"
+          ],
+          "type": "object"
+        }
+      }
+    },
+    "finance_calculate": {
+      "name": "finance_calculate",
+      "description": "Exact Decimal financial arithmetic; success verifies supplied arithmetic only.\n\n        Use decimal text, e.g. \"2.50\", never JSON floats/booleans. Positive option\n        quantity means whole CONTRACT COUNT in put/roll; Position.quantity is signed:\n        negative short, positive long. Option positions count contracts, stock counts\n        shares. Multiplier is shares per contract, never a second quantity conversion.\n        Example (synthetic arithmetic fixture): 2 contracts * 100 shares/contract =\n        200 shares; pass quantity=\"2\", multiplier=\"100\", NOT quantity=\"200\".\n        Reconcile returned quantities and units with the source holdings. The tool\n        cannot detect that a valid count describes the wrong intended position.\n\n        put_economics: inputs={quantity,premium,fees}; parameters={contract,price_basis}.\n        Premium/strike are currency/share; fees total currency (not per contract).\n        Contract={instrument_id,instrument_type:\"option\",currency,underlying_id,\n        expiry:\"YYYY-MM-DD\",option_right:\"put\",strike,multiplier}; strike/multiplier\n        use decimal text. price_basis labels the supplied price field, e.g. \"bid\";\n        omitted basis is unspecified. No price is certified executable.\n        Synthetic example: quantity=\"2\",premium=\"1.25\",fees=\"1\",strike=\"50\",\n        multiplier=\"100\" -> net premium 249, gross assignment funding 10000.\n\n        roll_economics: inputs={quantity,multiplier,close_debit,new_credit,fees,\n        original_credit?}; parameters={currency} optional. Prices are currency/share;\n        fees total. Equal-count, equal-multiplier short-option close/reopen only.\n        net_roll_cash = quantity*multiplier*(new_credit-close_debit)-fees;\n        positive cash is credit, negative cash debit; it is not realized profit.\n        original_credit is optional opening premium/share: omit unknown basis,\n        never substitute zero/current mark. Missing basis leaves old-leg realization\n        and combined-history cash unknown, but incremental roll cash calculable.\n        Synthetic example: quantity=\"2\",multiplier=\"100\",close_debit=\"3.10\",\n        new_credit=\"4.20\",fees=\"2\" -> net_roll_cash=\"218\" without opening basis.\n\n        expiry_payoff: inputs={underlying_id:spot_decimal_text}; parameters={positions:[\n        {position_id,contract,quantity,currency}]}. Stock contract requires\n        {instrument_id,instrument_type:\"stock\",currency}; option contract as above\n        with option_right \"put\" or \"call\". Stock spot key is instrument_id.\n        Returns signed stock value plus option intrinsic; excludes premiums, fees,\n        basis and dated mark-to-market. Multiple expiries mean simultaneous intrinsic\n        stress only, not a realizable value at one dated expiry.\n\n        match_coverage / analyze_portfolio: inputs={}; parameters EITHER {snapshot_ref}\n        using the exact supplied snapshot ID/run-local reference, OR explicit relevant\n        terms {positions:[Position,...],base_currency:\"USD\",as_of:\"ISO timezone date\"}.\n        Explicit terms are a partial analytic subset, not a portfolio JSON transport;\n        no complete account totals, NAV or current broker margin are inferred.\n        Coverage matches option protection only within same underlying, expiry,\n        right, currency, multiplier and deliverable; it does not certify margin.\n        For stock coverage supply encumbered_quantity explicitly (\"0\" only if known).\n\n        arithmetic: inputs={values:[decimal_text,...]} (2..32 operands);\n        parameters={operation:\"add\"|\"subtract\"|\"multiply\"|\"divide\",result_unit?}.\n        Operates left to right: divide [\"12\",\"3\",\"2\"] = 2. Chain calls for\n        parentheses; no expression/code evaluation. Result unit is a caller label,\n        not dimensional validation; include conversions in operands explicitly.\n        Synthetic example: multiply [\"2\",\"100\",\"0.90\"] = 180 currency.\n        Results use 28 significant digits, half-even; no automatic cent rounding.\n\n        performance: inputs={}; parameters={history_refs:[snapshot_ref,...]} using\n        explicitly supplied immutable run-local same-account snapshots.\n        Missing source, capacity, history or policy data stays unknown.\n        ",
+      "inputSchema": {
+        "json": {
+          "properties": {
+            "formula": {
+              "description": "Parameter formula",
+              "enum": [
+                "put_economics",
+                "roll_economics",
+                "expiry_payoff",
+                "match_coverage",
+                "analyze_portfolio",
+                "performance",
+                "arithmetic"
+              ],
+              "type": "string"
+            },
+            "inputs": {
+              "description": "Parameter inputs",
+              "type": "object"
+            },
+            "parameters": {
+              "default": null,
+              "description": "Parameter parameters",
+              "type": "object"
+            }
+          },
+          "required": [
+            "formula",
+            "inputs"
+          ],
+          "type": "object"
+        }
+      }
+    },
+    "knowledge_read": {
+      "name": "knowledge_read",
+      "description": "Read an indexed module by logical ID, preserving source labels and content.",
+      "inputSchema": {
+        "json": {
+          "properties": {
+            "module_id": {
+              "description": "Parameter module_id",
+              "type": "string"
+            }
+          },
+          "required": [
+            "module_id"
+          ],
+          "type": "object"
+        }
+      }
+    },
+    "request_research": {
+      "name": "request_research",
+      "description": "Request focused PUBLIC analyst research within this same Expert assessment.\n\n        Uses the shared run deadline, generation budget and analyst concurrency.\n        No Lead or Expert is invoked recursively. Unchanged public questions and\n        references reuse original pending/completed envelopes; their job IDs remain\n        original and request_mapping explains reuse. Limits/partial errors are explicit.\n        ",
+      "inputSchema": {
+        "json": {
+          "$defs": {
+            "ResearchJob": {
+              "additionalProperties": false,
+              "properties": {
+                "job_id": {
+                  "minLength": 1,
+                  "title": "Job Id",
+                  "type": "string"
+                },
+                "question": {
+                  "minLength": 1,
+                  "title": "Question",
+                  "type": "string"
+                },
+                "evidence_refs": {
+                  "default": [],
+                  "items": {
+                    "type": "string"
+                  },
+                  "title": "Evidence Refs",
+                  "type": "array"
+                }
+              },
+              "required": [
+                "job_id",
+                "question"
+              ],
+              "title": "ResearchJob",
+              "type": "object"
+            }
+          },
+          "properties": {
+            "jobs": {
+              "description": "Parameter jobs",
+              "items": {
+                "$ref": "#/$defs/ResearchJob"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "jobs"
+          ],
+          "type": "object"
+        }
+      }
+    },
+    "fact_check": {
+      "name": "fact_check",
+      "description": "Ask a fresh reasoning checker about your exact message and selected originals.\n\n                Select only relevant evidence refs. Label unverified assumptions explicitly.\n                Feedback is natural language; completed reports execution, not factual approval.\n                Repair your own claims and explicitly recheck when needed. Max three calls.\n                ",
+      "inputSchema": {
+        "json": {
+          "properties": {
+            "message": {
+              "description": "Parameter message",
+              "type": "string"
+            },
+            "evidence_refs": {
+              "default": [],
+              "description": "Parameter evidence_refs",
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "assumptions": {
+              "default": [],
+              "description": "Parameter assumptions",
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "message"
+          ],
+          "type": "object"
+        }
+      }
+    }
+  }
+}

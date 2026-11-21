@@ -1,0 +1,31 @@
+{
+  "prompt_set_id": "development-plumbing-v1",
+  "version": "1",
+  "status": "development",
+  "owner_approval_ref": null,
+  "roles": {
+    "team_lead": {
+      "path": "team_lead.md",
+      "content_hash": "89426cd527118c8bdfae836d1eb26be039ed586df341123e25e296398e461ee6"
+    },
+    "wheel_expert": {
+      "path": "wheel_expert.md",
+      "content_hash": "57607ffb628268e3d73d043d17118df56d3f375c5a0ae588cd31df3109394849"
+    },
+    "analyst": {
+      "path": "analyst.md",
+      "content_hash": "6b2ff9d3718f197e50a03e78a8f29d129cc7013c4fea2d6a6db68fb20c2db646"
+    },
+    "explorer": {
+      "path": "explorer.md",
+      "content_hash": "92836b02adf436a4b43ed247c775b14dddff982eda9b2449279fe22311ea4d25"
+    }
+  },
+  "shared": {},
+  "modules": {
+    "synthetic-plumbing-v1": {
+      "path": "../../knowledge/development/plumbing.md",
+      "content_hash": "684ca88288b33ce781dc58fa3fec63946cd787c5391baf6cff2c23b0219bbe35"
+    }
+  }
+}

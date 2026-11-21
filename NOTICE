@@ -1,0 +1,7 @@
+Multi-agent Portfolio Management
+Copyright 2026 contributors
+
+Built using Strands Agents and other dependencies listed in pyproject.toml.
+Financial knowledge modules cite external primary references; those publications
+retain their own rights. Named investment perspectives are simulations and do
+not imply affiliation or endorsement. Model weights are distributed separately.

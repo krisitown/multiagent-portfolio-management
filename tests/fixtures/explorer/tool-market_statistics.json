@@ -1,0 +1,639 @@
+{
+  "schema_version": 1,
+  "status": "success",
+  "data": {
+    "series": [
+      {
+        "series_id": "SP500",
+        "name": "S&P 500 index",
+        "units": "index",
+        "frequency": "daily",
+        "adjustment": "unadjusted_price_index",
+        "publisher": "Yahoo Finance",
+        "source_series_id": "^GSPC",
+        "source_url": "https://finance.yahoo.com/quote/%5EGSPC/history/",
+        "status": "success",
+        "latest": {
+          "date": "2026-10-30",
+          "value": 7580.0698242188
+        },
+        "observations": [
+          {
+            "date": "2026-10-28",
+            "value": 7743.9799804688
+          },
+          {
+            "date": "2026-10-29",
+            "value": 7720.3901367188
+          },
+          {
+            "date": "2026-10-30",
+            "value": 7580.0698242188
+          }
+        ],
+        "change": {
+          "from": {
+            "date": "2025-10-31",
+            "value": 6840.2001953125
+          },
+          "to": {
+            "date": "2026-10-30",
+            "value": 7580.0698242188
+          },
+          "absolute": 739.8696289063,
+          "unit": "index",
+          "relative_fraction": 0.10816490859628969
+        },
+        "fetched_at": "2026-10-31T21:08:24.089389+00:00",
+        "release_time": null,
+        "latest_age_calendar_days": 1,
+        "coverage": {
+          "requested_start": "2025-10-31",
+          "requested_end": "2026-10-31",
+          "available_observations": 251,
+          "missing_values": 0,
+          "omitted_observations": 248
+        },
+        "limitations": [
+          "Latest available downloaded vintage; revisions/release times unavailable.",
+          "Observation dates are periods/session dates, not publication instants.",
+          "Not intraday, a market-wide stock screen, or historical option IV rank."
+        ],
+        "source_coverage": null
+      },
+      {
+        "series_id": "NASDAQCOM",
+        "name": "Nasdaq Composite index",
+        "units": "index_1971-02-05=100",
+        "frequency": "daily",
+        "adjustment": "unadjusted_price_index",
+        "publisher": "Yahoo Finance",
+        "source_series_id": "^IXIC",
+        "source_url": "https://finance.yahoo.com/quote/%5EIXIC/history/",
+        "status": "success",
+        "latest": {
+          "date": "2026-10-30",
+          "value": 25437.0
+        },
+        "observations": [
+          {
+            "date": "2026-10-28",
+            "value": 26549.849609375
+          },
+          {
+            "date": "2026-10-29",
+            "value": 26184.720703125
+          },
+          {
+            "date": "2026-10-30",
+            "value": 25437.0
+          }
+        ],
+        "change": {
+          "from": {
+            "date": "2025-10-31",
+            "value": 23724.9609375
+          },
+          "to": {
+            "date": "2026-10-30",
+            "value": 25437.0
+          },
+          "absolute": 1712.0390625,
+          "unit": "index_1971-02-05=100",
+          "relative_fraction": 0.07216193388095005
+        },
+        "fetched_at": "2026-10-31T21:08:24.083084+00:00",
+        "release_time": null,
+        "latest_age_calendar_days": 1,
+        "coverage": {
+          "requested_start": "2025-10-31",
+          "requested_end": "2026-10-31",
+          "available_observations": 251,
+          "missing_values": 0,
+          "omitted_observations": 248
+        },
+        "limitations": [
+          "Latest available downloaded vintage; revisions/release times unavailable.",
+          "Observation dates are periods/session dates, not publication instants.",
+          "Not intraday, a market-wide stock screen, or historical option IV rank."
+        ],
+        "source_coverage": null
+      },
+      {
+        "series_id": "VIXCLS",
+        "name": "Cboe VIX index close",
+        "units": "index",
+        "frequency": "daily",
+        "adjustment": "not_seasonally_adjusted",
+        "publisher": "Yahoo Finance",
+        "source_series_id": "^VIX",
+        "source_url": "https://finance.yahoo.com/quote/%5EVIX/history/",
+        "status": "success",
+        "latest": {
+          "date": "2026-10-30",
+          "value": 19.4200000763
+        },
+        "observations": [
+          {
+            "date": "2026-10-28",
+            "value": 16.9099998474
+          },
+          {
+            "date": "2026-10-29",
+            "value": 17.2000007629
+          },
+          {
+            "date": "2026-10-30",
+            "value": 19.4200000763
+          }
+        ],
+        "change": {
+          "from": {
+            "date": "2025-10-31",
+            "value": 17.4400005341
+          },
+          "to": {
+            "date": "2026-10-30",
+            "value": 19.4200000763
+          },
+          "absolute": 1.979999542199998,
+          "unit": "index",
+          "relative_fraction": 0.11353208036482298
+        },
+        "fetched_at": "2026-10-31T21:08:24.086285+00:00",
+        "release_time": null,
+        "latest_age_calendar_days": 1,
+        "coverage": {
+          "requested_start": "2025-10-31",
+          "requested_end": "2026-10-31",
+          "available_observations": 253,
+          "missing_values": 0,
+          "omitted_observations": 250
+        },
+        "limitations": [
+          "Latest available downloaded vintage; revisions/release times unavailable.",
+          "Observation dates are periods/session dates, not publication instants.",
+          "Not intraday, a market-wide stock screen, or historical option IV rank."
+        ],
+        "source_coverage": null
+      },
+      {
+        "series_id": "UNRATE",
+        "name": "Civilian unemployment rate",
+        "units": "percent",
+        "frequency": "monthly",
+        "adjustment": "seasonally_adjusted",
+        "publisher": "U.S. Bureau of Labor Statistics",
+        "source_url": "https://www.bls.gov/cps/",
+        "source_series_id": "LNS14000000",
+        "status": "success",
+        "latest": {
+          "date": "2026-09-01",
+          "value": 4.2
+        },
+        "observations": [
+          {
+            "date": "2026-07-01",
+            "value": 4.1
+          },
+          {
+            "date": "2026-08-01",
+            "value": 4.1
+          },
+          {
+            "date": "2026-09-01",
+            "value": 4.2
+          }
+        ],
+        "change": {
+          "from": {
+            "date": "2025-11-01",
+            "value": 4.5
+          },
+          "to": {
+            "date": "2026-09-01",
+            "value": 4.2
+          },
+          "absolute": -0.2999999999999998,
+          "unit": "percentage_points",
+          "relative_fraction": null
+        },
+        "fetched_at": "2026-10-31T21:08:23.525508+00:00",
+        "release_time": null,
+        "latest_age_calendar_days": 60,
+        "coverage": {
+          "requested_start": "2025-10-31",
+          "requested_end": "2026-10-31",
+          "available_observations": 11,
+          "missing_values": 0,
+          "omitted_observations": 8
+        },
+        "limitations": [
+          "Latest available downloaded vintage; revisions/release times unavailable.",
+          "Observation dates are periods/session dates, not publication instants.",
+          "Not intraday, a market-wide stock screen, or historical option IV rank."
+        ],
+        "source_coverage": {
+          "name": "Civilian unemployment rate",
+          "units": "percent",
+          "frequency": "monthly",
+          "adjustment": "seasonally_adjusted",
+          "publisher": "U.S. Bureau of Labor Statistics",
+          "source_url": "https://www.bls.gov/cps/",
+          "source_series_id": "LNS14000000",
+          "requested_start": "2025-10-31",
+          "requested_end": "2026-10-31",
+          "unregistered_daily_query_limit": 25,
+          "responses": [
+            {
+              "source_url": "https://api.bls.gov/publicAPI/v1/timeseries/data/",
+              "sha256": "d156e925a8e8f81fcc2e727855490efe04fcc4d203b278b8b77d27386ff95190",
+              "request_json": {
+                "seriesid": [
+                  "LNS14000000"
+                ],
+                "startyear": "2025",
+                "endyear": "2026"
+              }
+            }
+          ],
+          "available_start": "2025-11-01",
+          "available_end": "2026-09-01",
+          "release_time": null,
+          "vintage": "Latest downloaded publisher vintage; may be revised"
+        }
+      },
+      {
+        "series_id": "CPIAUCSL",
+        "name": "CPI all urban consumers, all items",
+        "units": "index_1982-1984=100",
+        "frequency": "monthly",
+        "adjustment": "seasonally_adjusted",
+        "publisher": "U.S. Bureau of Labor Statistics",
+        "source_url": "https://www.bls.gov/cpi/",
+        "source_series_id": "CUSR0000SA0",
+        "status": "success",
+        "latest": {
+          "date": "2026-09-01",
+          "value": 336.298
+        },
+        "observations": [
+          {
+            "date": "2026-07-01",
+            "value": 332.813
+          },
+          {
+            "date": "2026-08-01",
+            "value": 334.131
+          },
+          {
+            "date": "2026-09-01",
+            "value": 336.298
+          }
+        ],
+        "change": {
+          "from": {
+            "date": "2025-11-01",
+            "value": 325.063
+          },
+          "to": {
+            "date": "2026-09-01",
+            "value": 336.298
+          },
+          "absolute": 11.235000000000014,
+          "unit": "index_1982-1984=100",
+          "relative_fraction": 0.03456253095553796
+        },
+        "fetched_at": "2026-10-31T21:08:23.787994+00:00",
+        "release_time": null,
+        "latest_age_calendar_days": 60,
+        "coverage": {
+          "requested_start": "2025-10-31",
+          "requested_end": "2026-10-31",
+          "available_observations": 11,
+          "missing_values": 0,
+          "omitted_observations": 8
+        },
+        "limitations": [
+          "Latest available downloaded vintage; revisions/release times unavailable.",
+          "Observation dates are periods/session dates, not publication instants.",
+          "Not intraday, a market-wide stock screen, or historical option IV rank."
+        ],
+        "source_coverage": {
+          "name": "CPI all urban consumers, all items",
+          "units": "index_1982-1984=100",
+          "frequency": "monthly",
+          "adjustment": "seasonally_adjusted",
+          "publisher": "U.S. Bureau of Labor Statistics",
+          "source_url": "https://www.bls.gov/cpi/",
+          "source_series_id": "CUSR0000SA0",
+          "requested_start": "2025-10-31",
+          "requested_end": "2026-10-31",
+          "unregistered_daily_query_limit": 25,
+          "responses": [
+            {
+              "source_url": "https://api.bls.gov/publicAPI/v1/timeseries/data/",
+              "sha256": "8bd67b0ef77b3a379495640ea5cedc42c198d5b2ff7728982571b6a6df3bc09b",
+              "request_json": {
+                "seriesid": [
+                  "CUSR0000SA0"
+                ],
+                "startyear": "2025",
+                "endyear": "2026"
+              }
+            }
+          ],
+          "available_start": "2025-11-01",
+          "available_end": "2026-09-01",
+          "release_time": null,
+          "vintage": "Latest downloaded publisher vintage; may be revised"
+        }
+      },
+      {
+        "series_id": "PAYEMS",
+        "name": "All employees, total nonfarm",
+        "units": "thousands_of_persons",
+        "frequency": "monthly",
+        "adjustment": "seasonally_adjusted",
+        "publisher": "U.S. Bureau of Labor Statistics",
+        "source_url": "https://www.bls.gov/ces/",
+        "source_series_id": "CES0000000001",
+        "status": "success",
+        "latest": {
+          "date": "2026-09-01",
+          "value": 159044.0
+        },
+        "observations": [
+          {
+            "date": "2026-07-01",
+            "value": 158882.0
+          },
+          {
+            "date": "2026-08-01",
+            "value": 159015.0
+          },
+          {
+            "date": "2026-09-01",
+            "value": 159044.0
+          }
+        ],
+        "change": {
+          "from": {
+            "date": "2025-11-01",
+            "value": 158449.0
+          },
+          "to": {
+            "date": "2026-09-01",
+            "value": 159044.0
+          },
+          "absolute": 595.0,
+          "unit": "thousands_of_persons",
+          "relative_fraction": 0.0037551514998517277
+        },
+        "fetched_at": "2026-10-31T21:08:24.017145+00:00",
+        "release_time": null,
+        "latest_age_calendar_days": 60,
+        "coverage": {
+          "requested_start": "2025-10-31",
+          "requested_end": "2026-10-31",
+          "available_observations": 11,
+          "missing_values": 0,
+          "omitted_observations": 8
+        },
+        "limitations": [
+          "Latest available downloaded vintage; revisions/release times unavailable.",
+          "Observation dates are periods/session dates, not publication instants.",
+          "Not intraday, a market-wide stock screen, or historical option IV rank."
+        ],
+        "source_coverage": {
+          "name": "All employees, total nonfarm",
+          "units": "thousands_of_persons",
+          "frequency": "monthly",
+          "adjustment": "seasonally_adjusted",
+          "publisher": "U.S. Bureau of Labor Statistics",
+          "source_url": "https://www.bls.gov/ces/",
+          "source_series_id": "CES0000000001",
+          "requested_start": "2025-10-31",
+          "requested_end": "2026-10-31",
+          "unregistered_daily_query_limit": 25,
+          "responses": [
+            {
+              "source_url": "https://api.bls.gov/publicAPI/v1/timeseries/data/",
+              "sha256": "d7b42d6c65a7f96d074b3a534be03fd76b0c853b4b2c77589a386d454f730836",
+              "request_json": {
+                "seriesid": [
+                  "CES0000000001"
+                ],
+                "startyear": "2025",
+                "endyear": "2026"
+              }
+            }
+          ],
+          "available_start": "2025-11-01",
+          "available_end": "2026-09-01",
+          "release_time": null,
+          "vintage": "Latest downloaded publisher vintage; may be revised"
+        }
+      },
+      {
+        "series_id": "DFF",
+        "name": "Effective federal funds rate, published business days",
+        "units": "percent",
+        "frequency": "daily",
+        "adjustment": "not_seasonally_adjusted",
+        "publisher": "Federal Reserve Bank of New York",
+        "source_url": "https://www.newyorkfed.org/markets/reference-rates/effr",
+        "source_series_id": "EFFR",
+        "status": "success",
+        "latest": {
+          "date": "2026-10-29",
+          "value": 3.88
+        },
+        "observations": [
+          {
+            "date": "2026-10-27",
+            "value": 3.88
+          },
+          {
+            "date": "2026-10-28",
+            "value": 3.88
+          },
+          {
+            "date": "2026-10-29",
+            "value": 3.88
+          }
+        ],
+        "change": {
+          "from": {
+            "date": "2025-10-31",
+            "value": 3.86
+          },
+          "to": {
+            "date": "2026-10-29",
+            "value": 3.88
+          },
+          "absolute": 0.020000000000000018,
+          "unit": "percentage_points",
+          "relative_fraction": null
+        },
+        "fetched_at": "2026-10-31T21:08:24.802685+00:00",
+        "release_time": null,
+        "latest_age_calendar_days": 2,
+        "coverage": {
+          "requested_start": "2025-10-31",
+          "requested_end": "2026-10-31",
+          "available_observations": 250,
+          "missing_values": 0,
+          "omitted_observations": 247
+        },
+        "limitations": [
+          "Latest available downloaded vintage; revisions/release times unavailable.",
+          "Observation dates are periods/session dates, not publication instants.",
+          "Not intraday, a market-wide stock screen, or historical option IV rank."
+        ],
+        "source_coverage": {
+          "name": "Effective federal funds rate, published business days",
+          "units": "percent",
+          "frequency": "daily",
+          "adjustment": "not_seasonally_adjusted",
+          "publisher": "Federal Reserve Bank of New York",
+          "source_url": "https://www.newyorkfed.org/markets/reference-rates/effr",
+          "source_series_id": "EFFR",
+          "requested_start": "2025-10-31",
+          "requested_end": "2026-10-31",
+          "observation_calendar": "Published business-day effective dates only",
+          "responses": [
+            {
+              "source_url": "https://markets.newyorkfed.org/api/rates/unsecured/effr/search.json?startDate=2025-10-31&endDate=2026-10-31",
+              "sha256": "71a3333fa69a73714b3a26b4a3dd86729252d0b85436f919812e27d7cbb6e67c",
+              "request_json": null
+            }
+          ],
+          "available_start": "2025-10-31",
+          "available_end": "2026-10-29",
+          "release_time": null,
+          "vintage": "Latest downloaded publisher vintage; may be revised"
+        }
+      },
+      {
+        "series_id": "DGS10",
+        "name": "10-year Treasury par yield curve rate",
+        "units": "percent",
+        "frequency": "daily",
+        "adjustment": "not_seasonally_adjusted",
+        "publisher": "U.S. Treasury",
+        "source_url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates",
+        "source_series_id": "BC_10YEAR",
+        "status": "success",
+        "latest": {
+          "date": "2026-10-30",
+          "value": 4.94
+        },
+        "observations": [
+          {
+            "date": "2026-10-28",
+            "value": 5.05
+          },
+          {
+            "date": "2026-10-29",
+            "value": 4.98
+          },
+          {
+            "date": "2026-10-30",
+            "value": 4.94
+          }
+        ],
+        "change": {
+          "from": {
+            "date": "2025-10-31",
+            "value": 4.11
+          },
+          "to": {
+            "date": "2026-10-30",
+            "value": 4.94
+          },
+          "absolute": 0.8300000000000001,
+          "unit": "percentage_points",
+          "relative_fraction": null
+        },
+        "fetched_at": "2026-10-31T21:08:25.179284+00:00",
+        "release_time": null,
+        "latest_age_calendar_days": 1,
+        "coverage": {
+          "requested_start": "2025-10-31",
+          "requested_end": "2026-10-31",
+          "available_observations": 250,
+          "missing_values": 0,
+          "omitted_observations": 247
+        },
+        "limitations": [
+          "Latest available downloaded vintage; revisions/release times unavailable.",
+          "Observation dates are periods/session dates, not publication instants.",
+          "Not intraday, a market-wide stock screen, or historical option IV rank."
+        ],
+        "source_coverage": {
+          "name": "10-year Treasury par yield curve rate",
+          "units": "percent",
+          "frequency": "daily",
+          "adjustment": "not_seasonally_adjusted",
+          "publisher": "U.S. Treasury",
+          "source_url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates",
+          "source_series_id": "BC_10YEAR",
+          "requested_start": "2025-10-31",
+          "requested_end": "2026-10-31",
+          "responses": [
+            {
+              "source_url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/pages/xml?data=daily_treasury_yield_curve&field_tdr_date_value=2025",
+              "sha256": "653a32a8362629b29c859e728683e841b8388d393b1ca71a256b8abf47fa6e81",
+              "request_json": null
+            },
+            {
+              "source_url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/pages/xml?data=daily_treasury_yield_curve&field_tdr_date_value=2026",
+              "sha256": "ae304d1376a213e7d176fbd46b12e547925a9d2b7e8cc978cef234794b52b26c",
+              "request_json": null
+            }
+          ],
+          "available_start": "2025-10-31",
+          "available_end": "2026-10-30",
+          "release_time": null,
+          "vintage": "Latest downloaded publisher vintage; may be revised"
+        }
+      }
+    ],
+    "source": "Direct economic publishers and Yahoo Finance index history",
+    "fetched_at": "2026-10-31T21:08:25.180019+00:00",
+    "partial_coverage": false,
+    "unsupported_series": [],
+    "available_series": [
+      "SP500",
+      "NASDAQCOM",
+      "VIXCLS",
+      "UNRATE",
+      "CPIAUCSL",
+      "PAYEMS",
+      "DFF",
+      "DGS2",
+      "DGS10"
+    ],
+    "units": {
+      "SP500": "index",
+      "NASDAQCOM": "index_1971-02-05=100",
+      "VIXCLS": "index",
+      "UNRATE": "percent",
+      "CPIAUCSL": "index_1982-1984=100",
+      "PAYEMS": "thousands_of_persons",
+      "DFF": "percent",
+      "DGS10": "percent"
+    }
+  },
+  "reason": null,
+  "evidence_refs": [
+    "evidence:explorer:a5bb2650da577d9c6ff389a1e21bcd79dc2527273becfc155cbda440892b6af7"
+  ],
+  "result_refs": [
+    "evidence:explorer:a5bb2650da577d9c6ff389a1e21bcd79dc2527273becfc155cbda440892b6af7"
+  ],
+  "findings": [],
+  "retry_after_seconds": null,
+  "trace_ref": null
+}

@@ -1,0 +1,52 @@
+{
+  "prompt_set_id": "caller-driven-financial-reasoning-checker-20261102",
+  "version": "11-full-report-margin-planning",
+  "status": "approved",
+  "owner_approval_ref": "Maintainer-approved reusable prompt bundle for the public runtime release.",
+  "roles": {
+    "fact_checker": {
+      "path": "fact-checker.md",
+      "content_hash": "56bf3b1fea42c77fa64013eee6bf403000d5589a334d2d6d7b40b6665245deb4"
+    }
+  },
+  "shared": {
+    "sources": {
+      "path": "sources.md",
+      "content_hash": "2dc0c0f5089768bb31735614408cfaec3ad913b738d7a0c0e3aae786ad5bce16"
+    }
+  },
+  "modules": {
+    "01-evidence-and-calibration": {
+      "path": "knowledge/01-evidence-and-calibration.md",
+      "content_hash": "58eba2d99a5812d57317f6a377b062b5a00b84bbc6d77cc2c5b67f946d06282b"
+    },
+    "02-inventory-contracts-and-arithmetic": {
+      "path": "knowledge/02-inventory-contracts-and-arithmetic.md",
+      "content_hash": "5c860f954dda51889f81c1b1dad51b3baf67961429fff0dbe334e1a793fb8152"
+    },
+    "03-options-payoffs-pricing-and-events": {
+      "path": "knowledge/03-options-payoffs-pricing-and-events.md",
+      "content_hash": "581e3197e79286b08f62778f84525d0d2deebfa3402e11c9d891b78a3baefa02"
+    },
+    "04-funding-margin-and-role-fidelity": {
+      "path": "knowledge/04-funding-margin-and-role-fidelity.md",
+      "content_hash": "a3b88635a15a76ff32fd8a22f57bc3534f3e88c787c477349b6e47b56829cf82"
+    },
+    "05-worked-repairs-and-correct-cases": {
+      "path": "knowledge/05-worked-repairs-and-correct-cases.md",
+      "content_hash": "433c925dc1a464708b2c05dbaae2d2e02c3c37cac70de47cc353ff49c284abc0"
+    },
+    "06-planning-flows-and-funded-alternatives": {
+      "path": "knowledge/06-planning-flows-and-funded-alternatives.md",
+      "content_hash": "984c7f0d7c1319744a65c01e65d4b03c24b67e0cb2d46983df3a0fbb11512f44"
+    },
+    "07-report-consistency-examples": {
+      "path": "knowledge/07-report-consistency-examples.md",
+      "content_hash": "e024d32d5192f78747f967074d14c1ddfa03771c54162452a9f479e7bd6761a4"
+    },
+    "08-scope-mechanics-and-decision-support": {
+      "path": "knowledge/08-scope-mechanics-and-decision-support.md",
+      "content_hash": "494ef649c389a187602d86e39d8d886b4e63d32cc15ffe5f8c663ef8f6e42d6d"
+    }
+  }
+}

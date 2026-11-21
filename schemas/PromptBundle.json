@@ -1,0 +1,102 @@
+{
+  "$defs": {
+    "AgentRole": {
+      "enum": [
+        "team_lead",
+        "wheel_expert",
+        "analyst",
+        "explorer"
+      ],
+      "title": "AgentRole",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "content": {
+      "title": "Content",
+      "type": "string"
+    },
+    "content_hash": {
+      "minLength": 1,
+      "title": "Content Hash",
+      "type": "string"
+    },
+    "module_hashes": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "title": "Module Hashes",
+      "type": "object"
+    },
+    "owner_approval_ref": {
+      "anyOf": [
+        {
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Owner Approval Ref"
+    },
+    "prompt_id": {
+      "minLength": 1,
+      "title": "Prompt Id",
+      "type": "string"
+    },
+    "role": {
+      "$ref": "#/$defs/AgentRole"
+    },
+    "schema_version": {
+      "const": 1,
+      "default": 1,
+      "title": "Schema Version",
+      "type": "integer"
+    },
+    "shared_hashes": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "title": "Shared Hashes",
+      "type": "object"
+    },
+    "source_path": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Source Path"
+    },
+    "status": {
+      "enum": [
+        "development",
+        "approved"
+      ],
+      "title": "Status",
+      "type": "string"
+    },
+    "version": {
+      "minLength": 1,
+      "title": "Version",
+      "type": "string"
+    }
+  },
+  "required": [
+    "prompt_id",
+    "role",
+    "version",
+    "content",
+    "content_hash",
+    "status"
+  ],
+  "title": "PromptBundle",
+  "type": "object"
+}

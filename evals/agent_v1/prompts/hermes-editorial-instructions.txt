@@ -1,0 +1,42 @@
+AFTER the native run has completed and its full original output has been received in your terminal tool result, produce a separate concise editorial brief. This step is presentation only; do not change the research question, native role prompts, knowledge, portfolio or original report. No extra research, pricing, financial calculations, new recommendation, orders, second native run or separate model invocation.
+
+Run the supplied deterministic helper once:
+`<hermes-python> <eval-profile>/delivery_brief.py --prepare <eval-profile>`
+It creates brief-context.json with the original report/portfolio hashes, current position inventory, native run ID and dates. Read that context. The native report is already in your terminal tool receipt; consult its saved original if needed. Never edit report.md, result.json, team.stdout.log, portfolio.json or brief-context.json.
+
+Write ONLY a separate delivery-brief.json in this task directory, using the schema below. Return a short final status and the brief/original paths. You do not need to repeat the full original in your final response: the deterministic supervisor verifies exact forwarding in your actual terminal tool receipt, then appends the untouched original below the brief. After writing this brief, return a short status and exit. Do not invoke a preview or sender inside this turn. Failure or partial native outcomes must stay honest; never describe the run as more complete than its native status.
+
+The separate local brief should lead with at most THREE actionable priorities, then a short headline for EVERY existing portfolio position or coherent same-underlying option structure. Target 1–2 short sentences per item including urgency and material conditions/uncertainty beside the action. Use faithful concise paraphrase of the supplied report, not a new analysis. Retain its recommendation, urgency and conditions; for example an owner-choice conditional close/assignment/roll discussion must not become an unconditional instruction. Preserve relevant stale/missing quotes, funding/capacity unknowns and omitted research where they materially qualify that item. Keep generic methodology, section A, large accounting tables, research history and the full detail at the bottom reference. Do not add confidence, invented prices, quotes or advice. Missing research is not a hold recommendation.
+
+Evidence excerpts are private provenance, not extra preview prose. For an assessed item, source_excerpt is an exact verbatim passage from the original supporting the recommendation. Material caveats may come from other sections: put separate exact passages in optional caveat_excerpts. Headline, urgency and conditions may be faithful concise paraphrases and need not be exact quotations or fit within the same passage. This is an editorial fidelity instruction; the deterministic validator checks identities, coverage, lengths and exact evidence excerpts, not semantic fidelity.
+
+Schema:
+{
+  "version": 1,
+  "native_run_id": "copy brief-context.json",
+  "report_sha256": "copy brief-context.json",
+  "portfolio_sha256": "copy brief-context.json",
+  "top_priorities": [ITEM, up to three],
+  "positions": [ITEM covering every inventory position_id exactly once]
+}
+ITEM is:
+{
+  "position_ids": ["exact current inventory position_id"],
+  "assessment": "assessed",
+  "headline": "Concise faithful action/decision headline, at most 240 characters",
+  "urgency": "Source-supported urgency, at most 120 characters, or Not stated if truly absent",
+  "conditions": "Brief material conditions/uncertainty beside this advice, at most 600 characters; target one short sentence. Use Not stated only if truly absent from the supplied report.",
+  "source_excerpt": "Exact source passage, at most 2400 characters",
+  "caveat_excerpts": ["Optional separate exact source passages, at most four"]
+}
+For a structure, group position_ids only when they share the same option:UNDERLYING structure_key from the context. Keep unrelated positions separate. Display labels come from the deterministic inventory, not your own invented instrument identities. A top-priority item may repeat the corresponding existing-position item; positions itself must cover every ID exactly once.
+
+If a position is not assessed in the supplied report, use exactly:
+assessment="not_assessed", headline="Not assessed in supplied report", urgency="Not established", conditions="No supported position-specific advice in supplied output.", source_excerpt="" (or an exact passage explicitly recording the coverage gap).
+If the source explicitly establishes insufficient evidence for a position-specific action, use:
+assessment="insufficient_evidence", headline="Insufficient evidence for a position-specific action", urgency="Not established", conditions="No supported position-specific advice in supplied output.", and an exact source_excerpt supporting that limitation.
+Do not silently omit positions, infer hold, or apply advice about another instrument. When there is no source-supported actionable priority, top_priorities may be empty. Missing/malformed/incomplete brief data causes an honest original-report fallback; the original is always retained.
+
+
+
+Host handoff: after delivery-brief.json is written, return its path and the unchanged original report path, then EXIT. Do not call completed_delivery.py, send_owner_report.py, preview tools, email APIs or model-driven delivery repairs. The host waits for your OS process to exit, verifies persisted ordinary receipt, then previews/sends once using the existing self-only idempotent transport. If the brief is unavailable, state that honestly and exit; do not extend the task with research or advice. The post-native brief/exit phase is bounded to600seconds; native research retains its separate10800second budget.

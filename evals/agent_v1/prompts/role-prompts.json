@@ -1,0 +1,26 @@
+{
+  "prompt_set_id": "portfolio-manager-PM6-20261103",
+  "version": "PM6",
+  "status": "development",
+  "owner_approval_ref": "Owner-authorized bounded PM6 tuning; coordinating exact release review remains separate.",
+  "roles": {
+    "team_lead": {
+      "path": "candidate/deployed/prompts/team_lead/system-prompt.md",
+      "content_hash": "e9788c5604a1e8257d6145dec6a2945262968188c0a65322bf7ac03d24baee28"
+    },
+    "explorer": {
+      "path": "candidate/deployed/prompts/explorer/system-prompt.md",
+      "content_hash": "925090dea19e00c564e58759b8326953751fbf49833ca25563e3ba899951ced7"
+    },
+    "analyst": {
+      "path": "candidate/deployed/prompts/analyst/system-prompt.md",
+      "content_hash": "a52c8b89d34d3b96c08e1380dc225eae8ea0559a0fd025c6be0e525695954a30"
+    },
+    "wheel_expert": {
+      "path": "candidate/deployed/prompts/wheel_expert/system-prompt.md",
+      "content_hash": "44ebaff01d551921de3ad8e927f9b0c7663b5ce263391b73aa6ec723f6b23e4f"
+    }
+  },
+  "shared": {},
+  "modules": {}
+}

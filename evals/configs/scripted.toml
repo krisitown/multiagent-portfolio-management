@@ -1,0 +1,15 @@
+# Development plumbing only. No real-model capability or judgment is established.
+explorer_enabled = true
+max_generations = 1000
+analyst_concurrency = 5
+max_expert_consultations = 1
+deadline_seconds = 10800
+
+[model]
+provider = "scripted"
+model_id = "offline"
+timeout_seconds = 10800
+max_output_tokens = 65536
+
+[prompts]
+mode = "development"

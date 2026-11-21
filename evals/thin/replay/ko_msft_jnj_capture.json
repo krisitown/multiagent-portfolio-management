@@ -1,0 +1,145 @@
+{
+  "case_id": "recorded-ko-msft-jnj-v2",
+  "purpose": "captured_replay",
+  "mode": "focused",
+  "question": "Research the actual KO, MSFT and JNJ observations in the selected finalized market capture. Use the recorded source URLs and source/fetch times exactly, distinguish business evidence from investment opinion, and explain missing timezones, delayed quotes and incomplete coverage. This is historical replay testing; do not claim current market freshness, approved portfolio capacity, broad-universe coverage or live acceptance.",
+  "capture": {
+    "capture_id": "market-20261030T234658Z-df521836bda5-v2",
+    "index_sha256": "0c5ce2517316725c16e05f6b867eea47a3080259e2a132c79ebed4e74249b3f0",
+    "collection_sha256": "df521836bda537b98bc6d2ebdb36c88c3451a57ace603a8ff39f3f0ce76b572b",
+    "finished_at": "2026-10-30T23:47:05.523110+00:00",
+    "scope": [
+      "KO",
+      "MSFT",
+      "JNJ"
+    ],
+    "entry_count": 19,
+    "finalization": "finished_at aware and collection/evidence/raw hashes verified; per-entry incomplete coverage preserved"
+  },
+  "observed_facts": [
+    {
+      "evidence_id": "market-20261030T234658Z-df521836bda5-v2-KO-info",
+      "source": "yahoo-info",
+      "source_url": "https://finance.yahoo.com/quote/KO/profile/",
+      "source_timestamp": null,
+      "source_time_raw": null,
+      "source_time_availability": "unknown",
+      "timezone_state": "unknown",
+      "fetched_at": "2026-10-30T23:47:01.538075Z",
+      "delay_state": "unknown",
+      "fields": {
+        "symbol": "KO",
+        "longName": "The Coca-Cola Company",
+        "sector": "Consumer Defensive",
+        "industry": "Beverages - Non-Alcoholic"
+      },
+      "evidence_file": "evidence-KO-info.json",
+      "sha256": "ba3230fd5b60beb02b087195fc536a2fbba4fa6e8ee50159b6ed9fd19564af20",
+      "entry_complete": false
+    },
+    {
+      "evidence_id": "market-20261030T234658Z-df521836bda5-v2-KO-cboe-quote",
+      "source": "cboe-delayed-options",
+      "source_url": "https://cdn.cboe.com/api/global/delayed_quotes/options/KO.json",
+      "source_timestamp": null,
+      "source_time_raw": "2026-10-30 23:46:25",
+      "source_time_availability": "unknown",
+      "timezone_state": "unknown",
+      "fetched_at": "2026-10-30T23:47:01.190558Z",
+      "delay_state": "delayed",
+      "fields": {
+        "symbol": "KO",
+        "current_price": "94.15",
+        "bid": "94.1",
+        "ask": "94.28",
+        "last_trade_time": "2026-10-30T15:59:59"
+      },
+      "evidence_file": "evidence-KO-cboe-quote.json",
+      "sha256": "36bc53952b3d95775a54afda0c162bd679fb0624483c736a376f0484cc737c28",
+      "entry_complete": false
+    },
+    {
+      "evidence_id": "market-20261030T234658Z-df521836bda5-v2-MSFT-info",
+      "source": "yahoo-info",
+      "source_url": "https://finance.yahoo.com/quote/MSFT/profile/",
+      "source_timestamp": null,
+      "source_time_raw": null,
+      "source_time_availability": "unknown",
+      "timezone_state": "unknown",
+      "fetched_at": "2026-10-30T23:47:03.765130Z",
+      "delay_state": "unknown",
+      "fields": {
+        "symbol": "MSFT",
+        "longName": "Microsoft Corporation",
+        "sector": "Technology",
+        "industry": "Software - Infrastructure"
+      },
+      "evidence_file": "evidence-MSFT-info.json",
+      "sha256": "e7a954c399bd541afed812f689ada29f93fa918a6878dc298f35ac64bc11fa43",
+      "entry_complete": false
+    },
+    {
+      "evidence_id": "market-20261030T234658Z-df521836bda5-v2-MSFT-cboe-quote",
+      "source": "cboe-delayed-options",
+      "source_url": "https://cdn.cboe.com/api/global/delayed_quotes/options/MSFT.json",
+      "source_timestamp": null,
+      "source_time_raw": "2026-10-30 23:46:28",
+      "source_time_availability": "unknown",
+      "timezone_state": "unknown",
+      "fetched_at": "2026-10-30T23:47:03.387920Z",
+      "delay_state": "delayed",
+      "fields": {
+        "symbol": "MSFT",
+        "current_price": "522.69",
+        "bid": "522.55",
+        "ask": "522.74",
+        "last_trade_time": "2026-10-30T15:59:59"
+      },
+      "evidence_file": "evidence-MSFT-cboe-quote.json",
+      "sha256": "e5fb9f5f8e7fe9c09cf08a3dbecc8a6531c9ec19298f9c3974f926b2de81575f",
+      "entry_complete": false
+    },
+    {
+      "evidence_id": "market-20261030T234658Z-df521836bda5-v2-JNJ-info",
+      "source": "yahoo-info",
+      "source_url": "https://finance.yahoo.com/quote/JNJ/profile/",
+      "source_timestamp": null,
+      "source_time_raw": null,
+      "source_time_availability": "unknown",
+      "timezone_state": "unknown",
+      "fetched_at": "2026-10-30T23:47:05.522837Z",
+      "delay_state": "unknown",
+      "fields": {
+        "symbol": "JNJ",
+        "longName": "Johnson & Johnson",
+        "sector": "Healthcare",
+        "industry": "Drug Manufacturers - General"
+      },
+      "evidence_file": "evidence-JNJ-info.json",
+      "sha256": "c2e61da42042c849296548058bdfd4b68d1848a627dbfa3cd167a9018f3fc643",
+      "entry_complete": false
+    },
+    {
+      "evidence_id": "market-20261030T234658Z-df521836bda5-v2-JNJ-cboe-quote",
+      "source": "cboe-delayed-options",
+      "source_url": "https://cdn.cboe.com/api/global/delayed_quotes/options/JNJ.json",
+      "source_timestamp": null,
+      "source_time_raw": "2026-10-30 22:23:47",
+      "source_time_availability": "unknown",
+      "timezone_state": "unknown",
+      "fetched_at": "2026-10-30T23:47:05.156377Z",
+      "delay_state": "delayed",
+      "fields": {
+        "symbol": "JNJ",
+        "current_price": "273.48",
+        "bid": "273.03",
+        "ask": "275.05",
+        "last_trade_time": "2026-10-30T16:00:00"
+      },
+      "evidence_file": "evidence-JNJ-cboe-quote.json",
+      "sha256": "647a0c4c0eaa44567f4e17cd2bc67f13c01f75d07c59f120c27d9df6a4731ed1",
+      "entry_complete": false
+    }
+  ],
+  "acceptance_status": "testing_only_finalized_captured_replay"
+}

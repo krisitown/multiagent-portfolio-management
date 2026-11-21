@@ -1,0 +1,2084 @@
+{
+  "schema_version": 1,
+  "manifest_id": "portfolio-council-knowledge-20261112",
+  "version": "4-pruned",
+  "status": "approved",
+  "owner_approval_ref": "Maintainer-approved reusable prompt bundle for the public runtime release.",
+  "modules": [
+    {
+      "module_id": "lead-investment-questions-and-responsibilities",
+      "version": "PM6",
+      "title": "Investment questions and responsibilities",
+      "path": "candidate/deployed/knowledge/team_lead/investment-questions-and-responsibilities.md",
+      "content_hash": "fbb8b1a6470aa5161cc69da7037c869c61a9d7dcef80adbe5d3c9310319dc335",
+      "source_refs": [
+        "L01",
+        "L02",
+        "L03"
+      ],
+      "claim_classification": "judgment",
+      "prerequisites": [],
+      "worked_examples": [],
+      "authoring_provenance": {
+        "author": "owner-directed-team_lead-workshop",
+        "authored_date": "2026-10-30"
+      },
+      "claims": {
+        "scope": "Mixed sourced mechanics, derivations, illustrations and judgments; claim-level distinctions remain in the exact authored text."
+      }
+    },
+    {
+      "module_id": "lead-practical-coordination",
+      "version": "PM6",
+      "title": "Practical coordination reference",
+      "path": "candidate/deployed/knowledge/team_lead/practical-coordination.md",
+      "content_hash": "48251f9f1c84484e4e7d6f0188f22c732a8e3407f943f9dfb5cd9a65c964a7d9",
+      "source_refs": [],
+      "claim_classification": "judgment",
+      "prerequisites": [],
+      "worked_examples": [],
+      "authoring_provenance": {
+        "author": "owner-directed-team_lead-workshop",
+        "authored_date": "2026-10-30"
+      },
+      "claims": {
+        "scope": "Mixed sourced mechanics, derivations, illustrations and judgments; claim-level distinctions remain in the exact authored text."
+      }
+    },
+    {
+      "module_id": "analyst-reference",
+      "version": "PM6",
+      "title": "Analyst system prompt and knowledge — owner-authorized revision v0.6",
+      "path": "candidate/deployed/knowledge/analyst/system-prompt.md",
+      "content_hash": "a1cbfe083bec51907ac80f6e5e5b7aa3d1d097e8350ffd62212697377cfa034a",
+      "source_refs": [
+        "A01",
+        "A02",
+        "A03",
+        "A04",
+        "A05",
+        "A06",
+        "A07",
+        "A08",
+        "A09",
+        "A10",
+        "A11",
+        "A12",
+        "A13",
+        "A14",
+        "A15",
+        "A16",
+        "A17",
+        "A18",
+        "A19",
+        "A20",
+        "A21",
+        "A22",
+        "A23",
+        "A24",
+        "A25",
+        "A26",
+        "A27",
+        "A28",
+        "A29",
+        "A30",
+        "A31",
+        "A32"
+      ],
+      "claim_classification": "judgment",
+      "prerequisites": [],
+      "worked_examples": [],
+      "authoring_provenance": {
+        "author": "owner-directed-analyst-workshop",
+        "authored_date": "2026-10-31"
+      },
+      "claims": {
+        "scope": "Mixed sourced mechanics, derivations, illustrations and judgments; claim-level distinctions remain in the exact authored text."
+      }
+    },
+    {
+      "module_id": "analyst-sources",
+      "version": "PM6",
+      "title": "Analyst source register — draft v0.5",
+      "path": "candidate/deployed/knowledge/analyst/sources.md",
+      "content_hash": "fe53a8e81b91d17fa25359d194b03b14654dc4929986a18c9033bcfc7097d571",
+      "source_refs": [
+        "A01",
+        "A02",
+        "A03",
+        "A04",
+        "A05",
+        "A06",
+        "A07",
+        "A08",
+        "A09",
+        "A10",
+        "A11",
+        "A12",
+        "A13",
+        "A14",
+        "A15",
+        "A16",
+        "A17",
+        "A18",
+        "A19",
+        "A20",
+        "A21",
+        "A22",
+        "A23",
+        "A24",
+        "A25",
+        "A26",
+        "A27",
+        "A28",
+        "A29",
+        "A30",
+        "A31",
+        "A32"
+      ],
+      "claim_classification": "judgment",
+      "prerequisites": [],
+      "worked_examples": [],
+      "authoring_provenance": {
+        "author": "owner-directed-analyst-workshop",
+        "authored_date": "2026-10-30"
+      },
+      "claims": {
+        "scope": "Mixed sourced mechanics, derivations, illustrations and judgments; claim-level distinctions remain in the exact authored text."
+      }
+    },
+    {
+      "module_id": "expert-sources",
+      "version": "PM6",
+      "title": "Wheel expert — source register",
+      "path": "candidate/deployed/knowledge/wheel_expert/sources.md",
+      "content_hash": "f7e9f549fdcaac04505f82b218f47367a29419850000d95df55318128dcf2a19",
+      "source_refs": [],
+      "claim_classification": "judgment",
+      "prerequisites": [],
+      "worked_examples": [],
+      "authoring_provenance": {
+        "author": "owner-directed-wheel_expert-workshop",
+        "authored_date": "2026-10-30",
+        "model_id": "gpt-6-astra",
+        "reasoning_effort": "ultra"
+      },
+      "claims": {
+        "scope": "Mixed sourced mechanics, derivations, illustrations and judgments; claim-level distinctions remain in the exact authored text."
+      }
+    },
+    {
+      "module_id": "expert-01",
+      "version": "PM6",
+      "title": "01 — Investment traditions and how to use them",
+      "path": "candidate/deployed/knowledge/wheel_expert/knowledge/01-investment-traditions.md",
+      "content_hash": "f3698bec194f1f390726bb5c4c5a6dc6ffbf35637caf1613a0c387fa2c9493c5",
+      "source_refs": [
+        "S20",
+        "S21",
+        "S22",
+        "S23",
+        "S24"
+      ],
+      "claim_classification": "judgment",
+      "prerequisites": [],
+      "worked_examples": [],
+      "authoring_provenance": {
+        "author": "owner-directed-wheel_expert-workshop",
+        "authored_date": "2026-10-30",
+        "model_id": "gpt-6-astra",
+        "reasoning_effort": "ultra"
+      },
+      "claims": {
+        "scope": "Mixed sourced mechanics, derivations, illustrations and judgments; claim-level distinctions remain in the exact authored text."
+      }
+    },
+    {
+      "module_id": "expert-02",
+      "version": "PM6",
+      "title": "02 — Financial statements, cash flow and quality of information",
+      "path": "candidate/deployed/knowledge/wheel_expert/knowledge/02-financial-statements.md",
+      "content_hash": "ecb68de30731753975851897c570131eb3b1b4626d0bbe3aebf061b341d1cef1",
+      "source_refs": [
+        "S10",
+        "S11",
+        "S12"
+      ],
+      "claim_classification": "judgment",
+      "prerequisites": [],
+      "worked_examples": [],
+      "authoring_provenance": {
+        "author": "owner-directed-wheel_expert-workshop",
+        "authored_date": "2026-10-30",
+        "model_id": "gpt-6-astra",
+        "reasoning_effort": "ultra"
+      },
+      "claims": {
+        "scope": "Mixed sourced mechanics, derivations, illustrations and judgments; claim-level distinctions remain in the exact authored text."
+      }
+    },
+    {
+      "module_id": "expert-03",
+      "version": "PM6",
+      "title": "03 — Business quality, competitive position and capital allocation",
+      "path": "candidate/deployed/knowledge/wheel_expert/knowledge/03-business-quality.md",
+      "content_hash": "9ba2c30ba39e734934ae1d414e3450208c9971b089a6fc85662a5496935a9185",
+      "source_refs": [
+        "S13"
+      ],
+      "claim_classification": "judgment",
+      "prerequisites": [],
+      "worked_examples": [],
+      "authoring_provenance": {
+        "author": "owner-directed-wheel_expert-workshop",
+        "authored_date": "2026-10-30",
+        "model_id": "gpt-6-astra",
+        "reasoning_effort": "ultra"
+      },
+      "claims": {
+        "scope": "Mixed sourced mechanics, derivations, illustrations and judgments; claim-level distinctions remain in the exact authored text."
+      }
+    },
+    {
+      "module_id": "expert-04",
+      "version": "PM6",
+      "title": "04 — Sector differences and business-specific risks",
+      "path": "candidate/deployed/knowledge/wheel_expert/knowledge/04-sector-differences.md",
+      "content_hash": "b50c4a2979c30b235dbba17621ce1106f92c5c90520aadf47ad93e5e2380c9bc",
+      "source_refs": [
+        "S14",
+        "S15",
+        "S16"
+      ],
+      "claim_classification": "judgment",
+      "prerequisites": [],
+      "worked_examples": [],
+      "authoring_provenance": {
+        "author": "owner-directed-wheel_expert-workshop",
+        "authored_date": "2026-10-30",
+        "model_id": "gpt-6-astra",
+        "reasoning_effort": "ultra"
+      },
+      "claims": {
+        "scope": "Mixed sourced mechanics, derivations, illustrations and judgments; claim-level distinctions remain in the exact authored text."
+      }
+    },
+    {
+      "module_id": "expert-05",
+      "version": "PM6",
+      "title": "05 — Valuation, required returns and ownership economics",
+      "path": "candidate/deployed/knowledge/wheel_expert/knowledge/05-valuation.md",
+      "content_hash": "15e9483e00f91816748ee476bc78c2e987bc95227782511c8634daf404bc6def",
+      "source_refs": [
+        "S17",
+        "S18",
+        "S19"
+      ],
+      "claim_classification": "judgment",
+      "prerequisites": [],
+      "worked_examples": [],
+      "authoring_provenance": {
+        "author": "owner-directed-wheel_expert-workshop",
+        "authored_date": "2026-10-30",
+        "model_id": "gpt-6-astra",
+        "reasoning_effort": "ultra"
+      },
+      "claims": {
+        "scope": "Mixed sourced mechanics, derivations, illustrations and judgments; claim-level distinctions remain in the exact authored text."
+      }
+    },
+    {
+      "module_id": "expert-06",
+      "version": "PM6",
+      "title": "06 — Option identity, rights and contract boundaries",
+      "path": "candidate/deployed/knowledge/wheel_expert/knowledge/06-contract-identity.md",
+      "content_hash": "32f9e792c1ef439df93bbb0ebfb7dd51e2a98ec014a4293b40657cda82b92179",
+      "source_refs": [
+        "S01",
+        "S04",
+        "S33"
+      ],
+      "claim_classification": "judgment",
+      "prerequisites": [],
+      "worked_examples": [],
+      "authoring_provenance": {
+        "author": "owner-directed-wheel_expert-workshop",
+        "authored_date": "2026-10-30",
+        "model_id": "gpt-6-astra",
+        "reasoning_effort": "ultra"
+      },
+      "claims": {
+        "scope": "Mixed sourced mechanics, derivations, illustrations and judgments; claim-level distinctions remain in the exact authored text."
+      }
+    },
+    {
+      "module_id": "expert-07",
+      "version": "PM6",
+      "title": "07 — Payoffs, cash flows, returns and total economic results",
+      "path": "candidate/deployed/knowledge/wheel_expert/knowledge/07-option-economics.md",
+      "content_hash": "dcdfbb901601d00d4442a5949ab350b6bad40ca3194f2f9bc6c2514041847d61",
+      "source_refs": [
+        "S03",
+        "S04",
+        "S39"
+      ],
+      "claim_classification": "judgment",
+      "prerequisites": [],
+      "worked_examples": [],
+      "authoring_provenance": {
+        "author": "owner-directed-wheel_expert-workshop",
+        "authored_date": "2026-10-30",
+        "model_id": "gpt-6-astra",
+        "reasoning_effort": "ultra"
+      },
+      "claims": {
+        "scope": "Mixed sourced mechanics, derivations, illustrations and judgments; claim-level distinctions remain in the exact authored text."
+      }
+    },
+    {
+      "module_id": "expert-08",
+      "version": "PM6",
+      "title": "08 — Exercise, assignment, dividends and event risk",
+      "path": "candidate/deployed/knowledge/wheel_expert/knowledge/08-exercise-dividends-events.md",
+      "content_hash": "458667b0f00f05a53a8d510557603bcca5e21e4f5982187c5b6fd9a163ea3b8d",
+      "source_refs": [
+        "S02",
+        "S33"
+      ],
+      "claim_classification": "judgment",
+      "prerequisites": [],
+      "worked_examples": [],
+      "authoring_provenance": {
+        "author": "owner-directed-wheel_expert-workshop",
+        "authored_date": "2026-10-30",
+        "model_id": "gpt-6-astra",
+        "reasoning_effort": "ultra"
+      },
+      "claims": {
+        "scope": "Mixed sourced mechanics, derivations, illustrations and judgments; claim-level distinctions remain in the exact authored text."
+      }
+    },
+    {
+      "module_id": "expert-09",
+      "version": "PM6",
+      "title": "09 — Volatility, Greeks and probability limitations",
+      "path": "candidate/deployed/knowledge/wheel_expert/knowledge/09-volatility-greeks.md",
+      "content_hash": "7e04990d18e38b40efe2bc26f1f432cd9276bf9ea4b57a4fd712414ccc5d3f23",
+      "source_refs": [
+        "S05",
+        "S06",
+        "S43",
+        "S44"
+      ],
+      "claim_classification": "judgment",
+      "prerequisites": [],
+      "worked_examples": [],
+      "authoring_provenance": {
+        "author": "owner-directed-wheel_expert-workshop",
+        "authored_date": "2026-10-30",
+        "model_id": "gpt-6-astra",
+        "reasoning_effort": "ultra"
+      },
+      "claims": {
+        "scope": "Mixed sourced mechanics, derivations, illustrations and judgments; claim-level distinctions remain in the exact authored text."
+      }
+    },
+    {
+      "module_id": "expert-10",
+      "version": "PM6",
+      "title": "10 — Quotes, liquidity, spreads and feasible transactions",
+      "path": "candidate/deployed/knowledge/wheel_expert/knowledge/10-liquidity-and-pricing.md",
+      "content_hash": "b882b17ac934f2a6483f7b0e72c907462cd2110a950bd018f35467af6e9e754a",
+      "source_refs": [
+        "S07"
+      ],
+      "claim_classification": "judgment",
+      "prerequisites": [],
+      "worked_examples": [],
+      "authoring_provenance": {
+        "author": "owner-directed-wheel_expert-workshop",
+        "authored_date": "2026-10-30",
+        "model_id": "gpt-6-astra",
+        "reasoning_effort": "ultra"
+      },
+      "claims": {
+        "scope": "Mixed sourced mechanics, derivations, illustrations and judgments; claim-level distinctions remain in the exact authored text."
+      }
+    },
+    {
+      "module_id": "expert-11",
+      "version": "PM6",
+      "title": "11 — Cash, assignment funding, margin and survival under stress",
+      "path": "candidate/deployed/knowledge/wheel_expert/knowledge/11-funding-margin.md",
+      "content_hash": "20ccf4ee949adc07b1dc07e2fbaa0b31d331d8bcf3487ac1b17ac49aef0d0871",
+      "source_refs": [
+        "S03",
+        "S08"
+      ],
+      "claim_classification": "judgment",
+      "prerequisites": [],
+      "worked_examples": [],
+      "authoring_provenance": {
+        "author": "owner-directed-wheel_expert-workshop",
+        "authored_date": "2026-10-30",
+        "model_id": "gpt-6-astra",
+        "reasoning_effort": "ultra"
+      },
+      "claims": {
+        "scope": "Mixed sourced mechanics, derivations, illustrations and judgments; claim-level distinctions remain in the exact authored text."
+      }
+    },
+    {
+      "module_id": "expert-12",
+      "version": "PM6",
+      "title": "12 — Portfolio construction, concentration and correlated obligations",
+      "path": "candidate/deployed/knowledge/wheel_expert/knowledge/12-portfolio-construction.md",
+      "content_hash": "e94a99a92b6f0bb5e74c6843d39d9d270791752281214ea95152da46e8299cb7",
+      "source_refs": [
+        "S25",
+        "S28"
+      ],
+      "claim_classification": "judgment",
+      "prerequisites": [],
+      "worked_examples": [],
+      "authoring_provenance": {
+        "author": "owner-directed-wheel_expert-workshop",
+        "authored_date": "2026-10-30",
+        "model_id": "gpt-6-astra",
+        "reasoning_effort": "ultra"
+      },
+      "claims": {
+        "scope": "Mixed sourced mechanics, derivations, illustrations and judgments; claim-level distinctions remain in the exact authored text."
+      }
+    },
+    {
+      "module_id": "expert-13",
+      "version": "PM6",
+      "title": "13 — Hold, close, roll, assignment and covered-call decisions",
+      "path": "candidate/deployed/knowledge/wheel_expert/knowledge/13-management-alternatives.md",
+      "content_hash": "54845a3e5e0a27aa5f028c7f71387629b93c47f3b4bbdb4bcc88e6728cea61d0",
+      "source_refs": [
+        "S09"
+      ],
+      "claim_classification": "judgment",
+      "prerequisites": [],
+      "worked_examples": [],
+      "authoring_provenance": {
+        "author": "owner-directed-wheel_expert-workshop",
+        "authored_date": "2026-10-30",
+        "model_id": "gpt-6-astra",
+        "reasoning_effort": "ultra"
+      },
+      "claims": {
+        "scope": "Mixed sourced mechanics, derivations, illustrations and judgments; claim-level distinctions remain in the exact authored text."
+      }
+    },
+    {
+      "module_id": "expert-14",
+      "version": "PM6",
+      "title": "14 — Behavioral finance, incentives and decision quality",
+      "path": "candidate/deployed/knowledge/wheel_expert/knowledge/14-behavior-and-decisions.md",
+      "content_hash": "8cbc8865b786b1b4b2b55f13a5810076dee66995c1680fc56585b10751bfa1f2",
+      "source_refs": [
+        "S26",
+        "S27"
+      ],
+      "claim_classification": "judgment",
+      "prerequisites": [],
+      "worked_examples": [],
+      "authoring_provenance": {
+        "author": "owner-directed-wheel_expert-workshop",
+        "authored_date": "2026-10-30",
+        "model_id": "gpt-6-astra",
+        "reasoning_effort": "ultra"
+      },
+      "claims": {
+        "scope": "Mixed sourced mechanics, derivations, illustrations and judgments; claim-level distinctions remain in the exact authored text."
+      }
+    },
+    {
+      "module_id": "expert-15",
+      "version": "PM6",
+      "title": "15 — Empirical research, benchmarks and what a backtest can establish",
+      "path": "candidate/deployed/knowledge/wheel_expert/knowledge/15-empirical-evidence.md",
+      "content_hash": "23e597d170e444e0d42f7322724e63259adc10cdf8168a96f27a7bf39f6976b9",
+      "source_refs": [
+        "S34",
+        "S35"
+      ],
+      "claim_classification": "judgment",
+      "prerequisites": [],
+      "worked_examples": [],
+      "authoring_provenance": {
+        "author": "owner-directed-wheel_expert-workshop",
+        "authored_date": "2026-10-30",
+        "model_id": "gpt-6-astra",
+        "reasoning_effort": "ultra"
+      },
+      "claims": {
+        "scope": "Mixed sourced mechanics, derivations, illustrations and judgments; claim-level distinctions remain in the exact authored text."
+      }
+    },
+    {
+      "module_id": "expert-16",
+      "version": "PM6",
+      "title": "16 — Professional planning context, ethics, tax and boundaries",
+      "path": "candidate/deployed/knowledge/wheel_expert/knowledge/16-professional-planning-ethics.md",
+      "content_hash": "e7cca5a4c200fa0d866f6a965bf4b6edc2cb901b9a59e11aa0a5c58190d645bb",
+      "source_refs": [
+        "S29",
+        "S30",
+        "S31"
+      ],
+      "claim_classification": "judgment",
+      "prerequisites": [],
+      "worked_examples": [],
+      "authoring_provenance": {
+        "author": "owner-directed-wheel_expert-workshop",
+        "authored_date": "2026-10-30",
+        "model_id": "gpt-6-astra",
+        "reasoning_effort": "ultra"
+      },
+      "claims": {
+        "scope": "Mixed sourced mechanics, derivations, illustrations and judgments; claim-level distinctions remain in the exact authored text."
+      }
+    },
+    {
+      "module_id": "expert-17",
+      "version": "PM6",
+      "title": "17 — Evidence discipline, uncertainty and useful team review",
+      "path": "candidate/deployed/knowledge/wheel_expert/knowledge/17-evidence-and-team-judgment.md",
+      "content_hash": "069bcc41ef4558abd8836e602a4e07a005a78c8ae9b96b4741e7b55dc559f6d5",
+      "source_refs": [],
+      "claim_classification": "judgment",
+      "prerequisites": [],
+      "worked_examples": [],
+      "authoring_provenance": {
+        "author": "owner-directed-wheel_expert-workshop",
+        "authored_date": "2026-10-30",
+        "model_id": "gpt-6-astra",
+        "reasoning_effort": "ultra"
+      },
+      "claims": {
+        "scope": "Mixed sourced mechanics, derivations, illustrations and judgments; claim-level distinctions remain in the exact authored text."
+      }
+    },
+    {
+      "module_id": "expert-18",
+      "version": "PM6",
+      "title": "18 — Original synthetic worked cases",
+      "path": "candidate/deployed/knowledge/wheel_expert/knowledge/18-worked-cases.md",
+      "content_hash": "a21a5aeabc17704b090f612b55f99a82ca88157fe37551e3fb48f6e8a6134128",
+      "source_refs": [
+        "S01",
+        "S02",
+        "S03",
+        "S04",
+        "S08",
+        "S09",
+        "S17",
+        "S32",
+        "S45"
+      ],
+      "claim_classification": "illustrative",
+      "prerequisites": [],
+      "worked_examples": [
+        {
+          "example_id": "expert-A-put",
+          "classification": "synthetic",
+          "description": "wheel_expert/knowledge/18-worked-cases.md:L7: Assume two short puts, strike 55, opening premium 1.80 per share, and an opening fee of 1.20 per contract. There are no other fees in this illustration.",
+          "calculation": "put_economics",
+          "inputs": {
+            "contract": {
+              "instrument_id": "synthetic-put-55",
+              "instrument_type": "option",
+              "currency": "USD",
+              "underlying_id": "synthetic-stock",
+              "expiry": "2030-01-18",
+              "option_right": "put",
+              "strike": "55",
+              "multiplier": "100"
+            },
+            "quantity": "2",
+            "premium": "1.80",
+            "fees": "2.40"
+          },
+          "expected_outputs": {
+            "gross_premium": "360",
+            "net_premium": "357.60",
+            "gross_assignment_funding": "11000",
+            "breakeven": "53.212",
+            "maximum_loss": "10642.40"
+          },
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "source_refs": []
+        },
+        {
+          "example_id": "expert-A-fees",
+          "classification": "synthetic",
+          "description": "wheel_expert/knowledge/18-worked-cases.md:L10: - Opening fees: 2 × 1.20 = 2.40.",
+          "calculation": "decimal_product",
+          "inputs": {
+            "values": [
+              "2",
+              "1.20"
+            ]
+          },
+          "expected_outputs": {
+            "result": "2.40"
+          },
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "source_refs": []
+        },
+        {
+          "example_id": "expert-A-50-intrinsic",
+          "classification": "synthetic",
+          "description": "wheel_expert/knowledge/18-worked-cases.md:L14: - At expiry spot 50, option economic result: 357.60 − 200 × 5 = −642.40.",
+          "calculation": "expiry_payoff",
+          "inputs": {
+            "positions": [
+              {
+                "position_id": "puts",
+                "contract": {
+                  "instrument_id": "synthetic-put-55",
+                  "instrument_type": "option",
+                  "currency": "USD",
+                  "underlying_id": "synthetic-stock",
+                  "expiry": "2030-01-18",
+                  "option_right": "put",
+                  "strike": "55",
+                  "multiplier": "100"
+                },
+                "quantity": "-2",
+                "currency": "USD"
+              }
+            ],
+            "spots": {
+              "synthetic-stock": "50"
+            }
+          },
+          "expected_outputs": {
+            "expiry_payoff": "-1000"
+          },
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "source_refs": []
+        },
+        {
+          "example_id": "expert-A-50-net",
+          "classification": "synthetic",
+          "description": "wheel_expert/knowledge/18-worked-cases.md:L14: - At expiry spot 50, option economic result: 357.60 − 200 × 5 = −642.40.",
+          "calculation": "decimal_sum",
+          "inputs": {
+            "values": [
+              "357.60",
+              "-1000"
+            ]
+          },
+          "expected_outputs": {
+            "result": "-642.40"
+          },
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "source_refs": []
+        },
+        {
+          "example_id": "expert-A-60-intrinsic",
+          "classification": "synthetic",
+          "description": "wheel_expert/knowledge/18-worked-cases.md:L15: - At expiry spot 60, option result: +357.60.",
+          "calculation": "expiry_payoff",
+          "inputs": {
+            "positions": [
+              {
+                "position_id": "puts",
+                "contract": {
+                  "instrument_id": "synthetic-put-55",
+                  "instrument_type": "option",
+                  "currency": "USD",
+                  "underlying_id": "synthetic-stock",
+                  "expiry": "2030-01-18",
+                  "option_right": "put",
+                  "strike": "55",
+                  "multiplier": "100"
+                },
+                "quantity": "-2",
+                "currency": "USD"
+              }
+            ],
+            "spots": {
+              "synthetic-stock": "60"
+            }
+          },
+          "expected_outputs": {
+            "expiry_payoff": "0"
+          },
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "source_refs": []
+        },
+        {
+          "example_id": "expert-A-60-net",
+          "classification": "synthetic",
+          "description": "wheel_expert/knowledge/18-worked-cases.md:L15: - At expiry spot 60, option result: +357.60.",
+          "calculation": "decimal_sum",
+          "inputs": {
+            "values": [
+              "357.60",
+              "0"
+            ]
+          },
+          "expected_outputs": {
+            "result": "357.60"
+          },
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "source_refs": []
+        },
+        {
+          "example_id": "expert-A-zero-net",
+          "classification": "synthetic",
+          "description": "wheel_expert/knowledge/18-worked-cases.md:L16: - If shares become worthless at expiry, result: 357.60 − 11,000 = −10,642.40.",
+          "calculation": "decimal_sum",
+          "inputs": {
+            "values": [
+              "357.60",
+              "-11000"
+            ]
+          },
+          "expected_outputs": {
+            "result": "-10642.40"
+          },
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "source_refs": []
+        },
+        {
+          "example_id": "expert-B-roll",
+          "classification": "synthetic",
+          "description": "wheel_expert/knowledge/18-worked-cases.md:L22: Assume one put originally sold for 2.40 at strike 55. It is bought back for 6.10. A replacement put at strike 52, expiring 60 calendar days later than the old contract, is sold for 7.00. The different terms are assumed, not quoted opportunities.",
+          "calculation": "roll_economics",
+          "inputs": {
+            "quantity": "1",
+            "multiplier": "100",
+            "original_credit": "2.40",
+            "close_debit": "6.10",
+            "new_credit": "7.00",
+            "fees": "0"
+          },
+          "expected_outputs": {
+            "old_leg_realized_total": "-370",
+            "net_roll_cash": "90",
+            "combined_history_cash": "330",
+            "new_leg_credit_total": "700"
+          },
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "source_refs": []
+        },
+        {
+          "example_id": "expert-B-close-result",
+          "classification": "synthetic",
+          "description": "wheel_expert/knowledge/18-worked-cases.md:L28: Immediately after opening the replacement, the new 700 receipt is accompanied by a short-option liability valued at the assumed opening price. The old loss has not vanished. If the replacement eventually expires worthless, the combined option result is +330 before costs. If it is bought back for 9.00, the combined result is 330 − 900 = −570, equivalently −370 plus the replacement's −200 result.",
+          "calculation": "decimal_sum",
+          "inputs": {
+            "values": [
+              "330",
+              "-900"
+            ]
+          },
+          "expected_outputs": {
+            "result": "-570"
+          },
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "source_refs": []
+        },
+        {
+          "example_id": "expert-B-old-funding",
+          "classification": "synthetic",
+          "description": "wheel_expert/knowledge/18-worked-cases.md:L30: Gross purchase funding changes from 5,500 to 5,200 for one assignment, but exposure extends and the replacement can still lose. A credit alone does not decide whether the roll is preferable to closing or remaining in the original position. [S09](../sources.md#s09)",
+          "calculation": "decimal_product",
+          "inputs": {
+            "values": [
+              "55",
+              "100"
+            ]
+          },
+          "expected_outputs": {
+            "result": "5500"
+          },
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "source_refs": [
+            "S09"
+          ]
+        },
+        {
+          "example_id": "expert-B-new-funding",
+          "classification": "synthetic",
+          "description": "wheel_expert/knowledge/18-worked-cases.md:L30: Gross purchase funding changes from 5,500 to 5,200 for one assignment, but exposure extends and the replacement can still lose. A credit alone does not decide whether the roll is preferable to closing or remaining in the original position. [S09](../sources.md#s09)",
+          "calculation": "decimal_product",
+          "inputs": {
+            "values": [
+              "52",
+              "100"
+            ]
+          },
+          "expected_outputs": {
+            "result": "5200"
+          },
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "source_refs": [
+            "S09"
+          ]
+        },
+        {
+          "example_id": "expert-C-60-terminal",
+          "classification": "synthetic",
+          "description": "wheel_expert/knowledge/18-worked-cases.md:L36: At expiry spot 60, covered-call result = 100 × (60 − 50) + 150 − 100 × (60 − 55) = 650. Shares alone return 1,000. The 350 difference is foregone upside net of premium.",
+          "calculation": "expiry_payoff",
+          "inputs": {
+            "positions": [
+              {
+                "position_id": "shares",
+                "contract": {
+                  "instrument_id": "synthetic-stock",
+                  "instrument_type": "stock",
+                  "currency": "USD"
+                },
+                "quantity": "100",
+                "currency": "USD"
+              },
+              {
+                "position_id": "call",
+                "contract": {
+                  "instrument_id": "synthetic-call-55",
+                  "instrument_type": "option",
+                  "currency": "USD",
+                  "underlying_id": "synthetic-stock",
+                  "expiry": "2030-01-18",
+                  "option_right": "call",
+                  "strike": "55",
+                  "multiplier": "100"
+                },
+                "quantity": "-1",
+                "currency": "USD"
+              }
+            ],
+            "spots": {
+              "synthetic-stock": "60"
+            }
+          },
+          "expected_outputs": {
+            "expiry_payoff": "5500"
+          },
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "source_refs": []
+        },
+        {
+          "example_id": "expert-C-60-net",
+          "classification": "synthetic",
+          "description": "wheel_expert/knowledge/18-worked-cases.md:L36: At expiry spot 60, covered-call result = 100 × (60 − 50) + 150 − 100 × (60 − 55) = 650. Shares alone return 1,000. The 350 difference is foregone upside net of premium.",
+          "calculation": "decimal_sum",
+          "inputs": {
+            "values": [
+              "5500",
+              "-5000",
+              "150"
+            ]
+          },
+          "expected_outputs": {
+            "result": "650"
+          },
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "source_refs": []
+        },
+        {
+          "example_id": "expert-C-60-shares",
+          "classification": "synthetic",
+          "description": "wheel_expert/knowledge/18-worked-cases.md:L36: At expiry spot 60, covered-call result = 100 × (60 − 50) + 150 − 100 × (60 − 55) = 650. Shares alone return 1,000. The 350 difference is foregone upside net of premium.",
+          "calculation": "decimal_sum",
+          "inputs": {
+            "values": [
+              "6000",
+              "-5000"
+            ]
+          },
+          "expected_outputs": {
+            "result": "1000"
+          },
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "source_refs": []
+        },
+        {
+          "example_id": "expert-C-40-terminal",
+          "classification": "synthetic",
+          "description": "wheel_expert/knowledge/18-worked-cases.md:L38: At expiry spot 40, covered-call result = −1,000 + 150 = −850. Shares alone return −1,000. The premium buffers 150 of the decline; it does not make ownership low risk.",
+          "calculation": "expiry_payoff",
+          "inputs": {
+            "positions": [
+              {
+                "position_id": "shares",
+                "contract": {
+                  "instrument_id": "synthetic-stock",
+                  "instrument_type": "stock",
+                  "currency": "USD"
+                },
+                "quantity": "100",
+                "currency": "USD"
+              },
+              {
+                "position_id": "call",
+                "contract": {
+                  "instrument_id": "synthetic-call-55",
+                  "instrument_type": "option",
+                  "currency": "USD",
+                  "underlying_id": "synthetic-stock",
+                  "expiry": "2030-01-18",
+                  "option_right": "call",
+                  "strike": "55",
+                  "multiplier": "100"
+                },
+                "quantity": "-1",
+                "currency": "USD"
+              }
+            ],
+            "spots": {
+              "synthetic-stock": "40"
+            }
+          },
+          "expected_outputs": {
+            "expiry_payoff": "4000"
+          },
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "source_refs": []
+        },
+        {
+          "example_id": "expert-C-40-net",
+          "classification": "synthetic",
+          "description": "wheel_expert/knowledge/18-worked-cases.md:L38: At expiry spot 40, covered-call result = −1,000 + 150 = −850. Shares alone return −1,000. The premium buffers 150 of the decline; it does not make ownership low risk.",
+          "calculation": "decimal_sum",
+          "inputs": {
+            "values": [
+              "4000",
+              "-5000",
+              "150"
+            ]
+          },
+          "expected_outputs": {
+            "result": "-850"
+          },
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "source_refs": []
+        },
+        {
+          "example_id": "expert-C-40-shares",
+          "classification": "synthetic",
+          "description": "wheel_expert/knowledge/18-worked-cases.md:L38: At expiry spot 40, covered-call result = −1,000 + 150 = −850. Shares alone return −1,000. The premium buffers 150 of the decline; it does not make ownership low risk.",
+          "calculation": "decimal_sum",
+          "inputs": {
+            "values": [
+              "4000",
+              "-5000"
+            ]
+          },
+          "expected_outputs": {
+            "result": "-1000"
+          },
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "source_refs": []
+        },
+        {
+          "example_id": "expert-C-upside-difference",
+          "classification": "synthetic",
+          "description": "wheel_expert/knowledge/18-worked-cases.md:L36: At expiry spot 60, covered-call result = 100 × (60 − 50) + 150 − 100 × (60 − 55) = 650. Shares alone return 1,000. The 350 difference is foregone upside net of premium.",
+          "calculation": "decimal_sum",
+          "inputs": {
+            "values": [
+              "1000",
+              "-650"
+            ]
+          },
+          "expected_outputs": {
+            "result": "350"
+          },
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "source_refs": []
+        },
+        {
+          "example_id": "expert-D-premium",
+          "classification": "synthetic",
+          "description": "wheel_expert/knowledge/18-worked-cases.md:L44: Assume two short 55 puts sold for 2.00 each and one long 45 put bought for 0.80, same issuer and expiry. Net premium = 400 − 80 = 320.",
+          "calculation": "decimal_sum",
+          "inputs": {
+            "values": [
+              "400",
+              "-80"
+            ]
+          },
+          "expected_outputs": {
+            "result": "320"
+          },
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "source_refs": []
+        },
+        {
+          "example_id": "expert-D-intrinsic",
+          "classification": "synthetic",
+          "description": "wheel_expert/knowledge/18-worked-cases.md:L46: At expiry spot 30, short-put liability at payoff is 2 × 100 × 25 = 5,000; the long-put payoff is 100 × 15 = 1,500. Net option result = 320 − 5,000 + 1,500 = −3,180.",
+          "calculation": "expiry_payoff",
+          "inputs": {
+            "positions": [
+              {
+                "position_id": "short",
+                "contract": {
+                  "instrument_id": "synthetic-put-55",
+                  "instrument_type": "option",
+                  "currency": "USD",
+                  "underlying_id": "synthetic-stock",
+                  "expiry": "2030-01-18",
+                  "option_right": "put",
+                  "strike": "55",
+                  "multiplier": "100"
+                },
+                "quantity": "-2",
+                "currency": "USD"
+              },
+              {
+                "position_id": "long",
+                "contract": {
+                  "instrument_id": "synthetic-put-45",
+                  "instrument_type": "option",
+                  "currency": "USD",
+                  "underlying_id": "synthetic-stock",
+                  "expiry": "2030-01-18",
+                  "option_right": "put",
+                  "strike": "45",
+                  "multiplier": "100"
+                },
+                "quantity": "1",
+                "currency": "USD"
+              }
+            ],
+            "spots": {
+              "synthetic-stock": "30"
+            }
+          },
+          "expected_outputs": {
+            "expiry_payoff": "-3500"
+          },
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "source_refs": []
+        },
+        {
+          "example_id": "expert-D-net",
+          "classification": "synthetic",
+          "description": "wheel_expert/knowledge/18-worked-cases.md:L46: At expiry spot 30, short-put liability at payoff is 2 × 100 × 25 = 5,000; the long-put payoff is 100 × 15 = 1,500. Net option result = 320 − 5,000 + 1,500 = −3,180.",
+          "calculation": "decimal_sum",
+          "inputs": {
+            "values": [
+              "320",
+              "-5000",
+              "1500"
+            ]
+          },
+          "expected_outputs": {
+            "result": "-3180"
+          },
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "source_refs": []
+        },
+        {
+          "example_id": "expert-D-funding",
+          "classification": "synthetic",
+          "description": "wheel_expert/knowledge/18-worked-cases.md:L48: One long protects only one contract's matched payoff exposure. One short remains unmatched. Gross short-put purchase obligations total 11,000 if both are assigned. The long's economic payoff does not by itself prove that the broker will supply funds, coordinate exercise or recognize a particular margin offset. [S01](../sources.md#s01), [S08](../sources.md#s08)",
+          "calculation": "decimal_product",
+          "inputs": {
+            "values": [
+              "2",
+              "100",
+              "55"
+            ]
+          },
+          "expected_outputs": {
+            "result": "11000"
+          },
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "source_refs": [
+            "S01",
+            "S08"
+          ]
+        },
+        {
+          "example_id": "expert-E-equity",
+          "classification": "synthetic",
+          "description": "wheel_expert/knowledge/18-worked-cases.md:L52: Invented current account: noncash assets 96,000, separately held cash 10,000, short-option liabilities 6,000. Equity = 100,000. In one hypothetical interim stress, noncash assets fall to 67,200 and the option liabilities rise to 18,000 while cash stays 10,000. Stressed equity = 59,200.",
+          "calculation": "decimal_sum",
+          "inputs": {
+            "values": [
+              "96000",
+              "10000",
+              "-6000"
+            ]
+          },
+          "expected_outputs": {
+            "result": "100000"
+          },
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "source_refs": []
+        },
+        {
+          "example_id": "expert-E-stress",
+          "classification": "synthetic",
+          "description": "wheel_expert/knowledge/18-worked-cases.md:L52: Invented current account: noncash assets 96,000, separately held cash 10,000, short-option liabilities 6,000. Equity = 100,000. In one hypothetical interim stress, noncash assets fall to 67,200 and the option liabilities rise to 18,000 while cash stays 10,000. Stressed equity = 59,200.",
+          "calculation": "decimal_sum",
+          "inputs": {
+            "values": [
+              "67200",
+              "10000",
+              "-18000"
+            ]
+          },
+          "expected_outputs": {
+            "result": "59200"
+          },
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "source_refs": []
+        },
+        {
+          "example_id": "expert-E-surplus-52",
+          "classification": "synthetic",
+          "description": "wheel_expert/knowledge/18-worked-cases.md:L54: Assume, purely for comparison, one broker requirement estimate of 52,000 and another of 62,000 under different house assumptions. Surpluses relative to these estimates are +7,200 and −2,800. Neither estimate is actual broker information.",
+          "calculation": "decimal_sum",
+          "inputs": {
+            "values": [
+              "59200",
+              "-52000"
+            ]
+          },
+          "expected_outputs": {
+            "result": "7200"
+          },
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "source_refs": []
+        },
+        {
+          "example_id": "expert-E-surplus-62",
+          "classification": "synthetic",
+          "description": "wheel_expert/knowledge/18-worked-cases.md:L54: Assume, purely for comparison, one broker requirement estimate of 52,000 and another of 62,000 under different house assumptions. Surpluses relative to these estimates are +7,200 and −2,800. Neither estimate is actual broker information.",
+          "calculation": "decimal_sum",
+          "inputs": {
+            "values": [
+              "59200",
+              "-62000"
+            ]
+          },
+          "expected_outputs": {
+            "result": "-2800"
+          },
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "source_refs": []
+        },
+        {
+          "example_id": "expert-E-funding-gap",
+          "classification": "synthetic",
+          "description": "wheel_expert/knowledge/18-worked-cases.md:L56: If gross assignment funding is 33,000, 10,000 cash leaves a gross cash difference of 23,000 before any other funding. That difference is not automatically insolvency or the broker's margin deficit. It identifies a funding dependency. Terminal payoff, current liquidation value and broker capacity cannot be substituted for one another. [S08](../sources.md#s08)",
+          "calculation": "decimal_sum",
+          "inputs": {
+            "values": [
+              "33000",
+              "-10000"
+            ]
+          },
+          "expected_outputs": {
+            "result": "23000"
+          },
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "source_refs": [
+            "S08"
+          ]
+        },
+        {
+          "example_id": "expert-G-coverage",
+          "classification": "synthetic",
+          "description": "wheel_expert/knowledge/18-worked-cases.md:L66: An invented account holds 150 eligible shares and is short two standard calls requiring 200 shares if both are assigned. The aggregate shortfall is 50 shares. The 150 shares cannot be used twice to label both calls fully covered.",
+          "calculation": "decimal_sum",
+          "inputs": {
+            "values": [
+              "200",
+              "-150"
+            ]
+          },
+          "expected_outputs": {
+            "result": "50"
+          },
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "source_refs": []
+        },
+        {
+          "example_id": "expert-H-operating",
+          "classification": "synthetic",
+          "description": "wheel_expert/knowledge/18-worked-cases.md:L74: Operating value = 6/(0.10 − 0.02) = 75 million.",
+          "calculation": "decimal_ratio",
+          "inputs": {
+            "values": [
+              "6",
+              "0.08"
+            ]
+          },
+          "expected_outputs": {
+            "result": "75"
+          },
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "source_refs": []
+        },
+        {
+          "example_id": "expert-H-equity",
+          "classification": "synthetic",
+          "description": "wheel_expert/knowledge/18-worked-cases.md:L75: Equity value = 75 − 15 = 60 million.",
+          "calculation": "decimal_sum",
+          "inputs": {
+            "values": [
+              "75",
+              "-15"
+            ]
+          },
+          "expected_outputs": {
+            "result": "60"
+          },
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "source_refs": []
+        },
+        {
+          "example_id": "expert-H-share",
+          "classification": "synthetic",
+          "description": "wheel_expert/knowledge/18-worked-cases.md:L76: Value per share = 60/3 = 20.",
+          "calculation": "decimal_ratio",
+          "inputs": {
+            "values": [
+              "60",
+              "3"
+            ]
+          },
+          "expected_outputs": {
+            "result": "20"
+          },
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "source_refs": []
+        },
+        {
+          "example_id": "expert-H-growth-operating",
+          "classification": "synthetic",
+          "description": "wheel_expert/knowledge/18-worked-cases.md:L78: With growth instead 3%, operating value becomes about 85.714 million and per-share equity value about 23.571. With WACC instead 11% and growth retained at 2%, operating value is about 66.667 million and per-share equity value about 17.222. These are separate sensitivity changes, not simultaneous changes.",
+          "calculation": "decimal_ratio",
+          "inputs": {
+            "values": [
+              "6",
+              "0.07"
+            ]
+          },
+          "expected_outputs": {
+            "result": "85.714"
+          },
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "source_refs": [],
+          "tolerance": "0.0005"
+        },
+        {
+          "example_id": "expert-H-growth-share",
+          "classification": "synthetic",
+          "description": "wheel_expert/knowledge/18-worked-cases.md:L78: With growth instead 3%, operating value becomes about 85.714 million and per-share equity value about 23.571. With WACC instead 11% and growth retained at 2%, operating value is about 66.667 million and per-share equity value about 17.222. These are separate sensitivity changes, not simultaneous changes.",
+          "calculation": "decimal_ratio",
+          "inputs": {
+            "values": [
+              "70.714285714285714285714285714285714285714285714286",
+              "3"
+            ]
+          },
+          "expected_outputs": {
+            "result": "23.571"
+          },
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "source_refs": [],
+          "tolerance": "0.0005"
+        },
+        {
+          "example_id": "expert-H-wacc-operating",
+          "classification": "synthetic",
+          "description": "wheel_expert/knowledge/18-worked-cases.md:L78: With growth instead 3%, operating value becomes about 85.714 million and per-share equity value about 23.571. With WACC instead 11% and growth retained at 2%, operating value is about 66.667 million and per-share equity value about 17.222. These are separate sensitivity changes, not simultaneous changes.",
+          "calculation": "decimal_ratio",
+          "inputs": {
+            "values": [
+              "6",
+              "0.09"
+            ]
+          },
+          "expected_outputs": {
+            "result": "66.667"
+          },
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "source_refs": [],
+          "tolerance": "0.0005"
+        },
+        {
+          "example_id": "expert-H-wacc-share",
+          "classification": "synthetic",
+          "description": "wheel_expert/knowledge/18-worked-cases.md:L78: With growth instead 3%, operating value becomes about 85.714 million and per-share equity value about 23.571. With WACC instead 11% and growth retained at 2%, operating value is about 66.667 million and per-share equity value about 17.222. These are separate sensitivity changes, not simultaneous changes.",
+          "calculation": "decimal_ratio",
+          "inputs": {
+            "values": [
+              "51.666666666666666666666666666666666666666666666667",
+              "3"
+            ]
+          },
+          "expected_outputs": {
+            "result": "17.222"
+          },
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "source_refs": [],
+          "tolerance": "0.0005"
+        },
+        {
+          "example_id": "expert-I-allocated-return",
+          "classification": "synthetic",
+          "description": "wheel_expert/knowledge/18-worked-cases.md:L84: Assume a 300 option profit over 30 calendar days, 10,000 allocated capital, and 100,000 starting account equity. Before other changes, the period return is 3% on allocated capital and 0.3% on account equity. Simple annualization of the former is 3% × 365/30 = 36.5%; it is not a forecast.",
+          "calculation": "decimal_ratio",
+          "inputs": {
+            "values": [
+              "300",
+              "10000"
+            ]
+          },
+          "expected_outputs": {
+            "result": "0.03"
+          },
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "source_refs": []
+        },
+        {
+          "example_id": "expert-I-equity-return",
+          "classification": "synthetic",
+          "description": "wheel_expert/knowledge/18-worked-cases.md:L84: Assume a 300 option profit over 30 calendar days, 10,000 allocated capital, and 100,000 starting account equity. Before other changes, the period return is 3% on allocated capital and 0.3% on account equity. Simple annualization of the former is 3% × 365/30 = 36.5%; it is not a forecast.",
+          "calculation": "decimal_ratio",
+          "inputs": {
+            "values": [
+              "300",
+              "100000"
+            ]
+          },
+          "expected_outputs": {
+            "result": "0.003"
+          },
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "source_refs": []
+        },
+        {
+          "example_id": "expert-I-annualization",
+          "classification": "synthetic",
+          "description": "wheel_expert/knowledge/18-worked-cases.md:L84: Assume a 300 option profit over 30 calendar days, 10,000 allocated capital, and 100,000 starting account equity. Before other changes, the period return is 3% on allocated capital and 0.3% on account equity. Simple annualization of the former is 3% × 365/30 = 36.5%; it is not a forecast.",
+          "calculation": "decimal_ratio",
+          "inputs": {
+            "values": [
+              "10.95",
+              "30"
+            ]
+          },
+          "expected_outputs": {
+            "result": "0.365"
+          },
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "source_refs": []
+        },
+        {
+          "example_id": "expert-I-loan-cost",
+          "classification": "synthetic",
+          "description": "wheel_expert/knowledge/18-worked-cases.md:L86: If that 10,000 was actually borrowed for all 30 days at a simple annual 8%, financing cost is about 65.75. After that cost, the isolated result is about 234.25, or 2.3425% of allocated capital. This borrowing is an explicit invented assumption; opening a margin-backed put does not necessarily create that loan.",
+          "calculation": "decimal_ratio",
+          "inputs": {
+            "values": [
+              "24000",
+              "365"
+            ]
+          },
+          "expected_outputs": {
+            "result": "65.75"
+          },
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "source_refs": [],
+          "tolerance": "0.005"
+        },
+        {
+          "example_id": "expert-I-after-cost",
+          "classification": "synthetic",
+          "description": "wheel_expert/knowledge/18-worked-cases.md:L86: If that 10,000 was actually borrowed for all 30 days at a simple annual 8%, financing cost is about 65.75. After that cost, the isolated result is about 234.25, or 2.3425% of allocated capital. This borrowing is an explicit invented assumption; opening a margin-backed put does not necessarily create that loan.",
+          "calculation": "decimal_sum",
+          "inputs": {
+            "values": [
+              "300",
+              "-65.753424657534246575342465753424657534246575342466"
+            ]
+          },
+          "expected_outputs": {
+            "result": "234.25"
+          },
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "source_refs": [],
+          "tolerance": "0.005"
+        },
+        {
+          "example_id": "expert-I-after-cost-return",
+          "classification": "synthetic",
+          "description": "wheel_expert/knowledge/18-worked-cases.md:L86: If that 10,000 was actually borrowed for all 30 days at a simple annual 8%, financing cost is about 65.75. After that cost, the isolated result is about 234.25, or 2.3425% of allocated capital. This borrowing is an explicit invented assumption; opening a margin-backed put does not necessarily create that loan.",
+          "calculation": "decimal_ratio",
+          "inputs": {
+            "values": [
+              "234.24657534246575342465753424657534246575342465753",
+              "10000"
+            ]
+          },
+          "expected_outputs": {
+            "result": "0.023425"
+          },
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "source_refs": [],
+          "tolerance": "0.0000005"
+        },
+        {
+          "example_id": "expert-J-expectation",
+          "classification": "synthetic",
+          "description": "wheel_expert/knowledge/18-worked-cases.md:L90: Assume an invented one-period distribution with 90% probability of +100 and 10% probability of −1,500. Expected result = 0.90 × 100 − 0.10 × 1,500 = −60.",
+          "calculation": "decimal_sum",
+          "inputs": {
+            "values": [
+              "90",
+              "-150"
+            ]
+          },
+          "expected_outputs": {
+            "result": "-60"
+          },
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "source_refs": []
+        },
+        {
+          "example_id": "expert-K-currency-growth",
+          "classification": "synthetic",
+          "description": "wheel_expert/knowledge/18-worked-cases.md:L96: Assume a USD investment earns 5%, while each USD buys 10% fewer units of the investor's reporting currency by the end. Reporting-currency return = 1.05 × 0.90 − 1 = −5.5%, before costs. Adding 5% and −10% would miss the compounding cross term.",
+          "calculation": "decimal_product",
+          "inputs": {
+            "values": [
+              "1.05",
+              "0.90"
+            ]
+          },
+          "expected_outputs": {
+            "result": "0.945"
+          },
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "source_refs": []
+        },
+        {
+          "example_id": "expert-K-currency-return",
+          "classification": "synthetic",
+          "description": "wheel_expert/knowledge/18-worked-cases.md:L96: Assume a USD investment earns 5%, while each USD buys 10% fewer units of the investor's reporting currency by the end. Reporting-currency return = 1.05 × 0.90 − 1 = −5.5%, before costs. Adding 5% and −10% would miss the compounding cross term.",
+          "calculation": "decimal_sum",
+          "inputs": {
+            "values": [
+              "0.945",
+              "-1"
+            ]
+          },
+          "expected_outputs": {
+            "result": "-0.055"
+          },
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "source_refs": []
+        }
+      ],
+      "authoring_provenance": {
+        "author": "owner-directed-wheel_expert-workshop",
+        "authored_date": "2026-10-30",
+        "model_id": "gpt-6-astra",
+        "reasoning_effort": "ultra"
+      },
+      "claims": {
+        "scope": "Mixed sourced mechanics, derivations, illustrations and judgments; claim-level distinctions remain in the exact authored text."
+      }
+    },
+    {
+      "module_id": "expert-19",
+      "version": "PM6",
+      "title": "19 — Interest rates, inflation, currency and peripheral exposures",
+      "path": "candidate/deployed/knowledge/wheel_expert/knowledge/19-macro-rates-currency.md",
+      "content_hash": "e0e5f622fdd26fdc2927d9c5d656e0280f0d889e45675f7c008c26e597b3a05c",
+      "source_refs": [
+        "S32",
+        "S37"
+      ],
+      "claim_classification": "judgment",
+      "prerequisites": [],
+      "worked_examples": [],
+      "authoring_provenance": {
+        "author": "owner-directed-wheel_expert-workshop",
+        "authored_date": "2026-10-30",
+        "model_id": "gpt-6-astra",
+        "reasoning_effort": "ultra"
+      },
+      "claims": {
+        "scope": "Mixed sourced mechanics, derivations, illustrations and judgments; claim-level distinctions remain in the exact authored text."
+      }
+    },
+    {
+      "module_id": "dalio-reference",
+      "version": "4-pruned",
+      "title": "Dalio extended reference",
+      "path": "references/dalio-reference.md",
+      "content_hash": "1ebf8ee6aedb0f2a7eb7e5ee52d486b0c172d108db3ed3a2861941f974490fbc",
+      "source_refs": [],
+      "claim_classification": "judgment",
+      "prerequisites": [],
+      "worked_examples": [],
+      "authoring_provenance": {
+        "author": "primary-agent",
+        "authored_date": "2026-11-12"
+      },
+      "claims": {
+        "scope": "Dated educational principles and synthetic illustrations, not current facts or owner policy."
+      }
+    },
+    {
+      "module_id": "dalio-sources",
+      "version": "4-pruned",
+      "title": "Dalio extended sources",
+      "path": "references/dalio-sources.md",
+      "content_hash": "0c9817c94a3f325eec0dacd3551c8ec49491ccc8470ccd0c23d4369d4c3b19f3",
+      "source_refs": [],
+      "claim_classification": "judgment",
+      "prerequisites": [],
+      "worked_examples": [],
+      "authoring_provenance": {
+        "author": "primary-agent",
+        "authored_date": "2026-11-12"
+      },
+      "claims": {
+        "scope": "Dated educational principles and synthetic illustrations, not current facts or owner policy."
+      }
+    },
+    {
+      "module_id": "buffett-reference",
+      "version": "4-pruned",
+      "title": "Buffett extended reference",
+      "path": "references/buffett-reference.md",
+      "content_hash": "8566b53bc70213d89b2dacc811a1bbd8dcb656ca70983e4b71b24cbca1b364e9",
+      "source_refs": [],
+      "claim_classification": "judgment",
+      "prerequisites": [],
+      "worked_examples": [],
+      "authoring_provenance": {
+        "author": "primary-agent",
+        "authored_date": "2026-11-12"
+      },
+      "claims": {
+        "scope": "Dated educational principles and synthetic illustrations, not current facts or owner policy."
+      }
+    },
+    {
+      "module_id": "buffett-sources",
+      "version": "4-pruned",
+      "title": "Buffett extended sources",
+      "path": "references/buffett-sources.md",
+      "content_hash": "2a9f5ca910505e736c54f2491841a5eb043bf328469048ddbaac1b3c566919e4",
+      "source_refs": [],
+      "claim_classification": "judgment",
+      "prerequisites": [],
+      "worked_examples": [],
+      "authoring_provenance": {
+        "author": "primary-agent",
+        "authored_date": "2026-11-12"
+      },
+      "claims": {
+        "scope": "Dated educational principles and synthetic illustrations, not current facts or owner policy."
+      }
+    },
+    {
+      "module_id": "portfolio-manager-reference",
+      "version": "4-pruned",
+      "title": "Portfolio Manager extended reference",
+      "path": "references/portfolio_manager-reference.md",
+      "content_hash": "55d91ad49dd96f73f6086359705dcc9da7aacc6de0319f8112e591e822389944",
+      "source_refs": [],
+      "claim_classification": "judgment",
+      "prerequisites": [],
+      "worked_examples": [],
+      "authoring_provenance": {
+        "author": "primary-agent",
+        "authored_date": "2026-11-12"
+      },
+      "claims": {
+        "scope": "Dated educational principles and synthetic illustrations, not current facts or owner policy."
+      }
+    },
+    {
+      "module_id": "portfolio-manager-sources",
+      "version": "4-pruned",
+      "title": "Portfolio Manager extended sources",
+      "path": "references/portfolio_manager-sources.md",
+      "content_hash": "564ad1974ba739c2e51471870b6e778cadd4b530f5d231422f832fff1a4104bc",
+      "source_refs": [],
+      "claim_classification": "judgment",
+      "prerequisites": [],
+      "worked_examples": [],
+      "authoring_provenance": {
+        "author": "primary-agent",
+        "authored_date": "2026-11-12"
+      },
+      "claims": {
+        "scope": "Dated educational principles and synthetic illustrations, not current facts or owner policy."
+      }
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "S01",
+      "title": "OCC, Equity Options product specifications.",
+      "url": "https://www.theocc.com/clearance-and-settlement/clearing/equity-options-product-specifications",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "S02",
+      "title": "OIC, assignment and exercise explanations.",
+      "url": "https://www.optionseducation.org/referencelibrary/faq/options-assignment",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "S03",
+      "title": "OIC, Cash-Secured Put.",
+      "url": "https://www.optionseducation.org/strategies/all-strategies/cash-secured-put",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "S04",
+      "title": "OIC, Covered Call.",
+      "url": "https://www.optionseducation.org/strategies/all-strategies/covered-call",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "S05",
+      "title": "OIC, option sensitivities.",
+      "url": "https://www.optionseducation.org/advancedconcepts/understanding-options-greeks",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "S06",
+      "title": "OIC, model limitations.",
+      "url": "https://www.optionseducation.org/referencelibrary/faq/technical-information",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "S07",
+      "title": "OIC, General Information FAQ.",
+      "url": "https://www.optionseducation.org/referencelibrary/faq/general-information",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "S08",
+      "title": "FINRA Rule 2264, Margin Disclosure Statement.",
+      "url": "https://www.finra.org/rules-guidance/rulebooks/finra-rules/2264",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "S09",
+      "title": "Fidelity, Managing an options trade.",
+      "url": "https://www.fidelity.com/learning-center/trading-investing/trading/managing-options-trade",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "S10",
+      "title": "SEC Investor.gov, Using EDGAR to Research Investments.",
+      "url": "https://www.investor.gov/introduction-investing/getting-started/researching-investments/using-edgar-research-investments",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "S11",
+      "title": "CFA Institute, Financial Analysis Techniques, 2026 Level I.",
+      "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/financial-analysis-techniques",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "S12",
+      "title": "CFA Institute, Evaluating Quality of Financial Reports, 2026.",
+      "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/evaluating-quality-financial-reports",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "S13",
+      "title": "CFA Institute, Industry and Competitive Analysis, 2026.",
+      "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/industry-and-competitive-analysis",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "S14",
+      "title": "CFA Institute, Analysis of Financial Institutions, 2026.",
+      "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/analysis-of-financial-institutions",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "S15",
+      "title": "CFA Institute, Investments in Real Estate through Publicly Traded Securities, 2026.",
+      "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/investments-real-estate-pubicly-traded-securities",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "S16",
+      "title": "Aswath Damodaran, commodity-company valuation materials.",
+      "url": "https://pages.stern.nyu.edu/adamodar/New_Home_Page/littlebook/commodityvaluedrivers.htm",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "S17",
+      "title": "CFA Institute, Free Cash Flow Valuation, 2026.",
+      "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/free-cash-flow-valuation",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "S18",
+      "title": "Aswath Damodaran, The Fundamental Determinants of Growth.",
+      "url": "https://pages.stern.nyu.edu/adamodar/New_Home_Page/valquestions/growth.htm",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "S19",
+      "title": "CFA Institute, Market-Based Valuation: Price and Enterprise Value Multiples, 2026.",
+      "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/market-based-valuation-price-enterprise-value-multiples",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "S20",
+      "title": "Graham and Dodd / Graham.",
+      "url": "https://www.mheducation.com/highered/mhp/product/security-analysis-sixth-edition-foreword-warren-buffett.html?viewOption=student",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "S21",
+      "title": "Philip Fisher, Common Stocks and Uncommon Profits and Other Writings.",
+      "url": "https://www.wiley.com/en-au/common-stocks-and-uncommon-profits-and-other-writings-2nd-edition-p-9780471445500",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "S22",
+      "title": "Aswath Damodaran, valuation books and public support.",
+      "url": "https://pages.stern.nyu.edu/adamodar/New_Home_Page/inv4E/preface.html",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "S23",
+      "title": "Howard Marks, The Most Important Thing.",
+      "url": "https://cup.columbia.edu/book/the-most-important-thing/9780231527095/",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "S24",
+      "title": "Diversification and cost-conscious investing traditions.",
+      "url": "https://www.wiley-vch.de/en/areas-interest/finance-economics-law/finance-investments-13fi/investments-securities-13fi3/common-sense-on-mutual-funds-978-0-470-13813-7",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "S25",
+      "title": "CFA Institute, Portfolio Risk and Return: Part I, 2026.",
+      "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/portfolio-risk-return-part-1",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "S26",
+      "title": "CFA Institute, The Behavioral Biases of Individuals, 2026.",
+      "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/the-behavioral-biases-of-individuals",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "S27",
+      "title": "Daniel Kahneman and Amos Tversky, Prospect Theory: An Analysis of Decision under Risk, Econometrica 47(2), 1979.",
+      "url": "https://www.jstor.org/stable/1914185",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "S28",
+      "title": "SEC Investor.gov, Asset Allocation.",
+      "url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "S29",
+      "title": "CFP Board, Registered Program Content.",
+      "url": "https://www.cfp.net/for-education-partners/registered-programs/registered-program-content",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "S30",
+      "title": "Professional ethical scope.",
+      "url": "https://www.cfainstitute.org/standards/professionals/code-ethics-standards/standards-of-practice-iii-c",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "S31",
+      "title": "IRS Publication 550, Investment Income and Expenses.",
+      "url": "https://www.irs.gov/publications/p550",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "S32",
+      "title": "CFA Institute, Currency Management: An Introduction, 2026.",
+      "url": "https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/currency-management-introduction",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "S33",
+      "title": "OCC, product-specific notices and risk disclosure.",
+      "url": "https://infomemo.theocc.com/infomemos",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "S34",
+      "title": "Cboe, S&P 500 PutWrite Index.",
+      "url": "https://cdn.cboe.com/resources/indices/factsheet/CboeGlobalIndices_PUT-Index.pdf",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "S35",
+      "title": "William F. Sharpe, The Arithmetic of Active Management, Financial Analysts Journal 47(1), 1991, pp. 7–9.",
+      "url": "https://web.stanford.edu/~wfsharpe/art/active/active.htm",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "S37",
+      "title": "SEC Investor.gov, Interest Rate Risk — When Interest Rates Go Up, Prices of Fixed-Rate Bonds Fall.",
+      "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-86",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "S39",
+      "title": "OIC, Put/Call Parity.",
+      "url": "https://www.optionseducation.org/advancedconcepts/put-call-parity",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "S43",
+      "title": "Volatility definitions and provider conventions.",
+      "url": "https://www.optionseducation.org/referencelibrary/faq/technical-information",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "S44",
+      "title": "Aswath Damodaran, Real Options: Fact and Fantasy, lecture packet.",
+      "url": "https://pages.stern.nyu.edu/adamodar/pdfiles/eqnotes/packet3old.pdf",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "A01",
+      "title": "Investor.gov — Stocks",
+      "url": "https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "A02",
+      "title": "Investor.gov — Introduction to Investing",
+      "url": "https://www.investor.gov/introduction-investing",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "A03",
+      "title": "SEC — American Depositary Receipts",
+      "url": "https://www.sec.gov/investor/alerts/adr-bulletin.pdf",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "A04",
+      "title": "Investor.gov — How to Read a 10-K/10-Q",
+      "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/how-read",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "A05",
+      "title": "SEC — Beginners' Guide to Financial Statements",
+      "url": "https://www.sec.gov/about/reports-publications/beginners-guide-financial-statements",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "A06",
+      "title": "SEC Chief Accountant — Statement of Cash Flows",
+      "url": "https://www.sec.gov/newsroom/speeches-statements/munter-statement-cash-flows-120423",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "A07",
+      "title": "SEC — Non-GAAP Financial Measures",
+      "url": "https://www.sec.gov/rules-regulations/staff-guidance/corporation-finance-interpretations/non-gaap-financial-measures",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "A08",
+      "title": "FASB — Statement 128, Earnings per Share",
+      "url": "https://storage.fasb.org/aop_fas128.pdf",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "A09",
+      "title": "Federal Reserve — Data Sources and Terms",
+      "url": "https://www.federalreserve.gov/publications/2025-december-supervision-and-regulation-report-data-sources-terms.htm",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "A10",
+      "title": "NAIC — Statutory Accounting Principles",
+      "url": "https://content.naic.org/insurance-topics/statutory-accounting-principles",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "A11",
+      "title": "NAIC — Risk-Based Capital",
+      "url": "https://content.naic.org/insurance-topics/risk-based-capital",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "A12",
+      "title": "Nareit — FFO White Paper, 2018 Restatement",
+      "url": "https://www.reit.com/sites/default/files/2018-FFO-white-paper-%2811-27-18%29.pdf",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "A13",
+      "title": "OIC — June Key Takeaways: Wheel Strategy and Credit Spreads",
+      "url": "https://www.optionseducation.org/news/june-key-takeaways-the-wheel-strategy-and-credit-spreads",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "A14",
+      "title": "OIC — Cash-Secured Put",
+      "url": "https://www.optionseducation.org/strategies/all-strategies/cash-secured-put",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "A15",
+      "title": "OIC — Covered Call",
+      "url": "https://www.optionseducation.org/strategies/all-strategies/covered-call-buy-write",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "A16",
+      "title": "FINRA — Options",
+      "url": "https://www.finra.org/investors/investing/investment-products/options",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "A17",
+      "title": "OIC — Splits, Mergers, Spinoffs and Bankruptcies",
+      "url": "https://www.optionseducation.org/referencelibrary/faq/splits-mergers-spinoffs-bankruptcies",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "A18",
+      "title": "OCC — Options Disclosure Document",
+      "url": "https://www.theocc.com/company-information/documents-and-archives/options-disclosure-document",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "A19",
+      "title": "OIC — Options Assignment",
+      "url": "https://www.optionseducation.org/referencelibrary/faq/options-assignment",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "A20",
+      "title": "OIC — Exercising Options",
+      "url": "https://www.optionseducation.org/optionsoverview/exercising-options",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "A21",
+      "title": "OIC — June Office Hours FAQs",
+      "url": "https://www.optionseducation.org/news/june-office-hours-faqs-iv-statistics-position-management-and-the-wheel-strategy",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "A22",
+      "title": "FINRA — Trading Options: Understanding Assignment",
+      "url": "https://www.finra.org/investors/insights/trading-options-understanding-assignment",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "A23",
+      "title": "OIC — Options Pricing",
+      "url": "https://www.optionseducation.org/optionsoverview/options-pricing",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "A24",
+      "title": "OIC — Delta",
+      "url": "https://www.optionseducation.org/advancedconcepts/delta",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "A25",
+      "title": "OIC — Gamma",
+      "url": "https://www.optionseducation.org/advancedconcepts/gamma",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "A26",
+      "title": "OIC — Theta",
+      "url": "https://www.optionseducation.org/advancedconcepts/theta",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "A27",
+      "title": "OIC — Vega",
+      "url": "https://www.optionseducation.org/advancedconcepts/vega",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "A28",
+      "title": "OIC — Rho",
+      "url": "https://www.optionseducation.org/advancedconcepts/rho",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "A29",
+      "title": "OIC — General Information",
+      "url": "https://www.optionseducation.org/referencelibrary/faq/general-information",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "A30",
+      "title": "Investor.gov — Asset Allocation and Diversification",
+      "url": "https://www.investor.gov/introduction-investing/getting-started/asset-allocation",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "A31",
+      "title": "FINRA Rule 2264 — Margin Disclosure Statement",
+      "url": "https://www.finra.org/rules-guidance/rulebooks/finra-rules/2264",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "A32",
+      "title": "Investor.gov — Understanding Margin Accounts",
+      "url": "https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-29",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "L01",
+      "title": "SEC Investor.gov: How to Read a 10-K",
+      "url": "https://www.investor.gov/introduction-investing/getting-started/researching-investments/how-read-10-k",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "L02",
+      "title": "OIC: Options Assignment",
+      "url": "https://www.optionseducation.org/referencelibrary/faq/options-assignment",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "L03",
+      "title": "FINRA: Margin Accounts",
+      "url": "https://www.finra.org/investors/investing/investment-accounts/brokerage-accounts/margin-accounts",
+      "accessed_date": "2026-10-30"
+    },
+    {
+      "source_id": "S45",
+      "title": "CME Group, What is Contango and Backwardation.",
+      "url": "https://www.cmegroup.com/education/courses/introduction-to-base-metals/what-is-contango-and-backwardation",
+      "accessed_date": "2026-11-01"
+    }
+  ]
+}

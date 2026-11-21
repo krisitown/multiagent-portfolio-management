@@ -1,0 +1,350 @@
+{
+  "$defs": {
+    "AuthoringProvenance": {
+      "additionalProperties": false,
+      "properties": {
+        "author": {
+          "minLength": 1,
+          "title": "Author",
+          "type": "string"
+        },
+        "authored_date": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Authored Date"
+        },
+        "model_id": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Model Id"
+        },
+        "reasoning_effort": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reasoning Effort"
+        },
+        "schema_version": {
+          "const": 1,
+          "default": 1,
+          "title": "Schema Version",
+          "type": "integer"
+        },
+        "session_ref": {
+          "anyOf": [
+            {
+              "minLength": 1,
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Session Ref"
+        }
+      },
+      "required": [
+        "author"
+      ],
+      "title": "AuthoringProvenance",
+      "type": "object"
+    },
+    "Availability": {
+      "enum": [
+        "known",
+        "unknown",
+        "unavailable",
+        "not_applicable"
+      ],
+      "title": "Availability",
+      "type": "string"
+    },
+    "JsonValue": {},
+    "QuantityValue": {
+      "additionalProperties": false,
+      "properties": {
+        "availability": {
+          "$ref": "#/$defs/Availability"
+        },
+        "currency": {
+          "anyOf": [
+            {
+              "pattern": "^[A-Z]{3}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Currency"
+        },
+        "evidence_refs": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Evidence Refs",
+          "type": "array"
+        },
+        "reason": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reason"
+        },
+        "schema_version": {
+          "const": 1,
+          "default": 1,
+          "title": "Schema Version",
+          "type": "integer"
+        },
+        "source": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source"
+        },
+        "unit": {
+          "minLength": 1,
+          "title": "Unit",
+          "type": "string"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Value"
+        }
+      },
+      "required": [
+        "availability",
+        "unit"
+      ],
+      "title": "QuantityValue",
+      "type": "object"
+    },
+    "WorkedExample": {
+      "additionalProperties": false,
+      "properties": {
+        "calculation": {
+          "minLength": 1,
+          "title": "Calculation",
+          "type": "string"
+        },
+        "classification": {
+          "enum": [
+            "synthetic",
+            "historical"
+          ],
+          "title": "Classification",
+          "type": "string"
+        },
+        "description": {
+          "title": "Description",
+          "type": "string"
+        },
+        "example_id": {
+          "minLength": 1,
+          "title": "Example Id",
+          "type": "string"
+        },
+        "expected_outputs": {
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "$ref": "#/$defs/QuantityValue"
+              },
+              {
+                "$ref": "#/$defs/JsonValue"
+              }
+            ]
+          },
+          "title": "Expected Outputs",
+          "type": "object"
+        },
+        "independent_basis": {
+          "title": "Independent Basis",
+          "type": "string"
+        },
+        "inputs": {
+          "additionalProperties": {
+            "$ref": "#/$defs/JsonValue"
+          },
+          "title": "Inputs",
+          "type": "object"
+        },
+        "schema_version": {
+          "const": 1,
+          "default": 1,
+          "title": "Schema Version",
+          "type": "integer"
+        },
+        "source_refs": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Source Refs",
+          "type": "array"
+        },
+        "tolerance": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Tolerance"
+        }
+      },
+      "required": [
+        "example_id",
+        "classification",
+        "description",
+        "calculation",
+        "inputs",
+        "expected_outputs",
+        "independent_basis"
+      ],
+      "title": "WorkedExample",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "authoring_provenance": {
+      "$ref": "#/$defs/AuthoringProvenance"
+    },
+    "claim_classification": {
+      "enum": [
+        "sourced_fact",
+        "derived",
+        "illustrative",
+        "judgment"
+      ],
+      "title": "Claim Classification",
+      "type": "string"
+    },
+    "claims": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "title": "Claims",
+      "type": "object"
+    },
+    "content_hash": {
+      "minLength": 1,
+      "title": "Content Hash",
+      "type": "string"
+    },
+    "module_id": {
+      "minLength": 1,
+      "title": "Module Id",
+      "type": "string"
+    },
+    "path": {
+      "minLength": 1,
+      "title": "Path",
+      "type": "string"
+    },
+    "prerequisites": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Prerequisites",
+      "type": "array"
+    },
+    "schema_version": {
+      "const": 1,
+      "default": 1,
+      "title": "Schema Version",
+      "type": "integer"
+    },
+    "source_refs": {
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Source Refs",
+      "type": "array"
+    },
+    "title": {
+      "title": "Title",
+      "type": "string"
+    },
+    "version": {
+      "minLength": 1,
+      "title": "Version",
+      "type": "string"
+    },
+    "worked_examples": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/WorkedExample"
+      },
+      "title": "Worked Examples",
+      "type": "array"
+    }
+  },
+  "required": [
+    "module_id",
+    "version",
+    "title",
+    "path",
+    "content_hash",
+    "source_refs",
+    "claim_classification",
+    "authoring_provenance"
+  ],
+  "title": "KnowledgeModule",
+  "type": "object"
+}

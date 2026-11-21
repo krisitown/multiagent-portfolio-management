@@ -1,0 +1,55 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "amount": {
+      "title": "Amount",
+      "type": "string"
+    },
+    "currency": {
+      "pattern": "^[A-Z]{3}$",
+      "title": "Currency",
+      "type": "string"
+    },
+    "flow_id": {
+      "minLength": 1,
+      "title": "Flow Id",
+      "type": "string"
+    },
+    "kind": {
+      "enum": [
+        "deposit",
+        "withdrawal",
+        "income",
+        "fee",
+        "other"
+      ],
+      "title": "Kind",
+      "type": "string"
+    },
+    "occurred_at": {
+      "format": "date-time",
+      "title": "Occurred At",
+      "type": "string"
+    },
+    "schema_version": {
+      "const": 1,
+      "default": 1,
+      "title": "Schema Version",
+      "type": "integer"
+    },
+    "source": {
+      "title": "Source",
+      "type": "string"
+    }
+  },
+  "required": [
+    "flow_id",
+    "occurred_at",
+    "amount",
+    "currency",
+    "kind",
+    "source"
+  ],
+  "title": "CashFlow",
+  "type": "object"
+}

@@ -1,0 +1,206 @@
+{
+  "schema_version": 1,
+  "actual_tools": {
+    "market_query": {
+      "factory": "market_tools(store, provider)",
+      "inputs": {
+        "query": "MarketQuery: query_id, capability, optional instrument_ids/parameters/as_of/cursor/limit (1..1000)"
+      },
+      "output": "ToolResult: MarketResult data, persisted evidence_refs/result_refs, untouched source/fetch/delay metadata",
+      "tests": [
+        "tests/thin/test_tools.py::test_market_preserves_missing_stale_source_and_source_instructions",
+        "tests/thin/test_tools.py::test_market_rejects_mismatched_duplicate_and_oversized_provider_pages",
+        "tests/thin/test_tools.py::test_provider_errors_are_bounded_and_never_expose_transport_text"
+      ]
+    },
+    "portfolio_read": {
+      "factory": "portfolio_tools(store, snapshot)",
+      "inputs": {
+        "snapshot_ref": "Exact supplied snapshot_id or returned snapshot:<snapshot_id> reference"
+      },
+      "output": "ToolResult: complete supplied PortfolioSnapshot data and immutable result_refs; unavailable without supplied snapshot",
+      "tests": [
+        "tests/thin/test_tools.py::test_snapshot_requires_exact_supplied_identity_and_preserves_unknown_zero"
+      ]
+    },
+    "finance_calculate": {
+      "factory": "finance_tools(store, snapshot=None, policy=None, clock=None)",
+      "inputs": {
+        "formula": "put_economics | roll_economics | expiry_payoff | match_coverage | analyze_portfolio | performance",
+        "inputs": "Exact Decimal text/integers; formula-specific numeric fields, no extra fields",
+        "parameters": "Formula-specific ContractIdentity/price_basis, currency, positions, snapshot_ref or history_refs"
+      },
+      "output": "ToolResult: dated immutable CalculationRecord data/result_refs with Decimal text, units, currencies, availability and findings",
+      "tests": [
+        "tests/thin/test_tools.py::test_finance_put_roll_and_unsupported_contract_preserve_exact_economics",
+        "tests/thin/test_tools.py::test_finance_snapshot_calculations_and_expiry_do_not_invent_missing_data",
+        "tests/thin/test_tools.py::test_invalid_expiry_spots_are_typed_failures_and_roll_rejects_unrelated_inputs",
+        "tests/thin/test_tools.py::test_roll_rejects_unrelated_put_input",
+        "tests/thin/test_tools.py::test_performance_uses_only_explicit_run_snapshot_refs_without_mixing_accounts",
+        "tests/thin/test_retained_invariants.py::test_calculation_identity_binds_available_normalized_record_content"
+      ]
+    },
+    "knowledge_read": {
+      "factory": "knowledge_tools(store, manifest_path=None)",
+      "inputs": {
+        "module_id": "Indexed logical module ID from the explicitly selected manifest"
+      },
+      "output": "ToolResult: hash-validated module metadata and Markdown content frozen when factory is created; unavailable when no bundle/module selected",
+      "tests": [
+        "tests/thin/test_tools.py::test_knowledge_reads_only_indexed_hash_validated_modules",
+        "tests/thin/test_tools.py::test_knowledge_is_frozen_at_factory_creation_and_invalid_hashes_fail"
+      ]
+    },
+    "evidence_read": {
+      "factory": "evidence_tools(store)",
+      "inputs": {
+        "record_ref": "Exact immutable kind:<logical-id> or idea:<idea-id>@<revision-id> reference"
+      },
+      "output": "ToolResult.data.record: detached typed JSON payload; unavailable for absent valid refs, invalid_data for paths",
+      "tests": [
+        "tests/thin/test_tools.py::test_evidence_read_find_and_publications_resolve_refs_and_revision_conflicts"
+      ]
+    },
+    "evidence_find": {
+      "factory": "evidence_tools(store)",
+      "inputs": {
+        "kind": "evidence | calculation | snapshot | idea | review | quality",
+        "query": "Optional exact top-level field matches (maximum 32 fields)"
+      },
+      "output": "ToolResult.data.records: detached matching run-local records",
+      "tests": [
+        "tests/thin/test_tools.py::test_evidence_read_find_and_publications_resolve_refs_and_revision_conflicts"
+      ]
+    },
+    "publish_idea": {
+      "factory": "evidence_tools(store); internal compatibility only, not role-exposed",
+      "inputs": {
+        "idea": "IdeaRevision; all declared evidence/calculation/snapshot/quality/parent references must resolve in this run; parent/company identities agree"
+      },
+      "output": "ToolResult.data.record_ref and result_refs; immutable revision conflict is invalid_data",
+      "tests": [
+        "tests/thin/test_tools.py::test_evidence_read_find_and_publications_resolve_refs_and_revision_conflicts"
+      ]
+    },
+    "publish_review": {
+      "factory": "evidence_tools(store); internal compatibility only, not role-exposed",
+      "inputs": {
+        "review": "ExpertReview; reviewed_revision_refs/evidence_refs/calculation_refs must resolve with correct kinds"
+      },
+      "output": "ToolResult.data.record_ref and result_refs",
+      "tests": [
+        "tests/thin/test_tools.py::test_evidence_read_find_and_publications_resolve_refs_and_revision_conflicts"
+      ]
+    },
+    "publish_quality": {
+      "factory": "evidence_tools(store); internal compatibility only, not role-exposed",
+      "inputs": {
+        "assessment": "QualityAssessment; evidence_refs must resolve in current run"
+      },
+      "output": "ToolResult.data.record_ref and result_refs",
+      "tests": [
+        "tests/thin/test_tools.py::test_evidence_read_find_and_publications_resolve_refs_and_revision_conflicts"
+      ]
+    },
+    "public_search": {
+      "factory": "research_tools(store, configured_backend, clock=None); analyst only",
+      "inputs": {
+        "query": "nonempty public research question, max2000 characters",
+        "limit": "integer1..5, default5"
+      },
+      "output": "ToolResult results/evidence_refs with real source URLs, fetched time, source time unknown unless provided; bounded12000 total source text characters; backend unavailable explicit",
+      "tests": [
+        "tests/thin/test_research.py::test_public_search_persists_real_urls_unknown_source_time_and_inert_text",
+        "tests/thin/test_research.py::test_outer_timeout_cancels_transport_and_sanitizes_errors",
+        "tests/thin/test_research.py::test_actual_bridge_loads_environment_without_override_and_disables_inference",
+        "tests/thin/test_explorer_tools.py::test_search_exposes_dates_and_bounds_excerpts_without_fetching"
+      ]
+    },
+    "fetch_sources": {
+      "factory": "research_tools(store, configured_backend, clock=None); analyst only",
+      "inputs": {
+        "urls": "1..5 unique bounded public HTTP(S) URLs; no private/local addresses or embedded credentials"
+      },
+      "output": "ToolResult results/evidence_refs with immutable source records, explicit per-source failures, truncation/original hashes and publication-time uncertainty; no LLM processing",
+      "tests": [
+        "tests/thin/test_research.py::test_fetch_sources_preserves_partial_failures_truncation_and_exact_times",
+        "tests/thin/test_research.py::test_fetch_sources_bounds_total_text_and_does_not_invent_timezones",
+        "tests/thin/test_research.py::test_fetch_rejects_nonpublic_urls_before_transport",
+        "tests/thin/test_research.py::test_actual_bridge_loads_environment_without_override_and_disables_inference"
+      ]
+    },
+    "market_statistics": {
+      "factory": "explorer_tools(store, market_provider, research_backend, clock)",
+      "tests": [
+        "tests/thin/test_explorer_tools.py::test_captured_public_responses_pass_real_parsing_and_storage",
+        "tests/thin/test_explorer_tools.py::test_partial_failure_is_visible_and_evidence_persists_units"
+      ]
+    },
+    "options_liquidity": {
+      "factory": "explorer_tools(store, market_provider, research_backend, clock)",
+      "tests": [
+        "tests/thin/test_explorer_tools.py::test_captured_public_responses_pass_real_parsing_and_storage",
+        "tests/thin/test_explorer_tools.py::test_partial_failure_is_visible_and_evidence_persists_units"
+      ]
+    },
+    "option_scenarios": {
+      "factory": "option_scenario_tools(store,clock); private council only",
+      "tests": [
+        "tests/thin/test_council_scenarios.py::test_short_put_expiry_math_and_original_calculation_reference"
+      ]
+    }
+  },
+  "cross_owner_actual_tools": {
+    "research_batch": {
+      "owner": "Task 3",
+      "tests": [
+        "tests/thin/test_delegation.py::test_actual_sdk_batch_and_expert_followup_reach_lead",
+        "tests/thin/test_delegation.py::test_child_semaphore_allows_configured_concurrency_and_releases_parent",
+        "tests/thin/test_delegation.py::test_invalid_batch_spawns_no_analyst_and_lead_recovers"
+      ]
+    },
+    "consult_expert": {
+      "owner": "Task 3",
+      "tests": [
+        "tests/thin/test_holistic_expert_handoff.py::test_all_originals_and_owner_request_are_automatic",
+        "tests/thin/test_holistic_expert_handoff.py::test_duplicate_job_ids_and_failed_envelopes_remain_original",
+        "tests/thin/test_expert_reference_boundary.py::test_holistic_review_does_not_require_reference_resolution"
+      ],
+      "inputs": {},
+      "output": "Expert original ordinary assessment with success/partial/failed outcome; automatic owner task, all completed run-local analyst envelopes, separate explorer originals and readable portfolio once"
+    },
+    "explore": {
+      "tests": [
+        "tests/thin/test_explorer_flow.py::test_explorer_and_holdings_reach_one_holistic_expert"
+      ]
+    },
+    "request_research": {
+      "tests": [
+        "tests/thin/test_expert_research.py::test_same_expert_gets_original_followup_and_reuses_initial_job_without_deadlock",
+        "tests/thin/test_expert_research.py::test_deadline_cancels_extra_analyst_and_preserves_original_initial_report"
+      ]
+    },
+    "consult_portfolio_manager": {
+      "tests": [
+        "tests/thin/test_portfolio_council.py::test_manager_final_exact_and_specialist_followup_originals"
+      ]
+    },
+    "consult_specialists": {
+      "tests": [
+        "tests/thin/test_portfolio_council.py::test_private_peers_public_research_reuse_and_bound_caller",
+        "tests/thin/test_portfolio_council.py::test_cancelled_peer_retains_status_and_cannot_be_completed_report"
+      ]
+    }
+  },
+  "injected_external_doubles": [
+    "tests/thin/test_tools.py::Provider: synthetic external market capability/result only; actual market closure, schemas and persistence remain real",
+    "tests/thin/test_tools.py::InvalidProvider/BrokenProvider: malformed or failed external market responses only",
+    "tests/fixtures/knowledge/valid_minimal: synthetic hash-validated Markdown fixture, no production prose"
+  ],
+  "internal_tools": [
+    "portfolio_read",
+    "publish_idea",
+    "publish_review",
+    "publish_quality"
+  ]
+}

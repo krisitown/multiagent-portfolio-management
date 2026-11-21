@@ -1,0 +1,49 @@
+{
+  "application": "Append one shared financial mechanics/checking contract plus a small public/private evidence-scoping amendment to checked authors.",
+  "apply_to": [
+    "analyst",
+    "wheel_expert",
+    "dalio",
+    "buffett",
+    "portfolio_manager"
+  ],
+  "remove_prior_checker_amendments_for": [
+    "team_lead",
+    "explorer",
+    "hermes_summary"
+  ],
+  "common": "caller-amendments/common.md",
+  "common_sha256": "069f79722b4de1a8dad9acb8db3d6cd22d17141b67a90dd0ee14c0f4900069eb",
+  "roles": {
+    "analyst": {
+      "baseline_path": "candidate/deployed/prompts/analyst/system-prompt.md",
+      "baseline_sha256": "32292b43270e88e1f826d66818ae2713f93a27689d46fc6ee248f2d2968601a3",
+      "amendment_path": "caller-amendments/analyst.md",
+      "amendment_sha256": "c876f86edd5e3b8ca9dcadb4cac87219adf92565a7a95b1b2409198c624ee522"
+    },
+    "wheel_expert": {
+      "baseline_path": "candidate/deployed/prompts/wheel_expert/system-prompt.md",
+      "baseline_sha256": "0089823aba0e5995fbff6a7ffa5c81ce06037050ce681d7710ee97c088b596ea",
+      "amendment_path": "caller-amendments/private-author.md",
+      "amendment_sha256": "a68eed9bfa156324770d177e8056cb7e5a7938fd2f8278ef7cb08a4e713ddfed"
+    },
+    "dalio": {
+      "baseline_path": "roles/dalio.md",
+      "baseline_sha256": "32e80642fb442045e7c1645e7afb2b0d5294e77aaa17f8bc6724424b173e310f",
+      "amendment_path": "caller-amendments/private-author.md",
+      "amendment_sha256": "a68eed9bfa156324770d177e8056cb7e5a7938fd2f8278ef7cb08a4e713ddfed"
+    },
+    "buffett": {
+      "baseline_path": "roles/buffett.md",
+      "baseline_sha256": "50036e3309f715c0f1e31965281981187e72bb5842515c01731438662a990bc4",
+      "amendment_path": "caller-amendments/private-author.md",
+      "amendment_sha256": "a68eed9bfa156324770d177e8056cb7e5a7938fd2f8278ef7cb08a4e713ddfed"
+    },
+    "portfolio_manager": {
+      "baseline_path": "roles/portfolio_manager.md",
+      "baseline_sha256": "9831f350c42fed3a919cc10dc7ff6264ab6bedec031fac43a902d5066cb0f6e2",
+      "amendment_path": "caller-amendments/private-author.md",
+      "amendment_sha256": "a68eed9bfa156324770d177e8056cb7e5a7938fd2f8278ef7cb08a4e713ddfed"
+    }
+  }
+}

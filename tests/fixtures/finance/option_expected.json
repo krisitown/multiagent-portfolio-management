@@ -1,0 +1,43 @@
+{
+  "fixture_version": 1,
+  "provenance": "Synthetic, hand-derived from contractual cash flows; no calculator implementation produced these expectations.",
+  "put_cases": [
+    {
+      "id": "two_standard_puts_after_total_fees",
+      "inputs": {"strike": "50", "quantity": 2, "multiplier": "100", "premium": "2", "fees": "3", "currency": "USD"},
+      "expected": {"gross_assignment_funding": "10000", "gross_premium": "400", "net_premium": "397", "net_premium_per_share": "1.985", "breakeven": "48.015", "maximum_loss": "9603", "return_on_strike_notional": "0.0397"},
+      "derivation": "Two contracts deliver 200 shares. Gross purchase obligation is 200 shares at 50 = 10000. Premium is 400 less one total fee of 3 = 397; 397 spread over 200 shares is 1.985; effective entry 48.015. At zero stock value, loss is 9603. Net premium divided by strike notional is 0.0397."
+    },
+    {
+      "id": "ten_share_multiplier_eur",
+      "inputs": {"strike": "12.5", "quantity": 3, "multiplier": "10", "premium": "0.75", "fees": "1.5", "currency": "EUR"},
+      "expected": {"gross_assignment_funding": "375", "gross_premium": "22.5", "net_premium": "21", "net_premium_per_share": "0.7", "breakeven": "11.8", "maximum_loss": "354", "return_on_strike_notional": "0.056"},
+      "derivation": "Thirty deliverable shares cost 375. Gross premium 22.5 less total fees 1.5 leaves 21, or 0.7 per share; effective entry is 11.8; zero-value loss is 354; 21/375 = 0.056. No USD conversion is assumed."
+    },
+    {
+      "id": "fees_exceed_premium",
+      "inputs": {"strike": "20", "quantity": 1, "multiplier": "10", "premium": "0.1", "fees": "2", "currency": "USD"},
+      "expected": {"gross_assignment_funding": "200", "gross_premium": "1", "net_premium": "-1", "net_premium_per_share": "-0.1", "breakeven": "20.1", "maximum_loss": "201", "return_on_strike_notional": "-0.005"},
+      "derivation": "Ten shares earn 1 gross premium but cost 2 total fees: net -1. Negative income increases effective entry to 20.1 and zero-value loss to 201. Negative returns are preserved."
+    }
+  ],
+  "roll_cases": [
+    {
+      "id": "credit_roll_realizes_loss",
+      "inputs": {"quantity": 2, "multiplier": "100", "original_credit": "2", "close_debit": "5", "new_credit": "6", "fees": "4"},
+      "expected": {"old_leg_realized_per_share": "-3", "old_leg_realized_total": "-600", "new_leg_credit_total": "1200", "net_roll_cash_per_share": "1", "net_roll_cash": "196", "combined_history_cash": "596"},
+      "derivation": "Original leg received 400 and costs 1000 to close: -600, or -3 per share, before fees. Replacement receives 1200. Roll cash is 1200 less 1000 less total fees 4 = 196. Combined original and roll cash is 596; the original loss remains visible. No fee allocation between legs is invented."
+    },
+    {
+      "id": "debit_roll_nonstandard_multiplier",
+      "inputs": {"quantity": 3, "multiplier": "10", "original_credit": "1.25", "close_debit": "0.5", "new_credit": "0.25", "fees": "1.5"},
+      "expected": {"old_leg_realized_per_share": "0.75", "old_leg_realized_total": "22.5", "new_leg_credit_total": "7.5", "net_roll_cash_per_share": "-0.25", "net_roll_cash": "-9", "combined_history_cash": "28.5"},
+      "derivation": "Original receives 37.5, closing costs 15, replacement receives 7.5. Old leg realizes 22.5; roll alone costs 9 including 1.5 total fees; combined cash is 28.5."
+    }
+  ],
+  "expiry_cases": [
+    {"id": "short_puts_with_partial_long_and_stock", "spot": "40", "expected_payoff": "-1100", "derivation": "Two short strike-50 puts owe 2000; one long strike-45 put receives 500; ten stock shares are worth 400. Net terminal value is -1100, excluding historical premiums, cost basis and fees."},
+    {"id": "call_spread", "spot": "40", "expected_payoff": "1500", "derivation": "Two long strike-30 calls receive 2000; one short strike-35 call owes 500; terminal payoff is 1500."},
+    {"id": "all_options_out_of_money", "spot": "55", "expected_payoff": "0", "derivation": "Both strike-50 and strike-45 puts have zero intrinsic value at 55. An observed zero is a known value, not a missing spot."}
+  ]
+}

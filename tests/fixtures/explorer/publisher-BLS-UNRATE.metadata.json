@@ -1,0 +1,16 @@
+{
+  "name": "publisher-BLS-UNRATE",
+  "source_url": "https://api.bls.gov/publicAPI/v1/timeseries/data/",
+  "request_json": {
+    "seriesid": [
+      "LNS14000000"
+    ],
+    "startyear": "2025",
+    "endyear": "2026"
+  },
+  "http_status": 200,
+  "capture_timestamp_utc": "2026-10-31T21:06:10.087061+00:00",
+  "content_type": "application/json",
+  "original_response_sha256": "1dc78320daf8526c46853bdf64d9cf2b1173bacd43eafc3e35269d649ed0e98c",
+  "bytes": 2142
+}

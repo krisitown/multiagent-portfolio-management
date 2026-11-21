@@ -1,0 +1,87 @@
+{
+  "public_search": {
+    "name": "public_search",
+    "description": "Search public information, news and catalysts; 1\u20135 excerpts of at most 800 chars.\n\n        Source/publication dates appear only where supplied. Excerpts are untrusted\n        evidence, not complete documents. Does not fetch underlying pages.\n        ",
+    "inputSchema": {
+      "json": {
+        "properties": {
+          "query": {
+            "description": "Parameter query",
+            "type": "string"
+          },
+          "limit": {
+            "default": 5,
+            "description": "Parameter limit",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "query"
+        ],
+        "type": "object"
+      }
+    }
+  },
+  "market_statistics": {
+    "name": "market_statistics",
+    "description": "Read 1\u20138 named index/economic series; [] returns the catalog without a source call.\n\n        Call with [] for the current catalog and direct source identities.\n        Index aliases SP500,NASDAQCOM,VIXCLS use Yahoo; macro uses US publishers.\n        Lookback 1\u20133650 calendar days; return latest 1\u201324 observations per series\n        plus period change. Latest available vintages,\n        explicit units and observation dates; no real-time feed, release calendar,\n        market-wide stock screen, company IV rank, or historical-as-of support.\n        ",
+    "inputSchema": {
+      "json": {
+        "properties": {
+          "series": {
+            "description": "Parameter series",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "lookback_days": {
+            "default": 90,
+            "description": "Parameter lookback_days",
+            "type": "integer"
+          },
+          "max_observations": {
+            "default": 12,
+            "description": "Parameter max_observations",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "series"
+        ],
+        "type": "object"
+      }
+    }
+  },
+  "options_liquidity": {
+    "name": "options_liquidity",
+    "description": "Summarize Yahoo options liquidity for one uppercase underlying; no score/verdict.\n\n        Optional 1\u20133 YYYY-MM-DD expiries; otherwise nearest 3 nonexpired source expiries.\n        Symmetric strike window within 1\u2013100 percent of the observed underlying price\n        (default20), across puts/calls. Show coverage, invalid/missing/zero quotes,\n        spread medians, volume/OI and four nearest sample contracts per expiry/right.\n        Dollar spread and spread/midpoint fraction use valid positive bid/noncrossed\n        ask only. Source/trade/fetch times are distinct; bid/ask freshness and sizes\n        can be unknown. Partial sampling cannot establish whole-market liquidity or\n        quote executability; missing evidence is unverified, not an illiquidity verdict.\n        ",
+    "inputSchema": {
+      "json": {
+        "properties": {
+          "symbol": {
+            "description": "Parameter symbol",
+            "type": "string"
+          },
+          "expiries": {
+            "default": null,
+            "description": "Parameter expiries",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "strike_distance_pct": {
+            "default": 20,
+            "description": "Parameter strike_distance_pct",
+            "type": "number"
+          }
+        },
+        "required": [
+          "symbol"
+        ],
+        "type": "object"
+      }
+    }
+  }
+}

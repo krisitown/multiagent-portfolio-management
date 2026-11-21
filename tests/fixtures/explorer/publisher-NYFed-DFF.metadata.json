@@ -1,0 +1,9 @@
+{
+  "name": "publisher-NYFed-DFF",
+  "source_url": "https://markets.newyorkfed.org/api/rates/unsecured/effr/search.json?startDate=2025-10-31&endDate=2026-10-31",
+  "http_status": 200,
+  "capture_timestamp_utc": "2026-10-31T21:04:33.221386+00:00",
+  "content_type": "application/json;charset=utf-8",
+  "bytes": 70668,
+  "original_response_sha256": "71a3333fa69a73714b3a26b4a3dd86729252d0b85436f919812e27d7cbb6e67c"
+}

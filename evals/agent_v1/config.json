@@ -1,0 +1,38 @@
+{
+  "model": {
+    "provider": "openai",
+    "model_id": "qwen",
+    "endpoint": "http://127.0.0.1:8000/v1",
+    "api_key_env": "WHEEL_EVAL_API_KEY",
+    "allow_inference_network": true,
+    "timeout_seconds": 10800,
+    "max_output_tokens": 65536,
+    "reasoning_effort": "low",
+    "enable_thinking": null,
+    "include_reasoning": false,
+    "temperature": null
+  },
+  "prompts": {
+    "mode": "development",
+    "manifest_path": "prompts/role-prompts.json"
+  },
+  "knowledge_manifest_path": "prompts/knowledge-runtime.json",
+  "child_output_mode": "direct_text",
+  "explorer_enabled": true,
+  "explorer_temperature": 1.1,
+  "max_generations": 1000,
+  "max_expert_consultations": 1,
+  "analyst_concurrency": 8,
+  "deadline_seconds": 300,
+  "fact_check": {
+    "enabled": true,
+    "max_assessments": 3,
+    "max_output_tokens": 65536,
+    "context_window_tokens": 262144,
+    "prompts": {
+      "mode": "development",
+      "manifest_path": "prompts/checker-prompts/manifest.json"
+    },
+    "caller_amendments_path": "prompts/caller-amendments.json"
+  }
+}

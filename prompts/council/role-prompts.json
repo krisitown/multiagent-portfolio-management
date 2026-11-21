@@ -1,0 +1,43 @@
+{
+  "prompt_set_id": "portfolio-council-20261110",
+  "version": "12-spreads-margin-full-report",
+  "status": "approved",
+  "owner_approval_ref": "Maintainer-approved reusable prompt bundle for the public runtime release.",
+  "roles": {
+    "team_lead": {
+      "path": "candidate/deployed/prompts/team_lead/system-prompt.md",
+      "content_hash": "e6c912bae70fcce84e75915a1379e3e55090d65783c6382b9028c738d8b13fbf"
+    },
+    "explorer": {
+      "path": "candidate/deployed/prompts/explorer/system-prompt.md",
+      "content_hash": "7d6e163e0bad311c012150f429f717e62469468a107cd8ec3590ad2f4729c57d"
+    },
+    "analyst": {
+      "path": "candidate/deployed/prompts/analyst/system-prompt.md",
+      "content_hash": "32292b43270e88e1f826d66818ae2713f93a27689d46fc6ee248f2d2968601a3"
+    },
+    "wheel_expert": {
+      "path": "candidate/deployed/prompts/wheel_expert/system-prompt.md",
+      "content_hash": "0089823aba0e5995fbff6a7ffa5c81ce06037050ce681d7710ee97c088b596ea"
+    },
+    "dalio": {
+      "path": "roles/dalio.md",
+      "content_hash": "32e80642fb442045e7c1645e7afb2b0d5294e77aaa17f8bc6724424b173e310f"
+    },
+    "buffett": {
+      "path": "roles/buffett.md",
+      "content_hash": "50036e3309f715c0f1e31965281981187e72bb5842515c01731438662a990bc4"
+    },
+    "portfolio_manager": {
+      "path": "roles/portfolio_manager.md",
+      "content_hash": "9831f350c42fed3a919cc10dc7ff6264ab6bedec031fac43a902d5066cb0f6e2"
+    }
+  },
+  "shared": {
+    "working-principles": {
+      "path": "shared/working-principles.md",
+      "content_hash": "78337e93221c7fc8ab599402e13a1a56da805733143d42d829620c2d05555bb3"
+    }
+  },
+  "modules": {}
+}

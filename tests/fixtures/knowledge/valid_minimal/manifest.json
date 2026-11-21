@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "manifest_id": "synthetic-development-knowledge",
+  "version": "1",
+  "status": "development",
+  "modules": [
+    {
+      "module_id": "synthetic-arithmetic",
+      "version": "1",
+      "title": "Development-only synthetic arithmetic",
+      "path": "module.md",
+      "content_hash": "55b91af18c0b605764862bb7b9dd02a5a90a3e68c3f16399c846bf15688ed377",
+      "source_refs": ["synthetic-note"],
+      "claim_classification": "illustrative",
+      "worked_examples": [
+        {
+          "example_id": "synthetic-addition",
+          "classification": "synthetic",
+          "description": "Invented quantities for development validation",
+          "calculation": "synthetic-addition",
+          "inputs": {"first": 2, "second": 3},
+          "expected_outputs": {"total": 5},
+          "independent_basis": "Hand checked: 2 + 3 = 5."
+        }
+      ],
+      "authoring_provenance": {
+        "author": "development-fixture-author",
+        "authored_date": "2026-10-30"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "source_id": "synthetic-note",
+      "title": "Synthetic local source.md note; no external authority",
+      "source_date": "2026-10-30",
+      "content_hash": "cfafa36216d5bd5443de6213714cd23fa5d78e22ce02bd411ecc9c73dba7f20f"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "case_id": "heldout-roll-nonstandard-v1",
+  "question": "Explain the economics of rolling 3 contracts with a 10-share multiplier: original credit 1.25, close debit 0.5, new credit 0.25, total fees 1.5. Currency is unspecified. Distinguish realized old-leg result, roll cash and combined history.",
+  "mode": "education",
+  "fixtures": {
+    "clock": "2026-10-30T14:00:00Z"
+  },
+  "financial_oracles": [
+    {
+      "id": "debit_roll_nonstandard_multiplier",
+      "formula": "roll_economics",
+      "match_inputs": {
+        "quantity": 3,
+        "multiplier": "10",
+        "original_credit": "1.25",
+        "close_debit": "0.5",
+        "new_credit": "0.25",
+        "fees": "1.5"
+      },
+      "expected": {
+        "old_leg_realized_per_share": "0.75",
+        "old_leg_realized_total": "22.5",
+        "new_leg_credit_total": "7.5",
+        "net_roll_cash_per_share": "-0.25",
+        "net_roll_cash": "-9",
+        "combined_history_cash": "28.5"
+      }
+    }
+  ],
+  "provenance": {
+    "source_path": "tests/fixtures/finance/option_expected.json",
+    "source_sha256": "7eed6c9b40f565d4ff837688f9b9a2a6c1cab6802ba68c262cca2d0375a39f56",
+    "source_pointer": "/roll_cases/1",
+    "derivation": "Original receives 37.5, closing costs 15, replacement receives 7.5. Old leg realizes 22.5; roll alone costs 9 including 1.5 total fees; combined cash is 28.5."
+  },
+  "tags": [
+    "heldout",
+    "evaluation-only",
+    "independent-financial-oracle"
+  ]
+}

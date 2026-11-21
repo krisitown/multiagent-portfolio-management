@@ -1,0 +1,198 @@
+{
+  "$defs": {
+    "Availability": {
+      "enum": [
+        "known",
+        "unknown",
+        "unavailable",
+        "not_applicable"
+      ],
+      "title": "Availability",
+      "type": "string"
+    },
+    "Finding": {
+      "additionalProperties": false,
+      "properties": {
+        "affected_ids": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Affected Ids",
+          "type": "array"
+        },
+        "code": {
+          "minLength": 1,
+          "title": "Code",
+          "type": "string"
+        },
+        "evidence_refs": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Evidence Refs",
+          "type": "array"
+        },
+        "reason": {
+          "minLength": 1,
+          "title": "Reason",
+          "type": "string"
+        },
+        "schema_version": {
+          "const": 1,
+          "default": 1,
+          "title": "Schema Version",
+          "type": "integer"
+        },
+        "severity": {
+          "enum": [
+            "info",
+            "warning",
+            "error"
+          ],
+          "title": "Severity",
+          "type": "string"
+        }
+      },
+      "required": [
+        "code",
+        "severity",
+        "reason"
+      ],
+      "title": "Finding",
+      "type": "object"
+    },
+    "JsonValue": {}
+  },
+  "additionalProperties": false,
+  "properties": {
+    "availability": {
+      "additionalProperties": {
+        "$ref": "#/$defs/Availability"
+      },
+      "title": "Availability",
+      "type": "object"
+    },
+    "calculation_id": {
+      "minLength": 1,
+      "title": "Calculation Id",
+      "type": "string"
+    },
+    "computed_at": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Computed At"
+    },
+    "currencies": {
+      "additionalProperties": {
+        "pattern": "^[A-Z]{3}$",
+        "type": "string"
+      },
+      "title": "Currencies",
+      "type": "object"
+    },
+    "findings": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/Finding"
+      },
+      "title": "Findings",
+      "type": "array"
+    },
+    "formula": {
+      "minLength": 1,
+      "title": "Formula",
+      "type": "string"
+    },
+    "formula_version": {
+      "minLength": 1,
+      "title": "Formula Version",
+      "type": "string"
+    },
+    "input_refs": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Input Refs",
+      "type": "array"
+    },
+    "inputs": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "title": "Inputs",
+      "type": "object"
+    },
+    "outputs": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "title": "Outputs",
+      "type": "object"
+    },
+    "parameters": {
+      "additionalProperties": {
+        "$ref": "#/$defs/JsonValue"
+      },
+      "title": "Parameters",
+      "type": "object"
+    },
+    "reason": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Reason"
+    },
+    "schema_version": {
+      "const": 1,
+      "default": 1,
+      "title": "Schema Version",
+      "type": "integer"
+    },
+    "status": {
+      "enum": [
+        "success",
+        "unavailable",
+        "retryable_error",
+        "permanent_error",
+        "invalid_data"
+      ],
+      "title": "Status",
+      "type": "string"
+    },
+    "units": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "title": "Units",
+      "type": "object"
+    }
+  },
+  "required": [
+    "calculation_id",
+    "status",
+    "formula",
+    "formula_version"
+  ],
+  "title": "CalculationRecord",
+  "type": "object"
+}

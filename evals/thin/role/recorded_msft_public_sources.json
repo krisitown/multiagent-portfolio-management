@@ -1,0 +1,130 @@
+{
+  "case_id": "recorded-msft-public-sources-v1",
+  "purpose": "recorded_role_testing",
+  "role": "analyst",
+  "mode": "focused",
+  "question": "Using the controlled recording of public search and the fetched official Microsoft IR page, explain the balance-sheet table labels March 31, 2026 versus June 30, 2025 and identify support and limits for the cash/investment observations. Cite the original URL. This is recorded-source testing, not current connected research; publication/source time is unknown and fetch time must not replace it. The recorded search query is site:microsoft.com investor relations FY2026 annual report balance sheet cash debt with limit 3.",
+  "mocked_tools": {
+    "public_search": {
+      "by_arguments": [
+        {
+          "arguments": {
+            "query": "site:microsoft.com investor relations FY2026 annual report balance sheet cash debt",
+            "limit": 3
+          },
+          "response": {
+            "schema_version": 1,
+            "status": "success",
+            "data": {
+              "results": [
+                {
+                  "record_ref": "evidence:public-web:72428e53fc1c3161f5ffd466117783b4ca6936c19b82ec7665e180177042b4b9",
+                  "source_url": "https://www.microsoft.com/en-us/investor/earnings/fy-2026-q3/balance-sheets",
+                  "operation": "search",
+                  "title": "FY26 Q3 - Balance Sheets - Investor Relations - Microsoft",
+                  "text": "| (In millions) (Unaudited) | |  | | |\n ---  --- \n| March 31,  2026 | June 30, 2025 |\n| ElementName | Assets |  |  |\n| ElementName | Current assets: |  |  |\n| us-gaap:CashAndCashEquivalentsAtCarryingValue | Cash and cash equivalents | $ 32,105 | $ 30,242 |\n| us-gaap:ShortTermInvestments | Short-term investments | 46,167 | 64,323 |\n| us-gaap:CashCashEquivalentsAndShortTermInvestments | Total cash, cash equivalents, and short-term investments | 78,272 | 94,565 | [...] | ElementName | Liabilities and stockholders' equity |  |  |\n| ElementName | Current liabilities: |  |  |\n| us-gaap:AccountsPayableCurrent | Accounts payable | $ 37,513 | $ 27,724 |\n| us-gaap:LongTermDebtCurrent | Current portion of long-term debt | 8,839 | 2,999 |\n| us-gaap:EmployeeRelatedLiabilitiesCurrent | Accrued compensation | 11,270 | 13,709 |\n| us-gaap:AccruedIncomeTaxesCurrent | Short-term income taxes | 3,563 | 7,211 | [...] | us-gaap:ContractWithCustomerLiabilityCurrent | Short-term unearned revenue | 50,924 | 64,555 |\n| us-gaap:OtherLiabilitiesCurrent | Other current liabilities | 24,552 | 25,020 |\n| us-gaap:LiabilitiesCurrent | Total current liabilities | 136,661 | 141,218 |\n| us-gaap:LongTermDebtNoncurrent | Long-term debt | 31,423 | 40,152 |\n| us-gaap:AccruedIncomeTaxesNoncurrent | Long-term income taxes | 27,941 | 25,986 |",
+                  "original_chars": 1321,
+                  "original_content_sha256": "898aff0ad967fcc3b08cecc6e29aae543eced8ff6791b53cb079a8785a903841",
+                  "truncated": false,
+                  "error": null
+                },
+                {
+                  "record_ref": "evidence:public-web:16dfa27aa25639f17064be364643a9bc6e5acfa60217c7419037d5d6997d6257",
+                  "source_url": "https://www.microsoft.com/en-us/investor/earnings/fy-2026-q2/balance-sheets",
+                  "operation": "search",
+                  "title": "FY26 Q2 - Balance Sheets - Investor Relations - Microsoft",
+                  "text": "| ElementName | Liabilities and stockholders' equity |\n| ElementName | Current liabilities: |\n| us-gaap:AccountsPayableCurrent | Accounts payable | $ 37,328 | $ 27,724 |\n| us-gaap:LongTermDebtCurrent | Current portion of long-term debt | 4,837 | 2,999 |\n| us-gaap:EmployeeRelatedLiabilitiesCurrent | Accrued compensation | 10,103 | 13,709 |\n| us-gaap:AccruedIncomeTaxesCurrent | Short-term income taxes | 2,050 | 7,211 | [...] Microsoft   Investor Relations     Home Board & ESG Annual Reports SEC Filings Events Investor Information Contacts   Press Release & Webcast  Income Statements Comprehensive Income Balance Sheets Cash Flows Segment Results  Performance Metrics  Productivity and Business Processes Intelligent Cloud More Personal Computing    Income Statements Comprehensive Income Balance Sheets Cash Flows Segment Results     Microsoft 365 Azure Copilot Windows Surface XBOX Deals Small Business Support   Windows [...] | us-gaap:AccountsReceivableNetCurrent | Accounts receivable, net of allowance for doubtful accounts of $729 and $944 | 56,535 | 69,905 |\n| us-gaap:InventoryNet | Inventories | 1,059 | 938 |\n| us-gaap:OtherAssetsCurrent | Other current assets | 33,134 | 25,723 |\n| us-gaap:AssetsCurrent | Total current assets | 180,190 | 191,131 |\n| us-gaap:PropertyPlantAndEquipmentNet | Property and equipment, net of accumulated depreciation of $104,950 and $93,653 | 261,126 | 204,966 |",
+                  "original_chars": 1407,
+                  "original_content_sha256": "0c430d71660903f18ff49299d38023cf33468344840f8a25ed3c11f969d0128f",
+                  "truncated": false,
+                  "error": null
+                },
+                {
+                  "record_ref": "evidence:public-web:7feaf54a71344251b639c72d7de9291b20d91d373036b8bc67fee9ba84ebd09f",
+                  "source_url": "https://www.microsoft.com/en-us/investor/earnings/fy-2026-q2/press-release-webcast",
+                  "operation": "search",
+                  "title": "FY26 Q2 - Press Releases - Investor Relations - Microsoft",
+                  "text": "| Net cash from operations | 35,758 |  | 22,291 |  | 80,815 |  | 56,471 |\n| Financing |  |  |  |  |  |  |  |\n| Repayments of debt, maturities of 90 days or less | 0 |  | 0 |  | 0 |  | (5,746) |\n| Repayments of debt | (3,000) |  | 0 |  | (3,000) |  | (966) |\n| Common stock issued | 259 |  | 256 |  | 948 |  | 962 |\n| Common stock repurchased | (7,415) |  | (4,986) |  | (13,065) |  | (9,093) |\n| Common stock cash dividends paid | (6,762) |  | (6,170) |  | (12,931) |  | (11,744) | [...] 2,802\n\n3,217\n\n(2,705)\n\n(2,262)\n\nOther\nlong-term liabilities\n\n(1,193)\n\n716\n\n \n\n(1,670)\n\n683\n\nNet\ncash from operations\n\n35,758\n\n22,291\n\n \n\n80,815\n\n56,471\n\nFinancing\n\nRepayments\nof debt, maturities of 90 days or less\n\n0\n\n0\n\n0\n\n(5,746)\n\nRepayments\nof debt\n\n(3,000)\n\n0\n\n(3,000)\n\n(966)\n\nCommon\nstock issued\n\n259\n\n256\n\n948\n\n962\n\nCommon\nstock repurchased\n\n(7,415)\n\n(4,986)\n\n(13,065)\n\n(9,093)\n\nCommon\nstock cash dividends paid\n\n(6,762)\n\n(6,170)\n\n(12,931)\n\n(11,744)\n\nOther,\nnet\n\n(699)\n\n(343)\n\n \n\n(1,368) [...] BALANCE SHEETS\n\n(In millions) (Unaudited)\n\nDecember 31,\n\n2025\n\nJune 30,\n\n2025\n\nAssets\n\nCurrent\nassets:\n\nCash\nand cash equivalents\n\n$24,296\n\n $30,242\n\nShort-term\ninvestments\n\n65,166\n\n64,323\n\nTotal\ncash, cash equivalents, and short-term investments\n\n89,462\n\n94,565\n\nAccounts\nreceivable, net of allowance for doubtful accounts of $729 and $944\n\n56,535\n\n69,905\n\nInventories\n\n1,059\n\n938\n\nOther\ncurrent assets\n\n33,134\n\n25,723\n\nTotal\ncurrent assets\n\n180,190\n\n191,131",
+                  "original_chars": 1447,
+                  "original_content_sha256": "7dc33662552079b9bca3b949886e44b5090d13c9c36f871f60832f4141b05663",
+                  "truncated": false,
+                  "error": null
+                }
+              ],
+              "results_truncated": false,
+              "source_time_note": "Fetch time is not observation or publication time"
+            },
+            "reason": null,
+            "evidence_refs": [
+              "evidence:public-web:72428e53fc1c3161f5ffd466117783b4ca6936c19b82ec7665e180177042b4b9",
+              "evidence:public-web:16dfa27aa25639f17064be364643a9bc6e5acfa60217c7419037d5d6997d6257",
+              "evidence:public-web:7feaf54a71344251b639c72d7de9291b20d91d373036b8bc67fee9ba84ebd09f"
+            ],
+            "result_refs": [
+              "evidence:public-web:72428e53fc1c3161f5ffd466117783b4ca6936c19b82ec7665e180177042b4b9",
+              "evidence:public-web:16dfa27aa25639f17064be364643a9bc6e5acfa60217c7419037d5d6997d6257",
+              "evidence:public-web:7feaf54a71344251b639c72d7de9291b20d91d373036b8bc67fee9ba84ebd09f"
+            ],
+            "findings": [],
+            "retry_after_seconds": null,
+            "trace_ref": null
+          }
+        }
+      ]
+    },
+    "fetch_sources": {
+      "by_arguments": [
+        {
+          "arguments": {
+            "urls": [
+              "https://www.microsoft.com/en-us/investor/earnings/fy-2026-q3/balance-sheets"
+            ]
+          },
+          "response": {
+            "schema_version": 1,
+            "status": "success",
+            "data": {
+              "results": [
+                {
+                  "record_ref": "evidence:public-web:87705f3abc82a525f06ec08353420b9439a758364b9ac8719bce9beb8c208620",
+                  "source_url": "https://www.microsoft.com/en-us/investor/earnings/fy-2026-q3/balance-sheets",
+                  "operation": "fetch",
+                  "title": "FY26 Q3 - Balance Sheets - Investor Relations - Microsoft",
+                  "text": "![Microsoft](https://uhf.microsoft.com/images/microsoft/RE1Mu3b.png)\n\nEarnings Release FY26 Q3\n\n## Balance Sheets\n\n| (In millions) (Unaudited) | |  | | |\n| --- | --- | --- | --- | --- |\n| **March 31,  2026** | **June 30, 2025** |\n| ElementName | **Assets** |  |  |\n| ElementName | Current assets: |  |  |\n| us-gaap:CashAndCashEquivalentsAtCarryingValue | [Cash and cash equivalents](IRFinancialStatementsPopups?tag=msft:ScheduleOfCashCashEquivalentsAndInvestmentsTableTextBlock&title=Cash and cash equivalents) | **$ 32,105** | $ 30,242 |\n| us-gaap:ShortTermInvestments | [Short-term investments](IRFinancialStatementsPopups?tag=msft:ScheduleOfCashCashEquivalentsAndInvestmentsTableTextBlock&title=Short-term investments) | **46,167** | 64,323 |\n| us-gaap:CashCashEquivalentsAndShortTermInvestments | Total cash, cash equivalents, and short-term investments | **78,272** | 94,565 |\n| us-gaap:AccountsReceivableNetCurrent | Accounts receivable, net of allowance for doubtful accounts of **$794** and $944 | **60,041** | 69,905 |\n| us-gaap:InventoryNet | Inventories | **1,219** | 938 |\n| us-gaap:OtherAssetsCurrent | Other current assets | **35,797** | 25,723 |\n| us-gaap:AssetsCurrent | Total current assets | **175,329** | 191,131 |\n| us-gaap:PropertyPlantAndEquipmentNet | [Property and equipment, net of accumulated depreciation of **$111,723** and $93,653](IRFinancialStatementsPopups?tag=us-gaap:PropertyPlantAndEquipmentDisclosureTextBlock&title=Property and equipment, net of accumulated depreciation of $111,723 and $93,653) | **283,228** | 204,966 |\n| us-gaap:OperatingLeaseRightOfUseAsset | [Operating lease right-of-use assets](IRFinancialStatementsPopups?tag=msft:LesseeOperatingAndFinanceLeasesTextBlock&title=Operating lease right-of-use assets) | **24,403** | 24,823 |\n| us-gaap:LongTermInvestments | [Equity and other investments](IRFinancialStatementsPopups?tag=msft:ScheduleOfCashCashEquivalentsAndInvestmentsTableTextBlock&title=Equity and other investments) | **33,683** | 15,405 |\n| us-gaap:Goodwill | [Goodwill](IRFinancialStatementsPopups?tag=us-gaap:GoodwillDisclosureTextBlock&title=Goodwill) | **119,661** | 119,509 |\n| us-gaap:FiniteLivedIntangibleAssetsNet | [Intangible assets, net](IRFinancialStatementsPopups?tag=us-gaap:IntangibleAssetsDisclosureTextBlock&title=Intangible assets, net) | **19,325** | 22,604 |\n| us-gaap:OtherAssetsNoncurrent | Other long-term assets | **38,599** | 40,565 |\n| us-gaap:Assets | Total assets | **$ 694,228** | $ 619,003 |\n| ElementName | **Liabilities and stockholders' equity** |  |  |\n| ElementName | Current liabilities: |  |  |\n| us-gaap:AccountsPayableCurrent | Accounts payable | **$ 37,513** | $ 27,724 |\n| us-gaap:LongTermDebtCurrent | [Current portion of long-term debt](IRFinancialStatementsPopups?tag=us-gaap:DebtDisclosureTextBlock&title=Current portion of long-term debt) | **8,839** | 2,999 |\n| us-gaap:EmployeeRelatedLiabilitiesCurrent | Accrued compensation | **11,270** | 13,709 |\n| us-gaap:AccruedIncomeTaxesCurrent | [Short-term income taxes](IRFinancialStatementsPopups?tag=us-gaap:IncomeTaxDisclosureTextBlock&title=Short-term income taxes) | **3,563** | 7,211 |\n| us-gaap:ContractWithCustomerLiabilityCurrent | [Short-term unearned revenue](IRFinancialStatementsPopups?tag=us-gaap:RevenueFromContractWithCustomerTextBlock&title=Short-term unearned revenue) | **50,924** | 64,555 |\n| us-gaap:OtherLiabilitiesCurrent | Other current liabilities | **24,552** | 25,020 |\n| us-gaap:LiabilitiesCurrent | Total current liabilities | **136,661** | 141,218 |\n| us-gaap:LongTermDebtNoncurrent | [Long-term debt](IRFinancialStatementsPopups?tag=us-gaap:DebtDisclosureTextBlock&title=Long-term debt) | **31,423** | 40,152 |\n| us-gaap:AccruedIncomeTaxesNoncurrent | [Long-term income taxes](IRFinancialStatementsPopups?tag=us-gaap:IncomeTaxDisclosureTextBlock&title=Long-term income taxes) | **27,941** | 25,986 |\n| us-gaap:ContractWithCustomerLiabilityNoncurrent | [Long-term unearned revenue](IRFinancialStatementsPopups?tag=us-gaap:RevenueFromContractWithCustomerTextBlock&title=Long-term unearned revenue) | **2,753** | 2,710 |\n| us-gaap:DeferredIncomeTaxLiabilitiesNet | [Deferred income taxes](IRFinancialStatementsPopups?tag=us-gaap:IncomeTaxDisclosureTextBlock&title=Deferred income taxes) | **2,899** | 2,835 |\n| us-gaap:OperatingLeaseLiabilityNoncurrent | [Operating lease liabilities](IRFinancialStatementsPopups?tag=msft:LesseeOperatingAndFinanceLeasesTextBlock&title=Operating lease liabilities) | **16,703** | 17,437 |\n| us-gaap:OtherLiabilitiesNoncurrent | Other long-term liabilities | **61,481** | 45,186 |\n| us-gaap:Liabilities | Total liabilities | **279,861** | 275,524 |\n| ElementName | [Commitments and contingencies](IRFinancialStatementsPopups?tag=us-gaap:LegalMattersAndContingenciesTextBlock&title=Commitments and contingencies) |  |  |\n| ElementName | Stockholders' equity: |  |  |\n| us-gaap:CommonStocksIncludingAdditionalPaidInCapital | Common stock and paid-in capital - shares authorized 24,000; outstanding **7,429** and 7,434 | **115,069** | 109,095 |\n| us-gaap:RetainedEarningsAccumulatedDeficit | Retained earnings | **302,526** | 237,731 |\n| us-gaap:AccumulatedOtherComprehensiveIncomeLossNetOfTax | [Accumulated other comprehensive loss](IRFinancialStatementsPopups?tag=us-gaap:ComprehensiveIncomeNoteTextBlock&title=Accumulated other comprehensive loss) | **(3,228)** | (3,347) |\n| us-gaap:StockholdersEquity | Total stockholders' equity | **414,367** | 343,479 |\n| us-gaap:LiabilitiesAndStockholdersEquity | Total liabilities and stockholders' equity | **$ 694,228** | $ 619,003 |\n\n## Balance Sheets\n\n(In millions) (Unaudited)\n\n### Download Earnings Related Files\n\nInformation contained in these documents is current as of the earnings date, and not restated for new accounting standards\n\n#### Earnings Release Pages\n\n#### Related Information\n\n## Microsoft Corp (MSFT)\n\n![ar2025](https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/AR_2025)\n\n###### 2025 ANNUAL REPORT\n\n[VIEW ONLINE](https://www.microsoft.com/investor/reports/ar25/index.html)\n\n[DOWNLOAD NOW](https://www.microsoft.com/investor/reports/ar25/download-center/index.html)\n\n![Facebook](https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Icon_Facebook_2x-1?scl=1 \"Facebook\")\n![X](https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Accessibility_Icon_X_40x40_v1?scl=1 \"X\")\n![LinkedIn](https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/LinkedIn_64x64?scl=1 \"Linkedin\")\n![youtube](https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/youtube-flat-64x64?scl=1 \"Youtube\")\n![Facebook](https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/Icon_Facebook_2x-1?scl=1 \"Facebook\")\n![LinkedIn](https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/LinkedIn_64x64?scl=1 \"LinkedIn\")\n![Email](https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/email-8?scl=1 \"Email\")",
+                  "original_chars": 6887,
+                  "original_content_sha256": "8abcf62205a5fb1d2d9ec34893288d9a1d59e620cfd5ef41db5a9934957a7765",
+                  "truncated": false,
+                  "error": null
+                }
+              ],
+              "results_truncated": false,
+              "source_time_note": "Fetch time is not observation or publication time"
+            },
+            "reason": null,
+            "evidence_refs": [
+              "evidence:public-web:87705f3abc82a525f06ec08353420b9439a758364b9ac8719bce9beb8c208620"
+            ],
+            "result_refs": [
+              "evidence:public-web:87705f3abc82a525f06ec08353420b9439a758364b9ac8719bce9beb8c208620"
+            ],
+            "findings": [],
+            "retry_after_seconds": null,
+            "trace_ref": null
+          }
+        }
+      ]
+    }
+  },
+  "provenance": {
+    "source_url": "https://www.microsoft.com/en-us/investor/earnings/fy-2026-q3/balance-sheets",
+    "fetched_at": "2026-10-30T23:58:20.800312Z",
+    "source_timestamp": null,
+    "source_time_availability": "unknown",
+    "original_chars": 6887,
+    "truncated": false,
+    "search_result_sha256": "72c1dcff7d6261197a387774204ecad5be2364a1565d2fc4feaa64e12b695ed6",
+    "fetch_result_sha256": "1bfd1c9368b1c8c22a2c28d0bfc44dd67abd8cf5b1b38e8274024466f24e7b41",
+    "recording_purpose": "Connected transport diagnostic with no model calls; role mocks preserve exact returned source data."
+  },
+  "acceptance_status": "testing_only_recorded_public_source_mocks"
+}

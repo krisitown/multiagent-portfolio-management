@@ -1,0 +1,28 @@
+{
+  "application": "Append common plus own amendment only to Analyst/Expert. Remove prior PM2 checker amendments from Lead/Explorer/Hermes. No final approval gate or auto checking.",
+  "apply_to": [
+    "analyst",
+    "wheel_expert"
+  ],
+  "remove_prior_checker_amendments_for": [
+    "team_lead",
+    "explorer",
+    "hermes_summary"
+  ],
+  "common": "caller-amendments/common.md",
+  "common_sha256": "18fd4d268f3888111fe84a79c42781b31815bddd920d28a7909a860004856167",
+  "roles": {
+    "analyst": {
+      "baseline_path": "candidate/deployed/prompts/analyst/system-prompt.md",
+      "baseline_sha256": "a52c8b89d34d3b96c08e1380dc225eae8ea0559a0fd025c6be0e525695954a30",
+      "amendment_path": "caller-amendments/analyst.md",
+      "amendment_sha256": "20430670be7385f189904bb6f75edc3f0a8a92a5d6c338383d020972107e51a5"
+    },
+    "wheel_expert": {
+      "baseline_path": "candidate/deployed/prompts/wheel_expert/system-prompt.md",
+      "baseline_sha256": "44ebaff01d551921de3ad8e927f9b0c7663b5ce263391b73aa6ec723f6b23e4f",
+      "amendment_path": "caller-amendments/wheel_expert.md",
+      "amendment_sha256": "71145b12ae3e0fbd960bd676b59305c676aa1db75e86357855beb520caf2e9b6"
+    }
+  }
+}

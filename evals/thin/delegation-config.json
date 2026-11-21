@@ -1,0 +1,123 @@
+{
+  "model": {
+    "provider": "scripted",
+    "model_id": "offline-callable-delegation",
+    "script": {
+      "role_scripts": {
+        "team_lead": [
+          [
+            {
+              "name": "research_batch",
+              "input": {
+                "jobs": [
+                  {
+                    "job_id": "economics",
+                    "question": "Calculate synthetic roll economics"
+                  },
+                  {
+                    "job_id": "coverage",
+                    "question": "Check whether a market capability is available"
+                  }
+                ]
+              }
+            },
+            {
+              "name": "consult_expert",
+              "input": {
+                "question": "Assess the evidence and propose any targeted follow-up",
+                "idea_refs": []
+              }
+            },
+            {
+              "name": "TeamResult",
+              "input": {
+                "summary": "Offline team tools completed; expert requested a source-timestamp check.",
+                "report_markdown": "# Offline callable team trace\n\nThe analysts exercised actual finance and market tools. The expert requested a source-timestamp check. No current investment conclusion or live acceptance is claimed.",
+                "warnings": [
+                  "Synthetic scripted transport; no live acceptance."
+                ]
+              }
+            }
+          ]
+        ],
+        "analyst": [
+          [
+            {
+              "name": "finance_calculate",
+              "input": {
+                "formula": "roll_economics",
+                "inputs": {
+                  "quantity": "1",
+                  "fees": "2",
+                  "multiplier": "100",
+                  "original_credit": "2",
+                  "close_debit": "1",
+                  "new_credit": "1.5"
+                },
+                "parameters": {
+                  "currency": "USD"
+                }
+              }
+            },
+            {
+              "name": "ResearchResult",
+              "input": {
+                "job_id": "economics",
+                "outcome": "success",
+                "summary": "The actual checked calculator produced a synthetic roll calculation; no quote was fetched."
+              }
+            }
+          ],
+          [
+            {
+              "name": "market_query",
+              "input": {
+                "query": {
+                  "query_id": "synthetic-capability",
+                  "capability": "company_profile",
+                  "parameters": {},
+                  "limit": 1
+                }
+              }
+            },
+            {
+              "name": "ResearchResult",
+              "input": {
+                "job_id": "coverage",
+                "outcome": "partial",
+                "summary": "The actual market tool reported unavailable capability; no external provider was configured."
+              }
+            }
+          ]
+        ],
+        "wheel_expert": [
+          [
+            {
+              "name": "knowledge_read",
+              "input": {
+                "module_id": "unselected-module"
+              }
+            },
+            {
+              "name": "ExpertResult",
+              "input": {
+                "assessment": "Synthetic evidence is insufficient for a current claim.",
+                "requested_follow_up": [
+                  {
+                    "job_id": "source-time",
+                    "question": "Check the source timestamp before any current market claim."
+                  }
+                ]
+              }
+            }
+          ]
+        ]
+      }
+    }
+  },
+  "prompts": {
+    "mode": "development"
+  },
+  "output_dir": "../../artifacts/thin-scripted",
+  "child_output_mode": "typed"
+}

@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "status": "success",
+  "data": {
+    "results": [
+      {
+        "record_ref": "evidence:public-web:a1d4a742428b6c746e1eb1a070cabf8ae74929c066ec730bb3545c282366fa17",
+        "source_url": "https://gobull.ai/asset/aapl/earnings",
+        "operation": "search",
+        "title": "Apple (AAPL) Earnings Date, Estimates & Results | GoBull",
+        "text": "GoBull\n\u6587ZH\n\nGoBull/Earnings/AAPL\n\nTechnology \u00b7 earnings tracker\n\n# Apple (AAPL) earnings date and results\n\nApple's next reporting window is 2026-10-29; it is estimated and remains unconfirmed until the company announces it.\n\nNext report dateOctober 29, 2026\n\nFiscal period ending2026-09-30\n\nEPS estimate1.98 USD\n\nOptions-implied moveUpdates closer to report\n\n## Latest earnings summary [...] ## Related earnings\n\n### Amazon (AMZN)\n\nNext earnings window: October 29, 2026 (estimated)\n\n### Lam Research (LRCX)\n\nNext earnings window: October 28, 2026 (estimated)\n\n### Tesla (TSLA)\n\nNext earnings window: October 28, 2026 (estimated)\n\n### Cadence Design Systems (CDNS)\n\nNext earnings window: October 26, 2026 (estimated)\n\n### Palantir Technologies (PLTR)\n\nNext earnings window: November 2, 2026 (estimate",
+        "original_chars": 888,
+        "original_content_sha256": "03a3a9aa0e3a028a010369dd125a5b0568cc9a44e0c13b8ff9039006dbd1a4b9",
+        "truncated": true,
+        "error": null,
+        "source_timestamp": null,
+        "source_time_raw": null,
+        "fetched_at": "2026-10-31T21:08:26.165510Z",
+        "timezone_state": "unknown",
+        "source_identity": "gobull.ai"
+      },
+      {
+        "record_ref": "evidence:public-web:65f238e2f5dbad33d638a5c82ba25e1d58529ef909c10fcb7a16d9a8f22b5434",
+        "source_url": "https://www.cmelitegroup.com/knowledge-hub/apple-earnings-date?nocache=1",
+        "operation": "search",
+        "title": "Apple Earnings Date: Q4 FY2026 Time and Estimates | CapitalMEG",
+        "text": "Skip to content\n\nCapmeg Logo Tm\n\nOpen Account\n\nLog in\n\n###### October 21st, 2026\n\n# Apple Earnings Date: Q4 FY2026 Time, Guidance and Expected Move\n\nApple reports fiscal fourth-quarter 2026 results on Monday 2 November 2026, after the US market close. The conference call starts at 5:00 p.m. ET, and the stock\u2019s first full reaction comes at the open on Tuesday 3 November. [...] |  |  |\n --- |\n| Item | Detail |\n| Report date | Monday 2 November 2026 (announced by Apple, as reported on 6 October 2026)  |\n| Release time | After the close (results typically around 4:30 p.m. ET) |\n| Conference call | 5:00 p.m. ET (2:00 p.m. PT), webcast on apple.com/investor |\n| First full trading reaction | Tuesday 3 November, at the open (after-hours trading reacts first) |\n| Quarter covered | Fiscal Q4 2026 (2",
+        "original_chars": 1050,
+        "original_content_sha256": "aeb6f8ead72c6bafdb9cc454a5960bd139b0952ab5288b8d713afba722804f4f",
+        "truncated": true,
+        "error": null,
+        "source_timestamp": null,
+        "source_time_raw": null,
+        "fetched_at": "2026-10-31T21:08:26.165510Z",
+        "timezone_state": "unknown",
+        "source_identity": "www.cmelitegroup.com"
+      },
+      {
+        "record_ref": "evidence:public-web:e9c570a5767c5f097d8de89ca155cddca2e81744f6d23a2eaf567f695e74acab",
+        "source_url": "https://www.cmelitegroup.com/knowledge-hub/apple-earnings-date",
+        "operation": "search",
+        "title": "Apple Earnings Date: Q4 FY2026 Time and Estimates | CMEG",
+        "text": "Skip to content\n\nCapmeg Logo Tm\n\nOpen Account\n\nLog in\n\n###### October 21st, 2026\n\n# Apple Earnings Date: Q4 FY2026 Time, Guidance and Expected Move\n\nApple reports fiscal fourth-quarter 2026 results on Monday 2 November 2026, after the US market close. The conference call starts at 5:00 p.m. ET, and the stock\u2019s first full reaction comes at the open on Tuesday 3 November. [...] |  |  |\n --- |\n| Item | Detail |\n| Report date | Monday 2 November 2026 (announced by Apple, as reported on 6 October 2026)  |\n| Release time | After the close (results typically around 4:30 p.m. ET) |\n| Conference call | 5:00 p.m. ET (2:00 p.m. PT), webcast on apple.com/investor |\n| First full trading reaction | Tuesday 3 November, at the open (after-hours trading reacts first) |\n| Quarter covered | Fiscal Q4 2026 (2",
+        "original_chars": 1050,
+        "original_content_sha256": "aeb6f8ead72c6bafdb9cc454a5960bd139b0952ab5288b8d713afba722804f4f",
+        "truncated": true,
+        "error": null,
+        "source_timestamp": null,
+        "source_time_raw": null,
+        "fetched_at": "2026-10-31T21:08:26.165510Z",
+        "timezone_state": "unknown",
+        "source_identity": "www.cmelitegroup.com"
+      }
+    ],
+    "results_truncated": false,
+    "source_time_note": "Fetch time is not observation or publication time",
+    "coverage_note": "Search excerpts only; complete sources were not read."
+  },
+  "reason": null,
+  "evidence_refs": [
+    "evidence:public-web:a1d4a742428b6c746e1eb1a070cabf8ae74929c066ec730bb3545c282366fa17",
+    "evidence:public-web:65f238e2f5dbad33d638a5c82ba25e1d58529ef909c10fcb7a16d9a8f22b5434",
+    "evidence:public-web:e9c570a5767c5f097d8de89ca155cddca2e81744f6d23a2eaf567f695e74acab"
+  ],
+  "result_refs": [
+    "evidence:public-web:a1d4a742428b6c746e1eb1a070cabf8ae74929c066ec730bb3545c282366fa17",
+    "evidence:public-web:65f238e2f5dbad33d638a5c82ba25e1d58529ef909c10fcb7a16d9a8f22b5434",
+    "evidence:public-web:e9c570a5767c5f097d8de89ca155cddca2e81744f6d23a2eaf567f695e74acab"
+  ],
+  "findings": [],
+  "retry_after_seconds": null,
+  "trace_ref": null
+}

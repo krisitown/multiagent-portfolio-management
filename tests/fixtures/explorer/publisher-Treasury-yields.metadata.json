@@ -1,0 +1,9 @@
+{
+  "name": "publisher-Treasury-yields",
+  "source_url": "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/pages/xml?data=daily_treasury_yield_curve&field_tdr_date_value=2026",
+  "http_status": 200,
+  "capture_timestamp_utc": "2026-10-31T21:04:33.720188+00:00",
+  "content_type": "text/xml; charset=UTF-8",
+  "bytes": 323578,
+  "original_response_sha256": "ae304d1376a213e7d176fbd46b12e547925a9d2b7e8cc978cef234794b52b26c"
+}

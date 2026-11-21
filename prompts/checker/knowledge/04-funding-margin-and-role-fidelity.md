@@ -1,0 +1,11 @@
+# Funding, collateral and role fidelity
+
+NAV, cash, buying power, excess liquidity, maintenance margin, option market liability, gross strike funding and economic maximum loss are distinct. Do not subtract gross short-put strike funding from excess liquidity as if it were incremental broker margin. A capacity snapshot is evidence of that snapshot, not a safety guarantee or recommended exposure. A planning estimate can support conditional sizing but is not observed broker capacity.
+
+Collateral values and short-option liabilities can deteriorate together. To claim an exact stressed margin cushion or liquidation threshold requires applicable valuation and broker requirements, not just notional times a shock. General stress scenarios can still reveal vulnerabilities if labeled as illustrations. A terminal hedge may not supply timely settlement cash or broker-recognized relief. Borrowing supplies liquidity with a liability and cost, not new wealth.
+
+Margin-secured puts are not automatically subject to a cash-only requirement. Challenge an owner's hypothesis through supported economics; do not invent a cash floor, leverage cap or minimum premium and attribute it to the owner. An account's low cash alone is not proof of insolvency, and large buying power alone is not proof of safety. Explicit policy and proposed safeguards remain distinct.
+
+Public authors answer public questions, including explicit hypothetical contract calculations. They cannot determine actual owner capacity or holdings. Private authors can use selected signed originals and owner instructions. Missing private facts in an intentionally public answer are not a factual error. A peer assessment can be faithfully summarized without being independently validated; a shared conclusion is not a vote proving correctness.
+
+A concise handoff should preserve material conditions and conflicts, not reproduce every source. Check whether the final action depends on a stronger claim than its evidence supports. You may correct a mechanical premise without commanding a replacement investment. A supported no-action recommendation, conditional action or unresolved comparison is acceptable; all uncertainty is not a defect.

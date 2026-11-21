@@ -1,0 +1,58 @@
+[build-system]
+requires = ["hatchling>=1.27,<2"]
+build-backend = "hatchling.build"
+
+[project]
+name = "wheel-team"
+version = "0.1.0"
+description = "Reusable Strands multi-agent portfolio research runtime"
+license = "Apache-2.0"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "httpx==0.28.1",
+    "openai==2.54.0",
+    "pydantic==2.14.2",
+    "strands-agents[openai]==1.62.0",
+]
+
+[project.scripts]
+wheel-team = "wheel_team.cli:main"
+
+[dependency-groups]
+dev = [
+    "hatchling>=1.27,<2",
+    "pytest>=8.4,<10",
+    "pytest-asyncio>=1.2,<2",
+    "ruff>=0.14,<1",
+    "mypy>=1.18,<2",
+    "build>=1.3,<2",
+]
+
+[tool.hatch.build]
+exclude = ["**/artifacts/**", "**/authoring/**", "**/private/**", "**/.env*", "**/traces/**", "**/*.sqlite*", "**/*.db*"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/wheel_team"]
+
+[tool.hatch.build.targets.sdist]
+include = ["/src/wheel_team", "/schemas", "/README.md", "/pyproject.toml", "/uv.lock", "/LICENSE", "/NOTICE", "/prompts", "/docs", "/examples", "/scripts", "/AGENTS.md"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+markers = ["live_model: requires configured inference", "live_provider: requires configured market provider"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+extend-exclude = [".superpowers", "artifacts", "authoring", ".venv"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+plugins = ["pydantic.mypy"]

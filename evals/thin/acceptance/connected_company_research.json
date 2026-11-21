@@ -1,0 +1,22 @@
+{
+  "case_id": "connected-ko-msft-jnj-research-v1",
+  "purpose": "connected_acceptance",
+  "mode": "focused",
+  "question": "Investigate KO, MSFT and JNJ using connected public research and the available live market provider. Have an analyst search and fetch original public sources, preserve URLs and exact source/fetch timestamps, and produce a readable cited advisory report for Hermes. Explain the business evidence, contrary evidence, valuation context and any option/portfolio limitations. Do not invent missing facts, current quotes, capacity or source timestamps; clearly mark unsupported conclusions. These are research subjects, not a basket instruction.",
+  "required_backend_modes": {
+    "market_provider": "connected",
+    "research_backend": "connected"
+  },
+  "required_observed_analyst_tools": [
+    "public_search",
+    "fetch_sources"
+  ],
+  "acceptance_status": "pending_connected_backends_and_root_released_serial_model_window",
+  "review_requirements": [
+    "actual configured Qwen generation",
+    "analyst public_search and fetch_sources visible in trace",
+    "readable cited report through Hermes invocation",
+    "four outcome categories reviewed separately",
+    "manual primary judgment; replay is testing only"
+  ]
+}

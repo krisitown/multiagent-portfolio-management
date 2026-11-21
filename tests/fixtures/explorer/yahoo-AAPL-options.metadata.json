@@ -1,0 +1,49 @@
+{
+  "capture_timestamp_utc": "2026-10-31T20:56:48.905766+00:00",
+  "source_url": "https://query2.finance.yahoo.com/v7/finance/options/AAPL",
+  "http_status": 200,
+  "headers": {
+    "content-type": "application/json;charset=utf-8",
+    "date": "Sat, 31 Oct 2026 20:56:48 GMT",
+    "age": "0",
+    "cache-control": "public, max-age=1, stale-while-revalidate=9"
+  },
+  "yfinance_version": "1.4.1",
+  "provider": "Yahoo Finance via existing yfinance environment",
+  "capture_location": "Spark",
+  "original_response_sha256": "fa49e1d16ee73a1554fce2ac8556610aaf4d7e1714fa65ae57b7b6aff1210c37",
+  "bytes": 29449,
+  "symbol": "AAPL",
+  "quote_timestamp_semantics": "quote.regularMarketTime is underlying market time. Contract lastTradeDate is the last trade, not the bid/ask timestamp. Provider does not expose an explicit bid/ask timestamp in this payload.",
+  "underlying_quote_regular_market_time": 1793390401,
+  "expiration_dates": [
+    1793750400,
+    1793923200,
+    1794182400,
+    1794355200,
+    1794528000,
+    1795132800,
+    1795737600,
+    1796342400,
+    1797552000,
+    1799971200,
+    1802995200,
+    1805414400,
+    1807833600,
+    1813190400,
+    1821139200,
+    1829001600,
+    1832025600,
+    1836864000,
+    1844726400,
+    1860451200,
+    1863475200
+  ],
+  "option_sets": [
+    {
+      "expiration_date": 1793750400,
+      "calls": 44,
+      "puts": 38
+    }
+  ]
+}

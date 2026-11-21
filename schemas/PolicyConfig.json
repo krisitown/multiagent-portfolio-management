@@ -1,0 +1,92 @@
+{
+  "additionalProperties": false,
+  "description": "Owner-supplied advisory limits; absent requirements are never a pass.",
+  "properties": {
+    "max_capacity_age_seconds": {
+      "anyOf": [
+        {
+          "minimum": 0,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Max Capacity Age Seconds"
+    },
+    "max_gross_assignment_to_nav": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Max Gross Assignment To Nav"
+    },
+    "max_issuer_weight": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Max Issuer Weight"
+    },
+    "max_quote_age_seconds": {
+      "anyOf": [
+        {
+          "minimum": 0,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Max Quote Age Seconds"
+    },
+    "max_snapshot_age_seconds": {
+      "anyOf": [
+        {
+          "minimum": 0,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Max Snapshot Age Seconds"
+    },
+    "required_capacity_fields": {
+      "anyOf": [
+        {
+          "items": {
+            "enum": [
+              "buying_power",
+              "maintenance_margin",
+              "excess_liquidity",
+              "initial_margin"
+            ],
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Required Capacity Fields"
+    }
+  },
+  "title": "PolicyConfig",
+  "type": "object"
+}

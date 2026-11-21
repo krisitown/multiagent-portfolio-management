@@ -1,0 +1,33 @@
+{
+  "case_id": "historical-ko-source-time-limitations-v1",
+  "purpose": "recorded_mechanics",
+  "mode": "education",
+  "question": "Explain the limitations of this historical real KO scanner observation, without making a current recommendation: as-of date 2026-10-30; generated at 2026-10-30T17:34:11.240921+00:00; source label cboe_delayed; reported spot 94.56; expiry 2026-12-04; selected put strike 86 and bid 0.17. Raw quote time 2026-10-30 17:33:12 has unresolved timezone; quote age and source URL are unavailable. Distinguish report generation from source/fetch time and explain what must be refreshed or verified.",
+  "fixtures": {
+    "clock": "2026-10-30T17:34:11.240921+00:00",
+    "recorded_observation": {
+      "ticker": "KO",
+      "as_of": "2026-10-30",
+      "generated_at": "2026-10-30T17:34:11.240921+00:00",
+      "source": "cboe_delayed",
+      "source_url": null,
+      "source_timestamp": null,
+      "source_time_raw": "2026-10-30 17:33:12",
+      "timezone_state": "unknown",
+      "fetched_at": null,
+      "spot": "94.56",
+      "expiry": "2026-12-04",
+      "selected_strike": "86.0",
+      "selected_bid": "0.17",
+      "quote_age_seconds": null,
+      "research_only": true
+    }
+  },
+  "provenance": {
+    "recording_ref": "artifacts/thin/recorded-market-20261030/KO-recorded-observation.json",
+    "recording_sha256": "9fca43c7b3fa174ed4bba4707535a66bf76a53c79c8d2221116b2693ef6749f5",
+    "original_recording_sha256": "d3b627df14d37ab3ee87f31b39dfdf718b14aa0f2ebe611ecdcc41c68753640d",
+    "scope": "Historical market-only recording; no portfolio copied. Not a finalized shared capture or live acceptance."
+  },
+  "acceptance_status": "testing_only_historical_recording"
+}

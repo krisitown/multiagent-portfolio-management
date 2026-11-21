@@ -1,0 +1,11 @@
+{
+  "captured_at": "2026-10-31T21:08:26.161732+00:00",
+  "capture_location": "Spark",
+  "original_response_sha256": "2845a499f6a17c6dd51cc835e950d9aebad912670b18137e9486f9e3cb511984",
+  "source_helper_sha256": null,
+  "request": {
+    "operation": "search",
+    "query": "Apple latest earnings results October 2026",
+    "limit": 3
+  }
+}

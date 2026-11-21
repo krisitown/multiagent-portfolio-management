@@ -1,0 +1,16 @@
+{
+  "name": "publisher-BLS-CPIAUCSL",
+  "source_url": "https://api.bls.gov/publicAPI/v1/timeseries/data/",
+  "request_json": {
+    "seriesid": [
+      "CUSR0000SA0"
+    ],
+    "startyear": "2025",
+    "endyear": "2026"
+  },
+  "http_status": 200,
+  "capture_timestamp_utc": "2026-10-31T21:06:10.337038+00:00",
+  "content_type": "application/json",
+  "original_response_sha256": "eba97d433e7d4c91a98177773ca9cc2af6bbab57c0d3f0a7c9810171bb143dcc",
+  "bytes": 2055
+}

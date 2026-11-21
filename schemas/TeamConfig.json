@@ -1,0 +1,821 @@
+{
+  "$defs": {
+    "ContinuityConfig": {
+      "additionalProperties": false,
+      "description": "Explicit private durable root; omitted means no continuity capability.",
+      "properties": {
+        "prompts": {
+          "$ref": "#/$defs/PromptSet"
+        },
+        "root": {
+          "format": "path",
+          "title": "Root",
+          "type": "string"
+        }
+      },
+      "required": [
+        "root"
+      ],
+      "title": "ContinuityConfig",
+      "type": "object"
+    },
+    "FactCheckConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "caller_amendments_path": {
+          "anyOf": [
+            {
+              "format": "path",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Caller Amendments Path"
+        },
+        "context_window_tokens": {
+          "default": 262144,
+          "exclusiveMinimum": 4096,
+          "title": "Context Window Tokens",
+          "type": "integer"
+        },
+        "enabled": {
+          "default": false,
+          "title": "Enabled",
+          "type": "boolean"
+        },
+        "max_assessments": {
+          "default": 3,
+          "maximum": 3,
+          "minimum": 1,
+          "title": "Max Assessments",
+          "type": "integer"
+        },
+        "max_output_tokens": {
+          "default": 4096,
+          "exclusiveMinimum": 0,
+          "title": "Max Output Tokens",
+          "type": "integer"
+        },
+        "prompts": {
+          "$ref": "#/$defs/PromptSet"
+        },
+        "reasoning_effort": {
+          "anyOf": [
+            {
+              "enum": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reasoning Effort"
+        },
+        "tokenizer_path": {
+          "anyOf": [
+            {
+              "format": "path",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Tokenizer Path"
+        }
+      },
+      "title": "FactCheckConfig",
+      "type": "object"
+    },
+    "FinalizationConfig": {
+      "additionalProperties": false,
+      "description": "Optional capacity held back for later roles within the unchanged run limits.",
+      "properties": {
+        "analyst_reserve_generations": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Analyst Reserve Generations",
+          "type": "integer"
+        },
+        "analyst_reserve_seconds": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Analyst Reserve Seconds",
+          "type": "number"
+        },
+        "analyst_terminal_seconds": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Analyst Terminal Seconds",
+          "type": "number"
+        },
+        "expert_reserve_generations": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Expert Reserve Generations",
+          "type": "integer"
+        },
+        "expert_reserve_seconds": {
+          "default": 0,
+          "minimum": 0,
+          "title": "Expert Reserve Seconds",
+          "type": "number"
+        },
+        "max_output_repairs": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Max Output Repairs"
+        }
+      },
+      "title": "FinalizationConfig",
+      "type": "object"
+    },
+    "JsonValue": {},
+    "ModelConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "allow_inference_network": {
+          "default": false,
+          "title": "Allow Inference Network",
+          "type": "boolean"
+        },
+        "api_key_env": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Api Key Env"
+        },
+        "enable_thinking": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Enable Thinking"
+        },
+        "endpoint": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Endpoint"
+        },
+        "include_reasoning": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Include Reasoning"
+        },
+        "max_output_tokens": {
+          "default": 4096,
+          "exclusiveMinimum": 0,
+          "title": "Max Output Tokens",
+          "type": "integer"
+        },
+        "model_id": {
+          "minLength": 1,
+          "title": "Model Id",
+          "type": "string"
+        },
+        "provider": {
+          "default": "scripted",
+          "enum": [
+            "scripted",
+            "openai"
+          ],
+          "title": "Provider",
+          "type": "string"
+        },
+        "reasoning_effort": {
+          "anyOf": [
+            {
+              "enum": [
+                "low",
+                "medium",
+                "high",
+                "xhigh"
+              ],
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reasoning Effort"
+        },
+        "script": {
+          "$ref": "#/$defs/JsonValue",
+          "default": null
+        },
+        "temperature": {
+          "anyOf": [
+            {
+              "maximum": 2,
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Temperature"
+        },
+        "timeout_seconds": {
+          "default": 60,
+          "exclusiveMinimum": 0,
+          "title": "Timeout Seconds",
+          "type": "number"
+        }
+      },
+      "required": [
+        "model_id"
+      ],
+      "title": "ModelConfig",
+      "type": "object"
+    },
+    "PolicyConfig": {
+      "additionalProperties": false,
+      "description": "Owner-supplied advisory limits; absent requirements are never a pass.",
+      "properties": {
+        "max_capacity_age_seconds": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Max Capacity Age Seconds"
+        },
+        "max_gross_assignment_to_nav": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Max Gross Assignment To Nav"
+        },
+        "max_issuer_weight": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Max Issuer Weight"
+        },
+        "max_quote_age_seconds": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Max Quote Age Seconds"
+        },
+        "max_snapshot_age_seconds": {
+          "anyOf": [
+            {
+              "minimum": 0,
+              "type": "integer"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Max Snapshot Age Seconds"
+        },
+        "required_capacity_fields": {
+          "anyOf": [
+            {
+              "items": {
+                "enum": [
+                  "buying_power",
+                  "maintenance_margin",
+                  "excess_liquidity",
+                  "initial_margin"
+                ],
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Required Capacity Fields"
+        }
+      },
+      "title": "PolicyConfig",
+      "type": "object"
+    },
+    "PromptSet": {
+      "additionalProperties": false,
+      "properties": {
+        "manifest_path": {
+          "anyOf": [
+            {
+              "format": "path",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Manifest Path"
+        },
+        "mode": {
+          "default": "production",
+          "enum": [
+            "production",
+            "development"
+          ],
+          "title": "Mode",
+          "type": "string"
+        }
+      },
+      "title": "PromptSet",
+      "type": "object"
+    },
+    "ResearchBackendConfig": {
+      "additionalProperties": false,
+      "description": "Private deployment selection; no backend is configured implicitly.",
+      "properties": {
+        "cwd": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "title": "Cwd",
+          "type": "string"
+        },
+        "env_file": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "title": "Env File",
+          "type": "string"
+        },
+        "max_chars": {
+          "default": 12000,
+          "exclusiveMinimum": 0,
+          "maximum": 12000,
+          "title": "Max Chars",
+          "type": "integer"
+        },
+        "mode": {
+          "default": "local",
+          "enum": [
+            "local",
+            "ssh"
+          ],
+          "title": "Mode",
+          "type": "string"
+        },
+        "python": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "title": "Python",
+          "type": "string"
+        },
+        "ssh_host": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ssh Host"
+        },
+        "ssh_identity_file": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Ssh Identity File"
+        },
+        "timeout_seconds": {
+          "default": 30,
+          "exclusiveMinimum": 0,
+          "maximum": 300,
+          "title": "Timeout Seconds",
+          "type": "number"
+        }
+      },
+      "required": [
+        "python",
+        "cwd",
+        "env_file"
+      ],
+      "title": "ResearchBackendConfig",
+      "type": "object"
+    },
+    "SSHResearchConfig": {
+      "additionalProperties": false,
+      "properties": {
+        "capture_root": {
+          "format": "path",
+          "title": "Capture Root",
+          "type": "string"
+        },
+        "helper_path": {
+          "anyOf": [
+            {
+              "format": "path",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Helper Path"
+        },
+        "hermes_env": {
+          "title": "Hermes Env",
+          "type": "string"
+        },
+        "hermes_project": {
+          "title": "Hermes Project",
+          "type": "string"
+        },
+        "host": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Host"
+        },
+        "host_key_alias": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Host Key Alias"
+        },
+        "identity_file": {
+          "anyOf": [
+            {
+              "format": "path",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Identity File"
+        },
+        "market_python": {
+          "title": "Market Python",
+          "type": "string"
+        },
+        "research_python": {
+          "title": "Research Python",
+          "type": "string"
+        },
+        "scanner_path": {
+          "title": "Scanner Path",
+          "type": "string"
+        },
+        "timeout_seconds": {
+          "default": 90,
+          "title": "Timeout Seconds",
+          "type": "number"
+        },
+        "transport": {
+          "default": "ssh",
+          "enum": [
+            "ssh",
+            "local"
+          ],
+          "title": "Transport",
+          "type": "string"
+        },
+        "user": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "User"
+        }
+      },
+      "required": [
+        "market_python",
+        "research_python",
+        "scanner_path",
+        "hermes_project",
+        "hermes_env",
+        "capture_root"
+      ],
+      "title": "SSHResearchConfig",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "analyst_concurrency": {
+      "default": 4,
+      "exclusiveMinimum": 0,
+      "title": "Analyst Concurrency",
+      "type": "integer"
+    },
+    "asymmetric_enabled": {
+      "default": false,
+      "title": "Asymmetric Enabled",
+      "type": "boolean"
+    },
+    "child_output_mode": {
+      "default": "direct_text",
+      "enum": [
+        "typed",
+        "direct_text"
+      ],
+      "title": "Child Output Mode",
+      "type": "string"
+    },
+    "continuity": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ContinuityConfig"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "council_enabled": {
+      "default": false,
+      "title": "Council Enabled",
+      "type": "boolean"
+    },
+    "deadline_seconds": {
+      "default": 2700,
+      "exclusiveMinimum": 0,
+      "title": "Deadline Seconds",
+      "type": "number"
+    },
+    "explorer_enabled": {
+      "default": false,
+      "title": "Explorer Enabled",
+      "type": "boolean"
+    },
+    "explorer_temperature": {
+      "anyOf": [
+        {
+          "maximum": 2,
+          "minimum": 0,
+          "type": "number"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Explorer Temperature"
+    },
+    "fact_check": {
+      "$ref": "#/$defs/FactCheckConfig"
+    },
+    "feedback_media_roots": {
+      "items": {
+        "format": "path",
+        "type": "string"
+      },
+      "title": "Feedback Media Roots",
+      "type": "array"
+    },
+    "finalization": {
+      "$ref": "#/$defs/FinalizationConfig"
+    },
+    "knowledge_manifest_path": {
+      "anyOf": [
+        {
+          "format": "path",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Knowledge Manifest Path"
+    },
+    "market_backend": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/SSHResearchConfig"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "market_capture_manifest_path": {
+      "anyOf": [
+        {
+          "format": "path",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Market Capture Manifest Path"
+    },
+    "max_batch_jobs": {
+      "default": 32,
+      "exclusiveMinimum": 0,
+      "title": "Max Batch Jobs",
+      "type": "integer"
+    },
+    "max_expert_consultations": {
+      "default": 5,
+      "maximum": 5,
+      "minimum": 0,
+      "title": "Max Expert Consultations",
+      "type": "integer"
+    },
+    "max_expert_research_jobs": {
+      "default": 16,
+      "maximum": 128,
+      "minimum": 0,
+      "title": "Max Expert Research Jobs",
+      "type": "integer"
+    },
+    "max_expert_research_rounds": {
+      "default": 3,
+      "maximum": 16,
+      "minimum": 0,
+      "title": "Max Expert Research Rounds",
+      "type": "integer"
+    },
+    "max_generations": {
+      "default": 100,
+      "exclusiveMinimum": 0,
+      "title": "Max Generations",
+      "type": "integer"
+    },
+    "model": {
+      "$ref": "#/$defs/ModelConfig"
+    },
+    "output_dir": {
+      "default": "artifacts/thin",
+      "format": "path",
+      "title": "Output Dir",
+      "type": "string"
+    },
+    "policy": {
+      "$ref": "#/$defs/PolicyConfig"
+    },
+    "portfolio_manager_model": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ModelConfig"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "portfolio_manager_reasoning_effort": {
+      "anyOf": [
+        {
+          "enum": [
+            "low",
+            "medium",
+            "high",
+            "xhigh"
+          ],
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Portfolio Manager Reasoning Effort"
+    },
+    "prompts": {
+      "$ref": "#/$defs/PromptSet"
+    },
+    "require_fresh_opportunities": {
+      "default": false,
+      "title": "Require Fresh Opportunities",
+      "type": "boolean"
+    },
+    "research_backend": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/ResearchBackendConfig"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "role_models": {
+      "additionalProperties": {
+        "$ref": "#/$defs/ModelConfig"
+      },
+      "propertyNames": {
+        "enum": [
+          "portfolio_manager",
+          "wheel_expert",
+          "dalio",
+          "buffett"
+        ]
+      },
+      "title": "Role Models",
+      "type": "object"
+    }
+  },
+  "required": [
+    "model"
+  ],
+  "title": "TeamConfig",
+  "type": "object"
+}

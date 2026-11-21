@@ -1,0 +1,186 @@
+{
+  "$defs": {
+    "Availability": {
+      "enum": [
+        "known",
+        "unknown",
+        "unavailable",
+        "not_applicable"
+      ],
+      "title": "Availability",
+      "type": "string"
+    },
+    "JsonValue": {},
+    "QuantityValue": {
+      "additionalProperties": false,
+      "properties": {
+        "availability": {
+          "$ref": "#/$defs/Availability"
+        },
+        "currency": {
+          "anyOf": [
+            {
+              "pattern": "^[A-Z]{3}$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Currency"
+        },
+        "evidence_refs": {
+          "default": [],
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "title": "Evidence Refs",
+          "type": "array"
+        },
+        "reason": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reason"
+        },
+        "schema_version": {
+          "const": 1,
+          "default": 1,
+          "title": "Schema Version",
+          "type": "integer"
+        },
+        "source": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Source"
+        },
+        "unit": {
+          "minLength": 1,
+          "title": "Unit",
+          "type": "string"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Value"
+        }
+      },
+      "required": [
+        "availability",
+        "unit"
+      ],
+      "title": "QuantityValue",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "calculation": {
+      "minLength": 1,
+      "title": "Calculation",
+      "type": "string"
+    },
+    "classification": {
+      "enum": [
+        "synthetic",
+        "historical"
+      ],
+      "title": "Classification",
+      "type": "string"
+    },
+    "description": {
+      "title": "Description",
+      "type": "string"
+    },
+    "example_id": {
+      "minLength": 1,
+      "title": "Example Id",
+      "type": "string"
+    },
+    "expected_outputs": {
+      "additionalProperties": {
+        "anyOf": [
+          {
+            "$ref": "#/$defs/QuantityValue"
+          },
+          {
+            "$ref": "#/$defs/JsonValue"
+          }
+        ]
+      },
+      "title": "Expected Outputs",
+      "type": "object"
+    },
+    "independent_basis": {
+      "title": "Independent Basis",
+      "type": "string"
+    },
+    "inputs": {
+      "additionalProperties": {
+        "$ref": "#/$defs/JsonValue"
+      },
+      "title": "Inputs",
+      "type": "object"
+    },
+    "schema_version": {
+      "const": 1,
+      "default": 1,
+      "title": "Schema Version",
+      "type": "integer"
+    },
+    "source_refs": {
+      "default": [],
+      "items": {
+        "minLength": 1,
+        "type": "string"
+      },
+      "title": "Source Refs",
+      "type": "array"
+    },
+    "tolerance": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Tolerance"
+    }
+  },
+  "required": [
+    "example_id",
+    "classification",
+    "description",
+    "calculation",
+    "inputs",
+    "expected_outputs",
+    "independent_basis"
+  ],
+  "title": "WorkedExample",
+  "type": "object"
+}

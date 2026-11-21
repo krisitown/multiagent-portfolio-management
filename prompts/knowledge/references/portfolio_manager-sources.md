@@ -1,0 +1,7 @@
+## Further primary references and temporal limits
+
+These are reference locations for product and financing mechanics. They do not establish current rates, eligibility, the owner's legal position or a live account observation. The curriculum's explanations are original general knowledge, and all worked cases are synthetic. Inspect the applicable current product terms and broker evidence when a recommendation depends on them. Bibliographic URLs are not substitutes for exact evidence-store references in tool calls.
+
+- [OCC, Characteristics and Risks of Standardized Options](https://www.theocc.com/company-information/documents-and-archives/options-disclosure-document): exercise, settlement and option risks; use the applicable current edition and actual contract specifications.
+- [Interactive Brokers, margin requirements](https://www.interactivebrokers.com/en/trading/margin-requirements.php) and [margin rates](https://www.interactivebrokers.com/en/trading/margin-rates.php): broker terms and dated financing schedules, not permanent promises of account capacity.
+- [SEC Investor.gov, bonds](https://www.investor.gov/introduction-investing/investing-basics/investment-products/bonds-or-fixed-income-products/bonds) and [bond funds](https://www.investor.gov/introduction-investing/investing-basics/glossary/bond-funds-and-income-funds): basic distinctions between individual contractual claims and continuing fund portfolios. Educational material does not replace product documents or establish suitability.

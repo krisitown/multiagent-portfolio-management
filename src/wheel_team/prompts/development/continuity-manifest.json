@@ -1,0 +1,11 @@
+{
+  "prompt_set_id": "portfolio-continuity",
+  "version": "1",
+  "status": "development",
+  "roles": {
+    "continuity": {
+      "path": "continuity.md",
+      "content_hash": "5b3f63c0b261bc441ff77da1b9f75415ce91d683dbc3ea8ddae7ee8e0b45396a"
+    }
+  }
+}

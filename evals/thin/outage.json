@@ -1,0 +1,439 @@
+{
+  "case_id": "thin-outage-v1",
+  "question": "Research suitable companies for discovery in the supplied synthetic world during a total source outage. Preserve useful partial output and account for unavailable slots.",
+  "mode": "discovery",
+  "portfolio": null,
+  "fixtures": {
+    "clock": "2026-10-30T14:00:00Z",
+    "records": {
+      "report-outage": {
+        "schema_version": 1,
+        "report_id": "report-outage",
+        "run_id": "run-outage",
+        "group_id": "group-outage",
+        "mode": "discovery",
+        "completion_reason": "insufficient_evidence",
+        "summary": "All sources unavailable; no candidates fabricated",
+        "started_at": "2026-10-30T14:00:00Z",
+        "completed_at": "2026-10-30T14:00:01Z",
+        "as_of": null,
+        "snapshot_ref": null,
+        "discovery": {
+          "schema_version": 1,
+          "slots": [
+            {
+              "schema_version": 1,
+              "slot": 1,
+              "kind": "unavailable",
+              "idea": null,
+              "reason": "Cold-start total provider outage",
+              "warnings": [],
+              "carried_forward": false,
+              "reviewed_ref": null
+            },
+            {
+              "schema_version": 1,
+              "slot": 2,
+              "kind": "unavailable",
+              "idea": null,
+              "reason": "Cold-start total provider outage",
+              "warnings": [],
+              "carried_forward": false,
+              "reviewed_ref": null
+            },
+            {
+              "schema_version": 1,
+              "slot": 3,
+              "kind": "unavailable",
+              "idea": null,
+              "reason": "Cold-start total provider outage",
+              "warnings": [],
+              "carried_forward": false,
+              "reviewed_ref": null
+            },
+            {
+              "schema_version": 1,
+              "slot": 4,
+              "kind": "unavailable",
+              "idea": null,
+              "reason": "Cold-start total provider outage",
+              "warnings": [],
+              "carried_forward": false,
+              "reviewed_ref": null
+            },
+            {
+              "schema_version": 1,
+              "slot": 5,
+              "kind": "unavailable",
+              "idea": null,
+              "reason": "Cold-start total provider outage",
+              "warnings": [],
+              "carried_forward": false,
+              "reviewed_ref": null
+            }
+          ],
+          "snapshot_ref": null,
+          "market_context_refs": [],
+          "researched_count": 0,
+          "qualified_count": 0,
+          "findings": []
+        },
+        "portfolio": null,
+        "evidence_refs": [],
+        "calculation_refs": [],
+        "review_refs": [],
+        "trace_refs": [],
+        "findings": [],
+        "warnings": [],
+        "unknowns": [],
+        "limitations": [],
+        "prompt_hashes": {},
+        "knowledge_hashes": {},
+        "display_timezone": "America/New_York"
+      }
+    },
+    "market_pages": {}
+  },
+  "role_mocks": {
+    "team_lead": {
+      "evidence_read": {
+        "by_arguments": [
+          {
+            "arguments": {
+              "record_ref": "report-outage"
+            },
+            "response": {
+              "status": "success",
+              "data": {
+                "schema_version": 1,
+                "report_id": "report-outage",
+                "run_id": "run-outage",
+                "group_id": "group-outage",
+                "mode": "discovery",
+                "completion_reason": "insufficient_evidence",
+                "summary": "All sources unavailable; no candidates fabricated",
+                "started_at": "2026-10-30T14:00:00Z",
+                "completed_at": "2026-10-30T14:00:01Z",
+                "as_of": null,
+                "snapshot_ref": null,
+                "discovery": {
+                  "schema_version": 1,
+                  "slots": [
+                    {
+                      "schema_version": 1,
+                      "slot": 1,
+                      "kind": "unavailable",
+                      "idea": null,
+                      "reason": "Cold-start total provider outage",
+                      "warnings": [],
+                      "carried_forward": false,
+                      "reviewed_ref": null
+                    },
+                    {
+                      "schema_version": 1,
+                      "slot": 2,
+                      "kind": "unavailable",
+                      "idea": null,
+                      "reason": "Cold-start total provider outage",
+                      "warnings": [],
+                      "carried_forward": false,
+                      "reviewed_ref": null
+                    },
+                    {
+                      "schema_version": 1,
+                      "slot": 3,
+                      "kind": "unavailable",
+                      "idea": null,
+                      "reason": "Cold-start total provider outage",
+                      "warnings": [],
+                      "carried_forward": false,
+                      "reviewed_ref": null
+                    },
+                    {
+                      "schema_version": 1,
+                      "slot": 4,
+                      "kind": "unavailable",
+                      "idea": null,
+                      "reason": "Cold-start total provider outage",
+                      "warnings": [],
+                      "carried_forward": false,
+                      "reviewed_ref": null
+                    },
+                    {
+                      "schema_version": 1,
+                      "slot": 5,
+                      "kind": "unavailable",
+                      "idea": null,
+                      "reason": "Cold-start total provider outage",
+                      "warnings": [],
+                      "carried_forward": false,
+                      "reviewed_ref": null
+                    }
+                  ],
+                  "snapshot_ref": null,
+                  "market_context_refs": [],
+                  "researched_count": 0,
+                  "qualified_count": 0,
+                  "findings": []
+                },
+                "portfolio": null,
+                "evidence_refs": [],
+                "calculation_refs": [],
+                "review_refs": [],
+                "trace_refs": [],
+                "findings": [],
+                "warnings": [],
+                "unknowns": [],
+                "limitations": [],
+                "prompt_hashes": {},
+                "knowledge_hashes": {},
+                "display_timezone": "America/New_York"
+              },
+              "result_refs": [
+                "report-outage"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "analyst": {
+      "evidence_read": {
+        "by_arguments": [
+          {
+            "arguments": {
+              "record_ref": "report-outage"
+            },
+            "response": {
+              "status": "success",
+              "data": {
+                "schema_version": 1,
+                "report_id": "report-outage",
+                "run_id": "run-outage",
+                "group_id": "group-outage",
+                "mode": "discovery",
+                "completion_reason": "insufficient_evidence",
+                "summary": "All sources unavailable; no candidates fabricated",
+                "started_at": "2026-10-30T14:00:00Z",
+                "completed_at": "2026-10-30T14:00:01Z",
+                "as_of": null,
+                "snapshot_ref": null,
+                "discovery": {
+                  "schema_version": 1,
+                  "slots": [
+                    {
+                      "schema_version": 1,
+                      "slot": 1,
+                      "kind": "unavailable",
+                      "idea": null,
+                      "reason": "Cold-start total provider outage",
+                      "warnings": [],
+                      "carried_forward": false,
+                      "reviewed_ref": null
+                    },
+                    {
+                      "schema_version": 1,
+                      "slot": 2,
+                      "kind": "unavailable",
+                      "idea": null,
+                      "reason": "Cold-start total provider outage",
+                      "warnings": [],
+                      "carried_forward": false,
+                      "reviewed_ref": null
+                    },
+                    {
+                      "schema_version": 1,
+                      "slot": 3,
+                      "kind": "unavailable",
+                      "idea": null,
+                      "reason": "Cold-start total provider outage",
+                      "warnings": [],
+                      "carried_forward": false,
+                      "reviewed_ref": null
+                    },
+                    {
+                      "schema_version": 1,
+                      "slot": 4,
+                      "kind": "unavailable",
+                      "idea": null,
+                      "reason": "Cold-start total provider outage",
+                      "warnings": [],
+                      "carried_forward": false,
+                      "reviewed_ref": null
+                    },
+                    {
+                      "schema_version": 1,
+                      "slot": 5,
+                      "kind": "unavailable",
+                      "idea": null,
+                      "reason": "Cold-start total provider outage",
+                      "warnings": [],
+                      "carried_forward": false,
+                      "reviewed_ref": null
+                    }
+                  ],
+                  "snapshot_ref": null,
+                  "market_context_refs": [],
+                  "researched_count": 0,
+                  "qualified_count": 0,
+                  "findings": []
+                },
+                "portfolio": null,
+                "evidence_refs": [],
+                "calculation_refs": [],
+                "review_refs": [],
+                "trace_refs": [],
+                "findings": [],
+                "warnings": [],
+                "unknowns": [],
+                "limitations": [],
+                "prompt_hashes": {},
+                "knowledge_hashes": {},
+                "display_timezone": "America/New_York"
+              },
+              "result_refs": [
+                "report-outage"
+              ]
+            }
+          }
+        ]
+      },
+      "portfolio_read": [],
+      "market_query": [
+        {
+          "status": "unavailable",
+          "reason": "Cold-start total research-provider outage"
+        }
+      ]
+    },
+    "wheel_expert": {
+      "evidence_read": {
+        "by_arguments": [
+          {
+            "arguments": {
+              "record_ref": "report-outage"
+            },
+            "response": {
+              "status": "success",
+              "data": {
+                "schema_version": 1,
+                "report_id": "report-outage",
+                "run_id": "run-outage",
+                "group_id": "group-outage",
+                "mode": "discovery",
+                "completion_reason": "insufficient_evidence",
+                "summary": "All sources unavailable; no candidates fabricated",
+                "started_at": "2026-10-30T14:00:00Z",
+                "completed_at": "2026-10-30T14:00:01Z",
+                "as_of": null,
+                "snapshot_ref": null,
+                "discovery": {
+                  "schema_version": 1,
+                  "slots": [
+                    {
+                      "schema_version": 1,
+                      "slot": 1,
+                      "kind": "unavailable",
+                      "idea": null,
+                      "reason": "Cold-start total provider outage",
+                      "warnings": [],
+                      "carried_forward": false,
+                      "reviewed_ref": null
+                    },
+                    {
+                      "schema_version": 1,
+                      "slot": 2,
+                      "kind": "unavailable",
+                      "idea": null,
+                      "reason": "Cold-start total provider outage",
+                      "warnings": [],
+                      "carried_forward": false,
+                      "reviewed_ref": null
+                    },
+                    {
+                      "schema_version": 1,
+                      "slot": 3,
+                      "kind": "unavailable",
+                      "idea": null,
+                      "reason": "Cold-start total provider outage",
+                      "warnings": [],
+                      "carried_forward": false,
+                      "reviewed_ref": null
+                    },
+                    {
+                      "schema_version": 1,
+                      "slot": 4,
+                      "kind": "unavailable",
+                      "idea": null,
+                      "reason": "Cold-start total provider outage",
+                      "warnings": [],
+                      "carried_forward": false,
+                      "reviewed_ref": null
+                    },
+                    {
+                      "schema_version": 1,
+                      "slot": 5,
+                      "kind": "unavailable",
+                      "idea": null,
+                      "reason": "Cold-start total provider outage",
+                      "warnings": [],
+                      "carried_forward": false,
+                      "reviewed_ref": null
+                    }
+                  ],
+                  "snapshot_ref": null,
+                  "market_context_refs": [],
+                  "researched_count": 0,
+                  "qualified_count": 0,
+                  "findings": []
+                },
+                "portfolio": null,
+                "evidence_refs": [],
+                "calculation_refs": [],
+                "review_refs": [],
+                "trace_refs": [],
+                "findings": [],
+                "warnings": [],
+                "unknowns": [],
+                "limitations": [],
+                "prompt_hashes": {},
+                "knowledge_hashes": {},
+                "display_timezone": "America/New_York"
+              },
+              "result_refs": [
+                "report-outage"
+              ]
+            }
+          }
+        ]
+      },
+      "portfolio_read": []
+    }
+  },
+  "provenance": {
+    "source_commit": "6e2f2d984aa7917a050face4eafe58036720a70c",
+    "source_path": "evals/cases/dev/cold_outage.json",
+    "source_sha256": "03121c0bb7cff0197304a2448150b8fd43894e03069b234e400ac22d111c08f3",
+    "preserved_pointers": [
+      "/request/snapshot",
+      "/fixtures/clock",
+      "/fixtures/records"
+    ],
+    "adapter": "thin-v1: direct question/mode/snapshot; canonical records unchanged; market pages wrap source evidence without rewriting timestamps or content"
+  },
+  "review_expectations": {
+    "required_slots": 5,
+    "allowed_completion_reasons": [
+      "insufficient_evidence"
+    ]
+  },
+  "tags": [
+    "development",
+    "synthetic",
+    "evaluation-only",
+    "outage"
+  ],
+  "purpose": "retired_fictional_mechanics",
+  "fictional_issuer": true,
+  "acceptance_status": "retired_from_actual_model_role_team_acceptance"
+}

@@ -1,0 +1,15 @@
+{
+  "captured_at": "2026-10-31T21:08:22.294042+00:00",
+  "capture_location": "Spark",
+  "original_response_sha256": "504a0ce695eea0874e634b153c93c865ce90514af233651629efd886cbc83599",
+  "source_helper_sha256": "498bdbbc2ee911892f9aecd2fc124909520d37584e76f4b34fdd434d2f97733d",
+  "request": {
+    "operation": "options_liquidity",
+    "symbol": "AAPL",
+    "expiries": [
+      "2026-11-04",
+      "2026-11-06"
+    ],
+    "as_of_date": "2026-10-31"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "prompt_set_id": "caller-driven-financial-reasoning-checker-20261102",
+  "version": "4",
+  "status": "development",
+  "owner_approval_ref": "Root-directed final candidate-v3 knowledge revision from round-two development feedback, 2026-11-03. Exact root review required before integration final development/heldout batch; no inference, deployment or portfolio trial authorized in this authoring chat.",
+  "roles": {
+    "fact_checker": {
+      "path": "fact-checker.md",
+      "content_hash": "574fae8d992df75b0e90799d99e66f69a3e0648ea9810e00e3bbdcc02908680d"
+    }
+  },
+  "shared": {
+    "sources": {
+      "path": "sources.md",
+      "content_hash": "42f29bd48e856b7f59f721a9d0aba77c52596580c9340b6b7701f1593cc87c84"
+    }
+  },
+  "modules": {
+    "01-evidence-and-calibration": {
+      "path": "knowledge/01-evidence-and-calibration.md",
+      "content_hash": "80b8137f49b4c03ce0b9f0bbbff02bacccc47c3925ab157ee14ed88f22b86632"
+    },
+    "02-inventory-contracts-and-arithmetic": {
+      "path": "knowledge/02-inventory-contracts-and-arithmetic.md",
+      "content_hash": "b7bd95d1c7526812f425a07c489f8d5a931b3125cc455d4eac6ba809145c3526"
+    },
+    "03-options-payoffs-pricing-and-events": {
+      "path": "knowledge/03-options-payoffs-pricing-and-events.md",
+      "content_hash": "81c1d604bb6325b635f830d0a18954b02d1584edd962dd0115e3c720d8335059"
+    },
+    "04-funding-margin-and-role-fidelity": {
+      "path": "knowledge/04-funding-margin-and-role-fidelity.md",
+      "content_hash": "25a2cd5d224ce1f825bc908fa21d2868bc779daf140173efa2944f548d9b44b8"
+    },
+    "05-worked-repairs-and-correct-cases": {
+      "path": "knowledge/05-worked-repairs-and-correct-cases.md",
+      "content_hash": "7391b89cb73984ad7e78886236144565f8615f6ab4e85b0563407a122fd92bd0"
+    }
+  }
+}

@@ -1,0 +1,3483 @@
+[
+  {
+    "case_id": "explorer-aster",
+    "role": "explorer",
+    "simulation": true,
+    "analysis_time": "2026-11-04T12:00:00+00:00",
+    "mode": "focused",
+    "question": "SIMULATED EVALUATION: All issuers, instruments and publisher observations below are fictional. Tools return only this controlled world, never live market/account data. Analysis time2026-11-04T12:00Z. Identify the most useful public research leads and market/catalyst limitations from this world. No candidate quota. {\"id\": \"aster\", \"name\": \"Aster Tools\", \"symbol\": \"ASTF\", \"price\": 50, \"revenue_m\": 600, \"net_income_m\": 52, \"fcf_m\": 48, \"debt_m\": 80, \"company_cash_m\": 90, \"put\": {\"expiry\": \"2026-12-18\", \"strike\": 45, \"bid\": 1.35, \"ask\": 1.45, \"delta\": -0.22, \"multiplier\": 100, \"currency\": \"USD\", \"proposed_quantity\": 1}, \"quote_time\": \"2026-11-04T11:55:00Z\", \"news\": \"Aster renewed a three-year customer supply agreement. Earnings announced for2027-01-12. These are complete synthetic publisher observations.\", \"limitations\": []}",
+    "tool_fixtures": {
+      "public_search": {
+        "default": {
+          "status": "success",
+          "data": {
+            "results": [
+              {
+                "record_ref": "evidence:aster-news",
+                "title": "Aster Tools fictional publisher update",
+                "source_url": "https://aster.example/news",
+                "source_timestamp": "2026-11-04T11:55:00Z",
+                "fetched_at": "2026-11-04T11:59:00Z",
+                "text": "Aster renewed a three-year customer supply agreement. Earnings announced for2027-01-12. These are complete synthetic publisher observations.",
+                "truncated": false,
+                "synthetic": true
+              }
+            ],
+            "coverage_note": "Synthetic publisher excerpt only; no real page access."
+          },
+          "evidence_refs": [
+            "evidence:aster-news"
+          ]
+        }
+      },
+      "market_statistics": {
+        "default": {
+          "status": "success",
+          "data": {
+            "synthetic": true,
+            "series": [
+              {
+                "symbol": "ASTF",
+                "last": 50,
+                "as_of": "2026-11-04T11:55:00Z"
+              }
+            ],
+            "coverage_note": "One scenario issuer; no broad-market breadth or causal attribution."
+          }
+        }
+      },
+      "options_liquidity": {
+        "default": {
+          "status": "success",
+          "data": {
+            "synthetic": true,
+            "symbol": "ASTF",
+            "contracts": [
+              {
+                "expiry": "2026-12-18",
+                "strike": 45,
+                "bid": 1.35,
+                "ask": 1.45,
+                "delta": -0.22,
+                "multiplier": 100,
+                "currency": "USD",
+                "proposed_quantity": 1
+              }
+            ],
+            "as_of": "2026-11-04T11:55:00Z",
+            "coverage": "Quoted requested standard series only; no inferred market-wide liquidity"
+          }
+        }
+      }
+    }
+  },
+  {
+    "case_id": "analyst-aster",
+    "role": "analyst",
+    "simulation": true,
+    "analysis_time": "2026-11-04T12:00:00+00:00",
+    "mode": "focused",
+    "question": "SIMULATED EVALUATION: All issuers, instruments and publisher observations below are fictional. Tools return only this controlled world, never live market/account data. Analysis time2026-11-04T12:00Z. Research Aster Tools and its quoted put, business quality, financial sustainability and relevant catalysts. Return a concise public research assessment and limitations, with evidence refs. Available initial source refs: evidence:aster-quote, evidence:aster-business, evidence:aster-news, evidence:aster-history. {\"id\": \"aster\", \"name\": \"Aster Tools\", \"symbol\": \"ASTF\", \"price\": 50, \"revenue_m\": 600, \"net_income_m\": 52, \"fcf_m\": 48, \"debt_m\": 80, \"company_cash_m\": 90, \"put\": {\"expiry\": \"2026-12-18\", \"strike\": 45, \"bid\": 1.35, \"ask\": 1.45, \"delta\": -0.22, \"multiplier\": 100, \"currency\": \"USD\", \"proposed_quantity\": 1}, \"quote_time\": \"2026-11-04T11:55:00Z\", \"news\": \"Aster renewed a three-year customer supply agreement. Earnings announced for2027-01-12. These are complete synthetic publisher observations.\", \"limitations\": []}",
+    "tool_fixtures": {
+      "evidence_read": {
+        "routes": [
+          {
+            "contains_all": [
+              "evidence:aster-quote"
+            ],
+            "response": {
+              "status": "success",
+              "data": {
+                "synthetic": true,
+                "source": "fictional-aster-publisher",
+                "source_url": "https://aster.example/quote",
+                "source_timestamp": "2026-11-04T11:55:00Z",
+                "fetched_at": "2026-11-04T11:59:00Z",
+                "content": {
+                  "underlying_price": 50,
+                  "option": {
+                    "expiry": "2026-12-18",
+                    "strike": 45,
+                    "bid": 1.35,
+                    "ask": 1.45,
+                    "delta": -0.22,
+                    "multiplier": 100,
+                    "currency": "USD",
+                    "proposed_quantity": 1
+                  }
+                },
+                "coverage": "Supplied synthetic observations only; not real market data."
+              },
+              "evidence_refs": [
+                "evidence:aster-quote"
+              ]
+            }
+          },
+          {
+            "contains_all": [
+              "evidence:aster-business"
+            ],
+            "response": {
+              "status": "success",
+              "data": {
+                "synthetic": true,
+                "source": "fictional-aster-publisher",
+                "source_url": "https://aster.example/business",
+                "source_timestamp": "2026-11-04T11:55:00Z",
+                "fetched_at": "2026-11-04T11:59:00Z",
+                "content": {
+                  "name": "Aster Tools",
+                  "symbol": "ASTF",
+                  "revenue_m": 600,
+                  "net_income_m": 52,
+                  "fcf_m": 48,
+                  "debt_m": 80,
+                  "company_cash_m": 90
+                },
+                "coverage": "Supplied synthetic observations only; not real market data."
+              },
+              "evidence_refs": [
+                "evidence:aster-business"
+              ]
+            }
+          },
+          {
+            "contains_all": [
+              "evidence:aster-news"
+            ],
+            "response": {
+              "status": "success",
+              "data": {
+                "synthetic": true,
+                "source": "fictional-aster-publisher",
+                "source_url": "https://aster.example/news",
+                "source_timestamp": "2026-11-04T11:55:00Z",
+                "fetched_at": "2026-11-04T11:59:00Z",
+                "content": {
+                  "text": "Aster renewed a three-year customer supply agreement. Earnings announced for2027-01-12. These are complete synthetic publisher observations.",
+                  "limitations": []
+                },
+                "coverage": "Supplied synthetic observations only; not real market data."
+              },
+              "evidence_refs": [
+                "evidence:aster-news"
+              ]
+            }
+          },
+          {
+            "contains_all": [
+              "evidence:aster-history"
+            ],
+            "response": {
+              "status": "success",
+              "data": {
+                "synthetic": true,
+                "source": "fictional-aster-publisher",
+                "source_url": "https://aster.example/history",
+                "source_timestamp": "2026-11-04T11:55:00Z",
+                "fetched_at": "2026-11-04T11:59:00Z",
+                "content": {
+                  "dates": [
+                    "2026-10-05",
+                    "2026-10-06",
+                    "2026-10-07"
+                  ],
+                  "closes": [
+                    52.5,
+                    48.5,
+                    50
+                  ],
+                  "alignment": "Rows are paired by array index; a date is never the following row."
+                },
+                "coverage": "Supplied synthetic observations only; not real market data."
+              },
+              "evidence_refs": [
+                "evidence:aster-history"
+              ]
+            }
+          }
+        ],
+        "default": {
+          "status": "unavailable",
+          "reason": "Requested exact reference is outside this synthetic world"
+        }
+      },
+      "evidence_find": {
+        "default": {
+          "status": "success",
+          "data": {
+            "records": [
+              {
+                "record_ref": "evidence:aster-quote",
+                "kind": "evidence",
+                "synthetic": true
+              },
+              {
+                "record_ref": "evidence:aster-business",
+                "kind": "evidence",
+                "synthetic": true
+              },
+              {
+                "record_ref": "evidence:aster-news",
+                "kind": "evidence",
+                "synthetic": true
+              },
+              {
+                "record_ref": "evidence:aster-history",
+                "kind": "evidence",
+                "synthetic": true
+              }
+            ]
+          }
+        }
+      },
+      "finance_calculate": {
+        "coverage_limited": true,
+        "default": {
+          "status": "unavailable",
+          "reason": "No deterministic calculation response is configured for these arguments; calculations may be performed from the supplied synthetic numbers. This is mock coverage, not missing source evidence."
+        }
+      },
+      "market_query": {
+        "routes": [
+          {
+            "contains_all": [
+              "underlying_quotes"
+            ],
+            "response": {
+              "schema_version": 1,
+              "status": "success",
+              "data": {
+                "query_id": "synthetic-request",
+                "status": "success",
+                "evidence": [
+                  {
+                    "evidence_id": "aster-quote",
+                    "synthetic": true,
+                    "source": "fictional-aster-publisher",
+                    "source_url": "https://aster.example/quote",
+                    "source_timestamp": "2026-11-04T11:55:00Z",
+                    "fetched_at": "2026-11-04T11:59:00Z",
+                    "content": {
+                      "underlying_price": 50,
+                      "option": {
+                        "expiry": "2026-12-18",
+                        "strike": 45,
+                        "bid": 1.35,
+                        "ask": 1.45,
+                        "delta": -0.22,
+                        "multiplier": 100,
+                        "currency": "USD",
+                        "proposed_quantity": 1
+                      }
+                    },
+                    "coverage": "Supplied synthetic observations only; not real market data."
+                  }
+                ]
+              },
+              "evidence_refs": [
+                "evidence:aster-quote"
+              ],
+              "result_refs": [
+                "evidence:aster-quote"
+              ]
+            }
+          },
+          {
+            "contains_all": [
+              "option_chains"
+            ],
+            "response": {
+              "schema_version": 1,
+              "status": "success",
+              "data": {
+                "query_id": "synthetic-request",
+                "status": "success",
+                "evidence": [
+                  {
+                    "evidence_id": "aster-quote",
+                    "synthetic": true,
+                    "source": "fictional-aster-publisher",
+                    "source_url": "https://aster.example/quote",
+                    "source_timestamp": "2026-11-04T11:55:00Z",
+                    "fetched_at": "2026-11-04T11:59:00Z",
+                    "content": {
+                      "underlying_price": 50,
+                      "option": {
+                        "expiry": "2026-12-18",
+                        "strike": 45,
+                        "bid": 1.35,
+                        "ask": 1.45,
+                        "delta": -0.22,
+                        "multiplier": 100,
+                        "currency": "USD",
+                        "proposed_quantity": 1
+                      }
+                    },
+                    "coverage": "Supplied synthetic observations only; not real market data."
+                  }
+                ]
+              },
+              "evidence_refs": [
+                "evidence:aster-quote"
+              ],
+              "result_refs": [
+                "evidence:aster-quote"
+              ]
+            }
+          },
+          {
+            "contains_all": [
+              "fundamentals"
+            ],
+            "response": {
+              "schema_version": 1,
+              "status": "success",
+              "data": {
+                "query_id": "synthetic-request",
+                "status": "success",
+                "evidence": [
+                  {
+                    "evidence_id": "aster-business",
+                    "synthetic": true,
+                    "source": "fictional-aster-publisher",
+                    "source_url": "https://aster.example/business",
+                    "source_timestamp": "2026-11-04T11:55:00Z",
+                    "fetched_at": "2026-11-04T11:59:00Z",
+                    "content": {
+                      "name": "Aster Tools",
+                      "symbol": "ASTF",
+                      "revenue_m": 600,
+                      "net_income_m": 52,
+                      "fcf_m": 48,
+                      "debt_m": 80,
+                      "company_cash_m": 90
+                    },
+                    "coverage": "Supplied synthetic observations only; not real market data."
+                  }
+                ]
+              },
+              "evidence_refs": [
+                "evidence:aster-business"
+              ],
+              "result_refs": [
+                "evidence:aster-business"
+              ]
+            }
+          },
+          {
+            "contains_all": [
+              "underlying_history"
+            ],
+            "response": {
+              "schema_version": 1,
+              "status": "success",
+              "data": {
+                "query_id": "synthetic-request",
+                "status": "success",
+                "evidence": [
+                  {
+                    "evidence_id": "aster-history",
+                    "synthetic": true,
+                    "source": "fictional-aster-publisher",
+                    "source_url": "https://aster.example/history",
+                    "source_timestamp": "2026-11-04T11:55:00Z",
+                    "fetched_at": "2026-11-04T11:59:00Z",
+                    "content": {
+                      "dates": [
+                        "2026-10-05",
+                        "2026-10-06",
+                        "2026-10-07"
+                      ],
+                      "closes": [
+                        52.5,
+                        48.5,
+                        50
+                      ],
+                      "alignment": "Rows are paired by array index; a date is never the following row."
+                    },
+                    "coverage": "Supplied synthetic observations only; not real market data."
+                  }
+                ]
+              },
+              "evidence_refs": [
+                "evidence:aster-history"
+              ],
+              "result_refs": [
+                "evidence:aster-history"
+              ]
+            }
+          }
+        ],
+        "default": {
+          "status": "unavailable",
+          "reason": "Requested capability or instrument is not supplied by this synthetic scenario"
+        }
+      },
+      "public_search": {
+        "default": {
+          "status": "success",
+          "data": {
+            "results": [
+              {
+                "record_ref": "evidence:aster-news",
+                "title": "Aster Tools fictional publisher update",
+                "source_url": "https://aster.example/news",
+                "source_timestamp": "2026-11-04T11:55:00Z",
+                "fetched_at": "2026-11-04T11:59:00Z",
+                "text": "Aster renewed a three-year customer supply agreement. Earnings announced for2027-01-12. These are complete synthetic publisher observations.",
+                "truncated": false,
+                "synthetic": true
+              }
+            ],
+            "coverage_note": "Synthetic publisher excerpt only; no real page access."
+          },
+          "evidence_refs": [
+            "evidence:aster-news"
+          ]
+        }
+      },
+      "fetch_sources": {
+        "default": {
+          "status": "success",
+          "data": {
+            "sources": [
+              {
+                "synthetic": true,
+                "source": "fictional-aster-publisher",
+                "source_url": "https://aster.example/quote",
+                "source_timestamp": "2026-11-04T11:55:00Z",
+                "fetched_at": "2026-11-04T11:59:00Z",
+                "content": {
+                  "underlying_price": 50,
+                  "option": {
+                    "expiry": "2026-12-18",
+                    "strike": 45,
+                    "bid": 1.35,
+                    "ask": 1.45,
+                    "delta": -0.22,
+                    "multiplier": 100,
+                    "currency": "USD",
+                    "proposed_quantity": 1
+                  }
+                },
+                "coverage": "Supplied synthetic observations only; not real market data."
+              },
+              {
+                "synthetic": true,
+                "source": "fictional-aster-publisher",
+                "source_url": "https://aster.example/business",
+                "source_timestamp": "2026-11-04T11:55:00Z",
+                "fetched_at": "2026-11-04T11:59:00Z",
+                "content": {
+                  "name": "Aster Tools",
+                  "symbol": "ASTF",
+                  "revenue_m": 600,
+                  "net_income_m": 52,
+                  "fcf_m": 48,
+                  "debt_m": 80,
+                  "company_cash_m": 90
+                },
+                "coverage": "Supplied synthetic observations only; not real market data."
+              },
+              {
+                "synthetic": true,
+                "source": "fictional-aster-publisher",
+                "source_url": "https://aster.example/news",
+                "source_timestamp": "2026-11-04T11:55:00Z",
+                "fetched_at": "2026-11-04T11:59:00Z",
+                "content": {
+                  "text": "Aster renewed a three-year customer supply agreement. Earnings announced for2027-01-12. These are complete synthetic publisher observations.",
+                  "limitations": []
+                },
+                "coverage": "Supplied synthetic observations only; not real market data."
+              },
+              {
+                "synthetic": true,
+                "source": "fictional-aster-publisher",
+                "source_url": "https://aster.example/history",
+                "source_timestamp": "2026-11-04T11:55:00Z",
+                "fetched_at": "2026-11-04T11:59:00Z",
+                "content": {
+                  "dates": [
+                    "2026-10-05",
+                    "2026-10-06",
+                    "2026-10-07"
+                  ],
+                  "closes": [
+                    52.5,
+                    48.5,
+                    50
+                  ],
+                  "alignment": "Rows are paired by array index; a date is never the following row."
+                },
+                "coverage": "Supplied synthetic observations only; not real market data."
+              }
+            ]
+          },
+          "reason": null,
+          "evidence_refs": [
+            "evidence:aster-quote",
+            "evidence:aster-business",
+            "evidence:aster-news",
+            "evidence:aster-history"
+          ]
+        }
+      },
+      "fact_check": {
+        "default": {
+          "status": "completed",
+          "feedback": "Within the supplied scope, the price, contract terms and issuer data agree. Any proposed quantity remains conditional on portfolio concentration and unobserved broker capacity. This is not investment approval.",
+          "error": null
+        }
+      }
+    }
+  },
+  {
+    "case_id": "wheel_expert-aster",
+    "role": "wheel_expert",
+    "simulation": true,
+    "analysis_time": "2026-11-04T12:00:00+00:00",
+    "mode": "combined",
+    "question": "SIMULATED EVALUATION: All issuers, instruments and publisher observations below are fictional. Tools return only this controlled world, never live market/account data. Analysis time2026-11-04T12:00Z. Give a preferred, reasoned portfolio-management assessment for the supplied original synthetic portfolio and public research. Focus on material conditions and compare quoted alternatives if useful. Original analyst envelope: {\"job_id\": \"aster\", \"outcome\": \"success\", \"summary\": \"Aster Tools (ASTF): underlying$50, current quoted put {\\\"expiry\\\": \\\"2026-12-18\\\", \\\"strike\\\": 45, \\\"bid\\\": 1.35, \\\"ask\\\": 1.45, \\\"delta\\\": -0.22, \\\"multiplier\\\": 100, \\\"currency\\\": \\\"USD\\\", \\\"proposed_quantity\\\": 1}. Revenue$600m; net income$52m; FCF$48m. Aster renewed a three-year customer supply agreement. Earnings announced for2027-01-12. These are complete synthetic publisher observations. Source refs: evidence:aster-quote, evidence:aster-business, evidence:aster-news, evidence:aster-history.\", \"evidence_refs\": [\"evidence:aster-quote\", \"evidence:aster-business\", \"evidence:aster-news\", \"evidence:aster-history\"]} Additional synthetic public observations: {\"id\": \"aster\", \"name\": \"Aster Tools\", \"symbol\": \"ASTF\", \"price\": 50, \"revenue_m\": 600, \"net_income_m\": 52, \"fcf_m\": 48, \"debt_m\": 80, \"company_cash_m\": 90, \"put\": {\"expiry\": \"2026-12-18\", \"strike\": 45, \"bid\": 1.35, \"ask\": 1.45, \"delta\": -0.22, \"multiplier\": 100, \"currency\": \"USD\", \"proposed_quantity\": 1}, \"quote_time\": \"2026-11-04T11:55:00Z\", \"news\": \"Aster renewed a three-year customer supply agreement. Earnings announced for2027-01-12. These are complete synthetic publisher observations.\", \"limitations\": []}",
+    "tool_fixtures": {
+      "evidence_read": {
+        "routes": [
+          {
+            "contains_all": [
+              "evidence:aster-quote"
+            ],
+            "response": {
+              "status": "success",
+              "data": {
+                "synthetic": true,
+                "source": "fictional-aster-publisher",
+                "source_url": "https://aster.example/quote",
+                "source_timestamp": "2026-11-04T11:55:00Z",
+                "fetched_at": "2026-11-04T11:59:00Z",
+                "content": {
+                  "underlying_price": 50,
+                  "option": {
+                    "expiry": "2026-12-18",
+                    "strike": 45,
+                    "bid": 1.35,
+                    "ask": 1.45,
+                    "delta": -0.22,
+                    "multiplier": 100,
+                    "currency": "USD",
+                    "proposed_quantity": 1
+                  }
+                },
+                "coverage": "Supplied synthetic observations only; not real market data."
+              },
+              "evidence_refs": [
+                "evidence:aster-quote"
+              ]
+            }
+          },
+          {
+            "contains_all": [
+              "evidence:aster-business"
+            ],
+            "response": {
+              "status": "success",
+              "data": {
+                "synthetic": true,
+                "source": "fictional-aster-publisher",
+                "source_url": "https://aster.example/business",
+                "source_timestamp": "2026-11-04T11:55:00Z",
+                "fetched_at": "2026-11-04T11:59:00Z",
+                "content": {
+                  "name": "Aster Tools",
+                  "symbol": "ASTF",
+                  "revenue_m": 600,
+                  "net_income_m": 52,
+                  "fcf_m": 48,
+                  "debt_m": 80,
+                  "company_cash_m": 90
+                },
+                "coverage": "Supplied synthetic observations only; not real market data."
+              },
+              "evidence_refs": [
+                "evidence:aster-business"
+              ]
+            }
+          },
+          {
+            "contains_all": [
+              "evidence:aster-news"
+            ],
+            "response": {
+              "status": "success",
+              "data": {
+                "synthetic": true,
+                "source": "fictional-aster-publisher",
+                "source_url": "https://aster.example/news",
+                "source_timestamp": "2026-11-04T11:55:00Z",
+                "fetched_at": "2026-11-04T11:59:00Z",
+                "content": {
+                  "text": "Aster renewed a three-year customer supply agreement. Earnings announced for2027-01-12. These are complete synthetic publisher observations.",
+                  "limitations": []
+                },
+                "coverage": "Supplied synthetic observations only; not real market data."
+              },
+              "evidence_refs": [
+                "evidence:aster-news"
+              ]
+            }
+          },
+          {
+            "contains_all": [
+              "evidence:aster-history"
+            ],
+            "response": {
+              "status": "success",
+              "data": {
+                "synthetic": true,
+                "source": "fictional-aster-publisher",
+                "source_url": "https://aster.example/history",
+                "source_timestamp": "2026-11-04T11:55:00Z",
+                "fetched_at": "2026-11-04T11:59:00Z",
+                "content": {
+                  "dates": [
+                    "2026-10-05",
+                    "2026-10-06",
+                    "2026-10-07"
+                  ],
+                  "closes": [
+                    52.5,
+                    48.5,
+                    50
+                  ],
+                  "alignment": "Rows are paired by array index; a date is never the following row."
+                },
+                "coverage": "Supplied synthetic observations only; not real market data."
+              },
+              "evidence_refs": [
+                "evidence:aster-history"
+              ]
+            }
+          }
+        ],
+        "default": {
+          "status": "unavailable",
+          "reason": "Requested exact reference is outside this synthetic world"
+        }
+      },
+      "evidence_find": {
+        "default": {
+          "status": "success",
+          "data": {
+            "records": [
+              {
+                "record_ref": "evidence:aster-quote",
+                "kind": "evidence",
+                "synthetic": true
+              },
+              {
+                "record_ref": "evidence:aster-business",
+                "kind": "evidence",
+                "synthetic": true
+              },
+              {
+                "record_ref": "evidence:aster-news",
+                "kind": "evidence",
+                "synthetic": true
+              },
+              {
+                "record_ref": "evidence:aster-history",
+                "kind": "evidence",
+                "synthetic": true
+              }
+            ]
+          }
+        }
+      },
+      "finance_calculate": {
+        "coverage_limited": true,
+        "default": {
+          "status": "unavailable",
+          "reason": "No deterministic calculation response is configured for these arguments; calculations may be performed from the supplied synthetic numbers. This is mock coverage, not missing source evidence."
+        }
+      },
+      "request_research": {
+        "reports_by_topic": [
+          {
+            "contains_all": [
+              "ASTF"
+            ],
+            "response": {
+              "outcome": "success",
+              "summary": "Aster Tools (ASTF): underlying$50, current quoted put {\"expiry\": \"2026-12-18\", \"strike\": 45, \"bid\": 1.35, \"ask\": 1.45, \"delta\": -0.22, \"multiplier\": 100, \"currency\": \"USD\", \"proposed_quantity\": 1}. Revenue$600m; net income$52m; FCF$48m. Aster renewed a three-year customer supply agreement. Earnings announced for2027-01-12. These are complete synthetic publisher observations. Source refs: evidence:aster-quote, evidence:aster-business, evidence:aster-news, evidence:aster-history.",
+              "evidence_refs": [
+                "evidence:aster-quote",
+                "evidence:aster-business",
+                "evidence:aster-news",
+                "evidence:aster-history"
+              ],
+              "findings": [],
+              "error": null
+            }
+          },
+          {
+            "contains_all": [
+              "Aster"
+            ],
+            "response": {
+              "outcome": "success",
+              "summary": "Aster Tools (ASTF): underlying$50, current quoted put {\"expiry\": \"2026-12-18\", \"strike\": 45, \"bid\": 1.35, \"ask\": 1.45, \"delta\": -0.22, \"multiplier\": 100, \"currency\": \"USD\", \"proposed_quantity\": 1}. Revenue$600m; net income$52m; FCF$48m. Aster renewed a three-year customer supply agreement. Earnings announced for2027-01-12. These are complete synthetic publisher observations. Source refs: evidence:aster-quote, evidence:aster-business, evidence:aster-news, evidence:aster-history.",
+              "evidence_refs": [
+                "evidence:aster-quote",
+                "evidence:aster-business",
+                "evidence:aster-news",
+                "evidence:aster-history"
+              ],
+              "findings": [],
+              "error": null
+            }
+          }
+        ],
+        "default_report": {
+          "outcome": "partial",
+          "summary": "The controlled scenario supplies only Aster Tools evidence. No other issuer or requested missing observation is available. Aster Tools (ASTF): underlying$50, current quoted put {\"expiry\": \"2026-12-18\", \"strike\": 45, \"bid\": 1.35, \"ask\": 1.45, \"delta\": -0.22, \"multiplier\": 100, \"currency\": \"USD\", \"proposed_quantity\": 1}. Revenue$600m; net income$52m; FCF$48m. Aster renewed a three-year customer supply agreement. Earnings announced for2027-01-12. These are complete synthetic publisher observations. Source refs: evidence:aster-quote, evidence:aster-business, evidence:aster-news, evidence:aster-history.",
+          "evidence_refs": [
+            "evidence:aster-quote",
+            "evidence:aster-business",
+            "evidence:aster-news",
+            "evidence:aster-history"
+          ],
+          "error": "synthetic_coverage_limit"
+        }
+      },
+      "fact_check": {
+        "default": {
+          "status": "completed",
+          "feedback": "Within the supplied scope, the price, contract terms and issuer data agree. Any proposed quantity remains conditional on portfolio concentration and unobserved broker capacity. This is not investment approval.",
+          "error": null
+        }
+      }
+    },
+    "portfolio_text": "{\n  \"synthetic\": true,\n  \"as_of\": \"2026-11-03T21:00:00Z\",\n  \"base_currency\": \"USD\",\n  \"nav\": 100000,\n  \"cash\": 20000,\n  \"holdings\": [\n    {\n      \"position_id\": \"aster-stock\",\n      \"symbol\": \"ASTF\",\n      \"quantity\": 100,\n      \"mark\": 50\n    },\n    {\n      \"position_id\": \"BOND\",\n      \"symbol\": \"Fictional diversified bond fund\",\n      \"quantity\": null,\n      \"valuation\": 75000\n    }\n  ],\n  \"current_broker_capacity\": \"unknown\"\n}",
+    "owner_context": "Synthetic owner goal: sustainable diversified compounding, wheel strategies where justified; no personal issuer thesis or order authorization. No broker capacity observation is supplied."
+  },
+  {
+    "case_id": "team_lead-aster",
+    "role": "team_lead",
+    "simulation": true,
+    "analysis_time": "2026-11-04T12:00:00+00:00",
+    "mode": "combined",
+    "question": "SIMULATED EVALUATION: All issuers, instruments and publisher observations below are fictional. Tools return only this controlled world, never live market/account data. Analysis time2026-11-04T12:00Z. Manage a complete concise advisory review of this synthetic portfolio and opportunities. Use your supplied tools as appropriate; preserve actual child findings and limits. Public context: {\"id\": \"aster\", \"name\": \"Aster Tools\", \"symbol\": \"ASTF\", \"price\": 50, \"revenue_m\": 600, \"net_income_m\": 52, \"fcf_m\": 48, \"debt_m\": 80, \"company_cash_m\": 90, \"put\": {\"expiry\": \"2026-12-18\", \"strike\": 45, \"bid\": 1.35, \"ask\": 1.45, \"delta\": -0.22, \"multiplier\": 100, \"currency\": \"USD\", \"proposed_quantity\": 1}, \"quote_time\": \"2026-11-04T11:55:00Z\", \"news\": \"Aster renewed a three-year customer supply agreement. Earnings announced for2027-01-12. These are complete synthetic publisher observations.\", \"limitations\": []}",
+    "tool_fixtures": {
+      "explore": {
+        "default": {
+          "job_id": "mock-explorer",
+          "outcome": "success",
+          "summary": "Aster Tools (ASTF): underlying$50, current quoted put {\"expiry\": \"2026-12-18\", \"strike\": 45, \"bid\": 1.35, \"ask\": 1.45, \"delta\": -0.22, \"multiplier\": 100, \"currency\": \"USD\", \"proposed_quantity\": 1}. Revenue$600m; net income$52m; FCF$48m. Aster renewed a three-year customer supply agreement. Earnings announced for2027-01-12. These are complete synthetic publisher observations. Source refs: evidence:aster-quote, evidence:aster-business, evidence:aster-news, evidence:aster-history.",
+          "evidence_refs": [
+            "evidence:aster-quote",
+            "evidence:aster-business",
+            "evidence:aster-news",
+            "evidence:aster-history"
+          ]
+        }
+      },
+      "research_batch": {
+        "reports_by_topic": [
+          {
+            "contains_all": [
+              "ASTF"
+            ],
+            "response": {
+              "outcome": "success",
+              "summary": "Aster Tools (ASTF): underlying$50, current quoted put {\"expiry\": \"2026-12-18\", \"strike\": 45, \"bid\": 1.35, \"ask\": 1.45, \"delta\": -0.22, \"multiplier\": 100, \"currency\": \"USD\", \"proposed_quantity\": 1}. Revenue$600m; net income$52m; FCF$48m. Aster renewed a three-year customer supply agreement. Earnings announced for2027-01-12. These are complete synthetic publisher observations. Source refs: evidence:aster-quote, evidence:aster-business, evidence:aster-news, evidence:aster-history.",
+              "evidence_refs": [
+                "evidence:aster-quote",
+                "evidence:aster-business",
+                "evidence:aster-news",
+                "evidence:aster-history"
+              ],
+              "findings": [],
+              "error": null
+            }
+          },
+          {
+            "contains_all": [
+              "Aster"
+            ],
+            "response": {
+              "outcome": "success",
+              "summary": "Aster Tools (ASTF): underlying$50, current quoted put {\"expiry\": \"2026-12-18\", \"strike\": 45, \"bid\": 1.35, \"ask\": 1.45, \"delta\": -0.22, \"multiplier\": 100, \"currency\": \"USD\", \"proposed_quantity\": 1}. Revenue$600m; net income$52m; FCF$48m. Aster renewed a three-year customer supply agreement. Earnings announced for2027-01-12. These are complete synthetic publisher observations. Source refs: evidence:aster-quote, evidence:aster-business, evidence:aster-news, evidence:aster-history.",
+              "evidence_refs": [
+                "evidence:aster-quote",
+                "evidence:aster-business",
+                "evidence:aster-news",
+                "evidence:aster-history"
+              ],
+              "findings": [],
+              "error": null
+            }
+          }
+        ],
+        "default_report": {
+          "outcome": "partial",
+          "summary": "The controlled scenario supplies only Aster Tools evidence. No other issuer or requested missing observation is available. Aster Tools (ASTF): underlying$50, current quoted put {\"expiry\": \"2026-12-18\", \"strike\": 45, \"bid\": 1.35, \"ask\": 1.45, \"delta\": -0.22, \"multiplier\": 100, \"currency\": \"USD\", \"proposed_quantity\": 1}. Revenue$600m; net income$52m; FCF$48m. Aster renewed a three-year customer supply agreement. Earnings announced for2027-01-12. These are complete synthetic publisher observations. Source refs: evidence:aster-quote, evidence:aster-business, evidence:aster-news, evidence:aster-history.",
+          "evidence_refs": [
+            "evidence:aster-quote",
+            "evidence:aster-business",
+            "evidence:aster-news",
+            "evidence:aster-history"
+          ],
+          "error": "synthetic_coverage_limit"
+        }
+      },
+      "consult_expert": {
+        "default": {
+          "assessment": "For the supplied synthetic portfolio, Aster Tools (ASTF): underlying$50, current quoted put {\"expiry\": \"2026-12-18\", \"strike\": 45, \"bid\": 1.35, \"ask\": 1.45, \"delta\": -0.22, \"multiplier\": 100, \"currency\": \"USD\", \"proposed_quantity\": 1}. Revenue$600m; net income$52m; FCF$48m. Aster renewed a three-year customer supply agreement. Earnings announced for2027-01-12. These are complete synthetic publisher observations. Source refs: evidence:aster-quote, evidence:aster-business, evidence:aster-news, evidence:aster-history. Preferred provisional management: retain the defensible core holding, and compare the quoted put structure conditionally with current exposure, funding and opportunity cost. No executable broker capacity was observed.",
+          "findings": []
+        }
+      }
+    },
+    "portfolio_text": "{\n  \"synthetic\": true,\n  \"as_of\": \"2026-11-03T21:00:00Z\",\n  \"base_currency\": \"USD\",\n  \"nav\": 100000,\n  \"cash\": 20000,\n  \"holdings\": [\n    {\n      \"position_id\": \"aster-stock\",\n      \"symbol\": \"ASTF\",\n      \"quantity\": 100,\n      \"mark\": 50\n    },\n    {\n      \"position_id\": \"BOND\",\n      \"symbol\": \"Fictional diversified bond fund\",\n      \"quantity\": null,\n      \"valuation\": 75000\n    }\n  ],\n  \"current_broker_capacity\": \"unknown\"\n}",
+    "owner_context": "Synthetic owner goal: sustainable diversified compounding, wheel strategies where justified; no personal issuer thesis or order authorization. No broker capacity observation is supplied."
+  },
+  {
+    "case_id": "fact_checker-aster",
+    "role": "fact_checker",
+    "simulation": true,
+    "analysis_time": "2026-11-04T12:00:00+00:00",
+    "question": "SIMULATED EVALUATION: All issuers, instruments and publisher observations below are fictional. Tools return only this controlled world, never live market/account data. Analysis time2026-11-04T12:00Z. {\"author_role\": \"wheel_expert\", \"invocation_id\": \"synthetic-aster\", \"message\": \"At$50 the$45 put is out of the money. One100-share contract sold at the$1.35 bid receives$135 gross premium; full strike obligation is$4500 and strike less premium is$4365, before fees. This may be conditionally useful but broker capacity is unknown.\", \"evidence\": [{\"ref\": \"evidence:aster-quote\", \"body\": {\"synthetic\": true, \"source\": \"fictional-aster-publisher\", \"source_url\": \"https://aster.example/quote\", \"source_timestamp\": \"2026-11-04T11:55:00Z\", \"fetched_at\": \"2026-11-04T11:59:00Z\", \"content\": {\"underlying_price\": 50, \"option\": {\"expiry\": \"2026-12-18\", \"strike\": 45, \"bid\": 1.35, \"ask\": 1.45, \"delta\": -0.22, \"multiplier\": 100, \"currency\": \"USD\", \"proposed_quantity\": 1}}, \"coverage\": \"Supplied synthetic observations only; not real market data.\"}}, {\"ref\": \"evidence:aster-business\", \"body\": {\"synthetic\": true, \"source\": \"fictional-aster-publisher\", \"source_url\": \"https://aster.example/business\", \"source_timestamp\": \"2026-11-04T11:55:00Z\", \"fetched_at\": \"2026-11-04T11:59:00Z\", \"content\": {\"name\": \"Aster Tools\", \"symbol\": \"ASTF\", \"revenue_m\": 600, \"net_income_m\": 52, \"fcf_m\": 48, \"debt_m\": 80, \"company_cash_m\": 90}, \"coverage\": \"Supplied synthetic observations only; not real market data.\"}}, {\"ref\": \"evidence:aster-news\", \"body\": {\"synthetic\": true, \"source\": \"fictional-aster-publisher\", \"source_url\": \"https://aster.example/news\", \"source_timestamp\": \"2026-11-04T11:55:00Z\", \"fetched_at\": \"2026-11-04T11:59:00Z\", \"content\": {\"text\": \"Aster renewed a three-year customer supply agreement. Earnings announced for2027-01-12. These are complete synthetic publisher observations.\", \"limitations\": []}, \"coverage\": \"Supplied synthetic observations only; not real market data.\"}}, {\"ref\": \"evidence:aster-history\", \"body\": {\"synthetic\": true, \"source\": \"fictional-aster-publisher\", \"source_url\": \"https://aster.example/history\", \"source_timestamp\": \"2026-11-04T11:55:00Z\", \"fetched_at\": \"2026-11-04T11:59:00Z\", \"content\": {\"dates\": [\"2026-10-05\", \"2026-10-06\", \"2026-10-07\"], \"closes\": [52.5, 48.5, 50], \"alignment\": \"Rows are paired by array index; a date is never the following row.\"}, \"coverage\": \"Supplied synthetic observations only; not real market data.\"}}, {\"ref\": \"input:portfolio\", \"body\": {\"synthetic\": true, \"as_of\": \"2026-11-03T21:00:00Z\", \"base_currency\": \"USD\", \"nav\": 100000, \"cash\": 20000, \"holdings\": [{\"position_id\": \"aster-stock\", \"symbol\": \"ASTF\", \"quantity\": 100, \"mark\": 50}, {\"position_id\": \"BOND\", \"symbol\": \"Fictional diversified bond fund\", \"quantity\": null, \"valuation\": 75000}], \"current_broker_capacity\": \"unknown\"}}], \"assumptions\": [\"Standard USD100-share option contracts as stated in source.\"]}",
+    "tool_fixtures": {}
+  },
+  {
+    "case_id": "hermes_presentation-aster",
+    "role": "hermes_presentation",
+    "simulation": true,
+    "analysis_time": "2026-11-04T12:00:00+00:00",
+    "question": "SIMULATED EVALUATION: All issuers, instruments and publisher observations below are fictional. Tools return only this controlled world, never live market/account data. Analysis time2026-11-04T12:00Z. {\"original_native_report\": \"Preferred course: retain the100-share ASTF core. A one-contract$45 Dec18 put is a conditional addition only if broker capacity and aggregate exposure permit; quoted bid$1.35 at2026-11-04T11:55Z. Diversified bond fund: retain for reserve liquidity. No order authorized.\", \"prepared_brief_context\": {\"version\": 1, \"portfolio_as_of\": \"2026-11-03T21:00:00Z\", \"report_path\": \"/simulated/report.md\", \"report_completed_at\": \"2026-11-04T12:00:00Z\", \"native_run_id\": \"synthetic-aster\", \"report_sha256\": \"b44718f2274a8fa4322f09f80db0aea2efd0258d649061c6fb6b023dc6430daa\", \"portfolio_sha256\": \"49648bf6d155eb8c4e6800c130921437948d078adf22c575be7de1eb1a369d86\", \"positions\": [{\"position_id\": \"aster-stock\", \"label\": \"ASTF holding\", \"structure_key\": \"aster-stock\"}, {\"position_id\": \"BOND\", \"label\": \"Fictional diversified bond fund holding\", \"structure_key\": \"BOND\"}], \"as_of\": \"2026-11-03T21:00:00Z\"}, \"mock_delivery_acknowledgement\": {\"status\": \"not_sent\", \"simulation\": true}}",
+    "tool_fixtures": {}
+  },
+  {
+    "case_id": "explorer-beryl",
+    "role": "explorer",
+    "simulation": true,
+    "analysis_time": "2026-11-04T12:00:00+00:00",
+    "mode": "focused",
+    "question": "SIMULATED EVALUATION: All issuers, instruments and publisher observations below are fictional. Tools return only this controlled world, never live market/account data. Analysis time2026-11-04T12:00Z. Identify the most useful public research leads and market/catalyst limitations from this world. No candidate quota. {\"id\": \"beryl\", \"name\": \"Beryl Components\", \"symbol\": \"BERY\", \"price\": 38, \"revenue_m\": 720, \"net_income_m\": 31, \"fcf_m\": 22, \"debt_m\": 180, \"company_cash_m\": 45, \"put\": {\"expiry\": \"2026-11-20\", \"strike\": 40, \"bid\": 3.0, \"ask\": 3.2, \"delta\": -0.55, \"multiplier\": 100, \"currency\": \"USD\", \"position_quantity\": -2, \"original_credit\": 2.2}, \"quote_time\": \"2026-10-28T11:55:00Z\", \"news\": \"An unsigned search excerpt says revenue660m for the same quarter; the synthetic issuer table says720m. The excerpt has no publication date or accessible full page. No newer underlying/option quote is available. Earnings date is unavailable.\", \"limitations\": [\"Conflicting same-period revenue; secondary excerpt not independently inspected\", \"Quote7days old; no executable current quote\", \"No live broker capacity or earnings observation\"]}",
+    "tool_fixtures": {
+      "public_search": {
+        "default": {
+          "status": "success",
+          "data": {
+            "results": [
+              {
+                "record_ref": "evidence:beryl-news",
+                "title": "Beryl Components fictional publisher update",
+                "source_url": "https://beryl.example/news",
+                "source_timestamp": "2026-10-28T11:55:00Z",
+                "fetched_at": "2026-11-04T11:59:00Z",
+                "text": "An unsigned search excerpt says revenue660m for the same quarter; the synthetic issuer table says720m. The excerpt has no publication date or accessible full page. No newer underlying/option quote is available. Earnings date is unavailable.",
+                "truncated": false,
+                "synthetic": true
+              }
+            ],
+            "coverage_note": "Synthetic publisher excerpt only; no real page access."
+          },
+          "evidence_refs": [
+            "evidence:beryl-news"
+          ]
+        }
+      },
+      "market_statistics": {
+        "default": {
+          "status": "success",
+          "data": {
+            "synthetic": true,
+            "series": [
+              {
+                "symbol": "BERY",
+                "last": 38,
+                "as_of": "2026-10-28T11:55:00Z"
+              }
+            ],
+            "coverage_note": "One scenario issuer; no broad-market breadth or causal attribution."
+          }
+        }
+      },
+      "options_liquidity": {
+        "default": {
+          "status": "success",
+          "data": {
+            "synthetic": true,
+            "symbol": "BERY",
+            "contracts": [
+              {
+                "expiry": "2026-11-20",
+                "strike": 40,
+                "bid": 3.0,
+                "ask": 3.2,
+                "delta": -0.55,
+                "multiplier": 100,
+                "currency": "USD",
+                "position_quantity": -2,
+                "original_credit": 2.2
+              }
+            ],
+            "as_of": "2026-10-28T11:55:00Z",
+            "coverage": "Quoted requested standard series only; no inferred market-wide liquidity"
+          }
+        }
+      }
+    }
+  },
+  {
+    "case_id": "analyst-beryl",
+    "role": "analyst",
+    "simulation": true,
+    "analysis_time": "2026-11-04T12:00:00+00:00",
+    "mode": "focused",
+    "question": "SIMULATED EVALUATION: All issuers, instruments and publisher observations below are fictional. Tools return only this controlled world, never live market/account data. Analysis time2026-11-04T12:00Z. Research Beryl Components and its quoted put, business quality, financial sustainability and relevant catalysts. Return a concise public research assessment and limitations, with evidence refs. Available initial source refs: evidence:beryl-quote, evidence:beryl-business, evidence:beryl-news, evidence:beryl-history. {\"id\": \"beryl\", \"name\": \"Beryl Components\", \"symbol\": \"BERY\", \"price\": 38, \"revenue_m\": 720, \"net_income_m\": 31, \"fcf_m\": 22, \"debt_m\": 180, \"company_cash_m\": 45, \"put\": {\"expiry\": \"2026-11-20\", \"strike\": 40, \"bid\": 3.0, \"ask\": 3.2, \"delta\": -0.55, \"multiplier\": 100, \"currency\": \"USD\", \"position_quantity\": -2, \"original_credit\": 2.2}, \"quote_time\": \"2026-10-28T11:55:00Z\", \"news\": \"An unsigned search excerpt says revenue660m for the same quarter; the synthetic issuer table says720m. The excerpt has no publication date or accessible full page. No newer underlying/option quote is available. Earnings date is unavailable.\", \"limitations\": [\"Conflicting same-period revenue; secondary excerpt not independently inspected\", \"Quote7days old; no executable current quote\", \"No live broker capacity or earnings observation\"]}",
+    "tool_fixtures": {
+      "evidence_read": {
+        "routes": [
+          {
+            "contains_all": [
+              "evidence:beryl-quote"
+            ],
+            "response": {
+              "status": "success",
+              "data": {
+                "synthetic": true,
+                "source": "fictional-beryl-publisher",
+                "source_url": "https://beryl.example/quote",
+                "source_timestamp": "2026-10-28T11:55:00Z",
+                "fetched_at": "2026-11-04T11:59:00Z",
+                "content": {
+                  "underlying_price": 38,
+                  "option": {
+                    "expiry": "2026-11-20",
+                    "strike": 40,
+                    "bid": 3.0,
+                    "ask": 3.2,
+                    "delta": -0.55,
+                    "multiplier": 100,
+                    "currency": "USD",
+                    "position_quantity": -2,
+                    "original_credit": 2.2
+                  }
+                },
+                "coverage": "Supplied synthetic observations only; not real market data."
+              },
+              "evidence_refs": [
+                "evidence:beryl-quote"
+              ]
+            }
+          },
+          {
+            "contains_all": [
+              "evidence:beryl-business"
+            ],
+            "response": {
+              "status": "success",
+              "data": {
+                "synthetic": true,
+                "source": "fictional-beryl-publisher",
+                "source_url": "https://beryl.example/business",
+                "source_timestamp": "2026-10-28T11:55:00Z",
+                "fetched_at": "2026-11-04T11:59:00Z",
+                "content": {
+                  "name": "Beryl Components",
+                  "symbol": "BERY",
+                  "revenue_m": 720,
+                  "net_income_m": 31,
+                  "fcf_m": 22,
+                  "debt_m": 180,
+                  "company_cash_m": 45
+                },
+                "coverage": "Supplied synthetic observations only; not real market data."
+              },
+              "evidence_refs": [
+                "evidence:beryl-business"
+              ]
+            }
+          },
+          {
+            "contains_all": [
+              "evidence:beryl-news"
+            ],
+            "response": {
+              "status": "success",
+              "data": {
+                "synthetic": true,
+                "source": "fictional-beryl-publisher",
+                "source_url": "https://beryl.example/news",
+                "source_timestamp": "2026-10-28T11:55:00Z",
+                "fetched_at": "2026-11-04T11:59:00Z",
+                "content": {
+                  "text": "An unsigned search excerpt says revenue660m for the same quarter; the synthetic issuer table says720m. The excerpt has no publication date or accessible full page. No newer underlying/option quote is available. Earnings date is unavailable.",
+                  "limitations": [
+                    "Conflicting same-period revenue; secondary excerpt not independently inspected",
+                    "Quote7days old; no executable current quote",
+                    "No live broker capacity or earnings observation"
+                  ]
+                },
+                "coverage": "Supplied synthetic observations only; not real market data."
+              },
+              "evidence_refs": [
+                "evidence:beryl-news"
+              ]
+            }
+          },
+          {
+            "contains_all": [
+              "evidence:beryl-history"
+            ],
+            "response": {
+              "status": "success",
+              "data": {
+                "synthetic": true,
+                "source": "fictional-beryl-publisher",
+                "source_url": "https://beryl.example/history",
+                "source_timestamp": "2026-10-28T11:55:00Z",
+                "fetched_at": "2026-11-04T11:59:00Z",
+                "content": {
+                  "dates": [
+                    "2026-10-05",
+                    "2026-10-06",
+                    "2026-10-07"
+                  ],
+                  "closes": [
+                    39.9,
+                    36.86,
+                    38
+                  ],
+                  "alignment": "Rows are paired by array index; a date is never the following row."
+                },
+                "coverage": "Supplied synthetic observations only; not real market data."
+              },
+              "evidence_refs": [
+                "evidence:beryl-history"
+              ]
+            }
+          }
+        ],
+        "default": {
+          "status": "unavailable",
+          "reason": "Requested exact reference is outside this synthetic world"
+        }
+      },
+      "evidence_find": {
+        "default": {
+          "status": "success",
+          "data": {
+            "records": [
+              {
+                "record_ref": "evidence:beryl-quote",
+                "kind": "evidence",
+                "synthetic": true
+              },
+              {
+                "record_ref": "evidence:beryl-business",
+                "kind": "evidence",
+                "synthetic": true
+              },
+              {
+                "record_ref": "evidence:beryl-news",
+                "kind": "evidence",
+                "synthetic": true
+              },
+              {
+                "record_ref": "evidence:beryl-history",
+                "kind": "evidence",
+                "synthetic": true
+              }
+            ]
+          }
+        }
+      },
+      "finance_calculate": {
+        "coverage_limited": true,
+        "default": {
+          "status": "unavailable",
+          "reason": "No deterministic calculation response is configured for these arguments; calculations may be performed from the supplied synthetic numbers. This is mock coverage, not missing source evidence."
+        }
+      },
+      "market_query": {
+        "routes": [
+          {
+            "contains_all": [
+              "underlying_quotes"
+            ],
+            "response": {
+              "schema_version": 1,
+              "status": "success",
+              "data": {
+                "query_id": "synthetic-request",
+                "status": "success",
+                "evidence": [
+                  {
+                    "evidence_id": "beryl-quote",
+                    "synthetic": true,
+                    "source": "fictional-beryl-publisher",
+                    "source_url": "https://beryl.example/quote",
+                    "source_timestamp": "2026-10-28T11:55:00Z",
+                    "fetched_at": "2026-11-04T11:59:00Z",
+                    "content": {
+                      "underlying_price": 38,
+                      "option": {
+                        "expiry": "2026-11-20",
+                        "strike": 40,
+                        "bid": 3.0,
+                        "ask": 3.2,
+                        "delta": -0.55,
+                        "multiplier": 100,
+                        "currency": "USD",
+                        "position_quantity": -2,
+                        "original_credit": 2.2
+                      }
+                    },
+                    "coverage": "Supplied synthetic observations only; not real market data."
+                  }
+                ]
+              },
+              "evidence_refs": [
+                "evidence:beryl-quote"
+              ],
+              "result_refs": [
+                "evidence:beryl-quote"
+              ]
+            }
+          },
+          {
+            "contains_all": [
+              "option_chains"
+            ],
+            "response": {
+              "schema_version": 1,
+              "status": "success",
+              "data": {
+                "query_id": "synthetic-request",
+                "status": "success",
+                "evidence": [
+                  {
+                    "evidence_id": "beryl-quote",
+                    "synthetic": true,
+                    "source": "fictional-beryl-publisher",
+                    "source_url": "https://beryl.example/quote",
+                    "source_timestamp": "2026-10-28T11:55:00Z",
+                    "fetched_at": "2026-11-04T11:59:00Z",
+                    "content": {
+                      "underlying_price": 38,
+                      "option": {
+                        "expiry": "2026-11-20",
+                        "strike": 40,
+                        "bid": 3.0,
+                        "ask": 3.2,
+                        "delta": -0.55,
+                        "multiplier": 100,
+                        "currency": "USD",
+                        "position_quantity": -2,
+                        "original_credit": 2.2
+                      }
+                    },
+                    "coverage": "Supplied synthetic observations only; not real market data."
+                  }
+                ]
+              },
+              "evidence_refs": [
+                "evidence:beryl-quote"
+              ],
+              "result_refs": [
+                "evidence:beryl-quote"
+              ]
+            }
+          },
+          {
+            "contains_all": [
+              "fundamentals"
+            ],
+            "response": {
+              "schema_version": 1,
+              "status": "success",
+              "data": {
+                "query_id": "synthetic-request",
+                "status": "success",
+                "evidence": [
+                  {
+                    "evidence_id": "beryl-business",
+                    "synthetic": true,
+                    "source": "fictional-beryl-publisher",
+                    "source_url": "https://beryl.example/business",
+                    "source_timestamp": "2026-10-28T11:55:00Z",
+                    "fetched_at": "2026-11-04T11:59:00Z",
+                    "content": {
+                      "name": "Beryl Components",
+                      "symbol": "BERY",
+                      "revenue_m": 720,
+                      "net_income_m": 31,
+                      "fcf_m": 22,
+                      "debt_m": 180,
+                      "company_cash_m": 45
+                    },
+                    "coverage": "Supplied synthetic observations only; not real market data."
+                  }
+                ]
+              },
+              "evidence_refs": [
+                "evidence:beryl-business"
+              ],
+              "result_refs": [
+                "evidence:beryl-business"
+              ]
+            }
+          },
+          {
+            "contains_all": [
+              "underlying_history"
+            ],
+            "response": {
+              "schema_version": 1,
+              "status": "success",
+              "data": {
+                "query_id": "synthetic-request",
+                "status": "success",
+                "evidence": [
+                  {
+                    "evidence_id": "beryl-history",
+                    "synthetic": true,
+                    "source": "fictional-beryl-publisher",
+                    "source_url": "https://beryl.example/history",
+                    "source_timestamp": "2026-10-28T11:55:00Z",
+                    "fetched_at": "2026-11-04T11:59:00Z",
+                    "content": {
+                      "dates": [
+                        "2026-10-05",
+                        "2026-10-06",
+                        "2026-10-07"
+                      ],
+                      "closes": [
+                        39.9,
+                        36.86,
+                        38
+                      ],
+                      "alignment": "Rows are paired by array index; a date is never the following row."
+                    },
+                    "coverage": "Supplied synthetic observations only; not real market data."
+                  }
+                ]
+              },
+              "evidence_refs": [
+                "evidence:beryl-history"
+              ],
+              "result_refs": [
+                "evidence:beryl-history"
+              ]
+            }
+          }
+        ],
+        "default": {
+          "status": "unavailable",
+          "reason": "Requested capability or instrument is not supplied by this synthetic scenario"
+        }
+      },
+      "public_search": {
+        "default": {
+          "status": "success",
+          "data": {
+            "results": [
+              {
+                "record_ref": "evidence:beryl-news",
+                "title": "Beryl Components fictional publisher update",
+                "source_url": "https://beryl.example/news",
+                "source_timestamp": "2026-10-28T11:55:00Z",
+                "fetched_at": "2026-11-04T11:59:00Z",
+                "text": "An unsigned search excerpt says revenue660m for the same quarter; the synthetic issuer table says720m. The excerpt has no publication date or accessible full page. No newer underlying/option quote is available. Earnings date is unavailable.",
+                "truncated": false,
+                "synthetic": true
+              }
+            ],
+            "coverage_note": "Synthetic publisher excerpt only; no real page access."
+          },
+          "evidence_refs": [
+            "evidence:beryl-news"
+          ]
+        }
+      },
+      "fetch_sources": {
+        "default": {
+          "status": "unavailable",
+          "data": {
+            "sources": []
+          },
+          "reason": "Synthetic sources only; the conflicting Beryl excerpt has no accessible full page",
+          "evidence_refs": []
+        }
+      },
+      "fact_check": {
+        "default": {
+          "status": "error",
+          "feedback": "",
+          "error": "empty_reply"
+        }
+      }
+    }
+  },
+  {
+    "case_id": "wheel_expert-beryl",
+    "role": "wheel_expert",
+    "simulation": true,
+    "analysis_time": "2026-11-04T12:00:00+00:00",
+    "mode": "combined",
+    "question": "SIMULATED EVALUATION: All issuers, instruments and publisher observations below are fictional. Tools return only this controlled world, never live market/account data. Analysis time2026-11-04T12:00Z. Give a preferred, reasoned portfolio-management assessment for the supplied original synthetic portfolio and public research. Focus on material conditions and compare quoted alternatives if useful. Original analyst envelope: {\"job_id\": \"beryl\", \"outcome\": \"partial\", \"summary\": \"Beryl Components (BERY): underlying$38, current quoted put {\\\"expiry\\\": \\\"2026-11-20\\\", \\\"strike\\\": 40, \\\"bid\\\": 3.0, \\\"ask\\\": 3.2, \\\"delta\\\": -0.55, \\\"multiplier\\\": 100, \\\"currency\\\": \\\"USD\\\", \\\"position_quantity\\\": -2, \\\"original_credit\\\": 2.2}. Revenue$720m; net income$31m; FCF$22m. An unsigned search excerpt says revenue660m for the same quarter; the synthetic issuer table says720m. The excerpt has no publication date or accessible full page. No newer underlying/option quote is available. Earnings date is unavailable. Source refs: evidence:beryl-quote, evidence:beryl-business, evidence:beryl-news, evidence:beryl-history.\", \"evidence_refs\": [\"evidence:beryl-quote\", \"evidence:beryl-business\", \"evidence:beryl-news\", \"evidence:beryl-history\"]} Additional synthetic public observations: {\"id\": \"beryl\", \"name\": \"Beryl Components\", \"symbol\": \"BERY\", \"price\": 38, \"revenue_m\": 720, \"net_income_m\": 31, \"fcf_m\": 22, \"debt_m\": 180, \"company_cash_m\": 45, \"put\": {\"expiry\": \"2026-11-20\", \"strike\": 40, \"bid\": 3.0, \"ask\": 3.2, \"delta\": -0.55, \"multiplier\": 100, \"currency\": \"USD\", \"position_quantity\": -2, \"original_credit\": 2.2}, \"quote_time\": \"2026-10-28T11:55:00Z\", \"news\": \"An unsigned search excerpt says revenue660m for the same quarter; the synthetic issuer table says720m. The excerpt has no publication date or accessible full page. No newer underlying/option quote is available. Earnings date is unavailable.\", \"limitations\": [\"Conflicting same-period revenue; secondary excerpt not independently inspected\", \"Quote7days old; no executable current quote\", \"No live broker capacity or earnings observation\"]}",
+    "tool_fixtures": {
+      "evidence_read": {
+        "routes": [
+          {
+            "contains_all": [
+              "evidence:beryl-quote"
+            ],
+            "response": {
+              "status": "success",
+              "data": {
+                "synthetic": true,
+                "source": "fictional-beryl-publisher",
+                "source_url": "https://beryl.example/quote",
+                "source_timestamp": "2026-10-28T11:55:00Z",
+                "fetched_at": "2026-11-04T11:59:00Z",
+                "content": {
+                  "underlying_price": 38,
+                  "option": {
+                    "expiry": "2026-11-20",
+                    "strike": 40,
+                    "bid": 3.0,
+                    "ask": 3.2,
+                    "delta": -0.55,
+                    "multiplier": 100,
+                    "currency": "USD",
+                    "position_quantity": -2,
+                    "original_credit": 2.2
+                  }
+                },
+                "coverage": "Supplied synthetic observations only; not real market data."
+              },
+              "evidence_refs": [
+                "evidence:beryl-quote"
+              ]
+            }
+          },
+          {
+            "contains_all": [
+              "evidence:beryl-business"
+            ],
+            "response": {
+              "status": "success",
+              "data": {
+                "synthetic": true,
+                "source": "fictional-beryl-publisher",
+                "source_url": "https://beryl.example/business",
+                "source_timestamp": "2026-10-28T11:55:00Z",
+                "fetched_at": "2026-11-04T11:59:00Z",
+                "content": {
+                  "name": "Beryl Components",
+                  "symbol": "BERY",
+                  "revenue_m": 720,
+                  "net_income_m": 31,
+                  "fcf_m": 22,
+                  "debt_m": 180,
+                  "company_cash_m": 45
+                },
+                "coverage": "Supplied synthetic observations only; not real market data."
+              },
+              "evidence_refs": [
+                "evidence:beryl-business"
+              ]
+            }
+          },
+          {
+            "contains_all": [
+              "evidence:beryl-news"
+            ],
+            "response": {
+              "status": "success",
+              "data": {
+                "synthetic": true,
+                "source": "fictional-beryl-publisher",
+                "source_url": "https://beryl.example/news",
+                "source_timestamp": "2026-10-28T11:55:00Z",
+                "fetched_at": "2026-11-04T11:59:00Z",
+                "content": {
+                  "text": "An unsigned search excerpt says revenue660m for the same quarter; the synthetic issuer table says720m. The excerpt has no publication date or accessible full page. No newer underlying/option quote is available. Earnings date is unavailable.",
+                  "limitations": [
+                    "Conflicting same-period revenue; secondary excerpt not independently inspected",
+                    "Quote7days old; no executable current quote",
+                    "No live broker capacity or earnings observation"
+                  ]
+                },
+                "coverage": "Supplied synthetic observations only; not real market data."
+              },
+              "evidence_refs": [
+                "evidence:beryl-news"
+              ]
+            }
+          },
+          {
+            "contains_all": [
+              "evidence:beryl-history"
+            ],
+            "response": {
+              "status": "success",
+              "data": {
+                "synthetic": true,
+                "source": "fictional-beryl-publisher",
+                "source_url": "https://beryl.example/history",
+                "source_timestamp": "2026-10-28T11:55:00Z",
+                "fetched_at": "2026-11-04T11:59:00Z",
+                "content": {
+                  "dates": [
+                    "2026-10-05",
+                    "2026-10-06",
+                    "2026-10-07"
+                  ],
+                  "closes": [
+                    39.9,
+                    36.86,
+                    38
+                  ],
+                  "alignment": "Rows are paired by array index; a date is never the following row."
+                },
+                "coverage": "Supplied synthetic observations only; not real market data."
+              },
+              "evidence_refs": [
+                "evidence:beryl-history"
+              ]
+            }
+          }
+        ],
+        "default": {
+          "status": "unavailable",
+          "reason": "Requested exact reference is outside this synthetic world"
+        }
+      },
+      "evidence_find": {
+        "default": {
+          "status": "success",
+          "data": {
+            "records": [
+              {
+                "record_ref": "evidence:beryl-quote",
+                "kind": "evidence",
+                "synthetic": true
+              },
+              {
+                "record_ref": "evidence:beryl-business",
+                "kind": "evidence",
+                "synthetic": true
+              },
+              {
+                "record_ref": "evidence:beryl-news",
+                "kind": "evidence",
+                "synthetic": true
+              },
+              {
+                "record_ref": "evidence:beryl-history",
+                "kind": "evidence",
+                "synthetic": true
+              }
+            ]
+          }
+        }
+      },
+      "finance_calculate": {
+        "coverage_limited": true,
+        "default": {
+          "status": "unavailable",
+          "reason": "No deterministic calculation response is configured for these arguments; calculations may be performed from the supplied synthetic numbers. This is mock coverage, not missing source evidence."
+        }
+      },
+      "request_research": {
+        "reports_by_topic": [
+          {
+            "contains_all": [
+              "BERY"
+            ],
+            "response": {
+              "outcome": "partial",
+              "summary": "Beryl Components (BERY): underlying$38, current quoted put {\"expiry\": \"2026-11-20\", \"strike\": 40, \"bid\": 3.0, \"ask\": 3.2, \"delta\": -0.55, \"multiplier\": 100, \"currency\": \"USD\", \"position_quantity\": -2, \"original_credit\": 2.2}. Revenue$720m; net income$31m; FCF$22m. An unsigned search excerpt says revenue660m for the same quarter; the synthetic issuer table says720m. The excerpt has no publication date or accessible full page. No newer underlying/option quote is available. Earnings date is unavailable. Source refs: evidence:beryl-quote, evidence:beryl-business, evidence:beryl-news, evidence:beryl-history.",
+              "evidence_refs": [
+                "evidence:beryl-quote",
+                "evidence:beryl-business",
+                "evidence:beryl-news",
+                "evidence:beryl-history"
+              ],
+              "findings": [],
+              "error": null
+            }
+          },
+          {
+            "contains_all": [
+              "Beryl"
+            ],
+            "response": {
+              "outcome": "partial",
+              "summary": "Beryl Components (BERY): underlying$38, current quoted put {\"expiry\": \"2026-11-20\", \"strike\": 40, \"bid\": 3.0, \"ask\": 3.2, \"delta\": -0.55, \"multiplier\": 100, \"currency\": \"USD\", \"position_quantity\": -2, \"original_credit\": 2.2}. Revenue$720m; net income$31m; FCF$22m. An unsigned search excerpt says revenue660m for the same quarter; the synthetic issuer table says720m. The excerpt has no publication date or accessible full page. No newer underlying/option quote is available. Earnings date is unavailable. Source refs: evidence:beryl-quote, evidence:beryl-business, evidence:beryl-news, evidence:beryl-history.",
+              "evidence_refs": [
+                "evidence:beryl-quote",
+                "evidence:beryl-business",
+                "evidence:beryl-news",
+                "evidence:beryl-history"
+              ],
+              "findings": [],
+              "error": null
+            }
+          }
+        ],
+        "default_report": {
+          "outcome": "partial",
+          "summary": "The controlled scenario supplies only Beryl Components evidence. No other issuer or requested missing observation is available. Beryl Components (BERY): underlying$38, current quoted put {\"expiry\": \"2026-11-20\", \"strike\": 40, \"bid\": 3.0, \"ask\": 3.2, \"delta\": -0.55, \"multiplier\": 100, \"currency\": \"USD\", \"position_quantity\": -2, \"original_credit\": 2.2}. Revenue$720m; net income$31m; FCF$22m. An unsigned search excerpt says revenue660m for the same quarter; the synthetic issuer table says720m. The excerpt has no publication date or accessible full page. No newer underlying/option quote is available. Earnings date is unavailable. Source refs: evidence:beryl-quote, evidence:beryl-business, evidence:beryl-news, evidence:beryl-history.",
+          "evidence_refs": [
+            "evidence:beryl-quote",
+            "evidence:beryl-business",
+            "evidence:beryl-news",
+            "evidence:beryl-history"
+          ],
+          "error": "synthetic_coverage_limit"
+        }
+      },
+      "fact_check": {
+        "default": {
+          "status": "error",
+          "feedback": "",
+          "error": "empty_reply"
+        }
+      }
+    },
+    "portfolio_text": "{\n  \"synthetic\": true,\n  \"as_of\": \"2026-11-03T21:00:00Z\",\n  \"base_currency\": \"USD\",\n  \"nav\": 80000,\n  \"cash\": 12000,\n  \"holdings\": [\n    {\n      \"position_id\": \"beryl-stock\",\n      \"symbol\": \"BERY\",\n      \"quantity\": 100,\n      \"mark\": 38\n    },\n    {\n      \"position_id\": \"BOND\",\n      \"symbol\": \"Fictional diversified bond fund\",\n      \"quantity\": null,\n      \"valuation\": 64840.0\n    },\n    {\n      \"position_id\": \"beryl-put\",\n      \"symbol\": \"BERY\",\n      \"quantity\": -2,\n      \"contract\": {\n        \"expiry\": \"2026-11-20\",\n        \"strike\": 40,\n        \"bid\": 3.0,\n        \"ask\": 3.2,\n        \"delta\": -0.55,\n        \"multiplier\": 100,\n        \"currency\": \"USD\",\n        \"position_quantity\": -2,\n        \"original_credit\": 2.2\n      },\n      \"mark\": 3.2\n    }\n  ],\n  \"current_broker_capacity\": \"unknown\"\n}",
+    "owner_context": "Synthetic owner goal: sustainable diversified compounding, wheel strategies where justified; no personal issuer thesis or order authorization. No broker capacity observation is supplied."
+  },
+  {
+    "case_id": "team_lead-beryl",
+    "role": "team_lead",
+    "simulation": true,
+    "analysis_time": "2026-11-04T12:00:00+00:00",
+    "mode": "combined",
+    "question": "SIMULATED EVALUATION: All issuers, instruments and publisher observations below are fictional. Tools return only this controlled world, never live market/account data. Analysis time2026-11-04T12:00Z. Manage a complete concise advisory review of this synthetic portfolio and opportunities. Use your supplied tools as appropriate; preserve actual child findings and limits. Public context: {\"id\": \"beryl\", \"name\": \"Beryl Components\", \"symbol\": \"BERY\", \"price\": 38, \"revenue_m\": 720, \"net_income_m\": 31, \"fcf_m\": 22, \"debt_m\": 180, \"company_cash_m\": 45, \"put\": {\"expiry\": \"2026-11-20\", \"strike\": 40, \"bid\": 3.0, \"ask\": 3.2, \"delta\": -0.55, \"multiplier\": 100, \"currency\": \"USD\", \"position_quantity\": -2, \"original_credit\": 2.2}, \"quote_time\": \"2026-10-28T11:55:00Z\", \"news\": \"An unsigned search excerpt says revenue660m for the same quarter; the synthetic issuer table says720m. The excerpt has no publication date or accessible full page. No newer underlying/option quote is available. Earnings date is unavailable.\", \"limitations\": [\"Conflicting same-period revenue; secondary excerpt not independently inspected\", \"Quote7days old; no executable current quote\", \"No live broker capacity or earnings observation\"]}",
+    "tool_fixtures": {
+      "explore": {
+        "default": {
+          "job_id": "mock-explorer",
+          "outcome": "partial",
+          "summary": "Beryl Components (BERY): underlying$38, current quoted put {\"expiry\": \"2026-11-20\", \"strike\": 40, \"bid\": 3.0, \"ask\": 3.2, \"delta\": -0.55, \"multiplier\": 100, \"currency\": \"USD\", \"position_quantity\": -2, \"original_credit\": 2.2}. Revenue$720m; net income$31m; FCF$22m. An unsigned search excerpt says revenue660m for the same quarter; the synthetic issuer table says720m. The excerpt has no publication date or accessible full page. No newer underlying/option quote is available. Earnings date is unavailable. Source refs: evidence:beryl-quote, evidence:beryl-business, evidence:beryl-news, evidence:beryl-history.",
+          "evidence_refs": [
+            "evidence:beryl-quote",
+            "evidence:beryl-business",
+            "evidence:beryl-news",
+            "evidence:beryl-history"
+          ]
+        }
+      },
+      "research_batch": {
+        "reports_by_topic": [
+          {
+            "contains_all": [
+              "BERY"
+            ],
+            "response": {
+              "outcome": "partial",
+              "summary": "Beryl Components (BERY): underlying$38, current quoted put {\"expiry\": \"2026-11-20\", \"strike\": 40, \"bid\": 3.0, \"ask\": 3.2, \"delta\": -0.55, \"multiplier\": 100, \"currency\": \"USD\", \"position_quantity\": -2, \"original_credit\": 2.2}. Revenue$720m; net income$31m; FCF$22m. An unsigned search excerpt says revenue660m for the same quarter; the synthetic issuer table says720m. The excerpt has no publication date or accessible full page. No newer underlying/option quote is available. Earnings date is unavailable. Source refs: evidence:beryl-quote, evidence:beryl-business, evidence:beryl-news, evidence:beryl-history.",
+              "evidence_refs": [
+                "evidence:beryl-quote",
+                "evidence:beryl-business",
+                "evidence:beryl-news",
+                "evidence:beryl-history"
+              ],
+              "findings": [],
+              "error": null
+            }
+          },
+          {
+            "contains_all": [
+              "Beryl"
+            ],
+            "response": {
+              "outcome": "partial",
+              "summary": "Beryl Components (BERY): underlying$38, current quoted put {\"expiry\": \"2026-11-20\", \"strike\": 40, \"bid\": 3.0, \"ask\": 3.2, \"delta\": -0.55, \"multiplier\": 100, \"currency\": \"USD\", \"position_quantity\": -2, \"original_credit\": 2.2}. Revenue$720m; net income$31m; FCF$22m. An unsigned search excerpt says revenue660m for the same quarter; the synthetic issuer table says720m. The excerpt has no publication date or accessible full page. No newer underlying/option quote is available. Earnings date is unavailable. Source refs: evidence:beryl-quote, evidence:beryl-business, evidence:beryl-news, evidence:beryl-history.",
+              "evidence_refs": [
+                "evidence:beryl-quote",
+                "evidence:beryl-business",
+                "evidence:beryl-news",
+                "evidence:beryl-history"
+              ],
+              "findings": [],
+              "error": null
+            }
+          }
+        ],
+        "default_report": {
+          "outcome": "partial",
+          "summary": "The controlled scenario supplies only Beryl Components evidence. No other issuer or requested missing observation is available. Beryl Components (BERY): underlying$38, current quoted put {\"expiry\": \"2026-11-20\", \"strike\": 40, \"bid\": 3.0, \"ask\": 3.2, \"delta\": -0.55, \"multiplier\": 100, \"currency\": \"USD\", \"position_quantity\": -2, \"original_credit\": 2.2}. Revenue$720m; net income$31m; FCF$22m. An unsigned search excerpt says revenue660m for the same quarter; the synthetic issuer table says720m. The excerpt has no publication date or accessible full page. No newer underlying/option quote is available. Earnings date is unavailable. Source refs: evidence:beryl-quote, evidence:beryl-business, evidence:beryl-news, evidence:beryl-history.",
+          "evidence_refs": [
+            "evidence:beryl-quote",
+            "evidence:beryl-business",
+            "evidence:beryl-news",
+            "evidence:beryl-history"
+          ],
+          "error": "synthetic_coverage_limit"
+        }
+      },
+      "consult_expert": {
+        "default": {
+          "assessment": "For the supplied synthetic portfolio, Beryl Components (BERY): underlying$38, current quoted put {\"expiry\": \"2026-11-20\", \"strike\": 40, \"bid\": 3.0, \"ask\": 3.2, \"delta\": -0.55, \"multiplier\": 100, \"currency\": \"USD\", \"position_quantity\": -2, \"original_credit\": 2.2}. Revenue$720m; net income$31m; FCF$22m. An unsigned search excerpt says revenue660m for the same quarter; the synthetic issuer table says720m. The excerpt has no publication date or accessible full page. No newer underlying/option quote is available. Earnings date is unavailable. Source refs: evidence:beryl-quote, evidence:beryl-business, evidence:beryl-news, evidence:beryl-history. Preferred provisional management: defer any quote-dependent execution while reconciling source conflicts; retain conditional portfolio analysis.",
+          "findings": []
+        }
+      }
+    },
+    "portfolio_text": "{\n  \"synthetic\": true,\n  \"as_of\": \"2026-11-03T21:00:00Z\",\n  \"base_currency\": \"USD\",\n  \"nav\": 80000,\n  \"cash\": 12000,\n  \"holdings\": [\n    {\n      \"position_id\": \"beryl-stock\",\n      \"symbol\": \"BERY\",\n      \"quantity\": 100,\n      \"mark\": 38\n    },\n    {\n      \"position_id\": \"BOND\",\n      \"symbol\": \"Fictional diversified bond fund\",\n      \"quantity\": null,\n      \"valuation\": 64840.0\n    },\n    {\n      \"position_id\": \"beryl-put\",\n      \"symbol\": \"BERY\",\n      \"quantity\": -2,\n      \"contract\": {\n        \"expiry\": \"2026-11-20\",\n        \"strike\": 40,\n        \"bid\": 3.0,\n        \"ask\": 3.2,\n        \"delta\": -0.55,\n        \"multiplier\": 100,\n        \"currency\": \"USD\",\n        \"position_quantity\": -2,\n        \"original_credit\": 2.2\n      },\n      \"mark\": 3.2\n    }\n  ],\n  \"current_broker_capacity\": \"unknown\"\n}",
+    "owner_context": "Synthetic owner goal: sustainable diversified compounding, wheel strategies where justified; no personal issuer thesis or order authorization. No broker capacity observation is supplied."
+  },
+  {
+    "case_id": "fact_checker-beryl",
+    "role": "fact_checker",
+    "simulation": true,
+    "analysis_time": "2026-11-04T12:00:00+00:00",
+    "question": "SIMULATED EVALUATION: All issuers, instruments and publisher observations below are fictional. Tools return only this controlled world, never live market/account data. Analysis time2026-11-04T12:00Z. {\"author_role\": \"wheel_expert\", \"invocation_id\": \"synthetic-beryl\", \"message\": \"Beryl revenue is definitely$720m and the$3.00 bid is an executable current quote. The same-period$660m excerpt can be ignored because it is smaller.\", \"evidence\": [{\"ref\": \"evidence:beryl-quote\", \"body\": {\"synthetic\": true, \"source\": \"fictional-beryl-publisher\", \"source_url\": \"https://beryl.example/quote\", \"source_timestamp\": \"2026-10-28T11:55:00Z\", \"fetched_at\": \"2026-11-04T11:59:00Z\", \"content\": {\"underlying_price\": 38, \"option\": {\"expiry\": \"2026-11-20\", \"strike\": 40, \"bid\": 3.0, \"ask\": 3.2, \"delta\": -0.55, \"multiplier\": 100, \"currency\": \"USD\", \"position_quantity\": -2, \"original_credit\": 2.2}}, \"coverage\": \"Supplied synthetic observations only; not real market data.\"}}, {\"ref\": \"evidence:beryl-business\", \"body\": {\"synthetic\": true, \"source\": \"fictional-beryl-publisher\", \"source_url\": \"https://beryl.example/business\", \"source_timestamp\": \"2026-10-28T11:55:00Z\", \"fetched_at\": \"2026-11-04T11:59:00Z\", \"content\": {\"name\": \"Beryl Components\", \"symbol\": \"BERY\", \"revenue_m\": 720, \"net_income_m\": 31, \"fcf_m\": 22, \"debt_m\": 180, \"company_cash_m\": 45}, \"coverage\": \"Supplied synthetic observations only; not real market data.\"}}, {\"ref\": \"evidence:beryl-news\", \"body\": {\"synthetic\": true, \"source\": \"fictional-beryl-publisher\", \"source_url\": \"https://beryl.example/news\", \"source_timestamp\": \"2026-10-28T11:55:00Z\", \"fetched_at\": \"2026-11-04T11:59:00Z\", \"content\": {\"text\": \"An unsigned search excerpt says revenue660m for the same quarter; the synthetic issuer table says720m. The excerpt has no publication date or accessible full page. No newer underlying/option quote is available. Earnings date is unavailable.\", \"limitations\": [\"Conflicting same-period revenue; secondary excerpt not independently inspected\", \"Quote7days old; no executable current quote\", \"No live broker capacity or earnings observation\"]}, \"coverage\": \"Supplied synthetic observations only; not real market data.\"}}, {\"ref\": \"evidence:beryl-history\", \"body\": {\"synthetic\": true, \"source\": \"fictional-beryl-publisher\", \"source_url\": \"https://beryl.example/history\", \"source_timestamp\": \"2026-10-28T11:55:00Z\", \"fetched_at\": \"2026-11-04T11:59:00Z\", \"content\": {\"dates\": [\"2026-10-05\", \"2026-10-06\", \"2026-10-07\"], \"closes\": [39.9, 36.86, 38], \"alignment\": \"Rows are paired by array index; a date is never the following row.\"}, \"coverage\": \"Supplied synthetic observations only; not real market data.\"}}, {\"ref\": \"input:portfolio\", \"body\": {\"synthetic\": true, \"as_of\": \"2026-11-03T21:00:00Z\", \"base_currency\": \"USD\", \"nav\": 80000, \"cash\": 12000, \"holdings\": [{\"position_id\": \"beryl-stock\", \"symbol\": \"BERY\", \"quantity\": 100, \"mark\": 38}, {\"position_id\": \"BOND\", \"symbol\": \"Fictional diversified bond fund\", \"quantity\": null, \"valuation\": 64840.0}, {\"position_id\": \"beryl-put\", \"symbol\": \"BERY\", \"quantity\": -2, \"contract\": {\"expiry\": \"2026-11-20\", \"strike\": 40, \"bid\": 3.0, \"ask\": 3.2, \"delta\": -0.55, \"multiplier\": 100, \"currency\": \"USD\", \"position_quantity\": -2, \"original_credit\": 2.2}, \"mark\": 3.2}], \"current_broker_capacity\": \"unknown\"}}], \"assumptions\": [\"Standard USD100-share option contracts as stated in source.\"]}",
+    "tool_fixtures": {}
+  },
+  {
+    "case_id": "hermes_presentation-beryl",
+    "role": "hermes_presentation",
+    "simulation": true,
+    "analysis_time": "2026-11-04T12:00:00+00:00",
+    "question": "SIMULATED EVALUATION: All issuers, instruments and publisher observations below are fictional. Tools return only this controlled world, never live market/account data. Analysis time2026-11-04T12:00Z. {\"original_native_report\": \"BERY: defer execution of a roll until current quotes and earnings timing are established. Analyzing a conditional alternative remains useful. The revenue conflict is unresolved. The bond fund was not researched; this is not a hold recommendation.\", \"prepared_brief_context\": {\"version\": 1, \"portfolio_as_of\": \"2026-11-03T21:00:00Z\", \"report_path\": \"/simulated/report.md\", \"report_completed_at\": \"2026-11-04T12:00:00Z\", \"native_run_id\": \"synthetic-beryl\", \"report_sha256\": \"13e255cae1e81b15d7a5a10abdfe1b4db7a31c680fd4e5ba87821a3d403fa310\", \"portfolio_sha256\": \"03cd0bdf31d19d250ff31798d83dab62781a2b26b46c5ea0646d8bc4671f4849\", \"positions\": [{\"position_id\": \"beryl-stock\", \"label\": \"BERY holding\", \"structure_key\": \"beryl-stock\"}, {\"position_id\": \"BOND\", \"label\": \"Fictional diversified bond fund holding\", \"structure_key\": \"BOND\"}, {\"position_id\": \"beryl-put\", \"label\": \"BERY option {\\\"expiry\\\": \\\"2026-11-20\\\", \\\"strike\\\": 40, \\\"bid\\\": 3.0, \\\"ask\\\": 3.2, \\\"delta\\\": -0.55, \\\"multiplier\\\": 100, \\\"currency\\\": \\\"USD\\\", \\\"position_quantity\\\": -2, \\\"original_credit\\\": 2.2}\", \"structure_key\": \"option:BERY\"}], \"as_of\": \"2026-11-03T21:00:00Z\"}, \"mock_delivery_acknowledgement\": {\"status\": \"not_sent\", \"simulation\": true}}",
+    "tool_fixtures": {}
+  },
+  {
+    "case_id": "explorer-coral",
+    "role": "explorer",
+    "simulation": true,
+    "analysis_time": "2026-11-04T12:00:00+00:00",
+    "mode": "focused",
+    "question": "SIMULATED EVALUATION: All issuers, instruments and publisher observations below are fictional. Tools return only this controlled world, never live market/account data. Analysis time2026-11-04T12:00Z. Identify the most useful public research leads and market/catalyst limitations from this world. No candidate quota. {\"id\": \"coral\", \"name\": \"Coral Systems\", \"symbol\": \"CRLF\", \"price\": 76, \"revenue_m\": 900, \"net_income_m\": 70, \"fcf_m\": 61, \"debt_m\": 220, \"company_cash_m\": 95, \"put\": {\"expiry\": \"2026-11-20\", \"strike\": 80, \"bid\": 4.3, \"ask\": 4.5, \"delta\": -0.35, \"multiplier\": 100, \"currency\": \"USD\", \"position_quantity\": -2, \"original_credit\": 2.1}, \"new_put\": {\"expiry\": \"2026-12-18\", \"strike\": 75, \"bid\": 5.1, \"ask\": 5.3, \"multiplier\": 100, \"currency\": \"USD\", \"proposed_quantity\": 2}, \"long_put\": {\"underlying\": \"CIDX\", \"expiry\": \"2027-03-19\", \"strike\": 120, \"quantity\": 2, \"multiplier\": 100, \"mark\": 12, \"underlying_price\": 118}, \"quote_time\": \"2026-11-04T11:55:00Z\", \"news\": \"Coral guidance was maintained. The synthetic filing supplies no broker margin requirement or hedge-correlation study.\", \"limitations\": [\"Broker margin release is not observed\", \"Broad-index hedge correlation is unverified\"]}",
+    "tool_fixtures": {
+      "public_search": {
+        "default": {
+          "status": "success",
+          "data": {
+            "results": [
+              {
+                "record_ref": "evidence:coral-news",
+                "title": "Coral Systems fictional publisher update",
+                "source_url": "https://coral.example/news",
+                "source_timestamp": "2026-11-04T11:55:00Z",
+                "fetched_at": "2026-11-04T11:59:00Z",
+                "text": "Coral guidance was maintained. The synthetic filing supplies no broker margin requirement or hedge-correlation study.",
+                "truncated": false,
+                "synthetic": true
+              }
+            ],
+            "coverage_note": "Synthetic publisher excerpt only; no real page access."
+          },
+          "evidence_refs": [
+            "evidence:coral-news"
+          ]
+        }
+      },
+      "market_statistics": {
+        "default": {
+          "status": "success",
+          "data": {
+            "synthetic": true,
+            "series": [
+              {
+                "symbol": "CRLF",
+                "last": 76,
+                "as_of": "2026-11-04T11:55:00Z"
+              }
+            ],
+            "coverage_note": "One scenario issuer; no broad-market breadth or causal attribution."
+          }
+        }
+      },
+      "options_liquidity": {
+        "default": {
+          "status": "success",
+          "data": {
+            "synthetic": true,
+            "symbol": "CRLF",
+            "contracts": [
+              {
+                "expiry": "2026-11-20",
+                "strike": 80,
+                "bid": 4.3,
+                "ask": 4.5,
+                "delta": -0.35,
+                "multiplier": 100,
+                "currency": "USD",
+                "position_quantity": -2,
+                "original_credit": 2.1
+              }
+            ],
+            "as_of": "2026-11-04T11:55:00Z",
+            "coverage": "Quoted requested standard series only; no inferred market-wide liquidity"
+          }
+        }
+      }
+    }
+  },
+  {
+    "case_id": "analyst-coral",
+    "role": "analyst",
+    "simulation": true,
+    "analysis_time": "2026-11-04T12:00:00+00:00",
+    "mode": "focused",
+    "question": "SIMULATED EVALUATION: All issuers, instruments and publisher observations below are fictional. Tools return only this controlled world, never live market/account data. Analysis time2026-11-04T12:00Z. Research Coral Systems and its quoted put, business quality, financial sustainability and relevant catalysts. Return a concise public research assessment and limitations, with evidence refs. Available initial source refs: evidence:coral-quote, evidence:coral-business, evidence:coral-news, evidence:coral-history. {\"id\": \"coral\", \"name\": \"Coral Systems\", \"symbol\": \"CRLF\", \"price\": 76, \"revenue_m\": 900, \"net_income_m\": 70, \"fcf_m\": 61, \"debt_m\": 220, \"company_cash_m\": 95, \"put\": {\"expiry\": \"2026-11-20\", \"strike\": 80, \"bid\": 4.3, \"ask\": 4.5, \"delta\": -0.35, \"multiplier\": 100, \"currency\": \"USD\", \"position_quantity\": -2, \"original_credit\": 2.1}, \"new_put\": {\"expiry\": \"2026-12-18\", \"strike\": 75, \"bid\": 5.1, \"ask\": 5.3, \"multiplier\": 100, \"currency\": \"USD\", \"proposed_quantity\": 2}, \"long_put\": {\"underlying\": \"CIDX\", \"expiry\": \"2027-03-19\", \"strike\": 120, \"quantity\": 2, \"multiplier\": 100, \"mark\": 12, \"underlying_price\": 118}, \"quote_time\": \"2026-11-04T11:55:00Z\", \"news\": \"Coral guidance was maintained. The synthetic filing supplies no broker margin requirement or hedge-correlation study.\", \"limitations\": [\"Broker margin release is not observed\", \"Broad-index hedge correlation is unverified\"]}",
+    "tool_fixtures": {
+      "evidence_read": {
+        "routes": [
+          {
+            "contains_all": [
+              "evidence:coral-quote"
+            ],
+            "response": {
+              "status": "success",
+              "data": {
+                "synthetic": true,
+                "source": "fictional-coral-publisher",
+                "source_url": "https://coral.example/quote",
+                "source_timestamp": "2026-11-04T11:55:00Z",
+                "fetched_at": "2026-11-04T11:59:00Z",
+                "content": {
+                  "underlying_price": 76,
+                  "option": {
+                    "expiry": "2026-11-20",
+                    "strike": 80,
+                    "bid": 4.3,
+                    "ask": 4.5,
+                    "delta": -0.35,
+                    "multiplier": 100,
+                    "currency": "USD",
+                    "position_quantity": -2,
+                    "original_credit": 2.1
+                  },
+                  "new_option": {
+                    "expiry": "2026-12-18",
+                    "strike": 75,
+                    "bid": 5.1,
+                    "ask": 5.3,
+                    "multiplier": 100,
+                    "currency": "USD",
+                    "proposed_quantity": 2
+                  }
+                },
+                "coverage": "Supplied synthetic observations only; not real market data."
+              },
+              "evidence_refs": [
+                "evidence:coral-quote"
+              ]
+            }
+          },
+          {
+            "contains_all": [
+              "evidence:coral-business"
+            ],
+            "response": {
+              "status": "success",
+              "data": {
+                "synthetic": true,
+                "source": "fictional-coral-publisher",
+                "source_url": "https://coral.example/business",
+                "source_timestamp": "2026-11-04T11:55:00Z",
+                "fetched_at": "2026-11-04T11:59:00Z",
+                "content": {
+                  "name": "Coral Systems",
+                  "symbol": "CRLF",
+                  "revenue_m": 900,
+                  "net_income_m": 70,
+                  "fcf_m": 61,
+                  "debt_m": 220,
+                  "company_cash_m": 95
+                },
+                "coverage": "Supplied synthetic observations only; not real market data."
+              },
+              "evidence_refs": [
+                "evidence:coral-business"
+              ]
+            }
+          },
+          {
+            "contains_all": [
+              "evidence:coral-news"
+            ],
+            "response": {
+              "status": "success",
+              "data": {
+                "synthetic": true,
+                "source": "fictional-coral-publisher",
+                "source_url": "https://coral.example/news",
+                "source_timestamp": "2026-11-04T11:55:00Z",
+                "fetched_at": "2026-11-04T11:59:00Z",
+                "content": {
+                  "text": "Coral guidance was maintained. The synthetic filing supplies no broker margin requirement or hedge-correlation study.",
+                  "limitations": [
+                    "Broker margin release is not observed",
+                    "Broad-index hedge correlation is unverified"
+                  ]
+                },
+                "coverage": "Supplied synthetic observations only; not real market data."
+              },
+              "evidence_refs": [
+                "evidence:coral-news"
+              ]
+            }
+          },
+          {
+            "contains_all": [
+              "evidence:coral-history"
+            ],
+            "response": {
+              "status": "success",
+              "data": {
+                "synthetic": true,
+                "source": "fictional-coral-publisher",
+                "source_url": "https://coral.example/history",
+                "source_timestamp": "2026-11-04T11:55:00Z",
+                "fetched_at": "2026-11-04T11:59:00Z",
+                "content": {
+                  "dates": [
+                    "2026-10-05",
+                    "2026-10-06",
+                    "2026-10-07"
+                  ],
+                  "closes": [
+                    79.8,
+                    73.72,
+                    76
+                  ],
+                  "alignment": "Rows are paired by array index; a date is never the following row."
+                },
+                "coverage": "Supplied synthetic observations only; not real market data."
+              },
+              "evidence_refs": [
+                "evidence:coral-history"
+              ]
+            }
+          }
+        ],
+        "default": {
+          "status": "unavailable",
+          "reason": "Requested exact reference is outside this synthetic world"
+        }
+      },
+      "evidence_find": {
+        "default": {
+          "status": "success",
+          "data": {
+            "records": [
+              {
+                "record_ref": "evidence:coral-quote",
+                "kind": "evidence",
+                "synthetic": true
+              },
+              {
+                "record_ref": "evidence:coral-business",
+                "kind": "evidence",
+                "synthetic": true
+              },
+              {
+                "record_ref": "evidence:coral-news",
+                "kind": "evidence",
+                "synthetic": true
+              },
+              {
+                "record_ref": "evidence:coral-history",
+                "kind": "evidence",
+                "synthetic": true
+              }
+            ]
+          }
+        }
+      },
+      "finance_calculate": {
+        "coverage_limited": true,
+        "default": {
+          "status": "unavailable",
+          "reason": "No deterministic calculation response is configured for these arguments; calculations may be performed from the supplied synthetic numbers. This is mock coverage, not missing source evidence."
+        }
+      },
+      "market_query": {
+        "routes": [
+          {
+            "contains_all": [
+              "underlying_quotes"
+            ],
+            "response": {
+              "schema_version": 1,
+              "status": "success",
+              "data": {
+                "query_id": "synthetic-request",
+                "status": "success",
+                "evidence": [
+                  {
+                    "evidence_id": "coral-quote",
+                    "synthetic": true,
+                    "source": "fictional-coral-publisher",
+                    "source_url": "https://coral.example/quote",
+                    "source_timestamp": "2026-11-04T11:55:00Z",
+                    "fetched_at": "2026-11-04T11:59:00Z",
+                    "content": {
+                      "underlying_price": 76,
+                      "option": {
+                        "expiry": "2026-11-20",
+                        "strike": 80,
+                        "bid": 4.3,
+                        "ask": 4.5,
+                        "delta": -0.35,
+                        "multiplier": 100,
+                        "currency": "USD",
+                        "position_quantity": -2,
+                        "original_credit": 2.1
+                      },
+                      "new_option": {
+                        "expiry": "2026-12-18",
+                        "strike": 75,
+                        "bid": 5.1,
+                        "ask": 5.3,
+                        "multiplier": 100,
+                        "currency": "USD",
+                        "proposed_quantity": 2
+                      }
+                    },
+                    "coverage": "Supplied synthetic observations only; not real market data."
+                  }
+                ]
+              },
+              "evidence_refs": [
+                "evidence:coral-quote"
+              ],
+              "result_refs": [
+                "evidence:coral-quote"
+              ]
+            }
+          },
+          {
+            "contains_all": [
+              "option_chains"
+            ],
+            "response": {
+              "schema_version": 1,
+              "status": "success",
+              "data": {
+                "query_id": "synthetic-request",
+                "status": "success",
+                "evidence": [
+                  {
+                    "evidence_id": "coral-quote",
+                    "synthetic": true,
+                    "source": "fictional-coral-publisher",
+                    "source_url": "https://coral.example/quote",
+                    "source_timestamp": "2026-11-04T11:55:00Z",
+                    "fetched_at": "2026-11-04T11:59:00Z",
+                    "content": {
+                      "underlying_price": 76,
+                      "option": {
+                        "expiry": "2026-11-20",
+                        "strike": 80,
+                        "bid": 4.3,
+                        "ask": 4.5,
+                        "delta": -0.35,
+                        "multiplier": 100,
+                        "currency": "USD",
+                        "position_quantity": -2,
+                        "original_credit": 2.1
+                      },
+                      "new_option": {
+                        "expiry": "2026-12-18",
+                        "strike": 75,
+                        "bid": 5.1,
+                        "ask": 5.3,
+                        "multiplier": 100,
+                        "currency": "USD",
+                        "proposed_quantity": 2
+                      }
+                    },
+                    "coverage": "Supplied synthetic observations only; not real market data."
+                  }
+                ]
+              },
+              "evidence_refs": [
+                "evidence:coral-quote"
+              ],
+              "result_refs": [
+                "evidence:coral-quote"
+              ]
+            }
+          },
+          {
+            "contains_all": [
+              "fundamentals"
+            ],
+            "response": {
+              "schema_version": 1,
+              "status": "success",
+              "data": {
+                "query_id": "synthetic-request",
+                "status": "success",
+                "evidence": [
+                  {
+                    "evidence_id": "coral-business",
+                    "synthetic": true,
+                    "source": "fictional-coral-publisher",
+                    "source_url": "https://coral.example/business",
+                    "source_timestamp": "2026-11-04T11:55:00Z",
+                    "fetched_at": "2026-11-04T11:59:00Z",
+                    "content": {
+                      "name": "Coral Systems",
+                      "symbol": "CRLF",
+                      "revenue_m": 900,
+                      "net_income_m": 70,
+                      "fcf_m": 61,
+                      "debt_m": 220,
+                      "company_cash_m": 95
+                    },
+                    "coverage": "Supplied synthetic observations only; not real market data."
+                  }
+                ]
+              },
+              "evidence_refs": [
+                "evidence:coral-business"
+              ],
+              "result_refs": [
+                "evidence:coral-business"
+              ]
+            }
+          },
+          {
+            "contains_all": [
+              "underlying_history"
+            ],
+            "response": {
+              "schema_version": 1,
+              "status": "success",
+              "data": {
+                "query_id": "synthetic-request",
+                "status": "success",
+                "evidence": [
+                  {
+                    "evidence_id": "coral-history",
+                    "synthetic": true,
+                    "source": "fictional-coral-publisher",
+                    "source_url": "https://coral.example/history",
+                    "source_timestamp": "2026-11-04T11:55:00Z",
+                    "fetched_at": "2026-11-04T11:59:00Z",
+                    "content": {
+                      "dates": [
+                        "2026-10-05",
+                        "2026-10-06",
+                        "2026-10-07"
+                      ],
+                      "closes": [
+                        79.8,
+                        73.72,
+                        76
+                      ],
+                      "alignment": "Rows are paired by array index; a date is never the following row."
+                    },
+                    "coverage": "Supplied synthetic observations only; not real market data."
+                  }
+                ]
+              },
+              "evidence_refs": [
+                "evidence:coral-history"
+              ],
+              "result_refs": [
+                "evidence:coral-history"
+              ]
+            }
+          }
+        ],
+        "default": {
+          "status": "unavailable",
+          "reason": "Requested capability or instrument is not supplied by this synthetic scenario"
+        }
+      },
+      "public_search": {
+        "default": {
+          "status": "success",
+          "data": {
+            "results": [
+              {
+                "record_ref": "evidence:coral-news",
+                "title": "Coral Systems fictional publisher update",
+                "source_url": "https://coral.example/news",
+                "source_timestamp": "2026-11-04T11:55:00Z",
+                "fetched_at": "2026-11-04T11:59:00Z",
+                "text": "Coral guidance was maintained. The synthetic filing supplies no broker margin requirement or hedge-correlation study.",
+                "truncated": false,
+                "synthetic": true
+              }
+            ],
+            "coverage_note": "Synthetic publisher excerpt only; no real page access."
+          },
+          "evidence_refs": [
+            "evidence:coral-news"
+          ]
+        }
+      },
+      "fetch_sources": {
+        "default": {
+          "status": "success",
+          "data": {
+            "sources": [
+              {
+                "synthetic": true,
+                "source": "fictional-coral-publisher",
+                "source_url": "https://coral.example/quote",
+                "source_timestamp": "2026-11-04T11:55:00Z",
+                "fetched_at": "2026-11-04T11:59:00Z",
+                "content": {
+                  "underlying_price": 76,
+                  "option": {
+                    "expiry": "2026-11-20",
+                    "strike": 80,
+                    "bid": 4.3,
+                    "ask": 4.5,
+                    "delta": -0.35,
+                    "multiplier": 100,
+                    "currency": "USD",
+                    "position_quantity": -2,
+                    "original_credit": 2.1
+                  },
+                  "new_option": {
+                    "expiry": "2026-12-18",
+                    "strike": 75,
+                    "bid": 5.1,
+                    "ask": 5.3,
+                    "multiplier": 100,
+                    "currency": "USD",
+                    "proposed_quantity": 2
+                  }
+                },
+                "coverage": "Supplied synthetic observations only; not real market data."
+              },
+              {
+                "synthetic": true,
+                "source": "fictional-coral-publisher",
+                "source_url": "https://coral.example/business",
+                "source_timestamp": "2026-11-04T11:55:00Z",
+                "fetched_at": "2026-11-04T11:59:00Z",
+                "content": {
+                  "name": "Coral Systems",
+                  "symbol": "CRLF",
+                  "revenue_m": 900,
+                  "net_income_m": 70,
+                  "fcf_m": 61,
+                  "debt_m": 220,
+                  "company_cash_m": 95
+                },
+                "coverage": "Supplied synthetic observations only; not real market data."
+              },
+              {
+                "synthetic": true,
+                "source": "fictional-coral-publisher",
+                "source_url": "https://coral.example/news",
+                "source_timestamp": "2026-11-04T11:55:00Z",
+                "fetched_at": "2026-11-04T11:59:00Z",
+                "content": {
+                  "text": "Coral guidance was maintained. The synthetic filing supplies no broker margin requirement or hedge-correlation study.",
+                  "limitations": [
+                    "Broker margin release is not observed",
+                    "Broad-index hedge correlation is unverified"
+                  ]
+                },
+                "coverage": "Supplied synthetic observations only; not real market data."
+              },
+              {
+                "synthetic": true,
+                "source": "fictional-coral-publisher",
+                "source_url": "https://coral.example/history",
+                "source_timestamp": "2026-11-04T11:55:00Z",
+                "fetched_at": "2026-11-04T11:59:00Z",
+                "content": {
+                  "dates": [
+                    "2026-10-05",
+                    "2026-10-06",
+                    "2026-10-07"
+                  ],
+                  "closes": [
+                    79.8,
+                    73.72,
+                    76
+                  ],
+                  "alignment": "Rows are paired by array index; a date is never the following row."
+                },
+                "coverage": "Supplied synthetic observations only; not real market data."
+              }
+            ]
+          },
+          "reason": null,
+          "evidence_refs": [
+            "evidence:coral-quote",
+            "evidence:coral-business",
+            "evidence:coral-news",
+            "evidence:coral-history"
+          ]
+        }
+      },
+      "fact_check": {
+        "default": {
+          "status": "completed",
+          "feedback": "A short position reverses the option contract delta sign. Use quantity and multiplier for position exposure. Rolling does not erase the old-leg P/L. Neither option premium nor a closing loss establishes margin released. A long put does not normally gain because its underlying rallies. Check exact arithmetic against the supplied values.",
+          "error": null
+        }
+      }
+    }
+  },
+  {
+    "case_id": "wheel_expert-coral",
+    "role": "wheel_expert",
+    "simulation": true,
+    "analysis_time": "2026-11-04T12:00:00+00:00",
+    "mode": "combined",
+    "question": "SIMULATED EVALUATION: All issuers, instruments and publisher observations below are fictional. Tools return only this controlled world, never live market/account data. Analysis time2026-11-04T12:00Z. Give a preferred, reasoned portfolio-management assessment for the supplied original synthetic portfolio and public research. Focus on material conditions and compare quoted alternatives if useful. Original analyst envelope: {\"job_id\": \"coral\", \"outcome\": \"success\", \"summary\": \"Coral Systems (CRLF): underlying$76, current quoted put {\\\"expiry\\\": \\\"2026-11-20\\\", \\\"strike\\\": 80, \\\"bid\\\": 4.3, \\\"ask\\\": 4.5, \\\"delta\\\": -0.35, \\\"multiplier\\\": 100, \\\"currency\\\": \\\"USD\\\", \\\"position_quantity\\\": -2, \\\"original_credit\\\": 2.1}. Revenue$900m; net income$70m; FCF$61m. Coral guidance was maintained. The synthetic filing supplies no broker margin requirement or hedge-correlation study. Source refs: evidence:coral-quote, evidence:coral-business, evidence:coral-news, evidence:coral-history.\", \"evidence_refs\": [\"evidence:coral-quote\", \"evidence:coral-business\", \"evidence:coral-news\", \"evidence:coral-history\"]} Additional synthetic public observations: {\"id\": \"coral\", \"name\": \"Coral Systems\", \"symbol\": \"CRLF\", \"price\": 76, \"revenue_m\": 900, \"net_income_m\": 70, \"fcf_m\": 61, \"debt_m\": 220, \"company_cash_m\": 95, \"put\": {\"expiry\": \"2026-11-20\", \"strike\": 80, \"bid\": 4.3, \"ask\": 4.5, \"delta\": -0.35, \"multiplier\": 100, \"currency\": \"USD\", \"position_quantity\": -2, \"original_credit\": 2.1}, \"new_put\": {\"expiry\": \"2026-12-18\", \"strike\": 75, \"bid\": 5.1, \"ask\": 5.3, \"multiplier\": 100, \"currency\": \"USD\", \"proposed_quantity\": 2}, \"long_put\": {\"underlying\": \"CIDX\", \"expiry\": \"2027-03-19\", \"strike\": 120, \"quantity\": 2, \"multiplier\": 100, \"mark\": 12, \"underlying_price\": 118}, \"quote_time\": \"2026-11-04T11:55:00Z\", \"news\": \"Coral guidance was maintained. The synthetic filing supplies no broker margin requirement or hedge-correlation study.\", \"limitations\": [\"Broker margin release is not observed\", \"Broad-index hedge correlation is unverified\"]}",
+    "tool_fixtures": {
+      "evidence_read": {
+        "routes": [
+          {
+            "contains_all": [
+              "evidence:coral-quote"
+            ],
+            "response": {
+              "status": "success",
+              "data": {
+                "synthetic": true,
+                "source": "fictional-coral-publisher",
+                "source_url": "https://coral.example/quote",
+                "source_timestamp": "2026-11-04T11:55:00Z",
+                "fetched_at": "2026-11-04T11:59:00Z",
+                "content": {
+                  "underlying_price": 76,
+                  "option": {
+                    "expiry": "2026-11-20",
+                    "strike": 80,
+                    "bid": 4.3,
+                    "ask": 4.5,
+                    "delta": -0.35,
+                    "multiplier": 100,
+                    "currency": "USD",
+                    "position_quantity": -2,
+                    "original_credit": 2.1
+                  },
+                  "new_option": {
+                    "expiry": "2026-12-18",
+                    "strike": 75,
+                    "bid": 5.1,
+                    "ask": 5.3,
+                    "multiplier": 100,
+                    "currency": "USD",
+                    "proposed_quantity": 2
+                  }
+                },
+                "coverage": "Supplied synthetic observations only; not real market data."
+              },
+              "evidence_refs": [
+                "evidence:coral-quote"
+              ]
+            }
+          },
+          {
+            "contains_all": [
+              "evidence:coral-business"
+            ],
+            "response": {
+              "status": "success",
+              "data": {
+                "synthetic": true,
+                "source": "fictional-coral-publisher",
+                "source_url": "https://coral.example/business",
+                "source_timestamp": "2026-11-04T11:55:00Z",
+                "fetched_at": "2026-11-04T11:59:00Z",
+                "content": {
+                  "name": "Coral Systems",
+                  "symbol": "CRLF",
+                  "revenue_m": 900,
+                  "net_income_m": 70,
+                  "fcf_m": 61,
+                  "debt_m": 220,
+                  "company_cash_m": 95
+                },
+                "coverage": "Supplied synthetic observations only; not real market data."
+              },
+              "evidence_refs": [
+                "evidence:coral-business"
+              ]
+            }
+          },
+          {
+            "contains_all": [
+              "evidence:coral-news"
+            ],
+            "response": {
+              "status": "success",
+              "data": {
+                "synthetic": true,
+                "source": "fictional-coral-publisher",
+                "source_url": "https://coral.example/news",
+                "source_timestamp": "2026-11-04T11:55:00Z",
+                "fetched_at": "2026-11-04T11:59:00Z",
+                "content": {
+                  "text": "Coral guidance was maintained. The synthetic filing supplies no broker margin requirement or hedge-correlation study.",
+                  "limitations": [
+                    "Broker margin release is not observed",
+                    "Broad-index hedge correlation is unverified"
+                  ]
+                },
+                "coverage": "Supplied synthetic observations only; not real market data."
+              },
+              "evidence_refs": [
+                "evidence:coral-news"
+              ]
+            }
+          },
+          {
+            "contains_all": [
+              "evidence:coral-history"
+            ],
+            "response": {
+              "status": "success",
+              "data": {
+                "synthetic": true,
+                "source": "fictional-coral-publisher",
+                "source_url": "https://coral.example/history",
+                "source_timestamp": "2026-11-04T11:55:00Z",
+                "fetched_at": "2026-11-04T11:59:00Z",
+                "content": {
+                  "dates": [
+                    "2026-10-05",
+                    "2026-10-06",
+                    "2026-10-07"
+                  ],
+                  "closes": [
+                    79.8,
+                    73.72,
+                    76
+                  ],
+                  "alignment": "Rows are paired by array index; a date is never the following row."
+                },
+                "coverage": "Supplied synthetic observations only; not real market data."
+              },
+              "evidence_refs": [
+                "evidence:coral-history"
+              ]
+            }
+          }
+        ],
+        "default": {
+          "status": "unavailable",
+          "reason": "Requested exact reference is outside this synthetic world"
+        }
+      },
+      "evidence_find": {
+        "default": {
+          "status": "success",
+          "data": {
+            "records": [
+              {
+                "record_ref": "evidence:coral-quote",
+                "kind": "evidence",
+                "synthetic": true
+              },
+              {
+                "record_ref": "evidence:coral-business",
+                "kind": "evidence",
+                "synthetic": true
+              },
+              {
+                "record_ref": "evidence:coral-news",
+                "kind": "evidence",
+                "synthetic": true
+              },
+              {
+                "record_ref": "evidence:coral-history",
+                "kind": "evidence",
+                "synthetic": true
+              }
+            ]
+          }
+        }
+      },
+      "finance_calculate": {
+        "coverage_limited": true,
+        "default": {
+          "status": "unavailable",
+          "reason": "No deterministic calculation response is configured for these arguments; calculations may be performed from the supplied synthetic numbers. This is mock coverage, not missing source evidence."
+        }
+      },
+      "request_research": {
+        "reports_by_topic": [
+          {
+            "contains_all": [
+              "CRLF"
+            ],
+            "response": {
+              "outcome": "success",
+              "summary": "Coral Systems (CRLF): underlying$76, current quoted put {\"expiry\": \"2026-11-20\", \"strike\": 80, \"bid\": 4.3, \"ask\": 4.5, \"delta\": -0.35, \"multiplier\": 100, \"currency\": \"USD\", \"position_quantity\": -2, \"original_credit\": 2.1}. Revenue$900m; net income$70m; FCF$61m. Coral guidance was maintained. The synthetic filing supplies no broker margin requirement or hedge-correlation study. Source refs: evidence:coral-quote, evidence:coral-business, evidence:coral-news, evidence:coral-history.",
+              "evidence_refs": [
+                "evidence:coral-quote",
+                "evidence:coral-business",
+                "evidence:coral-news",
+                "evidence:coral-history"
+              ],
+              "findings": [],
+              "error": null
+            }
+          },
+          {
+            "contains_all": [
+              "Coral"
+            ],
+            "response": {
+              "outcome": "success",
+              "summary": "Coral Systems (CRLF): underlying$76, current quoted put {\"expiry\": \"2026-11-20\", \"strike\": 80, \"bid\": 4.3, \"ask\": 4.5, \"delta\": -0.35, \"multiplier\": 100, \"currency\": \"USD\", \"position_quantity\": -2, \"original_credit\": 2.1}. Revenue$900m; net income$70m; FCF$61m. Coral guidance was maintained. The synthetic filing supplies no broker margin requirement or hedge-correlation study. Source refs: evidence:coral-quote, evidence:coral-business, evidence:coral-news, evidence:coral-history.",
+              "evidence_refs": [
+                "evidence:coral-quote",
+                "evidence:coral-business",
+                "evidence:coral-news",
+                "evidence:coral-history"
+              ],
+              "findings": [],
+              "error": null
+            }
+          }
+        ],
+        "default_report": {
+          "outcome": "partial",
+          "summary": "The controlled scenario supplies only Coral Systems evidence. No other issuer or requested missing observation is available. Coral Systems (CRLF): underlying$76, current quoted put {\"expiry\": \"2026-11-20\", \"strike\": 80, \"bid\": 4.3, \"ask\": 4.5, \"delta\": -0.35, \"multiplier\": 100, \"currency\": \"USD\", \"position_quantity\": -2, \"original_credit\": 2.1}. Revenue$900m; net income$70m; FCF$61m. Coral guidance was maintained. The synthetic filing supplies no broker margin requirement or hedge-correlation study. Source refs: evidence:coral-quote, evidence:coral-business, evidence:coral-news, evidence:coral-history.",
+          "evidence_refs": [
+            "evidence:coral-quote",
+            "evidence:coral-business",
+            "evidence:coral-news",
+            "evidence:coral-history"
+          ],
+          "error": "synthetic_coverage_limit"
+        }
+      },
+      "fact_check": {
+        "default": {
+          "status": "completed",
+          "feedback": "A short position reverses the option contract delta sign. Use quantity and multiplier for position exposure. Rolling does not erase the old-leg P/L. Neither option premium nor a closing loss establishes margin released. A long put does not normally gain because its underlying rallies. Check exact arithmetic against the supplied values.",
+          "error": null
+        }
+      }
+    },
+    "portfolio_text": "{\n  \"synthetic\": true,\n  \"as_of\": \"2026-11-03T21:00:00Z\",\n  \"base_currency\": \"USD\",\n  \"nav\": 120000,\n  \"cash\": 18000,\n  \"holdings\": [\n    {\n      \"position_id\": \"coral-stock\",\n      \"symbol\": \"CRLF\",\n      \"quantity\": 100,\n      \"mark\": 76\n    },\n    {\n      \"position_id\": \"BOND\",\n      \"symbol\": \"Fictional diversified bond fund\",\n      \"quantity\": null,\n      \"valuation\": 92900.0\n    },\n    {\n      \"position_id\": \"coral-put\",\n      \"symbol\": \"CRLF\",\n      \"quantity\": -2,\n      \"contract\": {\n        \"expiry\": \"2026-11-20\",\n        \"strike\": 80,\n        \"bid\": 4.3,\n        \"ask\": 4.5,\n        \"delta\": -0.35,\n        \"multiplier\": 100,\n        \"currency\": \"USD\",\n        \"position_quantity\": -2,\n        \"original_credit\": 2.1\n      },\n      \"mark\": 4.5\n    },\n    {\n      \"position_id\": \"coral-index-puts\",\n      \"symbol\": \"CIDX\",\n      \"contract\": {\n        \"underlying\": \"CIDX\",\n        \"expiry\": \"2027-03-19\",\n        \"strike\": 120,\n        \"quantity\": 2,\n        \"multiplier\": 100,\n        \"mark\": 12,\n        \"underlying_price\": 118\n      },\n      \"valuation\": 2400\n    }\n  ],\n  \"current_broker_capacity\": \"unknown\"\n}",
+    "owner_context": "Synthetic owner goal: sustainable diversified compounding, wheel strategies where justified; no personal issuer thesis or order authorization. No broker capacity observation is supplied."
+  },
+  {
+    "case_id": "team_lead-coral",
+    "role": "team_lead",
+    "simulation": true,
+    "analysis_time": "2026-11-04T12:00:00+00:00",
+    "mode": "combined",
+    "question": "SIMULATED EVALUATION: All issuers, instruments and publisher observations below are fictional. Tools return only this controlled world, never live market/account data. Analysis time2026-11-04T12:00Z. Manage a complete concise advisory review of this synthetic portfolio and opportunities. Use your supplied tools as appropriate; preserve actual child findings and limits. Public context: {\"id\": \"coral\", \"name\": \"Coral Systems\", \"symbol\": \"CRLF\", \"price\": 76, \"revenue_m\": 900, \"net_income_m\": 70, \"fcf_m\": 61, \"debt_m\": 220, \"company_cash_m\": 95, \"put\": {\"expiry\": \"2026-11-20\", \"strike\": 80, \"bid\": 4.3, \"ask\": 4.5, \"delta\": -0.35, \"multiplier\": 100, \"currency\": \"USD\", \"position_quantity\": -2, \"original_credit\": 2.1}, \"new_put\": {\"expiry\": \"2026-12-18\", \"strike\": 75, \"bid\": 5.1, \"ask\": 5.3, \"multiplier\": 100, \"currency\": \"USD\", \"proposed_quantity\": 2}, \"long_put\": {\"underlying\": \"CIDX\", \"expiry\": \"2027-03-19\", \"strike\": 120, \"quantity\": 2, \"multiplier\": 100, \"mark\": 12, \"underlying_price\": 118}, \"quote_time\": \"2026-11-04T11:55:00Z\", \"news\": \"Coral guidance was maintained. The synthetic filing supplies no broker margin requirement or hedge-correlation study.\", \"limitations\": [\"Broker margin release is not observed\", \"Broad-index hedge correlation is unverified\"]}",
+    "tool_fixtures": {
+      "explore": {
+        "default": {
+          "job_id": "mock-explorer",
+          "outcome": "success",
+          "summary": "Coral Systems (CRLF): underlying$76, current quoted put {\"expiry\": \"2026-11-20\", \"strike\": 80, \"bid\": 4.3, \"ask\": 4.5, \"delta\": -0.35, \"multiplier\": 100, \"currency\": \"USD\", \"position_quantity\": -2, \"original_credit\": 2.1}. Revenue$900m; net income$70m; FCF$61m. Coral guidance was maintained. The synthetic filing supplies no broker margin requirement or hedge-correlation study. Source refs: evidence:coral-quote, evidence:coral-business, evidence:coral-news, evidence:coral-history.",
+          "evidence_refs": [
+            "evidence:coral-quote",
+            "evidence:coral-business",
+            "evidence:coral-news",
+            "evidence:coral-history"
+          ]
+        }
+      },
+      "research_batch": {
+        "reports_by_topic": [
+          {
+            "contains_all": [
+              "CRLF"
+            ],
+            "response": {
+              "outcome": "success",
+              "summary": "Coral Systems (CRLF): underlying$76, current quoted put {\"expiry\": \"2026-11-20\", \"strike\": 80, \"bid\": 4.3, \"ask\": 4.5, \"delta\": -0.35, \"multiplier\": 100, \"currency\": \"USD\", \"position_quantity\": -2, \"original_credit\": 2.1}. Revenue$900m; net income$70m; FCF$61m. Coral guidance was maintained. The synthetic filing supplies no broker margin requirement or hedge-correlation study. Source refs: evidence:coral-quote, evidence:coral-business, evidence:coral-news, evidence:coral-history.",
+              "evidence_refs": [
+                "evidence:coral-quote",
+                "evidence:coral-business",
+                "evidence:coral-news",
+                "evidence:coral-history"
+              ],
+              "findings": [],
+              "error": null
+            }
+          },
+          {
+            "contains_all": [
+              "Coral"
+            ],
+            "response": {
+              "outcome": "success",
+              "summary": "Coral Systems (CRLF): underlying$76, current quoted put {\"expiry\": \"2026-11-20\", \"strike\": 80, \"bid\": 4.3, \"ask\": 4.5, \"delta\": -0.35, \"multiplier\": 100, \"currency\": \"USD\", \"position_quantity\": -2, \"original_credit\": 2.1}. Revenue$900m; net income$70m; FCF$61m. Coral guidance was maintained. The synthetic filing supplies no broker margin requirement or hedge-correlation study. Source refs: evidence:coral-quote, evidence:coral-business, evidence:coral-news, evidence:coral-history.",
+              "evidence_refs": [
+                "evidence:coral-quote",
+                "evidence:coral-business",
+                "evidence:coral-news",
+                "evidence:coral-history"
+              ],
+              "findings": [],
+              "error": null
+            }
+          }
+        ],
+        "default_report": {
+          "outcome": "partial",
+          "summary": "The controlled scenario supplies only Coral Systems evidence. No other issuer or requested missing observation is available. Coral Systems (CRLF): underlying$76, current quoted put {\"expiry\": \"2026-11-20\", \"strike\": 80, \"bid\": 4.3, \"ask\": 4.5, \"delta\": -0.35, \"multiplier\": 100, \"currency\": \"USD\", \"position_quantity\": -2, \"original_credit\": 2.1}. Revenue$900m; net income$70m; FCF$61m. Coral guidance was maintained. The synthetic filing supplies no broker margin requirement or hedge-correlation study. Source refs: evidence:coral-quote, evidence:coral-business, evidence:coral-news, evidence:coral-history.",
+          "evidence_refs": [
+            "evidence:coral-quote",
+            "evidence:coral-business",
+            "evidence:coral-news",
+            "evidence:coral-history"
+          ],
+          "error": "synthetic_coverage_limit"
+        }
+      },
+      "consult_expert": {
+        "default": {
+          "assessment": "For the supplied synthetic portfolio, Coral Systems (CRLF): underlying$76, current quoted put {\"expiry\": \"2026-11-20\", \"strike\": 80, \"bid\": 4.3, \"ask\": 4.5, \"delta\": -0.35, \"multiplier\": 100, \"currency\": \"USD\", \"position_quantity\": -2, \"original_credit\": 2.1}. Revenue$900m; net income$70m; FCF$61m. Coral guidance was maintained. The synthetic filing supplies no broker margin requirement or hedge-correlation study. Source refs: evidence:coral-quote, evidence:coral-business, evidence:coral-news, evidence:coral-history. Preferred provisional management: retain the defensible core holding, and compare the quoted put structure conditionally with current exposure, funding and opportunity cost. No executable broker capacity was observed.",
+          "findings": []
+        }
+      }
+    },
+    "portfolio_text": "{\n  \"synthetic\": true,\n  \"as_of\": \"2026-11-03T21:00:00Z\",\n  \"base_currency\": \"USD\",\n  \"nav\": 120000,\n  \"cash\": 18000,\n  \"holdings\": [\n    {\n      \"position_id\": \"coral-stock\",\n      \"symbol\": \"CRLF\",\n      \"quantity\": 100,\n      \"mark\": 76\n    },\n    {\n      \"position_id\": \"BOND\",\n      \"symbol\": \"Fictional diversified bond fund\",\n      \"quantity\": null,\n      \"valuation\": 92900.0\n    },\n    {\n      \"position_id\": \"coral-put\",\n      \"symbol\": \"CRLF\",\n      \"quantity\": -2,\n      \"contract\": {\n        \"expiry\": \"2026-11-20\",\n        \"strike\": 80,\n        \"bid\": 4.3,\n        \"ask\": 4.5,\n        \"delta\": -0.35,\n        \"multiplier\": 100,\n        \"currency\": \"USD\",\n        \"position_quantity\": -2,\n        \"original_credit\": 2.1\n      },\n      \"mark\": 4.5\n    },\n    {\n      \"position_id\": \"coral-index-puts\",\n      \"symbol\": \"CIDX\",\n      \"contract\": {\n        \"underlying\": \"CIDX\",\n        \"expiry\": \"2027-03-19\",\n        \"strike\": 120,\n        \"quantity\": 2,\n        \"multiplier\": 100,\n        \"mark\": 12,\n        \"underlying_price\": 118\n      },\n      \"valuation\": 2400\n    }\n  ],\n  \"current_broker_capacity\": \"unknown\"\n}",
+    "owner_context": "Synthetic owner goal: sustainable diversified compounding, wheel strategies where justified; no personal issuer thesis or order authorization. No broker capacity observation is supplied."
+  },
+  {
+    "case_id": "fact_checker-coral",
+    "role": "fact_checker",
+    "simulation": true,
+    "analysis_time": "2026-11-04T12:00:00+00:00",
+    "question": "SIMULATED EVALUATION: All issuers, instruments and publisher observations below are fictional. Tools return only this controlled world, never live market/account data. Analysis time2026-11-04T12:00Z. {\"author_role\": \"wheel_expert\", \"invocation_id\": \"synthetic-coral\", \"message\": \"The short2-contract Coral put with contract delta-0.35 has position delta-70 shares. Closing at$4.50 after collecting$2.10 releases$480 margin. Selling the new2contracts at$5.10 makes the old loss disappear. The CIDX long puts protect against and gain from an index rally.\", \"evidence\": [{\"ref\": \"evidence:coral-quote\", \"body\": {\"synthetic\": true, \"source\": \"fictional-coral-publisher\", \"source_url\": \"https://coral.example/quote\", \"source_timestamp\": \"2026-11-04T11:55:00Z\", \"fetched_at\": \"2026-11-04T11:59:00Z\", \"content\": {\"underlying_price\": 76, \"option\": {\"expiry\": \"2026-11-20\", \"strike\": 80, \"bid\": 4.3, \"ask\": 4.5, \"delta\": -0.35, \"multiplier\": 100, \"currency\": \"USD\", \"position_quantity\": -2, \"original_credit\": 2.1}, \"new_option\": {\"expiry\": \"2026-12-18\", \"strike\": 75, \"bid\": 5.1, \"ask\": 5.3, \"multiplier\": 100, \"currency\": \"USD\", \"proposed_quantity\": 2}}, \"coverage\": \"Supplied synthetic observations only; not real market data.\"}}, {\"ref\": \"evidence:coral-business\", \"body\": {\"synthetic\": true, \"source\": \"fictional-coral-publisher\", \"source_url\": \"https://coral.example/business\", \"source_timestamp\": \"2026-11-04T11:55:00Z\", \"fetched_at\": \"2026-11-04T11:59:00Z\", \"content\": {\"name\": \"Coral Systems\", \"symbol\": \"CRLF\", \"revenue_m\": 900, \"net_income_m\": 70, \"fcf_m\": 61, \"debt_m\": 220, \"company_cash_m\": 95}, \"coverage\": \"Supplied synthetic observations only; not real market data.\"}}, {\"ref\": \"evidence:coral-news\", \"body\": {\"synthetic\": true, \"source\": \"fictional-coral-publisher\", \"source_url\": \"https://coral.example/news\", \"source_timestamp\": \"2026-11-04T11:55:00Z\", \"fetched_at\": \"2026-11-04T11:59:00Z\", \"content\": {\"text\": \"Coral guidance was maintained. The synthetic filing supplies no broker margin requirement or hedge-correlation study.\", \"limitations\": [\"Broker margin release is not observed\", \"Broad-index hedge correlation is unverified\"]}, \"coverage\": \"Supplied synthetic observations only; not real market data.\"}}, {\"ref\": \"evidence:coral-history\", \"body\": {\"synthetic\": true, \"source\": \"fictional-coral-publisher\", \"source_url\": \"https://coral.example/history\", \"source_timestamp\": \"2026-11-04T11:55:00Z\", \"fetched_at\": \"2026-11-04T11:59:00Z\", \"content\": {\"dates\": [\"2026-10-05\", \"2026-10-06\", \"2026-10-07\"], \"closes\": [79.8, 73.72, 76], \"alignment\": \"Rows are paired by array index; a date is never the following row.\"}, \"coverage\": \"Supplied synthetic observations only; not real market data.\"}}, {\"ref\": \"input:portfolio\", \"body\": {\"synthetic\": true, \"as_of\": \"2026-11-03T21:00:00Z\", \"base_currency\": \"USD\", \"nav\": 120000, \"cash\": 18000, \"holdings\": [{\"position_id\": \"coral-stock\", \"symbol\": \"CRLF\", \"quantity\": 100, \"mark\": 76}, {\"position_id\": \"BOND\", \"symbol\": \"Fictional diversified bond fund\", \"quantity\": null, \"valuation\": 92900.0}, {\"position_id\": \"coral-put\", \"symbol\": \"CRLF\", \"quantity\": -2, \"contract\": {\"expiry\": \"2026-11-20\", \"strike\": 80, \"bid\": 4.3, \"ask\": 4.5, \"delta\": -0.35, \"multiplier\": 100, \"currency\": \"USD\", \"position_quantity\": -2, \"original_credit\": 2.1}, \"mark\": 4.5}, {\"position_id\": \"coral-index-puts\", \"symbol\": \"CIDX\", \"contract\": {\"underlying\": \"CIDX\", \"expiry\": \"2027-03-19\", \"strike\": 120, \"quantity\": 2, \"multiplier\": 100, \"mark\": 12, \"underlying_price\": 118}, \"valuation\": 2400}], \"current_broker_capacity\": \"unknown\"}}], \"assumptions\": [\"Standard USD100-share option contracts as stated in source.\"]}",
+    "tool_fixtures": {}
+  },
+  {
+    "case_id": "hermes_presentation-coral",
+    "role": "hermes_presentation",
+    "simulation": true,
+    "analysis_time": "2026-11-04T12:00:00+00:00",
+    "question": "SIMULATED EVALUATION: All issuers, instruments and publisher observations below are fictional. Tools return only this controlled world, never live market/account data. Analysis time2026-11-04T12:00Z. {\"original_native_report\": \"CRLF: consider reducing the short-put exposure if funding cannot be confirmed; a roll is conditional, not instructed. Bond fund: no change proposed. CIDX long puts: reassess hedge size against intended downside exposure; correlation is unverified. The reported account cash is18000USD; closing loss is not a margin-release observation.\", \"prepared_brief_context\": {\"version\": 1, \"portfolio_as_of\": \"2026-11-03T21:00:00Z\", \"report_path\": \"/simulated/report.md\", \"report_completed_at\": \"2026-11-04T12:00:00Z\", \"native_run_id\": \"synthetic-coral\", \"report_sha256\": \"26a25f25ab4329c6cce11b65532875e8ad6aba589f536b551fe1a02e522e350f\", \"portfolio_sha256\": \"08675c3816c4e5b6634a6e36ef65901a0cbd9accf8b5f8006d01170f287b4109\", \"positions\": [{\"position_id\": \"coral-stock\", \"label\": \"CRLF holding\", \"structure_key\": \"coral-stock\"}, {\"position_id\": \"BOND\", \"label\": \"Fictional diversified bond fund holding\", \"structure_key\": \"BOND\"}, {\"position_id\": \"coral-put\", \"label\": \"CRLF option {\\\"expiry\\\": \\\"2026-11-20\\\", \\\"strike\\\": 80, \\\"bid\\\": 4.3, \\\"ask\\\": 4.5, \\\"delta\\\": -0.35, \\\"multiplier\\\": 100, \\\"currency\\\": \\\"USD\\\", \\\"position_quantity\\\": -2, \\\"original_credit\\\": 2.1}\", \"structure_key\": \"option:CRLF\"}, {\"position_id\": \"coral-index-puts\", \"label\": \"CIDX option {\\\"underlying\\\": \\\"CIDX\\\", \\\"expiry\\\": \\\"2027-03-19\\\", \\\"strike\\\": 120, \\\"quantity\\\": 2, \\\"multiplier\\\": 100, \\\"mark\\\": 12, \\\"underlying_price\\\": 118}\", \"structure_key\": \"option:CIDX\"}], \"as_of\": \"2026-11-03T21:00:00Z\"}, \"mock_delivery_acknowledgement\": {\"status\": \"not_sent\", \"simulation\": true}}",
+    "tool_fixtures": {}
+  },
+  {
+    "case_id": "explorer-dune",
+    "role": "explorer",
+    "simulation": true,
+    "analysis_time": "2026-11-04T12:00:00+00:00",
+    "mode": "focused",
+    "question": "SIMULATED EVALUATION: All issuers, instruments and publisher observations below are fictional. Tools return only this controlled world, never live market/account data. Analysis time2026-11-04T12:00Z. Identify the most useful public research leads and market/catalyst limitations from this world. No candidate quota. {\"id\": \"dune\", \"name\": \"Dune Health\", \"symbol\": \"DUNF\", \"price\": 60, \"revenue_m\": 450, \"net_income_m\": 45, \"fcf_m\": 42, \"debt_m\": 30, \"company_cash_m\": 75, \"put\": {\"expiry\": \"2026-11-20\", \"strike\": 55, \"bid\": 1.4, \"ask\": 1.5, \"delta\": -0.25, \"multiplier\": 100, \"currency\": \"USD\", \"position_quantity\": -1, \"original_credit\": 3.0}, \"new_put\": {\"expiry\": \"2026-12-18\", \"strike\": 52.5, \"bid\": 2.0, \"ask\": 2.15, \"multiplier\": 100, \"currency\": \"USD\", \"proposed_quantity\": 1}, \"quote_time\": \"2026-11-04T11:55:00Z\", \"news\": \"Dune customer retention92%; next earnings2026-12-23, after the quoted expiries. Cash-flow figures and period are consistent across the supplied synthetic sources.\", \"limitations\": [\"Owner4xNAV estimate is a planning assumption, not broker buying power\"]}",
+    "tool_fixtures": {
+      "public_search": {
+        "default": {
+          "status": "success",
+          "data": {
+            "results": [
+              {
+                "record_ref": "evidence:dune-news",
+                "title": "Dune Health fictional publisher update",
+                "source_url": "https://dune.example/news",
+                "source_timestamp": "2026-11-04T11:55:00Z",
+                "fetched_at": "2026-11-04T11:59:00Z",
+                "text": "Dune customer retention92%; next earnings2026-12-23, after the quoted expiries. Cash-flow figures and period are consistent across the supplied synthetic sources.",
+                "truncated": false,
+                "synthetic": true
+              }
+            ],
+            "coverage_note": "Synthetic publisher excerpt only; no real page access."
+          },
+          "evidence_refs": [
+            "evidence:dune-news"
+          ]
+        }
+      },
+      "market_statistics": {
+        "default": {
+          "status": "success",
+          "data": {
+            "synthetic": true,
+            "series": [
+              {
+                "symbol": "DUNF",
+                "last": 60,
+                "as_of": "2026-11-04T11:55:00Z"
+              }
+            ],
+            "coverage_note": "One scenario issuer; no broad-market breadth or causal attribution."
+          }
+        }
+      },
+      "options_liquidity": {
+        "default": {
+          "status": "success",
+          "data": {
+            "synthetic": true,
+            "symbol": "DUNF",
+            "contracts": [
+              {
+                "expiry": "2026-11-20",
+                "strike": 55,
+                "bid": 1.4,
+                "ask": 1.5,
+                "delta": -0.25,
+                "multiplier": 100,
+                "currency": "USD",
+                "position_quantity": -1,
+                "original_credit": 3.0
+              }
+            ],
+            "as_of": "2026-11-04T11:55:00Z",
+            "coverage": "Quoted requested standard series only; no inferred market-wide liquidity"
+          }
+        }
+      }
+    }
+  },
+  {
+    "case_id": "analyst-dune",
+    "role": "analyst",
+    "simulation": true,
+    "analysis_time": "2026-11-04T12:00:00+00:00",
+    "mode": "focused",
+    "question": "SIMULATED EVALUATION: All issuers, instruments and publisher observations below are fictional. Tools return only this controlled world, never live market/account data. Analysis time2026-11-04T12:00Z. Research Dune Health and its quoted put, business quality, financial sustainability and relevant catalysts. Return a concise public research assessment and limitations, with evidence refs. Available initial source refs: evidence:dune-quote, evidence:dune-business, evidence:dune-news, evidence:dune-history. {\"id\": \"dune\", \"name\": \"Dune Health\", \"symbol\": \"DUNF\", \"price\": 60, \"revenue_m\": 450, \"net_income_m\": 45, \"fcf_m\": 42, \"debt_m\": 30, \"company_cash_m\": 75, \"put\": {\"expiry\": \"2026-11-20\", \"strike\": 55, \"bid\": 1.4, \"ask\": 1.5, \"delta\": -0.25, \"multiplier\": 100, \"currency\": \"USD\", \"position_quantity\": -1, \"original_credit\": 3.0}, \"new_put\": {\"expiry\": \"2026-12-18\", \"strike\": 52.5, \"bid\": 2.0, \"ask\": 2.15, \"multiplier\": 100, \"currency\": \"USD\", \"proposed_quantity\": 1}, \"quote_time\": \"2026-11-04T11:55:00Z\", \"news\": \"Dune customer retention92%; next earnings2026-12-23, after the quoted expiries. Cash-flow figures and period are consistent across the supplied synthetic sources.\", \"limitations\": [\"Owner4xNAV estimate is a planning assumption, not broker buying power\"]}",
+    "tool_fixtures": {
+      "evidence_read": {
+        "routes": [
+          {
+            "contains_all": [
+              "evidence:dune-quote"
+            ],
+            "response": {
+              "status": "success",
+              "data": {
+                "synthetic": true,
+                "source": "fictional-dune-publisher",
+                "source_url": "https://dune.example/quote",
+                "source_timestamp": "2026-11-04T11:55:00Z",
+                "fetched_at": "2026-11-04T11:59:00Z",
+                "content": {
+                  "underlying_price": 60,
+                  "option": {
+                    "expiry": "2026-11-20",
+                    "strike": 55,
+                    "bid": 1.4,
+                    "ask": 1.5,
+                    "delta": -0.25,
+                    "multiplier": 100,
+                    "currency": "USD",
+                    "position_quantity": -1,
+                    "original_credit": 3.0
+                  },
+                  "new_option": {
+                    "expiry": "2026-12-18",
+                    "strike": 52.5,
+                    "bid": 2.0,
+                    "ask": 2.15,
+                    "multiplier": 100,
+                    "currency": "USD",
+                    "proposed_quantity": 1
+                  }
+                },
+                "coverage": "Supplied synthetic observations only; not real market data."
+              },
+              "evidence_refs": [
+                "evidence:dune-quote"
+              ]
+            }
+          },
+          {
+            "contains_all": [
+              "evidence:dune-business"
+            ],
+            "response": {
+              "status": "success",
+              "data": {
+                "synthetic": true,
+                "source": "fictional-dune-publisher",
+                "source_url": "https://dune.example/business",
+                "source_timestamp": "2026-11-04T11:55:00Z",
+                "fetched_at": "2026-11-04T11:59:00Z",
+                "content": {
+                  "name": "Dune Health",
+                  "symbol": "DUNF",
+                  "revenue_m": 450,
+                  "net_income_m": 45,
+                  "fcf_m": 42,
+                  "debt_m": 30,
+                  "company_cash_m": 75
+                },
+                "coverage": "Supplied synthetic observations only; not real market data."
+              },
+              "evidence_refs": [
+                "evidence:dune-business"
+              ]
+            }
+          },
+          {
+            "contains_all": [
+              "evidence:dune-news"
+            ],
+            "response": {
+              "status": "success",
+              "data": {
+                "synthetic": true,
+                "source": "fictional-dune-publisher",
+                "source_url": "https://dune.example/news",
+                "source_timestamp": "2026-11-04T11:55:00Z",
+                "fetched_at": "2026-11-04T11:59:00Z",
+                "content": {
+                  "text": "Dune customer retention92%; next earnings2026-12-23, after the quoted expiries. Cash-flow figures and period are consistent across the supplied synthetic sources.",
+                  "limitations": [
+                    "Owner4xNAV estimate is a planning assumption, not broker buying power"
+                  ]
+                },
+                "coverage": "Supplied synthetic observations only; not real market data."
+              },
+              "evidence_refs": [
+                "evidence:dune-news"
+              ]
+            }
+          },
+          {
+            "contains_all": [
+              "evidence:dune-history"
+            ],
+            "response": {
+              "status": "success",
+              "data": {
+                "synthetic": true,
+                "source": "fictional-dune-publisher",
+                "source_url": "https://dune.example/history",
+                "source_timestamp": "2026-11-04T11:55:00Z",
+                "fetched_at": "2026-11-04T11:59:00Z",
+                "content": {
+                  "dates": [
+                    "2026-10-05",
+                    "2026-10-06",
+                    "2026-10-07"
+                  ],
+                  "closes": [
+                    63.0,
+                    58.199999999999996,
+                    60
+                  ],
+                  "alignment": "Rows are paired by array index; a date is never the following row."
+                },
+                "coverage": "Supplied synthetic observations only; not real market data."
+              },
+              "evidence_refs": [
+                "evidence:dune-history"
+              ]
+            }
+          }
+        ],
+        "default": {
+          "status": "unavailable",
+          "reason": "Requested exact reference is outside this synthetic world"
+        }
+      },
+      "evidence_find": {
+        "default": {
+          "status": "success",
+          "data": {
+            "records": [
+              {
+                "record_ref": "evidence:dune-quote",
+                "kind": "evidence",
+                "synthetic": true
+              },
+              {
+                "record_ref": "evidence:dune-business",
+                "kind": "evidence",
+                "synthetic": true
+              },
+              {
+                "record_ref": "evidence:dune-news",
+                "kind": "evidence",
+                "synthetic": true
+              },
+              {
+                "record_ref": "evidence:dune-history",
+                "kind": "evidence",
+                "synthetic": true
+              }
+            ]
+          }
+        }
+      },
+      "finance_calculate": {
+        "coverage_limited": true,
+        "default": {
+          "status": "unavailable",
+          "reason": "No deterministic calculation response is configured for these arguments; calculations may be performed from the supplied synthetic numbers. This is mock coverage, not missing source evidence."
+        }
+      },
+      "market_query": {
+        "routes": [
+          {
+            "contains_all": [
+              "underlying_quotes"
+            ],
+            "response": {
+              "schema_version": 1,
+              "status": "success",
+              "data": {
+                "query_id": "synthetic-request",
+                "status": "success",
+                "evidence": [
+                  {
+                    "evidence_id": "dune-quote",
+                    "synthetic": true,
+                    "source": "fictional-dune-publisher",
+                    "source_url": "https://dune.example/quote",
+                    "source_timestamp": "2026-11-04T11:55:00Z",
+                    "fetched_at": "2026-11-04T11:59:00Z",
+                    "content": {
+                      "underlying_price": 60,
+                      "option": {
+                        "expiry": "2026-11-20",
+                        "strike": 55,
+                        "bid": 1.4,
+                        "ask": 1.5,
+                        "delta": -0.25,
+                        "multiplier": 100,
+                        "currency": "USD",
+                        "position_quantity": -1,
+                        "original_credit": 3.0
+                      },
+                      "new_option": {
+                        "expiry": "2026-12-18",
+                        "strike": 52.5,
+                        "bid": 2.0,
+                        "ask": 2.15,
+                        "multiplier": 100,
+                        "currency": "USD",
+                        "proposed_quantity": 1
+                      }
+                    },
+                    "coverage": "Supplied synthetic observations only; not real market data."
+                  }
+                ]
+              },
+              "evidence_refs": [
+                "evidence:dune-quote"
+              ],
+              "result_refs": [
+                "evidence:dune-quote"
+              ]
+            }
+          },
+          {
+            "contains_all": [
+              "option_chains"
+            ],
+            "response": {
+              "schema_version": 1,
+              "status": "success",
+              "data": {
+                "query_id": "synthetic-request",
+                "status": "success",
+                "evidence": [
+                  {
+                    "evidence_id": "dune-quote",
+                    "synthetic": true,
+                    "source": "fictional-dune-publisher",
+                    "source_url": "https://dune.example/quote",
+                    "source_timestamp": "2026-11-04T11:55:00Z",
+                    "fetched_at": "2026-11-04T11:59:00Z",
+                    "content": {
+                      "underlying_price": 60,
+                      "option": {
+                        "expiry": "2026-11-20",
+                        "strike": 55,
+                        "bid": 1.4,
+                        "ask": 1.5,
+                        "delta": -0.25,
+                        "multiplier": 100,
+                        "currency": "USD",
+                        "position_quantity": -1,
+                        "original_credit": 3.0
+                      },
+                      "new_option": {
+                        "expiry": "2026-12-18",
+                        "strike": 52.5,
+                        "bid": 2.0,
+                        "ask": 2.15,
+                        "multiplier": 100,
+                        "currency": "USD",
+                        "proposed_quantity": 1
+                      }
+                    },
+                    "coverage": "Supplied synthetic observations only; not real market data."
+                  }
+                ]
+              },
+              "evidence_refs": [
+                "evidence:dune-quote"
+              ],
+              "result_refs": [
+                "evidence:dune-quote"
+              ]
+            }
+          },
+          {
+            "contains_all": [
+              "fundamentals"
+            ],
+            "response": {
+              "schema_version": 1,
+              "status": "success",
+              "data": {
+                "query_id": "synthetic-request",
+                "status": "success",
+                "evidence": [
+                  {
+                    "evidence_id": "dune-business",
+                    "synthetic": true,
+                    "source": "fictional-dune-publisher",
+                    "source_url": "https://dune.example/business",
+                    "source_timestamp": "2026-11-04T11:55:00Z",
+                    "fetched_at": "2026-11-04T11:59:00Z",
+                    "content": {
+                      "name": "Dune Health",
+                      "symbol": "DUNF",
+                      "revenue_m": 450,
+                      "net_income_m": 45,
+                      "fcf_m": 42,
+                      "debt_m": 30,
+                      "company_cash_m": 75
+                    },
+                    "coverage": "Supplied synthetic observations only; not real market data."
+                  }
+                ]
+              },
+              "evidence_refs": [
+                "evidence:dune-business"
+              ],
+              "result_refs": [
+                "evidence:dune-business"
+              ]
+            }
+          },
+          {
+            "contains_all": [
+              "underlying_history"
+            ],
+            "response": {
+              "schema_version": 1,
+              "status": "success",
+              "data": {
+                "query_id": "synthetic-request",
+                "status": "success",
+                "evidence": [
+                  {
+                    "evidence_id": "dune-history",
+                    "synthetic": true,
+                    "source": "fictional-dune-publisher",
+                    "source_url": "https://dune.example/history",
+                    "source_timestamp": "2026-11-04T11:55:00Z",
+                    "fetched_at": "2026-11-04T11:59:00Z",
+                    "content": {
+                      "dates": [
+                        "2026-10-05",
+                        "2026-10-06",
+                        "2026-10-07"
+                      ],
+                      "closes": [
+                        63.0,
+                        58.199999999999996,
+                        60
+                      ],
+                      "alignment": "Rows are paired by array index; a date is never the following row."
+                    },
+                    "coverage": "Supplied synthetic observations only; not real market data."
+                  }
+                ]
+              },
+              "evidence_refs": [
+                "evidence:dune-history"
+              ],
+              "result_refs": [
+                "evidence:dune-history"
+              ]
+            }
+          }
+        ],
+        "default": {
+          "status": "unavailable",
+          "reason": "Requested capability or instrument is not supplied by this synthetic scenario"
+        }
+      },
+      "public_search": {
+        "default": {
+          "status": "success",
+          "data": {
+            "results": [
+              {
+                "record_ref": "evidence:dune-news",
+                "title": "Dune Health fictional publisher update",
+                "source_url": "https://dune.example/news",
+                "source_timestamp": "2026-11-04T11:55:00Z",
+                "fetched_at": "2026-11-04T11:59:00Z",
+                "text": "Dune customer retention92%; next earnings2026-12-23, after the quoted expiries. Cash-flow figures and period are consistent across the supplied synthetic sources.",
+                "truncated": false,
+                "synthetic": true
+              }
+            ],
+            "coverage_note": "Synthetic publisher excerpt only; no real page access."
+          },
+          "evidence_refs": [
+            "evidence:dune-news"
+          ]
+        }
+      },
+      "fetch_sources": {
+        "default": {
+          "status": "success",
+          "data": {
+            "sources": [
+              {
+                "synthetic": true,
+                "source": "fictional-dune-publisher",
+                "source_url": "https://dune.example/quote",
+                "source_timestamp": "2026-11-04T11:55:00Z",
+                "fetched_at": "2026-11-04T11:59:00Z",
+                "content": {
+                  "underlying_price": 60,
+                  "option": {
+                    "expiry": "2026-11-20",
+                    "strike": 55,
+                    "bid": 1.4,
+                    "ask": 1.5,
+                    "delta": -0.25,
+                    "multiplier": 100,
+                    "currency": "USD",
+                    "position_quantity": -1,
+                    "original_credit": 3.0
+                  },
+                  "new_option": {
+                    "expiry": "2026-12-18",
+                    "strike": 52.5,
+                    "bid": 2.0,
+                    "ask": 2.15,
+                    "multiplier": 100,
+                    "currency": "USD",
+                    "proposed_quantity": 1
+                  }
+                },
+                "coverage": "Supplied synthetic observations only; not real market data."
+              },
+              {
+                "synthetic": true,
+                "source": "fictional-dune-publisher",
+                "source_url": "https://dune.example/business",
+                "source_timestamp": "2026-11-04T11:55:00Z",
+                "fetched_at": "2026-11-04T11:59:00Z",
+                "content": {
+                  "name": "Dune Health",
+                  "symbol": "DUNF",
+                  "revenue_m": 450,
+                  "net_income_m": 45,
+                  "fcf_m": 42,
+                  "debt_m": 30,
+                  "company_cash_m": 75
+                },
+                "coverage": "Supplied synthetic observations only; not real market data."
+              },
+              {
+                "synthetic": true,
+                "source": "fictional-dune-publisher",
+                "source_url": "https://dune.example/news",
+                "source_timestamp": "2026-11-04T11:55:00Z",
+                "fetched_at": "2026-11-04T11:59:00Z",
+                "content": {
+                  "text": "Dune customer retention92%; next earnings2026-12-23, after the quoted expiries. Cash-flow figures and period are consistent across the supplied synthetic sources.",
+                  "limitations": [
+                    "Owner4xNAV estimate is a planning assumption, not broker buying power"
+                  ]
+                },
+                "coverage": "Supplied synthetic observations only; not real market data."
+              },
+              {
+                "synthetic": true,
+                "source": "fictional-dune-publisher",
+                "source_url": "https://dune.example/history",
+                "source_timestamp": "2026-11-04T11:55:00Z",
+                "fetched_at": "2026-11-04T11:59:00Z",
+                "content": {
+                  "dates": [
+                    "2026-10-05",
+                    "2026-10-06",
+                    "2026-10-07"
+                  ],
+                  "closes": [
+                    63.0,
+                    58.199999999999996,
+                    60
+                  ],
+                  "alignment": "Rows are paired by array index; a date is never the following row."
+                },
+                "coverage": "Supplied synthetic observations only; not real market data."
+              }
+            ]
+          },
+          "reason": null,
+          "evidence_refs": [
+            "evidence:dune-quote",
+            "evidence:dune-business",
+            "evidence:dune-news",
+            "evidence:dune-history"
+          ]
+        }
+      },
+      "fact_check": {
+        "default": {
+          "status": "completed",
+          "feedback": "Objection: because the put delta is negative, the short-put position delta must also be negative; the reported positive delta is wrong.",
+          "error": null
+        }
+      }
+    }
+  },
+  {
+    "case_id": "wheel_expert-dune",
+    "role": "wheel_expert",
+    "simulation": true,
+    "analysis_time": "2026-11-04T12:00:00+00:00",
+    "mode": "combined",
+    "question": "SIMULATED EVALUATION: All issuers, instruments and publisher observations below are fictional. Tools return only this controlled world, never live market/account data. Analysis time2026-11-04T12:00Z. Give a preferred, reasoned portfolio-management assessment for the supplied original synthetic portfolio and public research. Focus on material conditions and compare quoted alternatives if useful. Original analyst envelope: {\"job_id\": \"dune\", \"outcome\": \"success\", \"summary\": \"Dune Health (DUNF): underlying$60, current quoted put {\\\"expiry\\\": \\\"2026-11-20\\\", \\\"strike\\\": 55, \\\"bid\\\": 1.4, \\\"ask\\\": 1.5, \\\"delta\\\": -0.25, \\\"multiplier\\\": 100, \\\"currency\\\": \\\"USD\\\", \\\"position_quantity\\\": -1, \\\"original_credit\\\": 3.0}. Revenue$450m; net income$45m; FCF$42m. Dune customer retention92%; next earnings2026-12-23, after the quoted expiries. Cash-flow figures and period are consistent across the supplied synthetic sources. Source refs: evidence:dune-quote, evidence:dune-business, evidence:dune-news, evidence:dune-history.\", \"evidence_refs\": [\"evidence:dune-quote\", \"evidence:dune-business\", \"evidence:dune-news\", \"evidence:dune-history\"]} Additional synthetic public observations: {\"id\": \"dune\", \"name\": \"Dune Health\", \"symbol\": \"DUNF\", \"price\": 60, \"revenue_m\": 450, \"net_income_m\": 45, \"fcf_m\": 42, \"debt_m\": 30, \"company_cash_m\": 75, \"put\": {\"expiry\": \"2026-11-20\", \"strike\": 55, \"bid\": 1.4, \"ask\": 1.5, \"delta\": -0.25, \"multiplier\": 100, \"currency\": \"USD\", \"position_quantity\": -1, \"original_credit\": 3.0}, \"new_put\": {\"expiry\": \"2026-12-18\", \"strike\": 52.5, \"bid\": 2.0, \"ask\": 2.15, \"multiplier\": 100, \"currency\": \"USD\", \"proposed_quantity\": 1}, \"quote_time\": \"2026-11-04T11:55:00Z\", \"news\": \"Dune customer retention92%; next earnings2026-12-23, after the quoted expiries. Cash-flow figures and period are consistent across the supplied synthetic sources.\", \"limitations\": [\"Owner4xNAV estimate is a planning assumption, not broker buying power\"]}",
+    "tool_fixtures": {
+      "evidence_read": {
+        "routes": [
+          {
+            "contains_all": [
+              "evidence:dune-quote"
+            ],
+            "response": {
+              "status": "success",
+              "data": {
+                "synthetic": true,
+                "source": "fictional-dune-publisher",
+                "source_url": "https://dune.example/quote",
+                "source_timestamp": "2026-11-04T11:55:00Z",
+                "fetched_at": "2026-11-04T11:59:00Z",
+                "content": {
+                  "underlying_price": 60,
+                  "option": {
+                    "expiry": "2026-11-20",
+                    "strike": 55,
+                    "bid": 1.4,
+                    "ask": 1.5,
+                    "delta": -0.25,
+                    "multiplier": 100,
+                    "currency": "USD",
+                    "position_quantity": -1,
+                    "original_credit": 3.0
+                  },
+                  "new_option": {
+                    "expiry": "2026-12-18",
+                    "strike": 52.5,
+                    "bid": 2.0,
+                    "ask": 2.15,
+                    "multiplier": 100,
+                    "currency": "USD",
+                    "proposed_quantity": 1
+                  }
+                },
+                "coverage": "Supplied synthetic observations only; not real market data."
+              },
+              "evidence_refs": [
+                "evidence:dune-quote"
+              ]
+            }
+          },
+          {
+            "contains_all": [
+              "evidence:dune-business"
+            ],
+            "response": {
+              "status": "success",
+              "data": {
+                "synthetic": true,
+                "source": "fictional-dune-publisher",
+                "source_url": "https://dune.example/business",
+                "source_timestamp": "2026-11-04T11:55:00Z",
+                "fetched_at": "2026-11-04T11:59:00Z",
+                "content": {
+                  "name": "Dune Health",
+                  "symbol": "DUNF",
+                  "revenue_m": 450,
+                  "net_income_m": 45,
+                  "fcf_m": 42,
+                  "debt_m": 30,
+                  "company_cash_m": 75
+                },
+                "coverage": "Supplied synthetic observations only; not real market data."
+              },
+              "evidence_refs": [
+                "evidence:dune-business"
+              ]
+            }
+          },
+          {
+            "contains_all": [
+              "evidence:dune-news"
+            ],
+            "response": {
+              "status": "success",
+              "data": {
+                "synthetic": true,
+                "source": "fictional-dune-publisher",
+                "source_url": "https://dune.example/news",
+                "source_timestamp": "2026-11-04T11:55:00Z",
+                "fetched_at": "2026-11-04T11:59:00Z",
+                "content": {
+                  "text": "Dune customer retention92%; next earnings2026-12-23, after the quoted expiries. Cash-flow figures and period are consistent across the supplied synthetic sources.",
+                  "limitations": [
+                    "Owner4xNAV estimate is a planning assumption, not broker buying power"
+                  ]
+                },
+                "coverage": "Supplied synthetic observations only; not real market data."
+              },
+              "evidence_refs": [
+                "evidence:dune-news"
+              ]
+            }
+          },
+          {
+            "contains_all": [
+              "evidence:dune-history"
+            ],
+            "response": {
+              "status": "success",
+              "data": {
+                "synthetic": true,
+                "source": "fictional-dune-publisher",
+                "source_url": "https://dune.example/history",
+                "source_timestamp": "2026-11-04T11:55:00Z",
+                "fetched_at": "2026-11-04T11:59:00Z",
+                "content": {
+                  "dates": [
+                    "2026-10-05",
+                    "2026-10-06",
+                    "2026-10-07"
+                  ],
+                  "closes": [
+                    63.0,
+                    58.199999999999996,
+                    60
+                  ],
+                  "alignment": "Rows are paired by array index; a date is never the following row."
+                },
+                "coverage": "Supplied synthetic observations only; not real market data."
+              },
+              "evidence_refs": [
+                "evidence:dune-history"
+              ]
+            }
+          }
+        ],
+        "default": {
+          "status": "unavailable",
+          "reason": "Requested exact reference is outside this synthetic world"
+        }
+      },
+      "evidence_find": {
+        "default": {
+          "status": "success",
+          "data": {
+            "records": [
+              {
+                "record_ref": "evidence:dune-quote",
+                "kind": "evidence",
+                "synthetic": true
+              },
+              {
+                "record_ref": "evidence:dune-business",
+                "kind": "evidence",
+                "synthetic": true
+              },
+              {
+                "record_ref": "evidence:dune-news",
+                "kind": "evidence",
+                "synthetic": true
+              },
+              {
+                "record_ref": "evidence:dune-history",
+                "kind": "evidence",
+                "synthetic": true
+              }
+            ]
+          }
+        }
+      },
+      "finance_calculate": {
+        "coverage_limited": true,
+        "default": {
+          "status": "unavailable",
+          "reason": "No deterministic calculation response is configured for these arguments; calculations may be performed from the supplied synthetic numbers. This is mock coverage, not missing source evidence."
+        }
+      },
+      "request_research": {
+        "reports_by_topic": [
+          {
+            "contains_all": [
+              "DUNF"
+            ],
+            "response": {
+              "outcome": "success",
+              "summary": "Dune Health (DUNF): underlying$60, current quoted put {\"expiry\": \"2026-11-20\", \"strike\": 55, \"bid\": 1.4, \"ask\": 1.5, \"delta\": -0.25, \"multiplier\": 100, \"currency\": \"USD\", \"position_quantity\": -1, \"original_credit\": 3.0}. Revenue$450m; net income$45m; FCF$42m. Dune customer retention92%; next earnings2026-12-23, after the quoted expiries. Cash-flow figures and period are consistent across the supplied synthetic sources. Source refs: evidence:dune-quote, evidence:dune-business, evidence:dune-news, evidence:dune-history.",
+              "evidence_refs": [
+                "evidence:dune-quote",
+                "evidence:dune-business",
+                "evidence:dune-news",
+                "evidence:dune-history"
+              ],
+              "findings": [],
+              "error": null
+            }
+          },
+          {
+            "contains_all": [
+              "Dune"
+            ],
+            "response": {
+              "outcome": "success",
+              "summary": "Dune Health (DUNF): underlying$60, current quoted put {\"expiry\": \"2026-11-20\", \"strike\": 55, \"bid\": 1.4, \"ask\": 1.5, \"delta\": -0.25, \"multiplier\": 100, \"currency\": \"USD\", \"position_quantity\": -1, \"original_credit\": 3.0}. Revenue$450m; net income$45m; FCF$42m. Dune customer retention92%; next earnings2026-12-23, after the quoted expiries. Cash-flow figures and period are consistent across the supplied synthetic sources. Source refs: evidence:dune-quote, evidence:dune-business, evidence:dune-news, evidence:dune-history.",
+              "evidence_refs": [
+                "evidence:dune-quote",
+                "evidence:dune-business",
+                "evidence:dune-news",
+                "evidence:dune-history"
+              ],
+              "findings": [],
+              "error": null
+            }
+          }
+        ],
+        "default_report": {
+          "outcome": "partial",
+          "summary": "The controlled scenario supplies only Dune Health evidence. No other issuer or requested missing observation is available. Dune Health (DUNF): underlying$60, current quoted put {\"expiry\": \"2026-11-20\", \"strike\": 55, \"bid\": 1.4, \"ask\": 1.5, \"delta\": -0.25, \"multiplier\": 100, \"currency\": \"USD\", \"position_quantity\": -1, \"original_credit\": 3.0}. Revenue$450m; net income$45m; FCF$42m. Dune customer retention92%; next earnings2026-12-23, after the quoted expiries. Cash-flow figures and period are consistent across the supplied synthetic sources. Source refs: evidence:dune-quote, evidence:dune-business, evidence:dune-news, evidence:dune-history.",
+          "evidence_refs": [
+            "evidence:dune-quote",
+            "evidence:dune-business",
+            "evidence:dune-news",
+            "evidence:dune-history"
+          ],
+          "error": "synthetic_coverage_limit"
+        }
+      },
+      "fact_check": {
+        "default": {
+          "status": "completed",
+          "feedback": "Objection: because the put delta is negative, the short-put position delta must also be negative; the reported positive delta is wrong.",
+          "error": null
+        }
+      }
+    },
+    "portfolio_text": "{\n  \"synthetic\": true,\n  \"as_of\": \"2026-11-03T21:00:00Z\",\n  \"base_currency\": \"USD\",\n  \"nav\": 50000,\n  \"cash\": 8000,\n  \"holdings\": [\n    {\n      \"position_id\": \"dune-stock\",\n      \"symbol\": \"DUNF\",\n      \"quantity\": 100,\n      \"mark\": 60\n    },\n    {\n      \"position_id\": \"BOND\",\n      \"symbol\": \"Fictional diversified bond fund\",\n      \"quantity\": null,\n      \"valuation\": 36150.0\n    },\n    {\n      \"position_id\": \"dune-put\",\n      \"symbol\": \"DUNF\",\n      \"quantity\": -1,\n      \"contract\": {\n        \"expiry\": \"2026-11-20\",\n        \"strike\": 55,\n        \"bid\": 1.4,\n        \"ask\": 1.5,\n        \"delta\": -0.25,\n        \"multiplier\": 100,\n        \"currency\": \"USD\",\n        \"position_quantity\": -1,\n        \"original_credit\": 3.0\n      },\n      \"mark\": 1.5\n    }\n  ],\n  \"current_broker_capacity\": \"unknown\"\n}",
+    "owner_context": "Synthetic owner goal: sustainable diversified compounding, wheel strategies where justified; no personal issuer thesis or order authorization. Owner supplies rough4xNAV=200000USD planning estimate; this is not broker capacity, cash or unused headroom."
+  },
+  {
+    "case_id": "team_lead-dune",
+    "role": "team_lead",
+    "simulation": true,
+    "analysis_time": "2026-11-04T12:00:00+00:00",
+    "mode": "combined",
+    "question": "SIMULATED EVALUATION: All issuers, instruments and publisher observations below are fictional. Tools return only this controlled world, never live market/account data. Analysis time2026-11-04T12:00Z. Manage a complete concise advisory review of this synthetic portfolio and opportunities. Use your supplied tools as appropriate; preserve actual child findings and limits. Public context: {\"id\": \"dune\", \"name\": \"Dune Health\", \"symbol\": \"DUNF\", \"price\": 60, \"revenue_m\": 450, \"net_income_m\": 45, \"fcf_m\": 42, \"debt_m\": 30, \"company_cash_m\": 75, \"put\": {\"expiry\": \"2026-11-20\", \"strike\": 55, \"bid\": 1.4, \"ask\": 1.5, \"delta\": -0.25, \"multiplier\": 100, \"currency\": \"USD\", \"position_quantity\": -1, \"original_credit\": 3.0}, \"new_put\": {\"expiry\": \"2026-12-18\", \"strike\": 52.5, \"bid\": 2.0, \"ask\": 2.15, \"multiplier\": 100, \"currency\": \"USD\", \"proposed_quantity\": 1}, \"quote_time\": \"2026-11-04T11:55:00Z\", \"news\": \"Dune customer retention92%; next earnings2026-12-23, after the quoted expiries. Cash-flow figures and period are consistent across the supplied synthetic sources.\", \"limitations\": [\"Owner4xNAV estimate is a planning assumption, not broker buying power\"]}",
+    "tool_fixtures": {
+      "explore": {
+        "default": {
+          "job_id": "mock-explorer",
+          "outcome": "success",
+          "summary": "Dune Health (DUNF): underlying$60, current quoted put {\"expiry\": \"2026-11-20\", \"strike\": 55, \"bid\": 1.4, \"ask\": 1.5, \"delta\": -0.25, \"multiplier\": 100, \"currency\": \"USD\", \"position_quantity\": -1, \"original_credit\": 3.0}. Revenue$450m; net income$45m; FCF$42m. Dune customer retention92%; next earnings2026-12-23, after the quoted expiries. Cash-flow figures and period are consistent across the supplied synthetic sources. Source refs: evidence:dune-quote, evidence:dune-business, evidence:dune-news, evidence:dune-history.",
+          "evidence_refs": [
+            "evidence:dune-quote",
+            "evidence:dune-business",
+            "evidence:dune-news",
+            "evidence:dune-history"
+          ]
+        }
+      },
+      "research_batch": {
+        "reports_by_topic": [
+          {
+            "contains_all": [
+              "DUNF"
+            ],
+            "response": {
+              "outcome": "success",
+              "summary": "Dune Health (DUNF): underlying$60, current quoted put {\"expiry\": \"2026-11-20\", \"strike\": 55, \"bid\": 1.4, \"ask\": 1.5, \"delta\": -0.25, \"multiplier\": 100, \"currency\": \"USD\", \"position_quantity\": -1, \"original_credit\": 3.0}. Revenue$450m; net income$45m; FCF$42m. Dune customer retention92%; next earnings2026-12-23, after the quoted expiries. Cash-flow figures and period are consistent across the supplied synthetic sources. Source refs: evidence:dune-quote, evidence:dune-business, evidence:dune-news, evidence:dune-history.",
+              "evidence_refs": [
+                "evidence:dune-quote",
+                "evidence:dune-business",
+                "evidence:dune-news",
+                "evidence:dune-history"
+              ],
+              "findings": [],
+              "error": null
+            }
+          },
+          {
+            "contains_all": [
+              "Dune"
+            ],
+            "response": {
+              "outcome": "success",
+              "summary": "Dune Health (DUNF): underlying$60, current quoted put {\"expiry\": \"2026-11-20\", \"strike\": 55, \"bid\": 1.4, \"ask\": 1.5, \"delta\": -0.25, \"multiplier\": 100, \"currency\": \"USD\", \"position_quantity\": -1, \"original_credit\": 3.0}. Revenue$450m; net income$45m; FCF$42m. Dune customer retention92%; next earnings2026-12-23, after the quoted expiries. Cash-flow figures and period are consistent across the supplied synthetic sources. Source refs: evidence:dune-quote, evidence:dune-business, evidence:dune-news, evidence:dune-history.",
+              "evidence_refs": [
+                "evidence:dune-quote",
+                "evidence:dune-business",
+                "evidence:dune-news",
+                "evidence:dune-history"
+              ],
+              "findings": [],
+              "error": null
+            }
+          }
+        ],
+        "default_report": {
+          "outcome": "partial",
+          "summary": "The controlled scenario supplies only Dune Health evidence. No other issuer or requested missing observation is available. Dune Health (DUNF): underlying$60, current quoted put {\"expiry\": \"2026-11-20\", \"strike\": 55, \"bid\": 1.4, \"ask\": 1.5, \"delta\": -0.25, \"multiplier\": 100, \"currency\": \"USD\", \"position_quantity\": -1, \"original_credit\": 3.0}. Revenue$450m; net income$45m; FCF$42m. Dune customer retention92%; next earnings2026-12-23, after the quoted expiries. Cash-flow figures and period are consistent across the supplied synthetic sources. Source refs: evidence:dune-quote, evidence:dune-business, evidence:dune-news, evidence:dune-history.",
+          "evidence_refs": [
+            "evidence:dune-quote",
+            "evidence:dune-business",
+            "evidence:dune-news",
+            "evidence:dune-history"
+          ],
+          "error": "synthetic_coverage_limit"
+        }
+      },
+      "consult_expert": {
+        "default": {
+          "assessment": "For the supplied synthetic portfolio, Dune Health (DUNF): underlying$60, current quoted put {\"expiry\": \"2026-11-20\", \"strike\": 55, \"bid\": 1.4, \"ask\": 1.5, \"delta\": -0.25, \"multiplier\": 100, \"currency\": \"USD\", \"position_quantity\": -1, \"original_credit\": 3.0}. Revenue$450m; net income$45m; FCF$42m. Dune customer retention92%; next earnings2026-12-23, after the quoted expiries. Cash-flow figures and period are consistent across the supplied synthetic sources. Source refs: evidence:dune-quote, evidence:dune-business, evidence:dune-news, evidence:dune-history. Preferred provisional management: retain the defensible core holding, and compare the quoted put structure conditionally with current exposure, funding and opportunity cost. No executable broker capacity was observed.",
+          "findings": []
+        }
+      }
+    },
+    "portfolio_text": "{\n  \"synthetic\": true,\n  \"as_of\": \"2026-11-03T21:00:00Z\",\n  \"base_currency\": \"USD\",\n  \"nav\": 50000,\n  \"cash\": 8000,\n  \"holdings\": [\n    {\n      \"position_id\": \"dune-stock\",\n      \"symbol\": \"DUNF\",\n      \"quantity\": 100,\n      \"mark\": 60\n    },\n    {\n      \"position_id\": \"BOND\",\n      \"symbol\": \"Fictional diversified bond fund\",\n      \"quantity\": null,\n      \"valuation\": 36150.0\n    },\n    {\n      \"position_id\": \"dune-put\",\n      \"symbol\": \"DUNF\",\n      \"quantity\": -1,\n      \"contract\": {\n        \"expiry\": \"2026-11-20\",\n        \"strike\": 55,\n        \"bid\": 1.4,\n        \"ask\": 1.5,\n        \"delta\": -0.25,\n        \"multiplier\": 100,\n        \"currency\": \"USD\",\n        \"position_quantity\": -1,\n        \"original_credit\": 3.0\n      },\n      \"mark\": 1.5\n    }\n  ],\n  \"current_broker_capacity\": \"unknown\"\n}",
+    "owner_context": "Synthetic owner goal: sustainable diversified compounding, wheel strategies where justified; no personal issuer thesis or order authorization. Owner supplies rough4xNAV=200000USD planning estimate; this is not broker capacity, cash or unused headroom."
+  },
+  {
+    "case_id": "fact_checker-dune",
+    "role": "fact_checker",
+    "simulation": true,
+    "analysis_time": "2026-11-04T12:00:00+00:00",
+    "question": "SIMULATED EVALUATION: All issuers, instruments and publisher observations below are fictional. Tools return only this controlled world, never live market/account data. Analysis time2026-11-04T12:00Z. {\"author_role\": \"wheel_expert\", \"invocation_id\": \"synthetic-dune\", \"message\": \"A short1-contract put with contract delta-0.25 and multiplier100 has position delta+25 shares. Closing for$1.50 after collecting$3.00 realizes$150 gross profit. Opening the new contract at$2.00 after spending$1.50 to close produces$50 net cash credit; this cashflow is distinct from the old realized profit. The$2000004xNAV figure is only an owner planning assumption; actual broker buying power remains unknown.\", \"evidence\": [{\"ref\": \"evidence:dune-quote\", \"body\": {\"synthetic\": true, \"source\": \"fictional-dune-publisher\", \"source_url\": \"https://dune.example/quote\", \"source_timestamp\": \"2026-11-04T11:55:00Z\", \"fetched_at\": \"2026-11-04T11:59:00Z\", \"content\": {\"underlying_price\": 60, \"option\": {\"expiry\": \"2026-11-20\", \"strike\": 55, \"bid\": 1.4, \"ask\": 1.5, \"delta\": -0.25, \"multiplier\": 100, \"currency\": \"USD\", \"position_quantity\": -1, \"original_credit\": 3.0}, \"new_option\": {\"expiry\": \"2026-12-18\", \"strike\": 52.5, \"bid\": 2.0, \"ask\": 2.15, \"multiplier\": 100, \"currency\": \"USD\", \"proposed_quantity\": 1}}, \"coverage\": \"Supplied synthetic observations only; not real market data.\"}}, {\"ref\": \"evidence:dune-business\", \"body\": {\"synthetic\": true, \"source\": \"fictional-dune-publisher\", \"source_url\": \"https://dune.example/business\", \"source_timestamp\": \"2026-11-04T11:55:00Z\", \"fetched_at\": \"2026-11-04T11:59:00Z\", \"content\": {\"name\": \"Dune Health\", \"symbol\": \"DUNF\", \"revenue_m\": 450, \"net_income_m\": 45, \"fcf_m\": 42, \"debt_m\": 30, \"company_cash_m\": 75}, \"coverage\": \"Supplied synthetic observations only; not real market data.\"}}, {\"ref\": \"evidence:dune-news\", \"body\": {\"synthetic\": true, \"source\": \"fictional-dune-publisher\", \"source_url\": \"https://dune.example/news\", \"source_timestamp\": \"2026-11-04T11:55:00Z\", \"fetched_at\": \"2026-11-04T11:59:00Z\", \"content\": {\"text\": \"Dune customer retention92%; next earnings2026-12-23, after the quoted expiries. Cash-flow figures and period are consistent across the supplied synthetic sources.\", \"limitations\": [\"Owner4xNAV estimate is a planning assumption, not broker buying power\"]}, \"coverage\": \"Supplied synthetic observations only; not real market data.\"}}, {\"ref\": \"evidence:dune-history\", \"body\": {\"synthetic\": true, \"source\": \"fictional-dune-publisher\", \"source_url\": \"https://dune.example/history\", \"source_timestamp\": \"2026-11-04T11:55:00Z\", \"fetched_at\": \"2026-11-04T11:59:00Z\", \"content\": {\"dates\": [\"2026-10-05\", \"2026-10-06\", \"2026-10-07\"], \"closes\": [63.0, 58.199999999999996, 60], \"alignment\": \"Rows are paired by array index; a date is never the following row.\"}, \"coverage\": \"Supplied synthetic observations only; not real market data.\"}}, {\"ref\": \"input:portfolio\", \"body\": {\"synthetic\": true, \"as_of\": \"2026-11-03T21:00:00Z\", \"base_currency\": \"USD\", \"nav\": 50000, \"cash\": 8000, \"holdings\": [{\"position_id\": \"dune-stock\", \"symbol\": \"DUNF\", \"quantity\": 100, \"mark\": 60}, {\"position_id\": \"BOND\", \"symbol\": \"Fictional diversified bond fund\", \"quantity\": null, \"valuation\": 36150.0}, {\"position_id\": \"dune-put\", \"symbol\": \"DUNF\", \"quantity\": -1, \"contract\": {\"expiry\": \"2026-11-20\", \"strike\": 55, \"bid\": 1.4, \"ask\": 1.5, \"delta\": -0.25, \"multiplier\": 100, \"currency\": \"USD\", \"position_quantity\": -1, \"original_credit\": 3.0}, \"mark\": 1.5}], \"current_broker_capacity\": \"unknown\"}}, {\"ref\": \"input:owner_context\", \"body\": {\"planning_estimate\": 200000, \"broker_capacity\": \"unknown\"}}], \"assumptions\": [\"Standard USD100-share option contracts as stated in source.\"]}",
+    "tool_fixtures": {}
+  },
+  {
+    "case_id": "hermes_presentation-dune",
+    "role": "hermes_presentation",
+    "simulation": true,
+    "analysis_time": "2026-11-04T12:00:00+00:00",
+    "question": "SIMULATED EVALUATION: All issuers, instruments and publisher observations below are fictional. Tools return only this controlled world, never live market/account data. Analysis time2026-11-04T12:00Z. {\"original_native_report\": \"DUNF: retain the core100shares; the quoted lower-strike later-expiry roll is preferred conditionally if current quotes and capacity are reconfirmed. Old profit150USD and net roll credit50USD are distinct. Bond fund: retain as diversified reserve. The owner4xNAV scenario is provisional, not broker headroom.\", \"prepared_brief_context\": {\"version\": 1, \"portfolio_as_of\": \"2026-11-03T21:00:00Z\", \"report_path\": \"/simulated/report.md\", \"report_completed_at\": \"2026-11-04T12:00:00Z\", \"native_run_id\": \"synthetic-dune\", \"report_sha256\": \"c23321a8f7d7874318c4c02b6ce7ae546000a39d8484d60e16f414f6e121da30\", \"portfolio_sha256\": \"7e3fe7b7b2954eeb2ecd4f62f499555334d925bf06380967ce1e1b3b999ee775\", \"positions\": [{\"position_id\": \"dune-stock\", \"label\": \"DUNF holding\", \"structure_key\": \"dune-stock\"}, {\"position_id\": \"BOND\", \"label\": \"Fictional diversified bond fund holding\", \"structure_key\": \"BOND\"}, {\"position_id\": \"dune-put\", \"label\": \"DUNF option {\\\"expiry\\\": \\\"2026-11-20\\\", \\\"strike\\\": 55, \\\"bid\\\": 1.4, \\\"ask\\\": 1.5, \\\"delta\\\": -0.25, \\\"multiplier\\\": 100, \\\"currency\\\": \\\"USD\\\", \\\"position_quantity\\\": -1, \\\"original_credit\\\": 3.0}\", \"structure_key\": \"option:DUNF\"}], \"as_of\": \"2026-11-03T21:00:00Z\"}, \"mock_delivery_acknowledgement\": {\"status\": \"not_sent\", \"simulation\": true}}",
+    "tool_fixtures": {}
+  }
+]

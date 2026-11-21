@@ -1,0 +1,11 @@
+{
+  "deployed_runtime_commit": "ed02905cba5d1f8465eb46eb2becae3d0cca5b31",
+  "tool_specs_source": "Deployed PM6 native manifest, metadata-only tool_specs field",
+  "tool_specs_sha256": "0271acad9d98ceb4aac16e2d21db5d0c4b8d12e5aa276301a81bcea2fdd126fe",
+  "authored_roles": "Exact deployed PM6 authored Markdown plus caller amendments; manifest content hashes verified by loaders.",
+  "hermes_presentation": "Exact deployed editorial instructions plus explicit zero-tool simulation adapter; same eval model, not actual Hermes process or email test.",
+  "model_controls": "Same deployed qwen/65536/low/include_reasoning=false; Explorer temperature1.1;300s per-case wall deadline is an eval operational bound, native model request controls unchanged.",
+  "hermes_editorial_source_sha256": "d78569e35fb611943d63d2fc62271ef68f64bf8357d7e4635bfd6d405099ce72",
+  "hermes_editorial_sanitized_sha256": "1c17ae586a9dba371b5b2c3b03c4fecde928b66cb3515f05f18b702b5bdb9d44",
+  "hermes_path_sanitization": "Only private operational path literals replaced with <hermes-python> and <eval-profile>; editorial instructions unchanged. The transport adapter is explicit simulation."
+}
