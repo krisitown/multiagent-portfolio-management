@@ -9,7 +9,7 @@ from openai import AsyncOpenAI
 from strands.models.openai import OpenAIModel
 
 from tests.thin.test_agents import context
-from wheel_team.agents import base
+from wheel_team.agents import base, team_lead
 from wheel_team.config import FinalizationConfig
 from wheel_team.models import invocation_failure
 from wheel_team.types import TeamResult
@@ -102,6 +102,7 @@ async def test_time_reserve_preserves_delegation_after_consult_then_routes_exact
 ):
     clock = [99.0]
     monkeypatch.setattr(base, "time", SimpleNamespace(monotonic=lambda: clock[0]))
+    monkeypatch.setattr(team_lead, "time", SimpleNamespace(monotonic=lambda: clock[0]))
     executed = []
 
     async def consult_expert(question: str) -> dict:

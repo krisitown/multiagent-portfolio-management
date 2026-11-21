@@ -4,14 +4,18 @@
 
 This runtime uses explicit role contracts rather than automatic plugin discovery. Adding an expert is an intentional code change:
 
-1. Add a small `agents/your_expert.py` constructor accepting `RoleContext`, following `agents/buffett.py` and calling `build_role`.
-2. Extend `RoleName` and `SpecialistRequest.role` in `types.py`, relevant `AgentRole`/prompt types, and `TeamConfig.role_models` if independently routed.
-3. Add the role to `ROLE_TOOLS` and the appropriate private/checked-author sets in `agents/base.py`. Grant only the tools it needs.
+1. Add `agents/your_expert.py` with a `RoleDefinition` and constructor accepting `RoleContext`, following `agents/buffett.py`. The constructor passes its definition to `base.build_agent`.
+2. Extend `RoleName` and `SpecialistRequest.role` in `types.py`, relevant `AgentRole`/prompt types, `models.RunHooks` output routing, and `TeamConfig.role_models` if independently routed.
+3. Declare its base tools, output type, private-context policy and checker eligibility in that module. Optional callbacks adjust permissions from the supplied base tools, add contract/context details or install middleware. Add the module to `agents/registry.py`; tool inventories and private/checked-author sets are derived from definitions. Continuity remains outside the public evaluation inventory. Grant only the tools it needs.
 4. Register its constructor and delegation/routing handling in `team.py`. Update the manager's advertised specialist tool schema and prompt instructions together.
 5. Add a Markdown role prompt and its SHA-256 entry in a selected manifest. Caller amendments must bind that role's actual baseline hash.
 6. Add synthetic tests analogous to `tests/thin/test_portfolio_council.py`: explicit delegation, separate model routing, permitted/forbidden tools, failure propagation and specialist evidence returned to the manager.
 
 Do not copy a persona's output into another role or mark its recommendation as owner policy. Council disagreements are evidence for the manager to resolve, not votes establishing correctness.
+
+`base.py` owns SDK construction, generic context rendering, hooks and conversation isolation. Role-specific behavior belongs in the role module: for example, lead handoff and synthesis reserves live in `team_lead.py`, manager planning in `portfolio_manager.py`, and continuity's direct-text contract in `continuity.py`. Shared council text and research middleware are reused without dispatching on role names. Existing `base.build_role`, `base.role_tools` and inventory imports remain compatibility entry points.
+
+For refactors, `tests/unit/test_agent_construction.py` checks 256 pre-refactor synthetic construction signatures across roles and configuration switches. It covers the exact prompts, caller messages, tool schemas and middleware order; do not regenerate the baseline merely to hide a changed policy. Dynamic middleware and private-data boundaries also have SDK integration tests.
 
 ## Add a tool
 

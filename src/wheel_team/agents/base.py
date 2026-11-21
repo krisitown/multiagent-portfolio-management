@@ -1,71 +1,28 @@
-"""Small shared constructor; no provider-neutral agent or tool framework."""
+"""Shared SDK assembly driven by policies declared in each role module."""
 
 import json
 import time
-from copy import deepcopy
 from typing import Any
 
-from pydantic import BaseModel
 from strands import Agent, tool
 from strands.agent.conversation_manager import NullConversationManager
-from strands.middleware import InvokeModelContext, InvokeModelStage
-from strands.types.tools import ToolChoiceToolDict, ToolSpec
 
 from wheel_team.adapters.portfolio.text import readable_portfolio
 from wheel_team.followup import prompt_review
-from wheel_team.models import TEAM_RESULT_CANDIDATE_SLOTS_GUIDANCE, RunHooks
-from wheel_team.option_response_view import option_response_messages
+from wheel_team.models import RunHooks
 from wheel_team.telemetry.observer import optional_observer
-from wheel_team.types import ExpertResult, ResearchResult, RoleContext, TeamRequest, TeamResult
+from wheel_team.types import ResearchResult, RoleContext, TeamRequest
 
-PRIVATE_EXPERTS = frozenset({"wheel_expert", "dalio", "buffett", "portfolio_manager"})
-CHECKED_AUTHORS = PRIVATE_EXPERTS | {"analyst"}
-
-READ_TOOLS = frozenset({"finance_calculate", "knowledge_read", "evidence_read", "evidence_find"})
-ROLE_TOOLS = {
-    "team_lead": frozenset({"explore", "research_batch", "consult_expert"}),
-    "analyst": READ_TOOLS | {"market_query", "public_search", "fetch_sources"},
-    "wheel_expert": READ_TOOLS | {"request_research"},
-    "dalio": READ_TOOLS | {"request_research"},
-    "buffett": READ_TOOLS | {"request_research"},
-    "portfolio_manager": READ_TOOLS | {"request_research", "consult_specialists"},
-    "explorer": frozenset({"public_search", "market_statistics", "options_liquidity"}),
-}
-
-
-def role_tools(role: str, config: Any) -> frozenset[str]:
-    """Private optional roles do not expand the public delegation/evaluation inventory."""
-    if role == "continuity":
-        return frozenset(
-            {"continuity_list", "continuity_read", "continuity_search", "continuity_write"}
-        )
-    allowed = ROLE_TOOLS[role]
-    if config.council_enabled and role in PRIVATE_EXPERTS:
-        allowed = allowed | {"option_scenarios"}
-    if role == "portfolio_manager" and config.council_enabled:
-        allowed = allowed | {"explore"}
-        if config.asymmetric_enabled:
-            allowed = allowed | {"consult_asymmetric"}
-    if role == "team_lead" and config.council_enabled:
-        allowed = (allowed - {"consult_expert"}) | {"consult_portfolio_manager"}
-    if role in {"team_lead", "portfolio_manager"} and config.continuity is not None:
-        allowed = allowed | {"consult_continuity"}
-    if role == "team_lead" and config.asymmetric_enabled:
-        allowed = allowed | {"consult_asymmetric"}
-    return allowed
-
-
-def project_team_result_spec(spec: ToolSpec) -> ToolSpec:
-    """Copy the lead's advertised contract, leaving native validation untouched."""
-    projected = deepcopy(spec)
-    schema = projected["inputSchema"]["json"]
-    schema["properties"].pop("report_markdown", None)
-    if "required" in schema:
-        schema["required"] = [name for name in schema["required"] if name != "report_markdown"]
-    slots = schema["properties"]["candidate_slots"]
-    slots["type"] = "array"
-    slots["description"] = TEAM_RESULT_CANDIDATE_SLOTS_GUIDANCE
-    return projected
+from .continuity import build_continuity as build_continuity
+from .definition import RoleDefinition
+from .policies import AUTHOR_HANDOFF, COUNCIL_ADVISORY, DIRECT_TEXT_CONTRACT, FACT_CHECK_CONTRACT
+from .policies import READ_TOOLS as READ_TOOLS
+from .registry import CHECKED_AUTHORS as CHECKED_AUTHORS
+from .registry import PRIVATE_EXPERTS as PRIVATE_EXPERTS
+from .registry import ROLE_TOOLS as ROLE_TOOLS
+from .registry import build_role as build_role
+from .registry import role_tools as role_tools
+from .team_lead import project_team_result_spec as project_team_result_spec
 
 
 def dependency_context(market_provider: Any, research_backend: Any) -> dict[str, Any]:
@@ -94,7 +51,8 @@ def dependency_context(market_provider: Any, research_backend: Any) -> dict[str,
     return {"market_provider": market_data, "research_backend": research_data}
 
 
-def build_role(role: str, context: RoleContext) -> Agent:
+def build_agent(definition: RoleDefinition, context: RoleContext) -> Agent:
+    role = definition.name
     if context.prompt.role != role:
         raise ValueError("prompt role must match role constructor")
     if context.model is None:
@@ -102,13 +60,13 @@ def build_role(role: str, context: RoleContext) -> Agent:
     tools: list[Any] = []
     for name, value in context.tools.items():
         if name == "fact_check" and (
-            role not in CHECKED_AUTHORS or not context.config.fact_check.enabled
+            not definition.checked_author or not context.config.fact_check.enabled
         ):
             continue
         if (
-            name not in role_tools(role, context.config)
+            name not in definition.allowed_tools(context.config)
             and not (context.config.fact_check.enabled and name == "fact_check")
-            and not (role == "explorer" and name in context.tool_override_names)
+            and not (definition.allow_tool_overrides and name in context.tool_override_names)
         ):
             continue
         if hasattr(value, "tool_spec"):
@@ -140,17 +98,7 @@ def build_role(role: str, context: RoleContext) -> Agent:
             "module_hashes": context.prompt.module_hashes,
         },
     }
-    output_types: dict[str, type[BaseModel]] = {
-        "team_lead": TeamResult,
-        "analyst": ResearchResult,
-        "explorer": ResearchResult,
-        "wheel_expert": ExpertResult,
-        "dalio": ExpertResult,
-        "buffett": ExpertResult,
-        "portfolio_manager": ExpertResult,
-        "continuity": ExpertResult,
-    }
-    output_type = output_types[role]
+    output_type = definition.output_type
     schema = output_type.model_json_schema()
     contract: dict[str, Any] = {
         "tool_name": output_type.__name__,
@@ -169,107 +117,19 @@ def build_role(role: str, context: RoleContext) -> Agent:
     }
     if output_type is ResearchResult:
         contract["valid_outcomes"] = schema["properties"]["outcome"]["enum"]
-    if output_type is TeamResult:
-        contract["field_guidance"] = {"candidate_slots": TEAM_RESULT_CANDIDATE_SLOTS_GUIDANCE}
-        contract["omit_host_populated_fields"] = [
-            "run_id",
-            "mode",
-            "report_markdown",
-            "supporting_records",
-            "portfolio_snapshot",
-            "started_at",
-            "completed_at",
-            "model_identity",
-            "prompt_identities",
-            "owner_policy",
-            "artifacts",
-            "lineage",
-        ]
-    if context.config.child_output_mode == "direct_text" or role == "continuity":
-        contract = {
-            "mode": "direct_text",
-            "advisory": (
-                "Finish with ordinary assistant final text. This runtime instruction "
-                "supersedes older typed output wording, including TeamResult formatting. "
-                "No candidate, portfolio or reference metadata is required for delivery. "
-                "Preserve exact citations, sources, units and limitations. Any supplied "
-                "portfolio and original analyst reports arrive as caller task data; "
-                "no publication or reader call is required."
-            ),
-        }
-        if role == "team_lead":
-            contract["child_handoff"] = (
-                "Call consult_expert() with no arguments for one holistic review. "
-                "The host supplies the original owner request, every completed run-local "
-                "analyst envelope once, separate explorer originals, and the original "
-                "readable portfolio in the expert context. Do not select job IDs, copy "
-                "references, or retell financial narratives for this handoff. Partial "
-                "child output stays incomplete; empty failures contain no research."
-            )
-    if context.config.council_enabled and role == "team_lead":
-        contract["child_handoff"] = (
-            "Call consult_portfolio_manager() with no arguments. The host supplies all "
-            "original research and private context. Portfolio Manager original final text "
-            "is the authoritative investment report; your final text is coordination only."
-        )
-    if context.config.council_enabled and role in CHECKED_AUTHORS | {"explorer"}:
+    if context.config.child_output_mode == "direct_text" or definition.always_direct_text:
+        contract = dict(DIRECT_TEXT_CONTRACT)
+    if context.config.council_enabled and definition.council_author:
         if context.config.child_output_mode == "direct_text":
-            contract["advisory"] = (
-                "Finish with ordinary authored final text. Preserve material findings, citations "
-                "and qualifications. Any supplied private owner/account originals arrive as "
-                "caller task data; peers retrieve relevant available originals by reference. "
-                "No publication is required."
-            )
-        contract["handoff"] = (
-            "You are the author: finish with a concise useful final answer to the assignment, "
-            "material findings, uncertainty and selected citations. Omit research history, "
-            "source dumps, evidence inventories or hidden reasoning. Your answer is preserved "
-            "exactly, never silently shortened. Child tools return final-result views and stable "
-            "input refs. Use evidence_read for a bounded view of a selected envelope or source; "
-            "large views are labeled incomplete excerpts. Select "
-            "relevant refs for fact_check. Completion describes execution, not correctness."
-        )
-        if role == "portfolio_manager":
-            contract["planning"] = (
-                "Start by planning the original owner task. For full reviews, public research, "
-                "explore, optional asymmetric discovery and all three broad peers are available "
-                "under your direction. Request independent Wheel, Dalio and Buffett views where "
-                "useful, including together in one consult_specialists call. Supply only relevant "
-                "evidence_refs to peers; they can selectively read/check originals. You retain "
-                "final authority and may challenge earlier DCA assumptions."
-            )
-    if role == "continuity":
-        contract = {
-            "mode": "direct_text",
-            "advisory": (
-                "Finish with ordinary text. File access and save receipts are recorded by the host."
-            ),
-        }
-    if context.config.council_enabled and role in {"wheel_expert", "dalio", "buffett"}:
-        run_data["private_context"] = (
-            "Your assignment is supplied separately. Bounded views of private originals are "
-            "available on demand through evidence_read(record_ref=...) and fact_check refs: "
-            "input:portfolio, input:owner_context, supplied input:continuity:N, "
-            "input:analyst:N, input:explorer:N, input:asymmetric:N and your own "
-            "input:specialist:N. Request only relevant originals; retain dates and uncertainty. "
-            "No account facts are inferred from missing inline context."
-        )
+            contract["advisory"] = COUNCIL_ADVISORY
+        contract["handoff"] = AUTHOR_HANDOFF
+    if definition.configure_contract:
+        contract = definition.configure_contract(context, contract)
+    if definition.configure_run_data:
+        definition.configure_run_data(context, run_data)
     run_data["output_contract"] = contract
-    if context.config.fact_check.enabled and role in CHECKED_AUTHORS:
-        run_data["fact_check_contract"] = (
-            "Before returning factual claims, use fact_check(message, evidence_refs=[], "
-            "assumptions=[]) to obtain reasoning feedback. Select only relevant original refs; "
-            "nothing else is attached. Repair material errors; recheck materially changed "
-            "claims when useful. "
-            "At most three calls. Completed means execution, not factual approval. "
-            "Preserve conditionality and disclose missing evidence. The checker cannot fetch "
-            "sources. Expert may explicitly select input:portfolio, input:owner_context, "
-            "or supplied input:continuity:N (the exact attributed private brief, "
-            "not underlying notes). Private authors may select input:analyst:N, "
-            "input:explorer:N, input:asymmetric:N and input:specialist:N for the "
-            "numbered original report envelopes supplied in this invocation. "
-            "Specialist originals retain author identity and outcome; they are judgments."
-        )
+    if context.config.fact_check.enabled and definition.checked_author:
+        run_data["fact_check_contract"] = FACT_CHECK_CONTRACT
     # Snapshot static dependency descriptions; neither mutable provider metadata nor
     # later suffix refreshes can change the approved prefix or append old contexts.
     static_data = json.loads(json.dumps(run_data))
@@ -279,9 +139,7 @@ def build_role(role: str, context: RoleContext) -> Agent:
         + "\n\nRun context (data):\n"
     )
 
-    inline_private = role in PRIVATE_EXPERTS | {"team_lead"} and not (
-        context.config.council_enabled and role in {"wheel_expert", "dalio", "buffett"}
-    )
+    inline_private = definition.inline_private(context.config)
     portfolio_text = readable_portfolio(request) if inline_private else None
     portfolio_ref = (
         "\n\nSupplied portfolio reference (private data):\n" + request.portfolio.snapshot_id
@@ -301,7 +159,7 @@ def build_role(role: str, context: RoleContext) -> Agent:
     prior_suffix = (
         "\n\nPrior review (private ordinary dated data; not current observations):\n"
         + json.dumps(prompt_review(context.prior_review))
-        if role in PRIVATE_EXPERTS | {"team_lead"} and context.prior_review is not None
+        if definition.private_context != "none" and context.prior_review is not None
         else ""
     )
 
@@ -315,15 +173,8 @@ def build_role(role: str, context: RoleContext) -> Agent:
     if request.feedback_source_attribution and inline_private:
         feedback_suffix += "\nSelected question provenance: " + request.feedback_source_attribution
 
-    if request.feedback_source_ref is not None and role == "team_lead":
-        feedback_suffix += (
-            "\n\nThis is selected owner feedback with separately attributed original and "
-            "derived input. Investment questions require "
-            "the Expert assessment; a recording-only statement can omit discussion. "
-            "Continuity may supply relevant prior context. The host performs final memory "
-            "maintenance with separately attributed originals and actual write receipts. "
-            "No execution or owner decision is implied by an agent proposal.\n"
-        )
+    if request.feedback_source_ref is not None:
+        feedback_suffix += definition.feedback_guidance
 
     def system_prompt() -> str:
         now = time.monotonic()
@@ -386,64 +237,6 @@ def build_role(role: str, context: RoleContext) -> Agent:
         conversation_manager=NullConversationManager(),
     )
 
-    def terminal_tools(model_context: InvokeModelContext) -> InvokeModelContext:
-        if context.terminal_only:
-            choice: ToolChoiceToolDict = {"tool": {"name": "ResearchResult"}}
-            return model_context.replace(
-                tool_specs=[
-                    spec for spec in model_context.tool_specs if spec["name"] == "ResearchResult"
-                ],
-                tool_choice=choice,
-            )
-        return model_context
-
-    if role in {"analyst", "explorer"}:
-
-        def option_views(model_context: InvokeModelContext) -> InvokeModelContext:
-            return model_context.replace(messages=option_response_messages(model_context.messages))
-
-        agent.add_middleware(InvokeModelStage.Input, option_views)
-        agent.add_middleware(InvokeModelStage.Input, terminal_tools)
-    if role == "team_lead":
-
-        def lead_output(model_context: InvokeModelContext) -> InvokeModelContext:
-            policy = context.config.finalization
-            time_reserve = (
-                policy.expert_reserve_seconds > 0
-                and context.monotonic_deadline is not None
-                and context.monotonic_deadline - time.monotonic() <= policy.expert_reserve_seconds
-            )
-            # The before-model hook has already charged this generation.
-            generation_reserve = (
-                policy.expert_reserve_generations > 0
-                and context.budget.generations
-                > context.budget.max_generations - policy.expert_reserve_generations
-            )
-            if not context.terminal_only and (time_reserve or generation_reserve):
-                context.terminal_only = True
-                context.trace.emit(
-                    "lead_synthesis_started",
-                    role=role,
-                    invocation_id=context.invocation_id,
-                    generation=context.budget.generations,
-                    boundary="time_reserve" if time_reserve else "generation_reserve",
-                )
-            specs = [
-                project_team_result_spec(spec) if spec["name"] == "TeamResult" else spec
-                for spec in model_context.tool_specs
-                if not context.terminal_only or spec["name"] == "TeamResult"
-            ]
-            if context.terminal_only:
-                if context.config.child_output_mode == "direct_text" or role == "continuity":
-                    return model_context.replace(tool_specs=[], tool_choice=None)
-                choice: ToolChoiceToolDict = {"tool": {"name": "TeamResult"}}
-                return model_context.replace(tool_specs=specs, tool_choice=choice)
-            return model_context.replace(tool_specs=specs)
-
-        agent.add_middleware(InvokeModelStage.Input, lead_output)
+    if definition.install_middleware:
+        definition.install_middleware(agent, context)
     return agent
-
-
-def build_continuity(context: RoleContext) -> Agent:
-    """Build the private direct-text memory role with only host-scoped file tools."""
-    return build_role("continuity", context)

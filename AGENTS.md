@@ -10,7 +10,7 @@
 
 ## Source map
 
-- `agents/`: small Strands constructors; `agents/base.py`: role tool allowlists and shared assembly.
+- `agents/`: role-owned permissions, output contracts, context policy and middleware; `agents/base.py`: shared SDK assembly; `agents/registry.py`: explicit role inventory and compatibility dispatch.
 - `team.py`: orchestration, delegation, model routing and artifact lifecycle.
 - `config.py`, `types.py`, `contracts/`: validated configuration and public contracts.
 - `tools/`, `domain/`: tools and deterministic financial mechanics.
@@ -21,7 +21,7 @@
 
 ## Adding an expert
 
-Follow `docs/extending.md`. Role names are explicit literals, not a dynamic plugin registry. Update the constructor, role/tool permissions, delegation contracts, routing and prompt manifest together. Reuse `RoleContext` and Strands `Agent`; do not introduce another orchestration framework. Add synthetic integration tests proving delegation, least-privilege tools and final-result propagation.
+Follow `docs/extending.md`. Role names are explicit literals, not a dynamic plugin registry. Declare a `RoleDefinition` in the role's own module and update the explicit registry, delegation contracts, routing, lifecycle hooks and prompt manifest together. Reuse `RoleContext` and Strands `Agent`; do not introduce another orchestration framework. Add synthetic integration tests proving delegation, least-privilege tools and final-result propagation. Preserve the construction baseline when only reorganizing existing policies.
 
 ## Prompts and manifests
 

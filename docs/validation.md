@@ -17,6 +17,16 @@ The broad unit/contracts/thin run initially produced 1,126 passes, 20 failures a
 
 No paid inference, market-provider call or live brokerage action was used for release validation. Scripted tests establish plumbing behavior, not model competence.
 
+## Role construction refactor
+
+The refactor moves permissions, contracts, context policy and middleware into role modules while retaining shared SDK assembly and existing constructor/import entry points.
+
+- All 256 synthetic construction signatures match the original implementation exactly: system prompts, caller messages, tool schemas, middleware order and SDK construction options.
+- Independent review also compared 192 middleware scenarios, including terminal routing, time/generation reserves and emitted events; all matched the original.
+- The broad offline unit/contracts/thin/telemetry baseline had **1,168 passed, 19 failed and 14 skipped**. The final refactor run had **1,173 passed, the same 19 failed and 14 skipped**; no new failure identities remained. The five added tests cover construction equivalence, definition-driven permissions and compatibility.
+- One test's fake clock now also patches the module that owns the moved lead middleware; its assertions are unchanged. A separate 100 ms deadline test showed an intermittent summary-path race during verification; its focused and final runs passed.
+- Prompt bundles, offline demo, lint and package builds passed. No inference or production deployment was used to validate this structural change.
+
 ## Practical limits
 
 - Prompt requirements for full reports, full-report checking and preserved corrections are instructions, not guarantees. Models can ignore them or return a short correction note that is mechanically marked complete.
