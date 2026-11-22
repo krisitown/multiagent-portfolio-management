@@ -811,6 +811,11 @@
       },
       "title": "Role Models",
       "type": "object"
+    },
+    "structured_report": {
+      "default": false,
+      "title": "Structured Report",
+      "type": "boolean"
     }
   },
   "required": [

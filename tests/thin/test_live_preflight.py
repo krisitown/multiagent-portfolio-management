@@ -13,13 +13,13 @@ from pathlib import Path
 
 import pytest
 
-from tests.support.thin_sdk import ScriptModel, output
 from portfolio_management.adapters.research import HermesResearchBackend, ResearchBackendConfig
 from portfolio_management.config import ModelConfig, PromptSet, TeamConfig
 from portfolio_management.contracts import AgentRole
 from portfolio_management.prompt_loader import load_prompt
 from portfolio_management.team import run_team
 from portfolio_management.types import TeamDependencies, TeamRequest
+from tests.support.thin_sdk import ScriptModel, output
 
 QUESTION = (
     "Research Microsoft (MSFT) business quality and balance-sheet evidence from official "
@@ -96,6 +96,8 @@ def preflight(tmp_path, request):
         knowledge_manifest_path=Path(knowledge) if knowledge else None,
         output_dir=Path(destination) / request.node.name if destination else tmp_path / "runs",
         max_generations=8,
+        child_output_mode="typed",  # Exercise the explicit SDK output-tool compatibility mode.
+        structured_report=True,  # Verify projected evidence and structured report integrity.
     )
     raw = (
         Path(source).read_bytes()

@@ -1,7 +1,5 @@
 """Foreground research tools stay analyst-only and report missing dependencies."""
 
-from tests.support.thin_fakes import fixed_clock
-from tests.thin.test_entrypoint import config
 from portfolio_management.team import run_team
 from portfolio_management.types import (
     ExpertResult,
@@ -11,6 +9,8 @@ from portfolio_management.types import (
     TeamRequest,
     TeamResult,
 )
+from tests.support.thin_fakes import fixed_clock
+from tests.thin.test_entrypoint import config
 
 
 async def test_team_binds_actual_unavailable_web_tools_only_to_analysts(tmp_path):
@@ -27,7 +27,7 @@ async def test_team_binds_actual_unavailable_web_tools_only_to_analysts(tmp_path
                 observed["research_results"] = await self.context.tools["research_batch"](
                     [ResearchJob(job_id="web-check", question="Check dependency availability")]
                 )
-                await self.context.tools["consult_expert"]("Review availability", [])
+                await self.context.tools["consult_expert"]()
                 return TeamResult(summary="Dependency availability inspected")
             if self.role == "analyst":
                 observed["search"] = await self.context.tools["public_search"](
@@ -139,7 +139,11 @@ def test_cli_constructs_selected_research_backend_and_saves_its_public_identity(
         )
         == 0
     )
-    summary = json.loads(capsys.readouterr().out)
+    captured = capsys.readouterr()
+    summary = json.loads(captured.err)
+    assert summary["completion_reason"] == "complete"
+    assert captured.out == Path(summary["artifacts"]["report"]).read_text()
+    assert captured.out.strip()
     manifest = json.loads(Path(summary["artifacts"]["manifest"]).read_text())
     assert manifest["research_backend"]["mode"] == "connected"
     assert manifest["research_backend"]["provider"] == "hermes_public_web"

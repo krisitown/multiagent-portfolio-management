@@ -18,9 +18,9 @@ FIXTURES = Path(__file__).parents[1] / "fixtures" / "explorer"
 
 def api():
     try:
-        return importlib.import_module("portfolio_management.adapters.explorer"), importlib.import_module(
-            "portfolio_management.tools.explorer"
-        )
+        return importlib.import_module(
+            "portfolio_management.adapters.explorer"
+        ), importlib.import_module("portfolio_management.tools.explorer")
     except ModuleNotFoundError:
         pytest.fail("the agreed explorer tool/provider implementation is missing")
 
@@ -252,7 +252,7 @@ async def test_backend_identity_mismatch_and_timeout_are_honest(tmp_path):
     adapter, tools = api()
     wrong = arithmetic_chain() | {"symbol": "MSFT"}
     backend = adapter.ExplorerBackend(market_config(), transport=Boundary(wrong))
-    result = await tools.explorer_tools(EvidenceStore(tmp_path), backend, None)[
+    result = await tools.explorer_tools(EvidenceStore(tmp_path), backend, None, lambda: NOW)[
         "options_liquidity"
     ]("AAPL")
     assert result["status"] == "invalid_data"
@@ -267,7 +267,7 @@ async def test_backend_identity_mismatch_and_timeout_are_honest(tmp_path):
 
     backend = adapter.ExplorerBackend(market_config(), transport=wait)
     backend.timeout_seconds = 0.01
-    result = await tools.explorer_tools(EvidenceStore(tmp_path), backend, None)[
+    result = await tools.explorer_tools(EvidenceStore(tmp_path), backend, None, lambda: NOW)[
         "options_liquidity"
     ]("AAPL")
     assert result["status"] == "retryable_error"
@@ -278,13 +278,22 @@ async def test_empty_window_is_unavailable_and_preserves_failed_coverage(tmp_pat
     adapter, tools = api()
     raw = arithmetic_chain()
     raw["chains"][0]["puts"] = []
+    raw["available_expiries"].append("2026-11-13")
+    raw["selected_expiries"].append("2026-11-13")
+    raw["chains"].append({"expiry": "2026-11-13", "status": "unavailable"})
     backend = adapter.ExplorerBackend(market_config(), transport=Boundary(raw))
-    result = await tools.explorer_tools(EvidenceStore(tmp_path), backend, None)[
-        "options_liquidity"
-    ]("AAPL")
+    store = EvidenceStore(tmp_path)
+    result = await tools.explorer_tools(store, backend, None, lambda: NOW)["options_liquidity"](
+        "AAPL"
+    )
     assert result["status"] == "unavailable"
     assert result["data"]["liquidity_verdict"] == "not_assessed"
     assert result["data"]["profiles"][0]["contracts_in_window"] == 0
+    assert result["data"]["coverage"]["empty_expiries"] == ["2026-11-06"]
+    assert result["data"]["coverage"]["failed_expiries"] == ["2026-11-13"]
+    assert result["data"]["coverage"]["partial_coverage"] is True
+    evidence = store.get(result["evidence_refs"][0])
+    assert evidence["content"]["summary"]["coverage"] == result["data"]["coverage"]
 
 
 def test_duplicate_series_cannot_amplify_liquidity_evidence_or_infer_currency():
@@ -305,8 +314,12 @@ async def test_wrong_underlying_quote_is_invalid_data(tmp_path):
     raw = arithmetic_chain()
     raw["underlying"]["symbol"] = "MSFT"
     backend = adapter.ExplorerBackend(market_config(), transport=Boundary(raw))
-    call = tools.explorer_tools(EvidenceStore(tmp_path), backend, None)["options_liquidity"]
-    assert (await call("AAPL"))["status"] == "invalid_data"
+    call = tools.explorer_tools(EvidenceStore(tmp_path), backend, None, lambda: NOW)[
+        "options_liquidity"
+    ]
+    result = await call("AAPL")
+    assert result["status"] == "invalid_data"
+    assert result["reason"] == "Invalid bounded explorer data"
 
 
 async def test_malformed_chain_shapes_return_invalid_data_instead_of_tool_exceptions(tmp_path):
@@ -314,19 +327,29 @@ async def test_malformed_chain_shapes_return_invalid_data_instead_of_tool_except
     raw = arithmetic_chain()
     raw["chains"] = [None]
     backend = adapter.ExplorerBackend(market_config(), transport=Boundary(raw))
-    call = tools.explorer_tools(EvidenceStore(tmp_path), backend, None)["options_liquidity"]
-    assert (await call("AAPL"))["status"] == "invalid_data"
+    call = tools.explorer_tools(EvidenceStore(tmp_path), backend, None, lambda: NOW)[
+        "options_liquidity"
+    ]
+    result = await call("AAPL")
+    assert result["status"] == "invalid_data"
+    assert result["reason"] == "Invalid bounded explorer data"
     raw = arithmetic_chain()
     raw["chains"][0]["puts"] = ["bad source row"]
     backend = adapter.ExplorerBackend(market_config(), transport=Boundary(raw))
-    call = tools.explorer_tools(EvidenceStore(tmp_path), backend, None)["options_liquidity"]
-    assert (await call("AAPL"))["status"] == "invalid_data"
+    call = tools.explorer_tools(EvidenceStore(tmp_path), backend, None, lambda: NOW)[
+        "options_liquidity"
+    ]
+    result = await call("AAPL")
+    assert result["status"] == "invalid_data"
+    assert result["reason"] == "Invalid bounded explorer data"
 
 
 async def test_expiry_identity_and_parameterized_evidence_do_not_conflict(tmp_path):
     adapter, tools = api()
     backend = adapter.ExplorerBackend(market_config(), transport=Boundary(arithmetic_chain()))
-    call = tools.explorer_tools(EvidenceStore(tmp_path), backend, None)["options_liquidity"]
+    call = tools.explorer_tools(EvidenceStore(tmp_path), backend, None, lambda: NOW)[
+        "options_liquidity"
+    ]
     assert (await call("AAPL", ["2026-11-13"]))["status"] == "invalid_data"
     first = await call("AAPL", None, 20)
     second = await call("AAPL", None, 10)
@@ -343,8 +366,16 @@ async def test_untrusted_timestamp_and_default_expiry_mismatch_are_invalid(tmp_p
     else:
         raw["available_expiries"].insert(0, "2026-11-04")
     backend = adapter.ExplorerBackend(market_config(), transport=Boundary(raw))
-    call = tools.explorer_tools(EvidenceStore(tmp_path), backend, None)["options_liquidity"]
-    assert (await call("AAPL"))["status"] == "invalid_data"
+    call = tools.explorer_tools(EvidenceStore(tmp_path), backend, None, lambda: NOW)[
+        "options_liquidity"
+    ]
+    result = await call("AAPL")
+    assert result["status"] == "invalid_data"
+    assert result["reason"] == (
+        "Invalid bounded explorer data"
+        if change == "bad_time"
+        else "Invalid explorer source response"
+    )
 
 
 def test_mixed_option_currencies_do_not_produce_an_absolute_spread_median():

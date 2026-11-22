@@ -38,9 +38,14 @@ from portfolio_management.agents.base import (
     project_team_result_spec,
     role_tools,
 )
-from portfolio_management.checks import render_result
+from portfolio_management.checks import render_result, report_records, validate_result
 from portfolio_management.config import TeamConfig
-from portfolio_management.continuity import ContinuityError, ContinuityFiles, ContinuityTool, continuity_tools
+from portfolio_management.continuity import (
+    ContinuityError,
+    ContinuityFiles,
+    ContinuityTool,
+    continuity_tools,
+)
 from portfolio_management.fact_check import TokenCounter
 from portfolio_management.fact_check_runtime import ReasoningCheckSession
 from portfolio_management.knowledge_loader import load_knowledge
@@ -2185,7 +2190,37 @@ async def run_team(
             "lineage": lineage,
         }
     )
-    if native_lead_result:
+    if config.structured_report:
+        if not native_lead_result:
+            result = preserve_partial_research(
+                result, [*research_results, *asymmetric_results], expert_results
+            )
+            if request.mode in {"discovery", "combined"} and not result.candidate_slots:
+                result = result.model_copy(
+                    update={
+                        "candidate_slots": tuple(
+                            {
+                                "slot": number,
+                                "kind": "unavailable",
+                                "reason": "Run stopped before a validated candidate was supplied.",
+                            }
+                            for number in range(1, 6)
+                        )
+                    }
+                )
+        findings = (*result.findings, *validate_result(result, store, request))
+        result = result.model_copy(
+            update={
+                "findings": findings,
+                "supporting_records": report_records(result, store),
+                "completion_reason": "partial"
+                if result.completion_reason == "complete"
+                and any(f.severity == "error" for f in findings)
+                else result.completion_reason,
+            }
+        )
+        report = render_result(result)
+    elif native_lead_result:
         # Successful lead text is the deliverable. Metadata is not a publication gate.
         report = result.report_markdown or result.summary
     else:
@@ -2193,6 +2228,7 @@ async def run_team(
             result = preserve_partial_research(
                 result, [*research_results, *asymmetric_results], expert_results
             )
+            result = result.model_copy(update={"supporting_records": report_records(result, store)})
         report = render_result(result)
     if draft_text is not None and not native_lead_result and not config.council_enabled:
         longest = max((len(run) for run in re.findall(r"`+", draft_text)), default=2)

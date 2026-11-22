@@ -1,5 +1,13 @@
 # Validation and limitations
 
+## Current full-suite audit
+
+The complete default `pytest -q` run passes: **1,196 passed, 14 skipped, zero failures**, without marker filtering. The existing skips require explicitly selected private archived artifacts that are not distributed in this public repository; no new skips, xfails or deselections were introduced. CI now runs this full suite and exposes failures in annotations.
+
+All 19 inherited failures were audited. CLI tests now read narrative stdout and status/error JSON stderr while checking both channels; SDK fixtures explicitly select their typed/structured contracts; option fixtures use their declared source date and test precise invalid-data paths. Structured rendering now explicitly opts into integrity validation and bounded evidence projections, including stopped-run research preservation. Authored text remains the unchanged default. Existing assertions were retained, with additional configuration, evidence-coverage and output-channel assertions.
+
+Prompt bundles, offline demo, package builds and touched-code lint checks pass. These are offline implementation checks, not new model benchmark or investment-quality evidence.
+
 ## Initial public release
 
 This is a source release of an experimentally deployed runtime, not a claim of production financial reliability. It preserves the working orchestration and adds portable configuration, documentation and integration instructions. Private host integrations, delivery scripts, original account data and raw report history are excluded.
@@ -13,7 +21,7 @@ Validation performed on Python 3.13:
 - Scripted network-free demo: completed and wrote inspectable result/report artifacts.
 - Source and wheel distributions: built successfully.
 
-The broad unit/contracts/thin run initially produced 1,126 passes, 20 failures and 14 skips. One failure was the now-regenerated schema export. The other 19 failures were reproduced in the source checkout before release changes. They remain visible in the shipped tests rather than being suppressed: older JSON-on-stdout expectations, legacy typed final-output assumptions, two option-source fixture cases and partial-result/report preservation cases. These should be reconciled before treating the full regression suite as green. CI exercises the separately passing unit/contracts and current council paths; it does not certify the entire thin suite.
+The broad unit/contracts/thin run initially produced 1,126 passes, 20 failures and 14 skips. One failure was fixed by regenerating the public schema export. The remaining 19 inherited failures were subsequently corrected in the full-suite audit above; the historical counts below describe verification at those earlier releases.
 
 No paid inference, market-provider call or live brokerage action was used for release validation. Scripted tests establish plumbing behavior, not model competence.
 

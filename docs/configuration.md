@@ -31,3 +31,9 @@ Continuity is omitted unless an explicit root is provided. The runtime's memory 
 ## Market data
 
 The runtime supports captured fixtures and an optional configured market-provider transport. The historical `SparkMarketProvider` name refers to an adapter, not a requirement to use a particular machine. See its explicit `SSHResearchConfig` fields and `examples/market-provider/` protocol samples. Broker input and market-provider data are separate. Never infer current margin capacity from cash or substitute fetch time for the statement's valuation date.
+
+## Report contracts
+
+Authored report text is the default and passes through unchanged, including when `child_output_mode` is `typed`. To request the legacy structured renderer, set `structured_report: true` with `child_output_mode: typed` and council disabled. That renderer validates structured candidates and calculations, labels unsupported claims, projects bounded supporting records and marks integrity failures partial. Stopped typed runs retain completed child summaries and declared evidence projections. The original saved evidence remains unchanged.
+
+The `ask` command writes report text to stdout and JSON status/artifact metadata (or input errors) to stderr. Integrations should parse the appropriate channel.

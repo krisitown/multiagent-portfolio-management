@@ -32,8 +32,7 @@ Prompts live in Markdown, not embedded replacements in Python. Changed role/modu
 ```bash
 uv sync --locked
 uv run python scripts/validate_bundles.py
-uv run pytest tests/unit tests/contracts -q
-uv run pytest tests/thin -q -m "not live_model and not live_provider"
+uv run pytest -q
 uv run python examples/offline_demo.py
 uv run python -m build
 ```

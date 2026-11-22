@@ -48,7 +48,9 @@ def test_cli_rejects_missing_selected_capture_before_starting_run(tmp_path, caps
         ]
     )
     assert code == 2
-    assert json.loads(capsys.readouterr().out)["error"] == "configuration_or_output_error"
+    captured = capsys.readouterr()
+    assert captured.out == ""
+    assert json.loads(captured.err)["error"] == "configuration_or_output_error"
     assert not output.exists()
 
 
@@ -82,7 +84,9 @@ def test_cli_cannot_silently_ignore_an_existing_unrecognized_capture(tmp_path, c
         )
         == 2
     )
-    assert json.loads(capsys.readouterr().out)["error"] == "configuration_or_output_error"
+    captured = capsys.readouterr()
+    assert captured.out == ""
+    assert json.loads(captured.err)["error"] == "configuration_or_output_error"
     assert not output.exists()
 
 
@@ -121,7 +125,11 @@ def test_cli_constructs_completed_real_capture_as_explicit_replay(tmp_path, caps
         )
         == 0
     )
-    summary = json.loads(capsys.readouterr().out)
+    captured = capsys.readouterr()
+    summary = json.loads(captured.err)
+    assert summary["completion_reason"] == "complete"
+    assert captured.out == Path(summary["artifacts"]["report"]).read_text()
+    assert captured.out.strip()
     manifest = json.loads(Path(summary["artifacts"]["manifest"]).read_text())
     assert manifest["market_provider"]["mode"] == "captured_replay"
     assert manifest["market_provider"]["capture_id"] == Path(selected).parent.name

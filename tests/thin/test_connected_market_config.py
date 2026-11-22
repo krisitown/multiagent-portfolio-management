@@ -3,8 +3,8 @@
 import json
 from pathlib import Path
 
-from tests.unit.test_market_spark import settings
 from portfolio_management.cli import load_team_config, main
+from tests.unit.test_market_spark import settings
 
 
 def test_cli_constructs_local_market_backend_without_ssh_credentials(tmp_path, capsys):
@@ -39,7 +39,11 @@ def test_cli_constructs_local_market_backend_without_ssh_credentials(tmp_path, c
         )
         == 0
     )
-    output = json.loads(capsys.readouterr().out)
+    captured = capsys.readouterr()
+    output = json.loads(captured.err)
+    assert output["completion_reason"] == "complete"
+    assert captured.out == Path(output["artifacts"]["report"]).read_text()
+    assert captured.out.strip()
     manifest = json.loads(Path(output["artifacts"]["manifest"]).read_text())
     market = manifest["market_provider"]
     assert market["mode"] == "connected"
@@ -77,7 +81,9 @@ def test_cli_labels_explicit_openai_execution_as_team_mode(tmp_path, capsys, mon
     async def bounded_run(request, *, config, deps):
         # The expensive external orchestration seam is replaced; assert CLI-selected metadata.
         return TeamResult(
-            summary="Metadata only", artifacts={"evaluation_mode": deps.evaluation_mode}
+            summary="Metadata only",
+            report_markdown="Metadata only",
+            artifacts={"evaluation_mode": deps.evaluation_mode},
         )
 
     monkeypatch.setattr(cli, "run_team", bounded_run)
@@ -112,5 +118,8 @@ def test_cli_labels_explicit_openai_execution_as_team_mode(tmp_path, capsys, mon
         )
         == 0
     )
-    output = json.loads(capsys.readouterr().out)
+    captured = capsys.readouterr()
+    assert captured.out == "Metadata only"
+    output = json.loads(captured.err)
+    assert output["completion_reason"] == "complete"
     assert output["artifacts"]["evaluation_mode"] == "team"

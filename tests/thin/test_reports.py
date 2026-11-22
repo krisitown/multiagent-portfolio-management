@@ -220,6 +220,8 @@ async def test_renderer_preserves_eod_warnings_exact_economics_and_all_holdings(
     result = await run_team(
         TeamRequest(question="Combined", mode="combined", portfolio=portfolio),
         config=TeamConfig(
+            child_output_mode="typed",  # Exercise the structured-result compatibility contract.
+            structured_report=True,
             model=ModelConfig(model_id="offline"),
             prompts=PromptSet.development(),
             output_dir=tmp_path,
@@ -271,6 +273,8 @@ async def test_malformed_lead_output_preserves_truthful_failure_artifacts(tmp_pa
     result = await run_team(
         TeamRequest(question="Discover", mode="discovery"),
         config=TeamConfig(
+            child_output_mode="typed",  # Exercise the structured-result compatibility contract.
+            structured_report=True,
             model=ModelConfig(model_id="offline"),
             prompts=PromptSet.development(),
             output_dir=tmp_path,
@@ -300,6 +304,8 @@ async def test_blocked_ready_label_is_local_and_portfolio_survives_discovery_fai
     result = await run_team(
         TeamRequest(question="Combined", mode="combined", portfolio=snapshot()),
         config=TeamConfig(
+            child_output_mode="typed",  # Exercise the structured-result compatibility contract.
+            structured_report=True,
             model=ModelConfig(model_id="offline"),
             prompts=PromptSet.development(),
             output_dir=tmp_path,
@@ -657,6 +663,8 @@ async def test_host_overwrites_model_claimed_owner_policy(tmp_path):
     result = await run_team(
         TeamRequest(question="Explain", mode="education"),
         config=TeamConfig(
+            child_output_mode="typed",  # Exercise the structured-result compatibility contract.
+            structured_report=True,
             model=ModelConfig(model_id="offline"),
             prompts=PromptSet.development(),
             output_dir=tmp_path,
@@ -761,6 +769,8 @@ async def test_malformed_null_slot_warnings_still_save_truthful_partial_artifact
     result = await run_team(
         TeamRequest(question="Combined", mode="combined", portfolio=snapshot()),
         config=TeamConfig(
+            child_output_mode="typed",  # Exercise the structured-result compatibility contract.
+            structured_report=True,
             model=ModelConfig(model_id="offline"),
             prompts=PromptSet.development(),
             output_dir=tmp_path,

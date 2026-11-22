@@ -117,6 +117,7 @@ class TeamConfig(BaseModel):
     prompts: PromptSet = Field(default_factory=PromptSet)
     output_dir: Path = Path("artifacts/thin")
     child_output_mode: Literal["typed", "direct_text"] = "direct_text"
+    structured_report: bool = Field(default=False, strict=True)
     council_enabled: bool = Field(default=False, strict=True)
     role_models: dict[
         Literal["portfolio_manager", "wheel_expert", "dalio", "buffett"], ModelConfig
@@ -145,6 +146,8 @@ class TeamConfig(BaseModel):
 
     @model_validator(mode="after")
     def explicit_market_selection(self) -> Self:
+        if self.structured_report and (self.child_output_mode != "typed" or self.council_enabled):
+            raise ValueError("structured_report requires typed output without council mode")
         if self.require_fresh_opportunities and not self.explorer_enabled:
             raise ValueError("Fresh full-review opportunities require the Explorer")
         if self.child_output_mode == "direct_text" and self.finalization.analyst_terminal_seconds:
