@@ -207,6 +207,7 @@ async def test_synthesis_is_sticky_and_native_invalid_output_keeps_repair_ceilin
 ):
     clock = [100.0]
     monkeypatch.setattr(base, "time", SimpleNamespace(monotonic=lambda: clock[0]))
+    monkeypatch.setattr(team_lead, "time", SimpleNamespace(monotonic=lambda: clock[0]))
 
     def rewind_after_first_request(number):
         if number == 1:
