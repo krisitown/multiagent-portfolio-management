@@ -9,10 +9,10 @@ from strands.models.openai import OpenAIModel
 
 from tests.thin.test_agents import context
 from tests.thin.test_direct_text_handoff import direct_config
-from wheel_team import models
-from wheel_team.agents.base import build_role
-from wheel_team.config import FinalizationConfig, ModelConfig
-from wheel_team.model_observer import CompletionTelemetry
+from portfolio_management import models
+from portfolio_management.agents.base import build_role
+from portfolio_management.config import FinalizationConfig, ModelConfig
+from portfolio_management.model_observer import CompletionTelemetry
 
 
 @pytest.fixture

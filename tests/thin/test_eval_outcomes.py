@@ -7,8 +7,8 @@ import pytest
 
 from tests.support.thin_fakes import fixed_clock
 from tests.thin.test_entrypoint import config
-from wheel_team.evaluation import thin_runner
-from wheel_team.types import TeamDependencies
+from portfolio_management.evaluation import thin_runner
+from portfolio_management.types import TeamDependencies
 
 
 def categorize(result, findings=(), trace=(), evidence=()):

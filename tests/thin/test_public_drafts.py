@@ -11,9 +11,9 @@ from strands.hooks.events import AfterModelCallEvent
 from tests.support.thin_sdk import ScriptModel, output
 from tests.thin.test_agents import context
 from tests.thin.test_entrypoint import config
-from wheel_team.models import RunHooks
-from wheel_team.team import run_team
-from wheel_team.types import TeamDependencies, TeamRequest
+from portfolio_management.models import RunHooks
+from portfolio_management.team import run_team
+from portfolio_management.types import TeamDependencies, TeamRequest
 
 
 async def test_completed_public_lead_text_survives_deadline_as_unvalidated_draft(tmp_path):

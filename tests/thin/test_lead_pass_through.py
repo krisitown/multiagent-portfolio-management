@@ -14,11 +14,11 @@ from tests.support.thin_sdk import ScriptModel, output
 from tests.thin.test_agents import context
 from tests.thin.test_direct_text_handoff import CutoffModel, direct_config
 from tests.thin.test_entrypoint import config, snapshot
-from wheel_team.agents.base import build_role
-from wheel_team.cli import main
-from wheel_team.config import FinalizationConfig
-from wheel_team.team import run_team
-from wheel_team.types import TeamDependencies, TeamRequest
+from portfolio_management.agents.base import build_role
+from portfolio_management.cli import main
+from portfolio_management.config import FinalizationConfig
+from portfolio_management.team import run_team
+from portfolio_management.types import TeamDependencies, TeamRequest
 
 NARRATIVE = (
     "  # Lead α — judgment\r\n\n"

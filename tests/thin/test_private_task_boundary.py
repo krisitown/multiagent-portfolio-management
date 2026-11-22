@@ -7,8 +7,8 @@ import pytest
 from tests.support.thin_sdk import ScriptModel
 from tests.thin.test_agents import context
 from tests.thin.test_portfolio_council import council_config
-from wheel_team.agents.base import build_role
-from wheel_team.prompt_loader import load_prompt
+from portfolio_management.agents.base import build_role
+from portfolio_management.prompt_loader import load_prompt
 
 
 @pytest.mark.parametrize(

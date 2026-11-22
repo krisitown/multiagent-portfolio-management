@@ -6,7 +6,7 @@ from decimal import Decimal
 
 import pytest
 
-from wheel_team.contracts import CalculationRecord, ContractIdentity, PortfolioSnapshot, Position
+from portfolio_management.contracts import CalculationRecord, ContractIdentity, PortfolioSnapshot, Position
 
 D = Decimal
 OBSERVED = datetime(2026, 10, 30, 20, tzinfo=UTC)
@@ -14,9 +14,9 @@ OBSERVED = datetime(2026, 10, 30, 20, tzinfo=UTC)
 
 def coverage(snapshot):
     try:
-        module = importlib.import_module("wheel_team.domain.coverage")
+        module = importlib.import_module("portfolio_management.domain.coverage")
     except ModuleNotFoundError as exc:
-        if exc.name not in {"wheel_team.domain", "wheel_team.domain.coverage"}:
+        if exc.name not in {"portfolio_management.domain", "portfolio_management.domain.coverage"}:
             raise
         pytest.fail("missing portfolio coverage implementation")
     return module.match_coverage(snapshot)

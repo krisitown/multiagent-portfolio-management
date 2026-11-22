@@ -7,9 +7,9 @@ import pytest
 from tests.support.thin_sdk import ScriptModel, output
 from tests.thin.test_analyst_report_access import expert_data
 from tests.thin.test_direct_text_handoff import direct_config
-from wheel_team.team import run_team
-from wheel_team.types import TeamDependencies, TeamRequest
-from wheel_team.vault import EvidenceStore
+from portfolio_management.team import run_team
+from portfolio_management.types import TeamDependencies, TeamRequest
+from portfolio_management.vault import EvidenceStore
 
 
 async def test_holistic_review_does_not_require_reference_resolution(tmp_path, monkeypatch):

@@ -7,7 +7,7 @@ import pytest
 from openai.types.chat import ChatCompletion
 from strands import Agent, tool
 
-from wheel_team.models import DeepSeekOpenAIModel
+from portfolio_management.models import DeepSeekOpenAIModel
 
 
 def response(index, *, call=False):

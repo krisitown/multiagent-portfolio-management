@@ -8,7 +8,7 @@ from pathlib import Path
 import httpx
 import pytest
 
-from wheel_team.contracts.evidence import MarketQuery, MarketResult
+from portfolio_management.contracts.evidence import MarketQuery, MarketResult
 
 EXAMPLES = Path(__file__).resolve().parents[2] / "examples" / "market-provider"
 BACKENDS = ("fixture", "http")
@@ -16,9 +16,9 @@ BACKENDS = ("fixture", "http")
 
 def api(module):
     try:
-        return importlib.import_module(f"wheel_team.adapters.market.{module}")
+        return importlib.import_module(f"portfolio_management.adapters.market.{module}")
     except ModuleNotFoundError as exc:
-        if exc.name and exc.name.startswith("wheel_team.adapters.market"):
+        if exc.name and exc.name.startswith("portfolio_management.adapters.market"):
             pytest.fail(f"missing Task10 implementation: {module}")
         raise
 

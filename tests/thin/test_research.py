@@ -9,15 +9,15 @@ from datetime import UTC, datetime
 
 import pytest
 
-from wheel_team.vault import EvidenceStore
+from portfolio_management.vault import EvidenceStore
 
 NOW = datetime(2026, 10, 31, 12, tzinfo=UTC)
 
 
 def api():
     try:
-        return importlib.import_module("wheel_team.adapters.research"), importlib.import_module(
-            "wheel_team.tools.research"
+        return importlib.import_module("portfolio_management.adapters.research"), importlib.import_module(
+            "portfolio_management.tools.research"
         )
     except ModuleNotFoundError:
         pytest.fail("connected Hermes research adapter/tools are missing")

@@ -6,10 +6,10 @@ import pytest
 
 from tests.support.thin_fakes import fixed_clock
 from tests.thin.test_entrypoint import config, snapshot
-from wheel_team.contracts import PortfolioSnapshot
-from wheel_team.team import run_team
-from wheel_team.types import ExpertResult, ResearchResult, TeamDependencies, TeamRequest, TeamResult
-from wheel_team.vault import RecordNotFound
+from portfolio_management.contracts import PortfolioSnapshot
+from portfolio_management.team import run_team
+from portfolio_management.types import ExpertResult, ResearchResult, TeamDependencies, TeamRequest, TeamResult
+from portfolio_management.vault import RecordNotFound
 
 
 async def test_analyst_cannot_use_private_snapshot_history_or_calculation_refs(tmp_path):
@@ -93,9 +93,9 @@ async def test_analyst_cannot_use_private_snapshot_history_or_calculation_refs(t
 
 
 async def test_scoped_readers_cannot_resolve_guessed_private_calculation(tmp_path):
-    from wheel_team.privacy import PrivateEvidenceStore
-    from wheel_team.tools.finance import finance_tools
-    from wheel_team.vault import EvidenceStore
+    from portfolio_management.privacy import PrivateEvidenceStore
+    from portfolio_management.tools.finance import finance_tools
+    from portfolio_management.vault import EvidenceStore
 
     public = EvidenceStore(tmp_path / "public")
     private = PrivateEvidenceStore(tmp_path / "private", public)

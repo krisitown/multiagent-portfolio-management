@@ -4,7 +4,7 @@ import json
 import os
 from pathlib import Path
 
-from wheel_team.config import TeamConfig
+from portfolio_management.config import TeamConfig
 
 ROOT = Path(__file__).resolve().parents[1]
 

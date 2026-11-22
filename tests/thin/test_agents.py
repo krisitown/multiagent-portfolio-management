@@ -9,12 +9,12 @@ import pytest
 from tests.support.thin_fakes import fixed_clock
 from tests.support.thin_sdk import ScriptModel, output
 from tests.thin.test_entrypoint import config
-from wheel_team.agents.analyst import build_analyst
-from wheel_team.agents.team_lead import build_team_lead
-from wheel_team.agents.wheel_expert import build_wheel_expert
-from wheel_team.contracts import AgentRole
-from wheel_team.prompt_loader import load_prompt
-from wheel_team.types import RoleContext, RunBudget, TeamResult, TraceSink
+from portfolio_management.agents.analyst import build_analyst
+from portfolio_management.agents.team_lead import build_team_lead
+from portfolio_management.agents.wheel_expert import build_wheel_expert
+from portfolio_management.contracts import AgentRole
+from portfolio_management.prompt_loader import load_prompt
+from portfolio_management.types import RoleContext, RunBudget, TeamResult, TraceSink
 
 
 def context(tmp_path, role, model, tools=None, limit=100):
@@ -78,8 +78,8 @@ async def test_prompt_role_mismatch_rejected(tmp_path):
 
 async def test_supplied_snapshot_reference_is_visible_to_the_sdk_lead(tmp_path):
     from tests.thin.test_entrypoint import snapshot
-    from wheel_team.team import run_team
-    from wheel_team.types import TeamDependencies, TeamRequest
+    from portfolio_management.team import run_team
+    from portfolio_management.types import TeamDependencies, TeamRequest
 
     class SnapshotModel(ScriptModel):
         async def stream(self, messages, tool_specs=None, system_prompt=None, **kwargs):
@@ -125,10 +125,10 @@ async def test_configured_openai_sdk_transport_has_no_retries_redirects_or_proxy
 ):
     import httpx
 
-    from wheel_team import models
-    from wheel_team.config import ModelConfig
-    from wheel_team.team import run_team
-    from wheel_team.types import TeamDependencies, TeamRequest
+    from portfolio_management import models
+    from portfolio_management.config import ModelConfig
+    from portfolio_management.team import run_team
+    from portfolio_management.types import TeamDependencies, TeamRequest
 
     requests = []
     clients = []
@@ -224,10 +224,10 @@ async def test_configured_openai_sdk_transport_has_no_retries_redirects_or_proxy
 
 
 async def test_unapproved_network_selection_fails_before_client_construction(tmp_path, monkeypatch):
-    from wheel_team import models
-    from wheel_team.config import ModelConfig
-    from wheel_team.team import run_team
-    from wheel_team.types import TeamDependencies, TeamRequest
+    from portfolio_management import models
+    from portfolio_management.config import ModelConfig
+    from portfolio_management.team import run_team
+    from portfolio_management.types import TeamDependencies, TeamRequest
 
     def forbidden(**kwargs):
         raise AssertionError("inference client must not be constructed")
@@ -334,8 +334,8 @@ async def test_role_runtime_data_discloses_selected_provider_capabilities_and_sc
 
 
 async def test_market_tool_sdk_schema_supplies_required_fields_and_rehydrates_query(tmp_path):
-    from wheel_team.tools.market import market_tools
-    from wheel_team.vault import EvidenceStore
+    from portfolio_management.tools.market import market_tools
+    from portfolio_management.vault import EvidenceStore
 
     model = ScriptModel(
         output("market_query", query={"query_id": "schema-check", "capability": "fundamentals"}),
@@ -364,9 +364,9 @@ async def test_market_tool_sdk_schema_supplies_required_fields_and_rehydrates_qu
 async def test_sdk_market_query_accepts_observed_json_text_and_handles_malformed_text(
     tmp_path, query, expected_status, expected_requests
 ):
-    from wheel_team.contracts import MarketResult
-    from wheel_team.tools.market import market_tools
-    from wheel_team.vault import EvidenceStore
+    from portfolio_management.contracts import MarketResult
+    from portfolio_management.tools.market import market_tools
+    from portfolio_management.vault import EvidenceStore
 
     requests = []
 
@@ -403,8 +403,8 @@ async def test_sdk_market_query_accepts_observed_json_text_and_handles_malformed
 
 async def test_sdk_finance_schema_lists_exact_formulas_and_executes_mechanical_put(tmp_path):
     """Isolated option arithmetic; these labelled terms are not issuer observations."""
-    from wheel_team.tools.finance import finance_tools
-    from wheel_team.vault import EvidenceStore
+    from portfolio_management.tools.finance import finance_tools
+    from portfolio_management.vault import EvidenceStore
 
     contract = {
         "instrument_id": "isolated-mechanical-put",

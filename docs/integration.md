@@ -10,7 +10,7 @@ import subprocess
 from pathlib import Path
 
 completed = subprocess.run([
-    "wheel-team", "ask", "--mode", "combined",
+    "portfolio-management", "ask", "--mode", "combined",
     "--question", "Review this portfolio for income and long-term wealth.",
     "--portfolio-text", str(Path("private/portfolio.txt").resolve()),
     "--config", str(Path("private/team-config.json").resolve()),
@@ -24,7 +24,7 @@ Use an argument list, never interpolate model/owner text into a shell command. `
 
 ## Python embedding
 
-Use `wheel_team.cli.load_team_config`, `wheel_team.types.TeamRequest`, `TeamDependencies` and async `wheel_team.team.run_team`. Inspect their current signatures before embedding; the CLI is the simpler subprocess boundary. `TeamDependencies` permits explicitly injected market/research providers, clocks and models for controlled tests or custom applications.
+Use `portfolio_management.cli.load_team_config`, `portfolio_management.types.TeamRequest`, `TeamDependencies` and async `portfolio_management.team.run_team`. Inspect their current signatures before embedding; the CLI is the simpler subprocess boundary. `TeamDependencies` permits explicitly injected market/research providers, clocks and models for controlled tests or custom applications.
 
 ## Research connector
 
@@ -39,7 +39,7 @@ Market-provider implementations satisfy `adapters/market/base.py`; HTTP protocol
 A run directory contains `result.json`, `report.md`, `manifest.json`, `trace.jsonl`, evidence and specialist artifacts. Failed/partial runs preserve available artifacts. Check `completion_reason` and warnings; an apparently complete but short answer can still be defective. Do not overwrite the original to make a failed run look successful.
 
 ```bash
-wheel-team telemetry --run-dir ./runs/RUN_ID --port 8765
+portfolio-management telemetry --run-dir ./runs/RUN_ID --port 8765
 ```
 
 The viewer is intended for local/private use. Run artifacts can contain private portfolio context even when model reasoning is excluded from public-output capture. Your host controls access and retention. This release includes no email sender, broker credentials, account database or scheduler.

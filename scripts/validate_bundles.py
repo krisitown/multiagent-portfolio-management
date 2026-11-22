@@ -2,9 +2,9 @@
 import json
 from pathlib import Path
 
-from wheel_team.config import PromptSet
-from wheel_team.knowledge_loader import load_knowledge
-from wheel_team.prompt_loader import load_caller_amendments, load_prompt
+from portfolio_management.config import PromptSet
+from portfolio_management.knowledge_loader import load_knowledge
+from portfolio_management.prompt_loader import load_caller_amendments, load_prompt
 
 ROOT = Path(__file__).resolve().parents[1]
 

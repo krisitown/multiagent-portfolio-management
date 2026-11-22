@@ -8,11 +8,11 @@ from strands import Agent, tool
 
 from tests.support.thin_sdk import ScriptModel, output
 from tests.thin.test_vault import evidence
-from wheel_team.contracts import EvidenceRecord, MarketResult
-from wheel_team.tools.evidence import evidence_tools
-from wheel_team.tools.market import market_tools
-from wheel_team.types import ResearchResult
-from wheel_team.vault import EvidenceStore
+from portfolio_management.contracts import EvidenceRecord, MarketResult
+from portfolio_management.tools.evidence import evidence_tools
+from portfolio_management.tools.market import market_tools
+from portfolio_management.types import ResearchResult
+from portfolio_management.vault import EvidenceStore
 
 
 def fundamentals():
@@ -156,7 +156,7 @@ async def test_sdk_market_and_default_read_are_compact_full_read_rejected_storag
 
 
 def test_projection_retains_metadata_and_selected_values_detached_from_original():
-    from wheel_team.tools.fundamentals import fundamentals_view
+    from portfolio_management.tools.fundamentals import fundamentals_view
 
     original, selected = fundamentals()
     before = copy.deepcopy(original)
@@ -194,7 +194,7 @@ def test_projection_retains_metadata_and_selected_values_detached_from_original(
 def test_omitted_names_are_bounded_without_hiding_total_or_complete_business_description(
     count, total, returned
 ):
-    from wheel_team.tools.fundamentals import fundamentals_view
+    from portfolio_management.tools.fundamentals import fundamentals_view
 
     record, selected = fundamentals()
     record["content"]["data"] = {
@@ -232,7 +232,7 @@ def test_omitted_names_are_bounded_without_hiding_total_or_complete_business_des
 async def test_nonfundamentals_and_unknown_or_colliding_shapes_are_returned_unchanged(
     tmp_path, content
 ):
-    from wheel_team.tools.fundamentals import fundamentals_view
+    from portfolio_management.tools.fundamentals import fundamentals_view
 
     record = EvidenceRecord.model_validate(
         evidence(source="yahoo-fundamentals", content=content)

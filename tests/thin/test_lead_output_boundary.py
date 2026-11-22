@@ -16,11 +16,11 @@ from strands.tools.structured_output.structured_output_tool import StructuredOut
 from tests.support.thin_sdk import ScriptModel, output
 from tests.thin.test_agents import context
 from tests.thin.test_entrypoint import config
-from wheel_team.agents.base import build_role, project_team_result_spec
-from wheel_team.config import FinalizationConfig
-from wheel_team.models import invocation_failure
-from wheel_team.team import run_team
-from wheel_team.types import ExpertResult, ResearchResult, TeamDependencies, TeamRequest, TeamResult
+from portfolio_management.agents.base import build_role, project_team_result_spec
+from portfolio_management.config import FinalizationConfig
+from portfolio_management.models import invocation_failure
+from portfolio_management.team import run_team
+from portfolio_management.types import ExpertResult, ResearchResult, TeamDependencies, TeamRequest, TeamResult
 
 
 def assert_array_guidance(text):

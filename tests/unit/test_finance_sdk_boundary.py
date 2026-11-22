@@ -7,10 +7,10 @@ import pytest
 
 from tests.support.thin_sdk import ScriptModel, output
 from tests.thin.test_agents import context
-from wheel_team.agents.analyst import build_analyst
-from wheel_team.tools.finance import finance_tools
-from wheel_team.types import TeamResult
-from wheel_team.vault import EvidenceStore
+from portfolio_management.agents.analyst import build_analyst
+from portfolio_management.tools.finance import finance_tools
+from portfolio_management.types import TeamResult
+from portfolio_management.vault import EvidenceStore
 
 
 @pytest.mark.parametrize(

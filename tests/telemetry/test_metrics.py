@@ -1,4 +1,4 @@
-from wheel_team.telemetry.metrics import MetricsSource
+from portfolio_management.telemetry.metrics import MetricsSource
 
 
 def test_source_separated_rates_reset_missing_and_server_scope():

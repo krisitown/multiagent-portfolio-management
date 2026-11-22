@@ -11,15 +11,15 @@ Hermes is a **presentation-role simulation with the same eval model**, not the a
 Run from the repository root with the locked Python3.12 environment (`uv sync --group dev` for setup). Offline validation uses no inference:
 
 ```bash
-uv run python -m wheel_team.evaluation.agent_suite --validate
+uv run python -m portfolio_management.evaluation.agent_suite --validate
 uv run pytest tests/thin/test_agent_eval_suite.py tests/thin/test_role_isolation.py tests/thin/test_eval_modes.py -q
-uv run python -m wheel_team.evaluation.agent_suite --role fact_checker --output /tmp/agent-eval-dry-unique --dry-run
+uv run python -m portfolio_management.evaluation.agent_suite --role fact_checker --output /tmp/agent-eval-dry-unique --dry-run
 ```
 
 Single-command live suite (explicitly authorized inference only; local eval server, fresh output path):
 
 ```bash
-WHEEL_EVAL_API_KEY=local-no-auth uv run python -m wheel_team.evaluation.agent_suite --output /tmp/agent-eval-pilot-unique --concurrency 2 --stop-before 2026-11-04T16:30:00+02:00
+WHEEL_EVAL_API_KEY=local-no-auth uv run python -m portfolio_management.evaluation.agent_suite --output /tmp/agent-eval-pilot-unique --concurrency 2 --stop-before 2026-11-04T16:30:00+02:00
 ```
 
 Select one or more roles with repeated `--role`, or cases with repeated `--case` (e.g. `--case wheel_expert-coral`). `--suite` selects a frozen bundle. The output path must not exist. Maximum24 selected cases, at most2 outstanding case requests, no automatic retries. Generation controls match the current deployment: qwen,65536 output tokens, low reasoning effort, reasoning excluded, default temperature; Explorer1.1. A300-second per-case wall deadline is an operational evaluation limit, not a claim that a truncated answer is semantically wrong.

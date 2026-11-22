@@ -2,8 +2,8 @@
 
 from tests.support.thin_fakes import fixed_clock
 from tests.thin.test_entrypoint import config
-from wheel_team.team import run_team
-from wheel_team.types import (
+from portfolio_management.team import run_team
+from portfolio_management.types import (
     ExpertResult,
     ResearchJob,
     ResearchResult,
@@ -106,7 +106,7 @@ def test_cli_constructs_selected_research_backend_and_saves_its_public_identity(
     import sys
     from pathlib import Path
 
-    from wheel_team.cli import main
+    from portfolio_management.cli import main
 
     config_path = tmp_path / "config.json"
     config_path.write_text(

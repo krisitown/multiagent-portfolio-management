@@ -10,8 +10,8 @@ import pytest
 from tests.support.thin_fakes import fixed_clock
 from tests.thin.test_entrypoint import config, snapshot
 from tests.thin.test_vault import evidence
-from wheel_team.team import run_team
-from wheel_team.types import ExpertResult, ResearchResult, TeamDependencies, TeamRequest, TeamResult
+from portfolio_management.team import run_team
+from portfolio_management.types import ExpertResult, ResearchResult, TeamDependencies, TeamRequest, TeamResult
 
 
 async def parent_review(tmp_path, *, record_count=1):
@@ -202,7 +202,7 @@ async def test_actual_sdk_explanation_reads_dated_parent_source_without_new_rese
     from tests.support.thin_sdk import output
     from tests.thin.test_analyst_report_access import ContextModel, tool_data
     from tests.thin.test_direct_text_handoff import direct_config
-    from wheel_team.followup import load_parent_review
+    from portfolio_management.followup import load_parent_review
 
     parent, first = await parent_review(tmp_path / "first", record_count=700)
     original_packet = load_parent_review(parent)["packet"]
@@ -264,7 +264,7 @@ async def test_actual_sdk_explanation_reads_dated_parent_source_without_new_rese
 def test_cli_explanation_does_not_require_unavailable_market_capture(tmp_path, monkeypatch):
     from types import SimpleNamespace
 
-    from wheel_team import cli
+    from portfolio_management import cli
 
     cfg = config(tmp_path).model_copy(
         update={"market_capture_manifest_path": tmp_path / "missing-capture.json"}

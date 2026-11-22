@@ -10,11 +10,11 @@ from pydantic import ValidationError
 from tests.support.thin_sdk import ScriptModel, output
 from tests.thin.test_agents import context
 from tests.thin.test_direct_text_handoff import direct_config
-from wheel_team.agents.base import build_role
-from wheel_team.contracts import AgentRole
-from wheel_team.prompt_loader import load_prompt
-from wheel_team.team import run_team
-from wheel_team.types import TeamDependencies, TeamRequest
+from portfolio_management.agents.base import build_role
+from portfolio_management.contracts import AgentRole
+from portfolio_management.prompt_loader import load_prompt
+from portfolio_management.team import run_team
+from portfolio_management.types import TeamDependencies, TeamRequest
 
 PRIVATE = "  Owner statement, not verified: private preference α\r\nNot a broker limit.\n"
 
@@ -76,7 +76,7 @@ def test_followup_request_requires_explicit_parent_and_kind():
 
 
 def test_cli_reads_owner_context_as_exact_separate_utf8(tmp_path, monkeypatch):
-    from wheel_team import cli
+    from portfolio_management import cli
 
     path = tmp_path / "owner.txt"
     path.write_bytes(PRIVATE.encode())

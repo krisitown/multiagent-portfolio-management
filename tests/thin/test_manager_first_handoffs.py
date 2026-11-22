@@ -8,9 +8,9 @@ from pathlib import Path
 from tests.support.thin_sdk import ScriptModel, output
 from tests.thin.test_analyst_report_access import expert_data, tool_data
 from tests.thin.test_portfolio_council import council_config
-from wheel_team.agents.base import build_role
-from wheel_team.team import run_team
-from wheel_team.types import TeamDependencies, TeamRequest
+from portfolio_management.agents.base import build_role
+from portfolio_management.team import run_team
+from portfolio_management.types import TeamDependencies, TeamRequest
 
 
 async def test_manager_starts_before_required_discovery_and_public_context_is_scoped(tmp_path):

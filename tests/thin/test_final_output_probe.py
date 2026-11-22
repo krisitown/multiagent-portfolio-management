@@ -8,8 +8,8 @@ from pathlib import Path
 import pytest
 
 from tests.support.thin_sdk import ScriptModel, output
-from wheel_team.config import ModelConfig, PromptSet, TeamConfig
-from wheel_team.contracts import EvidenceRecord
+from portfolio_management.config import ModelConfig, PromptSet, TeamConfig
+from portfolio_management.contracts import EvidenceRecord
 
 
 def inputs(tmp_path):
@@ -75,7 +75,7 @@ def inputs(tmp_path):
 
 
 def test_prepare_copies_hash_bound_inputs_without_constructing_a_model(tmp_path, monkeypatch):
-    from wheel_team.evaluation import final_output_probe as probe
+    from portfolio_management.evaluation import final_output_probe as probe
 
     config, source, refs = inputs(tmp_path)
     before = {p: p.read_bytes() for p in source.rglob("*") if p.is_file()}
@@ -99,7 +99,7 @@ def test_prepare_copies_hash_bound_inputs_without_constructing_a_model(tmp_path,
 
 
 def test_changed_source_record_is_rejected_before_probe_artifacts(tmp_path):
-    from wheel_team.evaluation import final_output_probe as probe
+    from portfolio_management.evaluation import final_output_probe as probe
 
     config, source, refs = inputs(tmp_path)
     path = next((source / "records").glob("*.json"))
@@ -111,7 +111,7 @@ def test_changed_source_record_is_rejected_before_probe_artifacts(tmp_path):
 
 
 async def test_real_sdk_probe_has_only_output_tool_and_preserves_approved_prefix(tmp_path):
-    from wheel_team.evaluation import final_output_probe as probe
+    from portfolio_management.evaluation import final_output_probe as probe
 
     config, source, refs = inputs(tmp_path)
 
@@ -155,8 +155,8 @@ async def test_three_probe_conditions_have_identical_formatted_input_despite_dir
 ):
     from datetime import UTC, datetime
 
-    from wheel_team.evaluation import final_output_probe as probe
-    from wheel_team.model_observer import CompletionTelemetry, ObservedOpenAIModel
+    from portfolio_management.evaluation import final_output_probe as probe
+    from portfolio_management.model_observer import CompletionTelemetry, ObservedOpenAIModel
 
     config, source, refs = inputs(tmp_path)
     clock = [datetime(2026, 11, 1, tzinfo=UTC)]
@@ -223,7 +223,7 @@ async def test_three_probe_conditions_have_identical_formatted_input_despite_dir
 
 
 def test_schema_valid_but_long_wrongly_cited_result_fails_diagnostic_and_cli(tmp_path, monkeypatch):
-    from wheel_team.evaluation import final_output_probe as probe
+    from portfolio_management.evaluation import final_output_probe as probe
 
     config, source, refs = inputs(tmp_path)
     model = ScriptModel(
@@ -272,7 +272,7 @@ def test_schema_valid_but_long_wrongly_cited_result_fails_diagnostic_and_cli(tmp
 
 
 def test_projection_reports_field_omissions_and_nonoverlapping_text_excerpts():
-    from wheel_team.evaluation import final_output_probe as probe
+    from portfolio_management.evaluation import final_output_probe as probe
 
     quote = probe._projection(
         {
@@ -299,7 +299,7 @@ def test_projection_reports_field_omissions_and_nonoverlapping_text_excerpts():
 async def test_max_tokens_or_missing_output_never_silently_dispatches_a_second_request(
     tmp_path, max_tokens, status, stop_reason
 ):
-    from wheel_team.evaluation import final_output_probe as probe
+    from portfolio_management.evaluation import final_output_probe as probe
 
     config, source, refs = inputs(tmp_path)
 
@@ -320,7 +320,7 @@ async def test_max_tokens_or_missing_output_never_silently_dispatches_a_second_r
 
 
 async def test_failed_final_output_tool_is_distinct_from_native_max_tokens(tmp_path):
-    from wheel_team.evaluation import final_output_probe as probe
+    from portfolio_management.evaluation import final_output_probe as probe
 
     config, source, refs = inputs(tmp_path)
     model = ScriptModel(output("ResearchResult"))
@@ -332,8 +332,8 @@ async def test_failed_final_output_tool_is_distinct_from_native_max_tokens(tmp_p
 
 
 def test_real_private_attempt4_selection_hashes(tmp_path):
-    from wheel_team.cli import load_team_config
-    from wheel_team.evaluation import final_output_probe as probe
+    from portfolio_management.cli import load_team_config
+    from portfolio_management.evaluation import final_output_probe as probe
 
     fixture = os.environ.get("WHEEL_FINAL_OUTPUT_PROBE_FIXTURE")
     if not fixture:

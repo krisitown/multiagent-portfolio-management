@@ -6,8 +6,8 @@ from pathlib import Path
 
 from tests.support.thin_sdk import ScriptModel, output
 from tests.thin.test_explorer_flow import explorer_config
-from wheel_team.team import run_team
-from wheel_team.types import TeamDependencies, TeamRequest
+from portfolio_management.team import run_team
+from portfolio_management.types import TeamDependencies, TeamRequest
 
 
 async def test_explorer_default_tools_are_exact_ready_three_without_fetch(tmp_path):
@@ -28,7 +28,7 @@ async def test_explorer_default_tools_are_exact_ready_three_without_fetch(tmp_pa
 
 
 async def test_team_uses_explorer_specific_factory_not_analyst_search(tmp_path, monkeypatch):
-    import wheel_team.team as team
+    import portfolio_management.team as team
 
     selected = []
 

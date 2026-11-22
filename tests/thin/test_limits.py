@@ -10,9 +10,9 @@ from strands.types.exceptions import ModelThrottledException
 
 from tests.support.thin_sdk import ScriptModel, output
 from tests.thin.test_entrypoint import config
-from wheel_team.models import GenerationLimitExceeded
-from wheel_team.team import run_team
-from wheel_team.types import TeamDependencies, TeamRequest
+from portfolio_management.models import GenerationLimitExceeded
+from portfolio_management.team import run_team
+from portfolio_management.types import TeamDependencies, TeamRequest
 
 
 async def test_fifth_expert_allowed_sixth_rejected_without_spawning(tmp_path):
@@ -160,7 +160,7 @@ async def test_explicit_sdk_retry_consumes_the_same_generation_budget(tmp_path):
     from strands.hooks.events import AfterModelCallEvent
 
     from tests.thin.test_agents import context
-    from wheel_team.agents.team_lead import build_team_lead
+    from portfolio_management.agents.team_lead import build_team_lead
 
     class RetryOnce(HookProvider):
         def __init__(self):

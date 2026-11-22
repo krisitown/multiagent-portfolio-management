@@ -5,7 +5,7 @@ from pathlib import Path
 
 import pytest
 
-from wheel_team.config import ModelConfig, TeamConfig
+from portfolio_management.config import ModelConfig, TeamConfig
 
 
 def test_unconfigured_legacy_defaults_match_ae0dde0():
@@ -55,8 +55,8 @@ def test_actual_shared_budget_stops_at_three_hours_or_generation_cap(tmp_path):
     import asyncio
     from datetime import UTC, datetime, timedelta
 
-    from wheel_team.models import GenerationLimitExceeded, RunDeadlineExceeded, check_budget
-    from wheel_team.types import RunBudget, TraceSink
+    from portfolio_management.models import GenerationLimitExceeded, RunDeadlineExceeded, check_budget
+    from portfolio_management.types import RunBudget, TraceSink
 
     data = tomllib.loads((Path(__file__).parents[2] / "evals/configs/scripted.toml").read_text())
     config = TeamConfig.model_validate(data)
@@ -84,8 +84,8 @@ def test_explorer_hooks_use_research_output_tool(tmp_path):
     import asyncio
     from datetime import UTC, datetime, timedelta
 
-    from wheel_team.models import RunHooks
-    from wheel_team.types import RunBudget, TraceSink
+    from portfolio_management.models import RunHooks
+    from portfolio_management.types import RunBudget, TraceSink
 
     now = datetime(2026, 10, 31, tzinfo=UTC)
     budget = RunBudget(1000, 1, now + timedelta(seconds=10800), asyncio.Semaphore(5))

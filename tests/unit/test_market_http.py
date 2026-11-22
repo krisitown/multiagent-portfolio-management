@@ -9,16 +9,16 @@ from pathlib import Path
 import httpx
 import pytest
 
-from wheel_team.contracts.evidence import MarketQuery
+from portfolio_management.contracts.evidence import MarketQuery
 
 EXAMPLES = Path(__file__).resolve().parents[2] / "examples" / "market-provider"
 
 
 def api():
     try:
-        return importlib.import_module("wheel_team.adapters.market.http")
+        return importlib.import_module("portfolio_management.adapters.market.http")
     except ModuleNotFoundError as exc:
-        if exc.name and exc.name.startswith("wheel_team.adapters.market"):
+        if exc.name and exc.name.startswith("portfolio_management.adapters.market"):
             pytest.fail("missing Task10 implementation: http")
         raise
 

@@ -10,7 +10,7 @@ from pydantic import ValidationError
 
 
 def contracts():
-    return importlib.import_module("wheel_team.contracts")
+    return importlib.import_module("portfolio_management.contracts")
 
 
 def snapshot_payload():
@@ -76,7 +76,7 @@ def test_portfolio_rejects_naive_required_instants(field):
     "extra", [{"schema_version": 2}, {"idempotency_key": "legacy"}, {"group_id": "legacy"}]
 )
 def test_thin_request_rejects_unsupported_legacy_fields(extra):
-    from wheel_team.types import TeamRequest
+    from portfolio_management.types import TeamRequest
 
     with pytest.raises(ValidationError):
         TeamRequest.model_validate({"question": "Research ALPHA", "mode": "focused", **extra})
@@ -174,7 +174,7 @@ def test_unavailable_slots_cannot_contain_fake_candidates_and_statuses_are_expli
 
 
 def test_thin_limits_are_explicit_and_legacy_model_cap_is_rejected():
-    from wheel_team.config import ModelConfig, TeamConfig
+    from portfolio_management.config import ModelConfig, TeamConfig
 
     config = TeamConfig(model=ModelConfig(model_id="offline"))
     assert config.max_generations == 100
@@ -290,7 +290,7 @@ def test_public_synthetic_examples_validate():
     )
     assert snapshot.positions is None
     assert snapshot.broker_capacity is None
-    from wheel_team.types import TeamRequest
+    from portfolio_management.types import TeamRequest
 
     request = TeamRequest.model_validate_json((examples / "team-request-v1.json").read_text())
     assert request.portfolio.snapshot_id == snapshot.snapshot_id

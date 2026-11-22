@@ -8,9 +8,9 @@ from pathlib import Path
 from tests.support.thin_fakes import fixed_clock
 from tests.support.thin_sdk import ScriptModel, output
 from tests.thin.test_entrypoint import config
-from wheel_team.contracts import EvidenceRecord, MarketResult
-from wheel_team.team import run_team
-from wheel_team.types import TeamDependencies, TeamRequest
+from portfolio_management.contracts import EvidenceRecord, MarketResult
+from portfolio_management.team import run_team
+from portfolio_management.types import TeamDependencies, TeamRequest
 
 
 async def test_sdk_deadline_keeps_completed_analyst_summary_and_actual_evidence_refs(tmp_path):
@@ -85,8 +85,8 @@ async def test_sdk_deadline_keeps_completed_analyst_summary_and_actual_evidence_
 
 
 def test_partial_helper_skips_failed_children_and_keeps_only_explicit_completed_refs():
-    import wheel_team.team as team
-    from wheel_team.types import ExpertResult, ResearchResult, TeamResult
+    import portfolio_management.team as team
+    from portfolio_management.types import ExpertResult, ResearchResult, TeamResult
 
     stopped = TeamResult(
         completion_reason="deadline",

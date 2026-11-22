@@ -9,8 +9,8 @@ from tests.support.thin_sdk import ScriptModel, output
 from tests.thin.test_analyst_report_access import expert_data, tool_data
 from tests.thin.test_direct_text_handoff import direct_config
 from tests.thin.test_explorer_flow import explorer_config
-from wheel_team.team import run_team
-from wheel_team.types import TeamDependencies, TeamRequest
+from portfolio_management.team import run_team
+from portfolio_management.types import TeamDependencies, TeamRequest
 
 
 async def test_same_expert_gets_original_followup_and_reuses_initial_job_without_deadlock(tmp_path):
@@ -102,7 +102,7 @@ async def test_pm_full_report_without_discovery_cannot_claim_complete(tmp_path):
 
 
 async def test_concurrent_duplicate_requests_share_pending_original(tmp_path):
-    from wheel_team.types import ExpertResult, ResearchResult, TeamResult
+    from portfolio_management.types import ExpertResult, ResearchResult, TeamResult
 
     invocations = []
     observed = []

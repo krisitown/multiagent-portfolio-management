@@ -8,7 +8,7 @@ import pytest
 
 
 def verified_file(root: Path, name: str, digest: str) -> bytes:
-    module = importlib.import_module("wheel_team.adapters.market.captured")
+    module = importlib.import_module("portfolio_management.adapters.market.captured")
     return module._read_verified_file(root, name, digest)
 
 
@@ -47,14 +47,14 @@ def real_capture_index():
 
 
 def provider_for(path):
-    module = importlib.import_module("wheel_team.adapters.market.captured")
+    module = importlib.import_module("portfolio_management.adapters.market.captured")
     return module.CapturedMarketProvider(path)
 
 
 async def test_real_capture_preserves_fundamentals_and_public_scope(real_capture_index):
     import json
 
-    from wheel_team.contracts import MarketQuery
+    from portfolio_management.contracts import MarketQuery
 
     provider = provider_for(real_capture_index)
     result = await provider.query(
@@ -81,7 +81,7 @@ async def test_real_capture_preserves_fundamentals_and_public_scope(real_capture
 
 
 async def test_real_capture_retains_unknown_ko_timezone_and_eod_data(real_capture_index):
-    from wheel_team.contracts import MarketQuery
+    from portfolio_management.contracts import MarketQuery
 
     result = await provider_for(real_capture_index).query(
         MarketQuery(query_id="ko-quotes", capability="underlying_quotes", instrument_ids=("KO",))
@@ -98,7 +98,7 @@ async def test_real_capture_retains_unknown_ko_timezone_and_eod_data(real_captur
 
 
 async def test_capture_pages_do_not_turn_missing_coverage_into_complete(real_capture_index):
-    from wheel_team.contracts import MarketQuery
+    from portfolio_management.contracts import MarketQuery
 
     provider = provider_for(real_capture_index)
     query = MarketQuery(

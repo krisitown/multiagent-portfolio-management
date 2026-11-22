@@ -6,18 +6,18 @@ import json
 
 import pytest
 
-from wheel_team.contracts import KnowledgeManifest
-from wheel_team.tools import knowledge_tools
-from wheel_team.vault import EvidenceStore
+from portfolio_management.contracts import KnowledgeManifest
+from portfolio_management.tools import knowledge_tools
+from portfolio_management.vault import EvidenceStore
 
 
 def loader():
     try:
-        return importlib.import_module("wheel_team.knowledge_loader")
+        return importlib.import_module("portfolio_management.knowledge_loader")
     except ModuleNotFoundError as exc:
-        if exc.name != "wheel_team.knowledge_loader":
+        if exc.name != "portfolio_management.knowledge_loader":
             raise
-        pytest.fail("missing indexed knowledge loader: wheel_team.knowledge_loader")
+        pytest.fail("missing indexed knowledge loader: portfolio_management.knowledge_loader")
 
 
 def bundle(tmp_path, *, path="indexed.md", text="# Development only\nSynthetic example."):

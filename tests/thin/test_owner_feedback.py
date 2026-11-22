@@ -8,10 +8,10 @@ from pathlib import Path
 from tests.support.thin_sdk import output
 from tests.thin.test_continuity_handoff import cfg
 from tests.thin.test_fact_check_team import Capture
-from wheel_team.continuity import ContinuityFiles
-from wheel_team.owner_feedback import FeedbackSources, run_feedback
-from wheel_team.team import run_team
-from wheel_team.types import TeamDependencies, TeamRequest
+from portfolio_management.continuity import ContinuityFiles
+from portfolio_management.owner_feedback import FeedbackSources, run_feedback
+from portfolio_management.team import run_team
+from portfolio_management.types import TeamDependencies, TeamRequest
 
 
 def payload(text="  Owner α\r\nOriginal feedback.  "):
@@ -246,7 +246,7 @@ def test_cli_record_roundtrip_is_exact_and_offline(tmp_path):
         [
             sys.executable,
             "-c",
-            "from wheel_team.cli import main;raise SystemExit(main())",
+            "from portfolio_management.cli import main;raise SystemExit(main())",
             "feedback",
             "--config",
             str(path),
@@ -456,7 +456,7 @@ async def test_unresolved_image_can_add_reading_before_corrected_preflight(tmp_p
 
 
 async def test_failed_manual_model_setup_has_private_actionable_diagnostic(tmp_path, monkeypatch):
-    from wheel_team.models import build_model
+    from portfolio_management.models import build_model
 
     config = cfg(tmp_path)
     model = config.model.model_copy(

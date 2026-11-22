@@ -9,9 +9,9 @@ from pydantic import ValidationError
 
 from tests.support.thin_sdk import ScriptModel, output
 from tests.thin.test_entrypoint import config
-from wheel_team.config import TeamConfig
-from wheel_team.team import run_team
-from wheel_team.types import TeamDependencies, TeamRequest
+from portfolio_management.config import TeamConfig
+from portfolio_management.team import run_team
+from portfolio_management.types import TeamDependencies, TeamRequest
 
 
 class CutoffModel(ScriptModel):
@@ -94,8 +94,8 @@ async def test_no_body_or_error_is_failure(tmp_path, failure):
 
 
 async def test_child_result_and_trace_io_do_not_gate_text(tmp_path, monkeypatch):
-    import wheel_team.team as team
-    from wheel_team.types import TraceSink
+    import portfolio_management.team as team
+    from portfolio_management.types import TraceSink
 
     injected = []
     original_write = team._write_json
@@ -144,7 +144,7 @@ async def test_child_result_and_trace_io_do_not_gate_text(tmp_path, monkeypatch)
 async def test_noncompletion_return_cannot_promote_text(reason):
     from types import SimpleNamespace
 
-    from wheel_team.team import _invoke_child_text
+    from portfolio_management.team import _invoke_child_text
 
     class Child:
         async def invoke_async(self, question):
@@ -185,7 +185,7 @@ async def test_calculator_validation_remains_in_direct_mode(tmp_path):
 
 @pytest.mark.parametrize("error", [TimeoutError(), __import__("asyncio").CancelledError()])
 async def test_timeout_cancellation_do_not_promote_history(error):
-    from wheel_team.team import _invoke_child_text
+    from portfolio_management.team import _invoke_child_text
 
     class Child:
         messages = [{"role": "assistant", "content": [{"text": "earlier text"}]}]
@@ -202,7 +202,7 @@ async def test_cutoff_tool_arguments_and_reasoning_are_not_prose(tmp_path):
     from strands import Agent
     from strands.types.exceptions import MaxTokensReachedException
 
-    from wheel_team.team import _invoke_child_text
+    from portfolio_management.team import _invoke_child_text
 
     model = CutoffModel(output("unknown", secret="arguments"))
     with pytest.raises(MaxTokensReachedException):
@@ -220,7 +220,7 @@ async def test_cutoff_tool_arguments_and_reasoning_are_not_prose(tmp_path):
 
 def test_cli_defaults_to_ordinary_children_and_lead_text(tmp_path, capsys):
     # Catches CLI config silently selecting typed children when no mode flag was supplied.
-    from wheel_team.cli import main
+    from portfolio_management.cli import main
 
     path = tmp_path / "config.json"
     value = direct_config(tmp_path).model_dump(mode="json", exclude={"child_output_mode"})

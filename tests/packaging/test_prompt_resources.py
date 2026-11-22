@@ -41,15 +41,15 @@ def test_wheel_prompt_loading_outside_repository(tmp_path):
             "-I",
             "-c",
             f"import site; site.addsitedir({sysconfig.get_path('purelib')!r}); "
-            "import wheel_team; "
-            "from wheel_team.config import PromptSet; "
-            "from wheel_team.prompt_loader import load_prompt; "
-            "from wheel_team.contracts import AgentRole; "
+            "import portfolio_management; "
+            "from portfolio_management.config import PromptSet; "
+            "from portfolio_management.prompt_loader import load_prompt; "
+            "from portfolio_management.contracts import AgentRole; "
             "bundles = [load_prompt(role, PromptSet.development()) for role in AgentRole]; "
             "assert len(bundles) == 4; "
             "assert all(b.status == 'development' for b in bundles); "
             "assert all(b.owner_approval_ref is None and b.module_hashes for b in bundles); "
-            "print(wheel_team.__file__)",
+            "print(portfolio_management.__file__)",
         ],
         cwd=tmp_path,
         capture_output=True,

@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 
 from tests.unit.test_market_spark import settings
-from wheel_team.cli import load_team_config, main
+from portfolio_management.cli import load_team_config, main
 
 
 def test_cli_constructs_local_market_backend_without_ssh_credentials(tmp_path, capsys):
@@ -71,8 +71,8 @@ def test_config_resolves_local_capture_and_identity_paths_relative_to_config(tmp
 
 
 def test_cli_labels_explicit_openai_execution_as_team_mode(tmp_path, capsys, monkeypatch):
-    from wheel_team import cli
-    from wheel_team.types import TeamResult
+    from portfolio_management import cli
+    from portfolio_management.types import TeamResult
 
     async def bounded_run(request, *, config, deps):
         # The expensive external orchestration seam is replaced; assert CLI-selected metadata.

@@ -7,7 +7,7 @@ from pathlib import Path
 import pytest
 from pydantic import ValidationError
 
-from wheel_team.contracts import KnowledgeManifest
+from portfolio_management.contracts import KnowledgeManifest
 
 FIXTURE = Path(__file__).parents[1] / "fixtures" / "knowledge" / "valid_minimal"
 

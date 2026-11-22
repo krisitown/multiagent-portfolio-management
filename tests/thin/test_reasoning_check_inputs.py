@@ -4,9 +4,9 @@ import json
 
 import pytest
 
-from wheel_team.fact_check import EvidenceSelectionError, TokenCounter, selected_evidence
-from wheel_team.privacy import PrivateEvidenceStore
-from wheel_team.vault import EvidenceStore
+from portfolio_management.fact_check import EvidenceSelectionError, TokenCounter, selected_evidence
+from portfolio_management.privacy import PrivateEvidenceStore
+from portfolio_management.vault import EvidenceStore
 
 
 def evidence(identity, content):
@@ -106,7 +106,7 @@ def test_no_tokenizer_fallback_is_explicit_and_counts_system_plus_material():
 def test_checker_reserve_must_fit_configuration_before_any_run():
     from pydantic import ValidationError
 
-    from wheel_team.config import FactCheckConfig
+    from portfolio_management.config import FactCheckConfig
 
     with pytest.raises(ValidationError):
         FactCheckConfig(max_output_tokens=262144, context_window_tokens=262144)

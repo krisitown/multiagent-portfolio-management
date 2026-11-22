@@ -11,7 +11,7 @@ import pytest
 
 def vault_api():
     try:
-        return importlib.import_module("wheel_team.vault")
+        return importlib.import_module("portfolio_management.vault")
     except ModuleNotFoundError:
         pytest.fail("thin evidence store is missing")
 

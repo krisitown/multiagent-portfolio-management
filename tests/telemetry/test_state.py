@@ -1,6 +1,6 @@
 import json
 
-from wheel_team.telemetry.state import RunState
+from portfolio_management.telemetry.state import RunState
 
 
 def event(kind, inv="lead", role="team_lead", second=0, **kw):

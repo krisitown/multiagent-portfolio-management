@@ -7,10 +7,10 @@ from pathlib import Path
 from tests.support.thin_sdk import output
 from tests.thin.test_analyst_report_access import expert_data
 from tests.thin.test_fact_check_team import Capture, checked_config
-from wheel_team.config import ContinuityConfig, PromptSet
-from wheel_team.continuity import ContinuityFiles
-from wheel_team.team import run_team
-from wheel_team.types import TeamDependencies, TeamRequest
+from portfolio_management.config import ContinuityConfig, PromptSet
+from portfolio_management.continuity import ContinuityFiles
+from portfolio_management.team import run_team
+from portfolio_management.types import TeamDependencies, TeamRequest
 
 
 def cfg(tmp_path):
@@ -184,7 +184,7 @@ async def test_supporting_sources_are_references_not_context_dump(tmp_path):
 async def test_production_prompt_cannot_fallback_development(tmp_path):
     import pytest
 
-    from wheel_team.prompt_loader import PromptReadinessError
+    from portfolio_management.prompt_loader import PromptReadinessError
 
     config = cfg(tmp_path).model_copy(
         update={"continuity": ContinuityConfig(root=tmp_path / "vault")}

@@ -5,8 +5,8 @@ from types import SimpleNamespace
 import pytest
 from pydantic import ValidationError
 
-from wheel_team import models
-from wheel_team.config import ModelConfig, TeamConfig
+from portfolio_management import models
+from portfolio_management.config import ModelConfig, TeamConfig
 
 
 @pytest.mark.parametrize("value", [-0.1, 2.1, float("nan"), float("inf"), -float("inf")])

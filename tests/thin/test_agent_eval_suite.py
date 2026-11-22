@@ -6,9 +6,9 @@ import pytest
 
 from tests.support.thin_sdk import ScriptModel, output
 from tests.thin.test_role_isolation import model_config
-from wheel_team.evaluation.agent_suite import run_agent_case, validate_suite
-from wheel_team.evaluation.thin_runner import mock_tools_from_specs
-from wheel_team.types import TraceSink
+from portfolio_management.evaluation.agent_suite import run_agent_case, validate_suite
+from portfolio_management.evaluation.thin_runner import mock_tools_from_specs
+from portfolio_management.types import TraceSink
 
 
 @pytest.fixture
@@ -186,7 +186,7 @@ async def test_timeout_preserves_attempt_and_new_directory_required(tmp_path):
 
 
 def test_cli_dry_run_selects_role_without_model_transport(tmp_path, monkeypatch):
-    from wheel_team.evaluation import agent_suite
+    from portfolio_management.evaluation import agent_suite
 
     monkeypatch.setattr(
         agent_suite, "build_model", lambda *a, **k: pytest.fail("No model in dry run")
@@ -211,7 +211,7 @@ def test_cli_dry_run_selects_role_without_model_transport(tmp_path, monkeypatch)
 
 
 async def test_batch_defers_before_cron_without_counting_failure(tmp_path):
-    from wheel_team.evaluation.agent_suite import run_batch
+    from portfolio_management.evaluation.agent_suite import run_batch
 
     cfg = model_config(tmp_path)
     case = {
@@ -297,7 +297,7 @@ async def test_current_deployed_factcheck_schema_runs_in_sdk_loop(tmp_path):
 async def test_calculator_fixture_limit_is_coverage_not_factual_failure(tmp_path):
     from pathlib import Path
 
-    from wheel_team.evaluation.agent_suite import load_suite
+    from portfolio_management.evaluation.agent_suite import load_suite
 
     cases, cfg, specs, _ = load_suite(Path("evals/agent_v1"))
     trace = TraceSink(tmp_path / "trace.jsonl", lambda: datetime.now(UTC))

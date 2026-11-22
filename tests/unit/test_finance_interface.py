@@ -4,8 +4,8 @@ from decimal import Decimal, localcontext
 
 import pytest
 
-from wheel_team.tools.finance import finance_tools
-from wheel_team.vault import EvidenceStore
+from portfolio_management.tools.finance import finance_tools
+from portfolio_management.vault import EvidenceStore
 
 
 @pytest.fixture

@@ -6,7 +6,7 @@ from decimal import Decimal
 
 import pytest
 
-from wheel_team.contracts import (
+from portfolio_management.contracts import (
     BrokerCapacity,
     CalculationRecord,
     CashBalance,
@@ -22,17 +22,17 @@ NOW = datetime(2026, 10, 30, 20, tzinfo=UTC)
 
 
 def api(module):
-    qualified = f"wheel_team.domain.{module}"
+    qualified = f"portfolio_management.domain.{module}"
     try:
         return importlib.import_module(qualified)
     except ModuleNotFoundError as exc:
-        if exc.name not in {"wheel_team.domain", qualified}:
+        if exc.name not in {"portfolio_management.domain", qualified}:
             raise
         pytest.fail(f"missing portfolio {module} implementation")
 
 
 def policy(**changes):
-    module = importlib.import_module("wheel_team.config")
+    module = importlib.import_module("portfolio_management.config")
     if not hasattr(module, "PolicyConfig"):
         pytest.fail("missing explicit portfolio PolicyConfig")
     return module.PolicyConfig(**changes)

@@ -5,8 +5,8 @@ import pytest
 from tests.support.thin_sdk import ScriptModel
 from tests.thin.test_agents import context
 from tests.thin.test_entrypoint import snapshot
-from wheel_team.agents.base import build_role
-from wheel_team.types import TeamRequest
+from portfolio_management.agents.base import build_role
+from portfolio_management.types import TeamRequest
 
 TEXT = (
     "  Portfolio α\r\nAs of 2026-10-31: quantity -2 contracts\nMargin reported, estimate unknown.\n"
@@ -14,7 +14,7 @@ TEXT = (
 
 
 def test_text_is_unvalidated_and_preferred_over_legacy_snapshot():
-    from wheel_team.adapters.portfolio.text import readable_portfolio
+    from portfolio_management.adapters.portfolio.text import readable_portfolio
 
     request = TeamRequest(
         question="Review", mode="portfolio", portfolio_text=TEXT, portfolio=snapshot()
@@ -25,7 +25,7 @@ def test_text_is_unvalidated_and_preferred_over_legacy_snapshot():
 
 
 def test_legacy_snapshot_rendering_is_readable_deterministic_and_complete():
-    from wheel_team.adapters.portfolio.text import readable_portfolio
+    from portfolio_management.adapters.portfolio.text import readable_portfolio
 
     request = TeamRequest(question="Review", mode="portfolio", portfolio=snapshot())
     text = readable_portfolio(request)
@@ -54,7 +54,7 @@ def test_lead_and_expert_tasks_receive_original_text_once(tmp_path, role):
 def test_cli_preserves_utf8_and_newlines(tmp_path, monkeypatch):
     from types import SimpleNamespace
 
-    from wheel_team import cli
+    from portfolio_management import cli
 
     path = tmp_path / "portfolio.txt"
     path.write_bytes(TEXT.encode("utf-8"))
@@ -114,7 +114,7 @@ def test_explorer_tools_require_explicit_override_and_share_research_contract(tm
 
 @pytest.mark.parametrize("payload", [None, b"\xff"])
 def test_cli_text_io_errors_remain_real_errors(tmp_path, monkeypatch, capsys, payload):
-    from wheel_team import cli
+    from portfolio_management import cli
 
     path = tmp_path / "portfolio.txt"
     if payload is not None:

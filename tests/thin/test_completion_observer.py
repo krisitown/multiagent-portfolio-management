@@ -8,7 +8,7 @@ from openai.types.chat.chat_completion_chunk import ChoiceDeltaToolCall
 
 
 def test_unobserved_provider_values_are_unknown_not_zero():
-    from wheel_team.model_observer import CompletionTelemetry
+    from portfolio_management.model_observer import CompletionTelemetry
 
     snapshot = CompletionTelemetry().snapshot()
     assert snapshot["observed"] is False
@@ -19,7 +19,7 @@ def test_unobserved_provider_values_are_unknown_not_zero():
 
 
 def test_native_finish_usage_and_reasoning_token_count_survive_sdk_normalization():
-    from wheel_team.model_observer import CompletionTelemetry, ObservedOpenAIModel
+    from portfolio_management.model_observer import CompletionTelemetry, ObservedOpenAIModel
 
     telemetry = CompletionTelemetry()
     model = ObservedOpenAIModel(telemetry=telemetry, model_id="offline-unit")
@@ -47,7 +47,7 @@ def test_native_finish_usage_and_reasoning_token_count_survive_sdk_normalization
 
 
 def test_text_tool_arguments_and_hidden_reasoning_bodies_are_never_serialized():
-    from wheel_team.model_observer import CompletionTelemetry, ObservedOpenAIModel
+    from portfolio_management.model_observer import CompletionTelemetry, ObservedOpenAIModel
 
     telemetry = CompletionTelemetry()
     model = ObservedOpenAIModel(telemetry=telemetry, model_id="offline-unit")
@@ -87,7 +87,7 @@ def test_text_tool_arguments_and_hidden_reasoning_bodies_are_never_serialized():
 
 
 def test_unknown_provider_fields_and_non_numeric_token_details_are_ignored():
-    from wheel_team.model_observer import CompletionTelemetry
+    from portfolio_management.model_observer import CompletionTelemetry
 
     telemetry = CompletionTelemetry()
     telemetry.observe(
@@ -113,7 +113,7 @@ def test_unknown_provider_fields_and_non_numeric_token_details_are_ignored():
 
 
 def test_formatted_input_hash_excludes_request_controls_and_does_not_store_bodies():
-    from wheel_team.model_observer import CompletionTelemetry, ObservedOpenAIModel
+    from portfolio_management.model_observer import CompletionTelemetry, ObservedOpenAIModel
 
     snapshots = []
     for controls in [

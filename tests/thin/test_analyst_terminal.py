@@ -12,8 +12,8 @@ from pydantic import ValidationError
 
 from tests.support.thin_sdk import ScriptModel, output
 from tests.thin.test_finalization_team import bounded_config
-from wheel_team.team import run_team
-from wheel_team.types import TeamDependencies, TeamRequest
+from portfolio_management.team import run_team
+from portfolio_management.types import TeamDependencies, TeamRequest
 
 
 def terminal_config(tmp_path, **values):
@@ -266,7 +266,7 @@ async def test_selected_real_records_survive_terminal_history_with_unchanged_pre
         if e["record"].get("content", {}).get("capability") == "underlying_history"
     )
     assert chosen["record"]["content"]["instrument_id"] == "PEP"
-    from wheel_team.agents import build_analyst, build_team_lead
+    from portfolio_management.agents import build_analyst, build_team_lead
 
     class ObservedPrefixModel(ScriptModel):
         async def stream(self, messages, tool_specs=None, system_prompt=None, **kwargs):
@@ -294,7 +294,7 @@ async def test_selected_real_records_survive_terminal_history_with_unchanged_pre
     )
     agents = []
     prefixes = []
-    from wheel_team.config import PromptSet
+    from portfolio_management.config import PromptSet
 
     prompt_manifest = Path("artifacts/thin/owner-ready-20261031/prompts/manifest.json").resolve()
     prompt_metadata = json.loads(prompt_manifest.read_text())
@@ -360,7 +360,7 @@ async def test_time_boundary_after_accepted_repair_does_not_start_terminal_phase
 
 async def test_original_absolute_phase_and_global_capacity_remain_enforced(tmp_path):
     contexts = []
-    from wheel_team.agents import build_analyst, build_team_lead
+    from portfolio_management.agents import build_analyst, build_team_lead
 
     class ExhaustingModel(ScriptModel):
         async def stream(self, *args, **kwargs):
@@ -410,8 +410,8 @@ async def test_schema_valid_output_wins_sdk_turn_limit_stop_label(monkeypatch):
 
     from strands import Agent
 
-    from wheel_team.team import _invoke
-    from wheel_team.types import ResearchResult
+    from portfolio_management.team import _invoke
+    from portfolio_management.types import ResearchResult
 
     async def invoke(self, *args, **kwargs):
         return SimpleNamespace(
@@ -506,9 +506,9 @@ async def test_cleanup_crossing_original_analyst_cutoff_cannot_start_terminal(tm
 
 async def test_terminal_before_model_gate_rejects_elapsed_original_monotonic_cutoff(tmp_path):
     from tests.thin.test_agents import context
-    from wheel_team.agents import build_analyst
-    from wheel_team.models import invocation_failure
-    from wheel_team.types import ResearchResult
+    from portfolio_management.agents import build_analyst
+    from portfolio_management.models import invocation_failure
+    from portfolio_management.types import ResearchResult
 
     model = ScriptModel(output("ResearchResult", job_id="a", outcome="partial"))
     ctx = context(tmp_path, "analyst", model)

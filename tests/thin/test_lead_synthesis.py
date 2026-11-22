@@ -9,10 +9,10 @@ from openai import AsyncOpenAI
 from strands.models.openai import OpenAIModel
 
 from tests.thin.test_agents import context
-from wheel_team.agents import base, team_lead
-from wheel_team.config import FinalizationConfig
-from wheel_team.models import invocation_failure
-from wheel_team.types import TeamResult
+from portfolio_management.agents import base, team_lead
+from portfolio_management.config import FinalizationConfig
+from portfolio_management.models import invocation_failure
+from portfolio_management.types import TeamResult
 
 
 def mock_model(*steps, on_request=None):

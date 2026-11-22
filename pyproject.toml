@@ -3,7 +3,7 @@ requires = ["hatchling>=1.27,<2"]
 build-backend = "hatchling.build"
 
 [project]
-name = "wheel-team"
+name = "portfolio-management"
 version = "0.1.0"
 description = "Reusable Strands multi-agent portfolio research runtime"
 license = "Apache-2.0"
@@ -17,7 +17,7 @@ dependencies = [
 ]
 
 [project.scripts]
-wheel-team = "wheel_team.cli:main"
+portfolio-management = "portfolio_management.cli:main"
 
 [dependency-groups]
 dev = [
@@ -33,10 +33,10 @@ dev = [
 exclude = ["**/artifacts/**", "**/authoring/**", "**/private/**", "**/.env*", "**/traces/**", "**/*.sqlite*", "**/*.db*"]
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/wheel_team"]
+packages = ["src/portfolio_management"]
 
 [tool.hatch.build.targets.sdist]
-include = ["/src/wheel_team", "/schemas", "/README.md", "/pyproject.toml", "/uv.lock", "/LICENSE", "/NOTICE", "/prompts", "/docs", "/examples", "/scripts", "/AGENTS.md"]
+include = ["/src/portfolio_management", "/schemas", "/README.md", "/pyproject.toml", "/uv.lock", "/LICENSE", "/NOTICE", "/prompts", "/docs", "/examples", "/scripts", "/AGENTS.md"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

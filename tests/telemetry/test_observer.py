@@ -6,7 +6,7 @@ from types import SimpleNamespace
 
 import pytest
 
-from wheel_team.telemetry.observer import PublicOutputObserver
+from portfolio_management.telemetry.observer import PublicOutputObserver
 
 
 def ctx(tmp_path):
@@ -87,12 +87,12 @@ def test_broken_io_is_counted_without_raising(tmp_path):
 async def test_scripted_agent_return_identical_enabled_disabled_and_failed(tmp_path, monkeypatch):
     import asyncio
 
-    from wheel_team.agents.base import build_role
-    from wheel_team.config import TeamConfig
-    from wheel_team.contracts import AgentRole
-    from wheel_team.models import ScriptedModel
-    from wheel_team.prompt_loader import load_prompt
-    from wheel_team.types import RoleContext, RunBudget, TeamRequest, TraceSink
+    from portfolio_management.agents.base import build_role
+    from portfolio_management.config import TeamConfig
+    from portfolio_management.contracts import AgentRole
+    from portfolio_management.models import ScriptedModel
+    from portfolio_management.prompt_loader import load_prompt
+    from portfolio_management.types import RoleContext, RunBudget, TeamRequest, TraceSink
 
     results = []
     for variant in ("off", "on", "failed"):
@@ -158,10 +158,10 @@ async def test_public_text_is_readable_before_model_returns(tmp_path, monkeypatc
     import asyncio
 
     from tests.thin.test_agents import context
-    from wheel_team.agents.base import build_role
-    from wheel_team.models import ScriptedModel
-    from wheel_team.telemetry.reader import RunReader
-    from wheel_team.telemetry.state import RunState
+    from portfolio_management.agents.base import build_role
+    from portfolio_management.models import ScriptedModel
+    from portfolio_management.telemetry.reader import RunReader
+    from portfolio_management.telemetry.state import RunState
 
     release = asyncio.Event()
     monkeypatch.setenv("WHEEL_TEAM_PUBLIC_OUTPUT", "1")
@@ -209,7 +209,7 @@ async def test_public_text_is_readable_before_model_returns(tmp_path, monkeypatc
 
 
 def test_fenced_and_quoted_credentials_are_redacted(tmp_path):
-    from wheel_team.telemetry.privacy import clean
+    from portfolio_management.telemetry.privacy import clean
 
     for text in [
         'Credentials:\n```json\n{"api_key": "ordinary-secret-value"}\n```',
@@ -249,7 +249,7 @@ def test_reused_invocation_does_not_multiply_blocked_writer_threads(tmp_path):
 
 
 def test_received_prompts_are_public_text_only_redacted_and_bounded(tmp_path):
-    from wheel_team.telemetry.observer import PROMPT_LIMIT
+    from portfolio_management.telemetry.observer import PROMPT_LIMIT
 
     o = PublicOutputObserver(ctx(tmp_path), "analyst")
     o.before_invocation(

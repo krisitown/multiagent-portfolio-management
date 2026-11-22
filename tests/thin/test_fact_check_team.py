@@ -9,9 +9,9 @@ import pytest
 
 from tests.support.thin_sdk import ScriptModel, output
 from tests.thin.test_direct_text_handoff import direct_config
-from wheel_team.config import FactCheckConfig, PromptSet
-from wheel_team.team import run_team
-from wheel_team.types import TeamDependencies, TeamRequest
+from portfolio_management.config import FactCheckConfig, PromptSet
+from portfolio_management.team import run_team
+from portfolio_management.types import TeamDependencies, TeamRequest
 
 
 def checked_config(tmp_path):

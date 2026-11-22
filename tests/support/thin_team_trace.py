@@ -8,9 +8,9 @@ import asyncio
 import json
 from pathlib import Path
 
-from wheel_team.cli import load_team_config
-from wheel_team.team import run_team
-from wheel_team.types import TeamDependencies, TeamRequest
+from portfolio_management.cli import load_team_config
+from portfolio_management.team import run_team
+from portfolio_management.types import TeamDependencies, TeamRequest
 
 
 async def run_fixture(output: Path):

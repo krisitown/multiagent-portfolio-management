@@ -18,11 +18,13 @@ The named investment perspectives are simulations, with no affiliation or endors
 
 Use Python 3.12+ and [uv](https://docs.astral.sh/uv/):
 
+The Python package is `portfolio_management` and the command is `portfolio-management`. After pulling a package rename, run `uv sync --locked` to refresh the installation and command entry point.
+
 ```bash
 git clone https://github.com/krisitown/multiagent-portfolio-management.git
 cd multiagent-portfolio-management
 uv sync --locked
-uv run wheel-team --help
+uv run portfolio-management --help
 uv run pytest tests/unit tests/contracts -q
 ```
 
@@ -39,7 +41,7 @@ cp .env.example .env
 # Edit the non-secret defaults and add your own key. Do not commit .env.
 set -a; . ./.env; set +a
 uv run python scripts/configure.py --output .local/team-config.json
-uv run wheel-team ask --mode combined \
+uv run portfolio-management ask --mode combined \
   --question "Review this portfolio for options income and long-term wealth creation." \
   --portfolio-text "$PORTFOLIO_PATH" \
   --config .local/team-config.json --output "$RUN_OUTPUT_DIR"

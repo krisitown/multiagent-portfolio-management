@@ -8,9 +8,9 @@ import pytest
 
 from tests.support.thin_fakes import fixed_clock, recording_factory
 from tests.thin.test_entrypoint import config
-from wheel_team.cli import main
-from wheel_team.evaluation.thin_runner import run_case
-from wheel_team.types import TeamDependencies
+from portfolio_management.cli import main
+from portfolio_management.evaluation.thin_runner import run_case
+from portfolio_management.types import TeamDependencies
 
 
 async def test_scripted_eval_is_offline_and_explicitly_not_live_acceptance(tmp_path, monkeypatch):
@@ -76,7 +76,7 @@ async def test_invalid_case_identity_is_rejected_before_creating_artifacts(tmp_p
 
 
 async def test_bad_output_and_redundant_research_are_findings_without_golden_trajectory(tmp_path):
-    from wheel_team.evaluation import thin_runner
+    from portfolio_management.evaluation import thin_runner
 
     assert hasattr(thin_runner, "evaluate_findings"), "missing outcome and trace findings"
     findings = thin_runner.evaluate_findings(
@@ -153,7 +153,7 @@ async def test_team_mode_uses_actual_finance_and_persisted_independent_oracle(tm
 
 
 def test_bad_arithmetic_is_detected_using_literal_oracle():
-    from wheel_team.evaluation.thin_runner import evaluate_findings
+    from portfolio_management.evaluation.thin_runner import evaluate_findings
 
     findings = evaluate_findings(
         {
@@ -217,8 +217,8 @@ def test_thin_scenarios_preserve_canonical_world_and_source_provenance(name):
 
 
 async def test_controlled_world_never_falls_back_to_live_sources():
-    from wheel_team.contracts import MarketQuery
-    from wheel_team.evaluation.thin_runner import CaseMarketProvider
+    from portfolio_management.contracts import MarketQuery
+    from portfolio_management.evaluation.thin_runner import CaseMarketProvider
 
     case = json.loads(Path("evals/thin/outage.json").read_text())
     provider = CaseMarketProvider(case["fixtures"])
@@ -246,7 +246,7 @@ async def test_team_rejects_provider_overrides_independent_of_declared_case(tmp_
 
     from tests.support.thin_sdk import ScriptModel, output
     from tests.thin.test_role_isolation import model_config
-    from wheel_team.evaluation.thin_runner import CaseMarketProvider
+    from portfolio_management.evaluation.thin_runner import CaseMarketProvider
 
     case = json.loads(Path("evals/thin/conditional.json").read_text())
     supplied = copy.deepcopy(case["fixtures"])
@@ -272,7 +272,7 @@ async def test_team_rejects_provider_overrides_independent_of_declared_case(tmp_
 async def test_fixture_analysis_clock_is_separate_from_sequential_wall_measurements(tmp_path):
     from datetime import datetime
 
-    from wheel_team.evaluation.compare_variants import compare_variants
+    from portfolio_management.evaluation.compare_variants import compare_variants
 
     case = {
         "case_id": "frozen-asof",

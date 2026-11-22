@@ -2,7 +2,7 @@
 
 import json
 
-from wheel_team.cli import load_team_config, main
+from portfolio_management.cli import load_team_config, main
 
 
 def test_capture_selection_resolves_relative_to_config(tmp_path):

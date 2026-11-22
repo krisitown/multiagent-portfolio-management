@@ -10,9 +10,9 @@ from strands import Agent, tool
 
 from tests.support.thin_sdk import ScriptModel, output
 from tests.thin.test_vault import evidence
-from wheel_team.tools.evidence import evidence_tools
-from wheel_team.types import TeamResult
-from wheel_team.vault import EvidenceStore, InvalidRecord
+from portfolio_management.tools.evidence import evidence_tools
+from portfolio_management.types import TeamResult
+from portfolio_management.vault import EvidenceStore, InvalidRecord
 
 
 async def test_sdk_discovery_surfaces_record_kind_enum_and_compact_canonical_reference(tmp_path):
@@ -167,7 +167,7 @@ async def test_index_metadata_strings_and_lists_are_bounded_and_explicitly_marke
 
 
 def test_public_reference_helper_uses_validated_immutable_revision_identity():
-    from wheel_team import vault
+    from portfolio_management import vault
 
     helper = getattr(vault, "record_reference", None)
     assert callable(helper), "Shared canonical reference helper is missing"

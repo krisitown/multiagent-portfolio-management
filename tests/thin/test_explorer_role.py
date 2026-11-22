@@ -4,13 +4,13 @@ import pytest
 
 from tests.support.thin_sdk import ScriptModel, output
 from tests.thin.test_agents import context
-from wheel_team.config import PromptSet
-from wheel_team.prompt_loader import PromptReadinessError, load_prompt
-from wheel_team.types import ResearchResult
+from portfolio_management.config import PromptSet
+from portfolio_management.prompt_loader import PromptReadinessError, load_prompt
+from portfolio_management.types import ResearchResult
 
 
 def test_explorer_prompt_is_explicitly_unapproved():
-    from wheel_team.contracts import AgentRole
+    from portfolio_management.contracts import AgentRole
 
     prompt = load_prompt(AgentRole.EXPLORER, PromptSet(mode="development"))
     assert prompt.status == "development"
@@ -22,7 +22,7 @@ def test_explorer_prompt_is_explicitly_unapproved():
 
 
 async def test_explorer_uses_configured_model_research_envelope_and_injected_tools(tmp_path):
-    from wheel_team.agents import build_explorer
+    from portfolio_management.agents import build_explorer
 
     async def visible(value: str = "") -> dict:
         """Synthetic read-only probe."""
@@ -66,7 +66,7 @@ async def test_explorer_uses_configured_model_research_envelope_and_injected_too
 
 
 def test_explorer_rejects_wrong_prompt_binding(tmp_path):
-    from wheel_team.agents import build_explorer
+    from portfolio_management.agents import build_explorer
 
     with pytest.raises(ValueError, match="prompt role"):
         build_explorer(context(tmp_path, "analyst", ScriptModel()))

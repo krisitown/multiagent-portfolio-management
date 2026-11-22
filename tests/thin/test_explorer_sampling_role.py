@@ -8,8 +8,8 @@ import pytest
 from tests.support.thin_fakes import fixed_clock
 from tests.support.thin_sdk import ScriptModel, output
 from tests.thin.test_role_isolation import model_config
-from wheel_team.evaluation.thin_runner import run_case
-from wheel_team.types import TeamDependencies
+from portfolio_management.evaluation.thin_runner import run_case
+from portfolio_management.types import TeamDependencies
 
 
 @pytest.mark.parametrize(

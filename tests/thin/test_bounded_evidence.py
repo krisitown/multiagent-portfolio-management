@@ -3,8 +3,8 @@
 import json
 
 from tests.thin.test_vault import evidence
-from wheel_team.tools.evidence import evidence_tools
-from wheel_team.vault import EvidenceStore
+from portfolio_management.tools.evidence import evidence_tools
+from portfolio_management.vault import EvidenceStore
 
 
 async def test_oversized_explorer_read_is_bounded_and_preserves_original(tmp_path):

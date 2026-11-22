@@ -10,7 +10,7 @@ import pytest
 
 def compare(left, right):
     try:
-        module = importlib.import_module("wheel_team.evaluation.compare_variants")
+        module = importlib.import_module("portfolio_management.evaluation.compare_variants")
     except ModuleNotFoundError:
         pytest.fail("missing thin saved-variant comparison")
     return module.compare_variants(left, right)
@@ -160,7 +160,7 @@ def test_duplicate_sample_identity_is_rejected_and_inputs_are_not_mutated():
 
 
 def test_packet_contains_output_evidence_trace_and_hash_bound_review_placeholder(tmp_path):
-    module = importlib.import_module("wheel_team.evaluation.thin_runner")
+    module = importlib.import_module("portfolio_management.evaluation.thin_runner")
     run = sample(
         final_response="A conditional synthetic answer",
         evidence=[{"evidence_id": "e1"}],
@@ -217,7 +217,7 @@ def test_declared_case_missing_from_both_variants_is_not_silently_omitted():
 
 
 def test_packet_reexport_preserves_human_assessment_and_rejects_different_packet(tmp_path):
-    from wheel_team.evaluation.thin_runner import write_review_packet
+    from portfolio_management.evaluation.thin_runner import write_review_packet
 
     target = write_review_packet(sample(), tmp_path / "review")
     assessment = json.loads((target / "assessment.json").read_text())

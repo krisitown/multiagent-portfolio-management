@@ -6,12 +6,12 @@ import json
 
 import pytest
 
-from wheel_team.contracts import AgentRole
+from portfolio_management.contracts import AgentRole
 
 
 def api(module):
     try:
-        return importlib.import_module(f"wheel_team.{module}")
+        return importlib.import_module(f"portfolio_management.{module}")
     except ModuleNotFoundError:
         pytest.fail(f"missing Task3 implementation: {module}")
 

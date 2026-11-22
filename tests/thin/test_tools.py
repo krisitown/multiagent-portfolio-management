@@ -7,7 +7,7 @@ from pathlib import Path
 
 import pytest
 
-from wheel_team.contracts import EvidenceRecord, MarketResult, PortfolioSnapshot
+from portfolio_management.contracts import EvidenceRecord, MarketResult, PortfolioSnapshot
 
 from .test_vault import evidence, vault_api
 
@@ -15,7 +15,7 @@ NOW = datetime(2026, 10, 31, tzinfo=UTC)
 
 
 def tools_api():
-    module = importlib.import_module("wheel_team.tools")
+    module = importlib.import_module("portfolio_management.tools")
     assert hasattr(module, "finance_tools"), "direct thin tool factories are missing"
     return module
 

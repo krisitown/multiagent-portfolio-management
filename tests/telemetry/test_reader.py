@@ -2,7 +2,7 @@ import json
 
 import pytest
 
-from wheel_team.telemetry.reader import RunReader
+from portfolio_management.telemetry.reader import RunReader
 
 
 def row(event="run_started", **values):

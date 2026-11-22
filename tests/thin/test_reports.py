@@ -9,12 +9,12 @@ from pathlib import Path
 import pytest
 
 from tests.support.thin_fakes import fixed_clock
-from wheel_team.config import ModelConfig, PromptSet, TeamConfig
-from wheel_team.contracts import CandidateStatus, ContractIdentity, IdeaRevision
-from wheel_team.domain.option_math import put_economics, roll_economics
-from wheel_team.team import run_team
-from wheel_team.types import TeamDependencies, TeamRequest, TeamResult
-from wheel_team.vault import EvidenceStore
+from portfolio_management.config import ModelConfig, PromptSet, TeamConfig
+from portfolio_management.contracts import CandidateStatus, ContractIdentity, IdeaRevision
+from portfolio_management.domain.option_math import put_economics, roll_economics
+from portfolio_management.team import run_team
+from portfolio_management.types import TeamDependencies, TeamRequest, TeamResult
+from portfolio_management.vault import EvidenceStore
 
 from .test_tools import option, snapshot
 from .test_vault import evidence
@@ -22,7 +22,7 @@ from .test_vault import evidence
 
 def api():
     try:
-        return importlib.import_module("wheel_team.checks")
+        return importlib.import_module("portfolio_management.checks")
     except ModuleNotFoundError:
         pytest.fail("thin report validation/rendering is missing")
 
@@ -388,7 +388,7 @@ def test_bad_calculation_cannot_hide_under_a_supported_candidate(tmp_path):
 
 
 def test_validated_coverage_preserves_partial_hedge_and_unsupported_adjustment(tmp_path):
-    from wheel_team.domain.coverage import match_coverage
+    from portfolio_management.domain.coverage import match_coverage
 
     portfolio = snapshot(
         positions=[
@@ -448,8 +448,8 @@ def test_missing_portfolio_is_reported_independently_of_discovery(tmp_path):
 
 
 def test_ready_requires_supported_host_snapshot_and_all_configured_checks(tmp_path):
-    from wheel_team.config import PolicyConfig
-    from wheel_team.domain.portfolio import analyze_portfolio
+    from portfolio_management.config import PolicyConfig
+    from portfolio_management.domain.portfolio import analyze_portfolio
 
     store = EvidenceStore(tmp_path)
     ref = candidate(store, status=CandidateStatus.READY)
@@ -587,7 +587,7 @@ def test_quote_age_uses_host_cutoff_and_explicit_policy_not_fresh_fetch(
 ):
     from datetime import timedelta
 
-    from wheel_team.config import PolicyConfig
+    from portfolio_management.config import PolicyConfig
 
     store = EvidenceStore(tmp_path)
     ref = candidate(store)
@@ -620,7 +620,7 @@ def test_quote_age_uses_host_cutoff_and_explicit_policy_not_fresh_fetch(
 
 
 def test_ancient_live_quote_does_not_become_current_on_fresh_fetch(tmp_path):
-    from wheel_team.config import PolicyConfig
+    from portfolio_management.config import PolicyConfig
 
     store = EvidenceStore(tmp_path)
     ref = candidate(store, status=CandidateStatus.READY)
@@ -646,7 +646,7 @@ def test_ancient_live_quote_does_not_become_current_on_fresh_fetch(tmp_path):
 
 
 async def test_host_overwrites_model_claimed_owner_policy(tmp_path):
-    from wheel_team.config import PolicyConfig
+    from portfolio_management.config import PolicyConfig
 
     class Lead:
         async def invoke_async(self, question):
@@ -688,7 +688,7 @@ def test_focused_idea_support_resolves_direct_refs_and_renders_exact_terms(tmp_p
 
 
 def test_old_filing_does_not_make_selected_fresh_quote_stale(tmp_path):
-    from wheel_team.config import PolicyConfig
+    from portfolio_management.config import PolicyConfig
 
     store = EvidenceStore(tmp_path)
     ref = candidate(store)
@@ -731,7 +731,7 @@ def test_old_filing_does_not_make_selected_fresh_quote_stale(tmp_path):
 
 
 def test_quote_selection_must_belong_to_idea_and_identify_its_exact_contract(tmp_path):
-    from wheel_team.config import PolicyConfig
+    from portfolio_management.config import PolicyConfig
 
     store = EvidenceStore(tmp_path)
     ref = candidate(store)
@@ -788,8 +788,8 @@ def ready_case(
     """An otherwise supported Ready case with immutable earlier calculation audit."""
     from datetime import timedelta
 
-    from wheel_team.config import PolicyConfig
-    from wheel_team.domain.portfolio import analyze_portfolio
+    from portfolio_management.config import PolicyConfig
+    from portfolio_management.domain.portfolio import analyze_portfolio
 
     cutoff = fixed_clock()
     quote = store.put(

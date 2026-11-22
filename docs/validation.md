@@ -29,6 +29,8 @@ The refactor moves permissions, contracts, context policy and middleware into ro
 
 ## Practical limits
 
+Package rename verification: the package, CLI and distribution now use `portfolio_management` / `portfolio-management`. Imports, resource paths, packaging, lockfile, examples, documentation and evaluation integrity hashes were updated. The broad offline suite had 1,174 passes, the same 19 baseline failures and 14 skips. The built wheel's imports and development prompt resources were also checked outside the source checkout.
+
 - Prompt requirements for full reports, full-report checking and preserved corrections are instructions, not guarantees. Models can ignore them or return a short correction note that is mechanically marked complete.
 - A checker is another fallible model. Verify action-driving arithmetic, signed quantities, quote sides, funding and contract mechanics against the original evidence.
 - Research may repeat or consume the run budget. Explorer mode currently rejects role-phase reserves in configuration; do not assume the report has protected finalization time.

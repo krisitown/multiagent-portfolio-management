@@ -610,7 +610,7 @@
             "breakeven": "53.212",
             "maximum_loss": "10642.40"
           },
-          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested portfolio_management.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
           "source_refs": []
         },
         {
@@ -627,7 +627,7 @@
           "expected_outputs": {
             "result": "2.40"
           },
-          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested portfolio_management.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
           "source_refs": []
         },
         {
@@ -660,7 +660,7 @@
           "expected_outputs": {
             "expiry_payoff": "-1000"
           },
-          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested portfolio_management.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
           "source_refs": []
         },
         {
@@ -677,7 +677,7 @@
           "expected_outputs": {
             "result": "-642.40"
           },
-          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested portfolio_management.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
           "source_refs": []
         },
         {
@@ -710,7 +710,7 @@
           "expected_outputs": {
             "expiry_payoff": "0"
           },
-          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested portfolio_management.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
           "source_refs": []
         },
         {
@@ -727,7 +727,7 @@
           "expected_outputs": {
             "result": "357.60"
           },
-          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested portfolio_management.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
           "source_refs": []
         },
         {
@@ -744,7 +744,7 @@
           "expected_outputs": {
             "result": "-10642.40"
           },
-          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested portfolio_management.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
           "source_refs": []
         },
         {
@@ -766,7 +766,7 @@
             "combined_history_cash": "330",
             "new_leg_credit_total": "700"
           },
-          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested portfolio_management.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
           "source_refs": []
         },
         {
@@ -783,7 +783,7 @@
           "expected_outputs": {
             "result": "-570"
           },
-          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested portfolio_management.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
           "source_refs": []
         },
         {
@@ -800,7 +800,7 @@
           "expected_outputs": {
             "result": "5500"
           },
-          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested portfolio_management.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
           "source_refs": [
             "S09"
           ]
@@ -819,7 +819,7 @@
           "expected_outputs": {
             "result": "5200"
           },
-          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested portfolio_management.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
           "source_refs": [
             "S09"
           ]
@@ -864,7 +864,7 @@
           "expected_outputs": {
             "expiry_payoff": "5500"
           },
-          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested portfolio_management.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
           "source_refs": []
         },
         {
@@ -882,7 +882,7 @@
           "expected_outputs": {
             "result": "650"
           },
-          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested portfolio_management.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
           "source_refs": []
         },
         {
@@ -899,7 +899,7 @@
           "expected_outputs": {
             "result": "1000"
           },
-          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested portfolio_management.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
           "source_refs": []
         },
         {
@@ -942,7 +942,7 @@
           "expected_outputs": {
             "expiry_payoff": "4000"
           },
-          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested portfolio_management.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
           "source_refs": []
         },
         {
@@ -960,7 +960,7 @@
           "expected_outputs": {
             "result": "-850"
           },
-          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested portfolio_management.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
           "source_refs": []
         },
         {
@@ -977,7 +977,7 @@
           "expected_outputs": {
             "result": "-1000"
           },
-          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested portfolio_management.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
           "source_refs": []
         },
         {
@@ -994,7 +994,7 @@
           "expected_outputs": {
             "result": "350"
           },
-          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested portfolio_management.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
           "source_refs": []
         },
         {
@@ -1011,7 +1011,7 @@
           "expected_outputs": {
             "result": "320"
           },
-          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested portfolio_management.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
           "source_refs": []
         },
         {
@@ -1059,7 +1059,7 @@
           "expected_outputs": {
             "expiry_payoff": "-3500"
           },
-          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested portfolio_management.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
           "source_refs": []
         },
         {
@@ -1077,7 +1077,7 @@
           "expected_outputs": {
             "result": "-3180"
           },
-          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested portfolio_management.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
           "source_refs": []
         },
         {
@@ -1095,7 +1095,7 @@
           "expected_outputs": {
             "result": "11000"
           },
-          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested portfolio_management.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
           "source_refs": [
             "S01",
             "S08"
@@ -1116,7 +1116,7 @@
           "expected_outputs": {
             "result": "100000"
           },
-          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested portfolio_management.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
           "source_refs": []
         },
         {
@@ -1134,7 +1134,7 @@
           "expected_outputs": {
             "result": "59200"
           },
-          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested portfolio_management.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
           "source_refs": []
         },
         {
@@ -1151,7 +1151,7 @@
           "expected_outputs": {
             "result": "7200"
           },
-          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested portfolio_management.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
           "source_refs": []
         },
         {
@@ -1168,7 +1168,7 @@
           "expected_outputs": {
             "result": "-2800"
           },
-          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested portfolio_management.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
           "source_refs": []
         },
         {
@@ -1185,7 +1185,7 @@
           "expected_outputs": {
             "result": "23000"
           },
-          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested portfolio_management.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
           "source_refs": [
             "S08"
           ]
@@ -1204,7 +1204,7 @@
           "expected_outputs": {
             "result": "50"
           },
-          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested portfolio_management.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
           "source_refs": []
         },
         {
@@ -1221,7 +1221,7 @@
           "expected_outputs": {
             "result": "75"
           },
-          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested portfolio_management.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
           "source_refs": []
         },
         {
@@ -1238,7 +1238,7 @@
           "expected_outputs": {
             "result": "60"
           },
-          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested portfolio_management.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
           "source_refs": []
         },
         {
@@ -1255,7 +1255,7 @@
           "expected_outputs": {
             "result": "20"
           },
-          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested portfolio_management.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
           "source_refs": []
         },
         {
@@ -1272,7 +1272,7 @@
           "expected_outputs": {
             "result": "85.714"
           },
-          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested portfolio_management.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
           "source_refs": [],
           "tolerance": "0.0005"
         },
@@ -1290,7 +1290,7 @@
           "expected_outputs": {
             "result": "23.571"
           },
-          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested portfolio_management.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
           "source_refs": [],
           "tolerance": "0.0005"
         },
@@ -1308,7 +1308,7 @@
           "expected_outputs": {
             "result": "66.667"
           },
-          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested portfolio_management.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
           "source_refs": [],
           "tolerance": "0.0005"
         },
@@ -1326,7 +1326,7 @@
           "expected_outputs": {
             "result": "17.222"
           },
-          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested portfolio_management.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
           "source_refs": [],
           "tolerance": "0.0005"
         },
@@ -1344,7 +1344,7 @@
           "expected_outputs": {
             "result": "0.03"
           },
-          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested portfolio_management.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
           "source_refs": []
         },
         {
@@ -1361,7 +1361,7 @@
           "expected_outputs": {
             "result": "0.003"
           },
-          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested portfolio_management.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
           "source_refs": []
         },
         {
@@ -1378,7 +1378,7 @@
           "expected_outputs": {
             "result": "0.365"
           },
-          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested portfolio_management.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
           "source_refs": []
         },
         {
@@ -1395,7 +1395,7 @@
           "expected_outputs": {
             "result": "65.75"
           },
-          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested portfolio_management.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
           "source_refs": [],
           "tolerance": "0.005"
         },
@@ -1413,7 +1413,7 @@
           "expected_outputs": {
             "result": "234.25"
           },
-          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested portfolio_management.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
           "source_refs": [],
           "tolerance": "0.005"
         },
@@ -1431,7 +1431,7 @@
           "expected_outputs": {
             "result": "0.023425"
           },
-          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested portfolio_management.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
           "source_refs": [],
           "tolerance": "0.0000005"
         },
@@ -1449,7 +1449,7 @@
           "expected_outputs": {
             "result": "-60"
           },
-          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested portfolio_management.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
           "source_refs": []
         },
         {
@@ -1466,7 +1466,7 @@
           "expected_outputs": {
             "result": "0.945"
           },
-          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested portfolio_management.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
           "source_refs": []
         },
         {
@@ -1483,7 +1483,7 @@
           "expected_outputs": {
             "result": "-0.055"
           },
-          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested wheel_team.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
+          "independent_basis": "Independent literal calculation; closed Decimal arithmetic or independently tested portfolio_management.domain.option_math. Authored numeric assertion and exact input mapping recorded in example-mappings.json. No author calculator reused.",
           "source_refs": []
         }
       ],

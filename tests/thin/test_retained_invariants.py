@@ -7,8 +7,8 @@ import pytest
 
 from tests.thin.test_tools import NOW, option
 from tests.thin.test_vault import evidence
-from wheel_team.tools import evidence_tools, finance_tools
-from wheel_team.vault import EvidenceStore, InvalidRecord
+from portfolio_management.tools import evidence_tools, finance_tools
+from portfolio_management.vault import EvidenceStore, InvalidRecord
 
 
 async def test_calculation_identity_binds_available_normalized_record_content(tmp_path):
@@ -25,7 +25,7 @@ async def test_calculation_identity_binds_available_normalized_record_content(tm
 
 
 def test_vault_rejects_oversized_records_and_unbounded_queries(tmp_path, monkeypatch):
-    from wheel_team import vault
+    from portfolio_management import vault
 
     monkeypatch.setattr(vault, "MAX_RECORD_BYTES", 1024)
     store = EvidenceStore(tmp_path)

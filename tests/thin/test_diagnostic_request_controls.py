@@ -6,9 +6,9 @@ import httpx
 import pytest
 from pydantic import ValidationError
 
-from wheel_team import models
-from wheel_team.config import ModelConfig
-from wheel_team.model_observer import CompletionTelemetry
+from portfolio_management import models
+from portfolio_management.config import ModelConfig
+from portfolio_management.model_observer import CompletionTelemetry
 
 
 @pytest.mark.parametrize("effort", ["minimal", "max"])
@@ -122,7 +122,7 @@ async def test_overcontext_preserves_history_and_surfaces_without_retry(
     from strands.types.exceptions import ContextWindowOverflowException
 
     from tests.thin.test_agents import context
-    from wheel_team.agents.base import build_role
+    from portfolio_management.agents.base import build_role
 
     requests = []
     original = httpx.AsyncClient

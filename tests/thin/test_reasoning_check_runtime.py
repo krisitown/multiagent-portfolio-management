@@ -10,11 +10,11 @@ import pytest
 
 from tests.support.thin_sdk import ScriptModel, output
 from tests.thin.test_direct_text_handoff import CutoffModel, direct_config
-from wheel_team.fact_check import TokenCounter
-from wheel_team.fact_check_runtime import ReasoningCheckSession
-from wheel_team.prompt_loader import _CheckerPromptBundle
-from wheel_team.types import RoleContext, RunBudget, TeamRequest, TraceSink
-from wheel_team.vault import EvidenceStore
+from portfolio_management.fact_check import TokenCounter
+from portfolio_management.fact_check_runtime import ReasoningCheckSession
+from portfolio_management.prompt_loader import _CheckerPromptBundle
+from portfolio_management.types import RoleContext, RunBudget, TeamRequest, TraceSink
+from portfolio_management.vault import EvidenceStore
 
 
 def session(tmp_path, models, **kwargs):

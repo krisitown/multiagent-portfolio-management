@@ -9,7 +9,7 @@ import types
 import pytest
 from test_market_spark import settings
 
-from wheel_team.contracts import MarketQuery
+from portfolio_management.contracts import MarketQuery
 
 PARAMS = {
     "contracts": [
@@ -25,7 +25,7 @@ PARAMS = {
 @pytest.fixture
 def boundary(tmp_path, monkeypatch):
     """Replace only external raw source operations; real collector + adapter run."""
-    collector = importlib.import_module("wheel_team.adapters.market.collector")
+    collector = importlib.import_module("portfolio_management.adapters.market.collector")
     calls = []
     rows = [
         {
@@ -131,7 +131,7 @@ async def test_exact_old_new_roll_legs_calls_itm_and_missing_are_isolated(
     boundary, tmp_path, monkeypatch
 ):
     collector, config, calls, payload = boundary
-    spark = importlib.import_module("wheel_team.adapters.market.spark")
+    spark = importlib.import_module("portfolio_management.adapters.market.spark")
     provider = spark.SparkMarketProvider(spark.SSHResearchConfig(**settings(tmp_path)))
 
     async def collect(request):
@@ -250,7 +250,7 @@ async def test_yahoo_fallback_keeps_trade_time_separate_and_source_errors_privat
     ],
 )
 async def test_invalid_exact_requests_never_reach_transport(params, tmp_path, monkeypatch):
-    spark = importlib.import_module("wheel_team.adapters.market.spark")
+    spark = importlib.import_module("portfolio_management.adapters.market.spark")
     provider = spark.SparkMarketProvider(spark.SSHResearchConfig(**settings(tmp_path)))
 
     async def forbidden(request):
@@ -269,7 +269,7 @@ async def test_invalid_exact_requests_never_reach_transport(params, tmp_path, mo
 
 
 async def test_valid_limits_and_decimal_boundaries_are_accepted(tmp_path, monkeypatch):
-    spark = importlib.import_module("wheel_team.adapters.market.spark")
+    spark = importlib.import_module("portfolio_management.adapters.market.spark")
     provider = spark.SparkMarketProvider(spark.SSHResearchConfig(**settings(tmp_path)))
     selected = []
 

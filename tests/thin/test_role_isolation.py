@@ -8,9 +8,9 @@ import pytest
 from tests.support.thin_fakes import fixed_clock, recording_factory
 from tests.support.thin_sdk import ScriptModel, output
 from tests.thin.test_entrypoint import config
-from wheel_team.config import ModelConfig
-from wheel_team.evaluation.thin_runner import run_case
-from wheel_team.types import TeamDependencies
+from portfolio_management.config import ModelConfig
+from portfolio_management.evaluation.thin_runner import run_case
+from portfolio_management.types import TeamDependencies
 
 
 def model_config(tmp_path):
@@ -231,7 +231,7 @@ async def test_role_mode_cannot_select_development_knowledge_for_production(tmp_
     import hashlib
     from pathlib import Path
 
-    from wheel_team.config import PromptSet
+    from portfolio_management.config import PromptSet
 
     bundle = tmp_path / "bundle"
     bundle.mkdir()

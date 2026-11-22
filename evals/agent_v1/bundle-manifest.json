@@ -2,7 +2,7 @@
   "files": [
     {
       "path": "README.md",
-      "sha256": "e826c99faf9f1159da8a5cc34fd6360f99beb4ff0c2c59e767d37206bf0aa73c"
+      "sha256": "c639cce4105e7ce516f197361c31b53cb4916a3f3c7c6599a0a797f6cf5d0937"
     },
     {
       "path": "cases.json",
@@ -178,7 +178,7 @@
     },
     {
       "path": "prompts/knowledge-runtime.json",
-      "sha256": "e3dc5e3b2ee1cc07a38abc31b5757eef367ed6de9582c97cdf68ce268fdf3030"
+      "sha256": "fb5988beba819efcdb3b5511614c9dea52f05add323068d4e0a751ae073c376b"
     },
     {
       "path": "prompts/role-prompts.json",

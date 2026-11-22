@@ -5,7 +5,7 @@ from pathlib import Path
 
 import pytest
 
-from wheel_team.continuity import ContinuityError, ContinuityFiles
+from portfolio_management.continuity import ContinuityError, ContinuityFiles
 
 
 def test_empty_create_paginated_read_update_history(tmp_path):
@@ -96,7 +96,7 @@ def test_interrupted_replace_preserves_current_and_recoverable_proposal(tmp_path
 
 
 def test_exposed_schemas_defaults_errors_and_hidden_temps(tmp_path):
-    from wheel_team.continuity import continuity_tools
+    from portfolio_management.continuity import continuity_tools
 
     f = ContinuityFiles(tmp_path, writable=True)
     audit = []

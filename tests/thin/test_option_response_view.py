@@ -7,7 +7,7 @@ import pytest
 
 from tests.support.thin_sdk import ScriptModel, output
 from tests.thin.test_agents import context
-from wheel_team.agents.base import build_role
+from portfolio_management.agents.base import build_role
 
 
 def quote_rows():
@@ -61,7 +61,7 @@ def original_text(value):
 
 
 def test_compact_values_and_order_reconstruct_without_mutating_original():
-    from wheel_team.option_response_view import compact_option_text
+    from portfolio_management.option_response_view import compact_option_text
 
     payload = {"status": "partial", "rows": quote_rows(), "error": None}
     before = copy.deepcopy(payload)
@@ -77,7 +77,7 @@ def test_compact_values_and_order_reconstruct_without_mutating_original():
 
 @pytest.mark.parametrize("exception", ["missing", "order", "values", "types"])
 def test_exceptional_rows_keep_missing_null_zero_false_and_identity(exception):
-    from wheel_team.option_response_view import compact_option_text
+    from portfolio_management.option_response_view import compact_option_text
 
     rows = quote_rows()
     if exception == "missing":
@@ -111,7 +111,7 @@ def test_exceptional_rows_keep_missing_null_zero_false_and_identity(exception):
     ],
 )
 def test_unsupported_or_unprofitable_text_is_identical(text):
-    from wheel_team.option_response_view import compact_option_text
+    from portfolio_management.option_response_view import compact_option_text
 
     assert compact_option_text(text) == text
 
@@ -178,7 +178,7 @@ async def test_real_sdk_explorer_options_liquidity_is_compacted(tmp_path):
 
 
 def test_message_projection_preserves_unrelated_and_error_blocks():
-    from wheel_team.option_response_view import option_response_messages
+    from portfolio_management.option_response_view import option_response_messages
 
     raw = original_text({"rows": quote_rows()})
     names = ["finance_calculate", "public_search", "consult_expert", "options_liquidity"]
@@ -211,9 +211,9 @@ def test_message_projection_preserves_unrelated_and_error_blocks():
 
 async def test_actual_market_tool_evidence_is_exact_while_sdk_input_is_compact(tmp_path):
     from tests.thin.test_vault import evidence
-    from wheel_team.contracts import EvidenceRecord, MarketResult
-    from wheel_team.tools.market import market_tools
-    from wheel_team.vault import EvidenceStore
+    from portfolio_management.contracts import EvidenceRecord, MarketResult
+    from portfolio_management.tools.market import market_tools
+    from portfolio_management.vault import EvidenceStore
 
     record = EvidenceRecord.model_validate(
         evidence(

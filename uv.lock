@@ -1448,7 +1448,7 @@ wheels = [
 ]
 
 [[package]]
-name = "wheel-team"
+name = "portfolio-management"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [

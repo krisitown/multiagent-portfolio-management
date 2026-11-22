@@ -8,12 +8,12 @@ import pytest
 
 from tests.support.thin_sdk import ScriptModel, output
 from tests.thin.test_direct_text_handoff import direct_config
-from wheel_team.team import run_team
-from wheel_team.types import TeamDependencies, TeamRequest
+from portfolio_management.team import run_team
+from portfolio_management.types import TeamDependencies, TeamRequest
 
 
 def explorer_config(tmp_path, **updates):
-    from wheel_team.config import TeamConfig
+    from portfolio_management.config import TeamConfig
 
     values = direct_config(tmp_path).model_dump()
     values.update(
@@ -111,11 +111,11 @@ async def test_disabled_explorer_keeps_old_three_role_selection(tmp_path):
 async def test_enabled_explorer_missing_prompt_fails_before_inference(tmp_path):
     from importlib.resources import files
 
-    from wheel_team.config import PromptSet
-    from wheel_team.prompt_loader import PromptReadinessError
+    from portfolio_management.config import PromptSet
+    from portfolio_management.prompt_loader import PromptReadinessError
 
     # Absolute source paths remain within this selected copied bundle.
-    fixture = Path(str(files("wheel_team").joinpath("prompts/development")))
+    fixture = Path(str(files("portfolio_management").joinpath("prompts/development")))
     import shutil
 
     shutil.copytree(fixture, tmp_path / "bundle")
@@ -165,7 +165,7 @@ async def test_overlapping_explorers_have_distinct_ids_and_private_child_request
     import asyncio
 
     from tests.thin.test_entrypoint import snapshot
-    from wheel_team.types import ResearchResult, TeamResult
+    from portfolio_management.types import ResearchResult, TeamResult
 
     both_started = asyncio.Event()
     started = 0
@@ -222,7 +222,7 @@ async def test_overlapping_explorers_have_distinct_ids_and_private_child_request
 async def test_stopped_explorer_saves_cancelled_outcome_and_cleans_child(tmp_path, stop):
     import asyncio
 
-    from wheel_team.types import TeamResult
+    from portfolio_management.types import TeamResult
 
     entered = asyncio.Event()
     cleaned = asyncio.Event()

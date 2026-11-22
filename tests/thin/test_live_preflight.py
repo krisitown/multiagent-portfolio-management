@@ -14,12 +14,12 @@ from pathlib import Path
 import pytest
 
 from tests.support.thin_sdk import ScriptModel, output
-from wheel_team.adapters.research import HermesResearchBackend, ResearchBackendConfig
-from wheel_team.config import ModelConfig, PromptSet, TeamConfig
-from wheel_team.contracts import AgentRole
-from wheel_team.prompt_loader import load_prompt
-from wheel_team.team import run_team
-from wheel_team.types import TeamDependencies, TeamRequest
+from portfolio_management.adapters.research import HermesResearchBackend, ResearchBackendConfig
+from portfolio_management.config import ModelConfig, PromptSet, TeamConfig
+from portfolio_management.contracts import AgentRole
+from portfolio_management.prompt_loader import load_prompt
+from portfolio_management.team import run_team
+from portfolio_management.types import TeamDependencies, TeamRequest
 
 QUESTION = (
     "Research Microsoft (MSFT) business quality and balance-sheet evidence from official "

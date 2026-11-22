@@ -10,8 +10,8 @@ from strands import Agent, tool
 
 from tests.support.thin_fakes import fixed_clock
 from tests.support.thin_sdk import ScriptModel, output
-from wheel_team import models
-from wheel_team.types import ExpertResult, ResearchResult, RunBudget, TeamResult, TraceSink
+from portfolio_management import models
+from portfolio_management.types import ExpertResult, ResearchResult, RunBudget, TeamResult, TraceSink
 
 
 def budget():
@@ -178,8 +178,8 @@ async def test_role_context_refresh_preserves_prefix_and_updates_actual_remainin
     tmp_path, monkeypatch
 ):
     from tests.thin.test_agents import context
-    from wheel_team.agents import base
-    from wheel_team.config import FinalizationConfig
+    from portfolio_management.agents import base
+    from portfolio_management.config import FinalizationConfig
 
     clock = [100.0]
     monkeypatch.setattr(base, "time", SimpleNamespace(monotonic=lambda: clock[0]), raising=False)
@@ -277,7 +277,7 @@ async def test_role_output_contract_names_required_fields_and_host_owned_metadat
     tmp_path, role, output_type, valid, required
 ):
     from tests.thin.test_agents import context
-    from wheel_team.agents.base import build_role
+    from portfolio_management.agents.base import build_role
 
     model = ScriptModel(output(output_type.__name__, **valid))
     agent = build_role(role, context(tmp_path, role, model))
@@ -303,8 +303,8 @@ async def test_role_output_contract_names_required_fields_and_host_owned_metadat
 
 async def test_role_builder_applies_configured_zero_output_repair_allowance(tmp_path):
     from tests.thin.test_agents import context
-    from wheel_team.agents.base import build_role
-    from wheel_team.config import FinalizationConfig
+    from portfolio_management.agents.base import build_role
+    from portfolio_management.config import FinalizationConfig
 
     model = ScriptModel(
         output("ResearchResult"),

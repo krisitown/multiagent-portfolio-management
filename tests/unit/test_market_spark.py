@@ -8,7 +8,7 @@ import pytest
 
 
 def spark_module():
-    return importlib.import_module("wheel_team.adapters.market.spark")
+    return importlib.import_module("portfolio_management.adapters.market.spark")
 
 
 def settings(tmp_path):
@@ -29,7 +29,7 @@ def settings(tmp_path):
 async def test_connected_metadata_and_labeled_numeric_observation_are_preserved(
     tmp_path, monkeypatch
 ):
-    from wheel_team.contracts import MarketQuery
+    from portfolio_management.contracts import MarketQuery
 
     module = spark_module()
     provider = module.SparkMarketProvider(module.SSHResearchConfig(**settings(tmp_path)))
@@ -77,7 +77,7 @@ async def test_connected_metadata_and_labeled_numeric_observation_are_preserved(
     ],
 )
 async def test_invalid_requests_never_reach_ssh(tmp_path, monkeypatch, changes):
-    from wheel_team.contracts import MarketQuery
+    from portfolio_management.contracts import MarketQuery
 
     module = spark_module()
     provider = module.SparkMarketProvider(module.SSHResearchConfig(**settings(tmp_path)))
@@ -102,7 +102,7 @@ async def test_invalid_requests_never_reach_ssh(tmp_path, monkeypatch, changes):
 
 
 async def test_ssh_timeout_kills_child_and_sanitizes_error(tmp_path, monkeypatch):
-    from wheel_team.contracts import MarketQuery
+    from portfolio_management.contracts import MarketQuery
 
     module = spark_module()
     provider = module.SparkMarketProvider(module.SSHResearchConfig(**settings(tmp_path)))
@@ -133,7 +133,7 @@ async def test_ssh_timeout_kills_child_and_sanitizes_error(tmp_path, monkeypatch
 
 
 def test_private_market_config_rejects_simultaneous_replay_and_connected(tmp_path):
-    from wheel_team.config import TeamConfig
+    from portfolio_management.config import TeamConfig
 
     with pytest.raises(ValueError, match="exclusive"):
         TeamConfig.model_validate(
@@ -179,7 +179,7 @@ async def test_archived_pep_history_returns_latest_aligned_july_to_october_rows(
     import os
     from pathlib import Path
 
-    from wheel_team.contracts import MarketQuery
+    from portfolio_management.contracts import MarketQuery
 
     configured = os.environ.get("WHEEL_TEST_HISTORY_RAW")
     if not configured:

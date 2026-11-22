@@ -8,9 +8,9 @@ from pathlib import Path
 
 import pytest
 
-from wheel_team.adapters.market.spark import SSHResearchConfig
-from wheel_team.adapters.research import HermesResearchBackend, ResearchBackendConfig
-from wheel_team.vault import EvidenceStore
+from portfolio_management.adapters.market.spark import SSHResearchConfig
+from portfolio_management.adapters.research import HermesResearchBackend, ResearchBackendConfig
+from portfolio_management.vault import EvidenceStore
 
 NOW = datetime(2026, 10, 31, 21, tzinfo=UTC)
 FIXTURES = Path(__file__).parents[1] / "fixtures" / "explorer"
@@ -18,8 +18,8 @@ FIXTURES = Path(__file__).parents[1] / "fixtures" / "explorer"
 
 def api():
     try:
-        return importlib.import_module("wheel_team.adapters.explorer"), importlib.import_module(
-            "wheel_team.tools.explorer"
+        return importlib.import_module("portfolio_management.adapters.explorer"), importlib.import_module(
+            "portfolio_management.tools.explorer"
         )
     except ModuleNotFoundError:
         pytest.fail("the agreed explorer tool/provider implementation is missing")

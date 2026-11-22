@@ -9,8 +9,8 @@ import pytest
 
 from tests.support.thin_sdk import ScriptModel, output
 from tests.thin.test_entrypoint import config
-from wheel_team.team import run_team
-from wheel_team.types import TeamDependencies, TeamRequest
+from portfolio_management.team import run_team
+from portfolio_management.types import TeamDependencies, TeamRequest
 
 
 async def test_actual_sdk_batch_and_expert_followup_reach_lead(tmp_path):
@@ -159,10 +159,10 @@ async def test_all_role_prompts_are_frozen_before_lead_delegates(tmp_path):
     import hashlib
     import shutil
 
-    from wheel_team.config import PromptSet
+    from portfolio_management.config import PromptSet
 
     bundle = tmp_path / "prompts"
-    shutil.copytree(Path("src/wheel_team/prompts/development"), bundle)
+    shutil.copytree(Path("src/portfolio_management/prompts/development"), bundle)
     manifest_path = bundle / "manifest.json"
     manifest = json.loads(manifest_path.read_text())
     manifest["modules"] = {}
@@ -220,7 +220,7 @@ async def test_saved_offline_trace_fixture_invokes_actual_tools(tmp_path):
 
 
 def test_cli_scripted_case_runs_actual_batch_expert_and_records_effective_schemas(tmp_path, capsys):
-    from wheel_team.cli import main
+    from portfolio_management.cli import main
 
     assert (
         main(

@@ -11,10 +11,10 @@ import pytest
 
 from tests.support.thin_fakes import fixed_clock
 from tests.thin.test_entrypoint import config, snapshot
-from wheel_team.agents import base
-from wheel_team.config import ContinuityConfig, FactCheckConfig
-from wheel_team.contracts import PromptBundle
-from wheel_team.types import ResearchResult, RoleContext, RunBudget, TeamRequest, TraceSink
+from portfolio_management.agents import base
+from portfolio_management.config import ContinuityConfig, FactCheckConfig
+from portfolio_management.contracts import PromptBundle
+from portfolio_management.types import ResearchResult, RoleContext, RunBudget, TeamRequest, TraceSink
 
 ROLES = (
     "team_lead",
@@ -145,7 +145,7 @@ def test_constructed_agents_match_pre_refactor_inputs(tmp_path, monkeypatch):
 
 
 def test_shared_builder_uses_supplied_definition_permissions(tmp_path, monkeypatch):
-    from wheel_team.agents.definition import RoleDefinition
+    from portfolio_management.agents.definition import RoleDefinition
 
     monkeypatch.setattr(base, "Agent", CapturedAgent)
     ctx = make_context(tmp_path, "analyst", (False,) * 5)
@@ -165,7 +165,7 @@ def test_shared_builder_uses_supplied_definition_permissions(tmp_path, monkeypat
 def test_configured_permissions_extend_the_role_modules_declared_tools(tmp_path):
     from dataclasses import replace
 
-    from wheel_team.agents.registry import DEFINITIONS
+    from portfolio_management.agents.registry import DEFINITIONS
 
     cfg = config(tmp_path).model_copy(update={"council_enabled": True})
     for name in ["team_lead", "portfolio_manager", "wheel_expert", "dalio", "buffett"]:
@@ -174,7 +174,7 @@ def test_configured_permissions_extend_the_role_modules_declared_tools(tmp_path)
 
 
 def test_legacy_read_tool_inventory_remains_importable():
-    from wheel_team.agents.base import READ_TOOLS
+    from portfolio_management.agents.base import READ_TOOLS
 
     assert READ_TOOLS == {"finance_calculate", "knowledge_read", "evidence_read", "evidence_find"}
 

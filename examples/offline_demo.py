@@ -3,9 +3,9 @@ import asyncio
 import os
 from pathlib import Path
 
-from wheel_team.config import ModelConfig, PromptSet, TeamConfig
-from wheel_team.team import run_team
-from wheel_team.types import TeamDependencies, TeamRequest
+from portfolio_management.config import ModelConfig, PromptSet, TeamConfig
+from portfolio_management.team import run_team
+from portfolio_management.types import TeamDependencies, TeamRequest
 
 
 async def main():

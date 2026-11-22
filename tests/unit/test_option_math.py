@@ -13,7 +13,7 @@ from pathlib import Path
 
 import pytest
 
-from wheel_team.contracts import CalculationRecord, ContractIdentity, Position, QuantityValue
+from portfolio_management.contracts import CalculationRecord, ContractIdentity, Position, QuantityValue
 
 EXPECTED = json.loads(
     (Path(__file__).parents[1] / "fixtures/finance/option_expected.json").read_text()
@@ -24,11 +24,11 @@ D = Decimal
 def api():
     # Runtime import lets pytest collect every behavior before the module exists.
     try:
-        return importlib.import_module("wheel_team.domain.option_math")
+        return importlib.import_module("portfolio_management.domain.option_math")
     except ModuleNotFoundError as exc:
-        if exc.name not in {"wheel_team.domain", "wheel_team.domain.option_math"}:
+        if exc.name not in {"portfolio_management.domain", "portfolio_management.domain.option_math"}:
             raise
-        pytest.fail("missing option economics implementation: wheel_team.domain.option_math")
+        pytest.fail("missing option economics implementation: portfolio_management.domain.option_math")
 
 
 def option(*, right="put", strike="50", multiplier="100", currency="USD", **overrides):

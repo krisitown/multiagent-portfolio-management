@@ -7,10 +7,10 @@ import pytest
 from pydantic import ValidationError
 
 from tests.support.thin_fakes import fixed_clock, recording_factory
-from wheel_team.cli import main
-from wheel_team.config import ModelConfig, PromptSet, TeamConfig
-from wheel_team.team import run_team
-from wheel_team.types import TeamDependencies, TeamRequest
+from portfolio_management.cli import main
+from portfolio_management.config import ModelConfig, PromptSet, TeamConfig
+from portfolio_management.team import run_team
+from portfolio_management.types import TeamDependencies, TeamRequest
 
 
 def config(output: Path) -> TeamConfig:

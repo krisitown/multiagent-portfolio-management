@@ -8,17 +8,17 @@ from decimal import Decimal
 import pytest
 from pydantic import ValidationError
 
-from wheel_team.contracts import PortfolioSnapshot
+from portfolio_management.contracts import PortfolioSnapshot
 
 
 def importer():
     # Keep collection healthy before implementation; do not mask nested import bugs.
     try:
-        return importlib.import_module("wheel_team.adapters.portfolio.snapshot").import_snapshot
+        return importlib.import_module("portfolio_management.adapters.portfolio.snapshot").import_snapshot
     except ModuleNotFoundError as exc:
         if exc.name not in {
-            "wheel_team.adapters.portfolio",
-            "wheel_team.adapters.portfolio.snapshot",
+            "portfolio_management.adapters.portfolio",
+            "portfolio_management.adapters.portfolio.snapshot",
         }:
             raise
         pytest.fail("missing portfolio snapshot importer")

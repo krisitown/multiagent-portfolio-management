@@ -5,7 +5,7 @@ from contextlib import contextmanager
 
 import pytest
 
-from wheel_team.telemetry.server import make_server
+from portfolio_management.telemetry.server import make_server
 
 
 @contextmanager

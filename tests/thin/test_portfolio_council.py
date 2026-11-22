@@ -10,10 +10,10 @@ import pytest
 from tests.support.thin_sdk import ScriptModel, output
 from tests.thin.test_analyst_report_access import expert_data, tool_data
 from tests.thin.test_direct_text_handoff import CutoffModel, direct_config
-from wheel_team.config import PromptSet, TeamConfig
-from wheel_team.followup import load_parent_review
-from wheel_team.team import run_team
-from wheel_team.types import TeamDependencies, TeamRequest
+from portfolio_management.config import PromptSet, TeamConfig
+from portfolio_management.followup import load_parent_review
+from portfolio_management.team import run_team
+from portfolio_management.types import TeamDependencies, TeamRequest
 
 
 def council_config(tmp_path, **updates):
@@ -112,7 +112,7 @@ async def test_private_peers_public_research_reuse_and_bound_caller(tmp_path):
     # Distinct peers start together and share the registered research task.
     models = deque([manager, buffett, wheel, analyst])
     contexts = []
-    from wheel_team.agents.base import build_role
+    from portfolio_management.agents.base import build_role
 
     def factory(role, ctx):
         contexts.append((role, ctx))
@@ -166,7 +166,7 @@ async def test_failed_or_cutoff_manager_cannot_promote_lead_to_final(tmp_path, f
 
 async def test_manager_is_initial_agent_without_lead(tmp_path):
     roles = []
-    from wheel_team.agents.base import build_role
+    from portfolio_management.agents.base import build_role
 
     def factory(role, ctx):
         roles.append(role)
@@ -186,7 +186,7 @@ async def test_manager_is_initial_agent_without_lead(tmp_path):
 @pytest.mark.parametrize("role", ["dalio", "buffett", "portfolio_manager"])
 async def test_new_private_authors_select_private_checker_originals(tmp_path, role):
     from tests.thin.test_reasoning_check_runtime import session
-    from wheel_team.fact_check_runtime import ReasoningCheckSession
+    from portfolio_management.fact_check_runtime import ReasoningCheckSession
 
     checker, ctx, created = session(tmp_path, [])
     model = ScriptModel({"text": "Scoped substantive feedback"})
@@ -210,7 +210,7 @@ async def test_new_private_authors_select_private_checker_originals(tmp_path, ro
 async def test_manager_checks_original_peer_assessment_and_scope(tmp_path):
     import hashlib
 
-    from wheel_team.config import FactCheckConfig
+    from portfolio_management.config import FactCheckConfig
 
     cfg = council_config(tmp_path)
     root = tmp_path / "checker"
@@ -264,7 +264,7 @@ async def test_manager_checks_original_peer_assessment_and_scope(tmp_path):
 
 
 async def test_existing_scenario_calculator_is_available_to_private_council_only(tmp_path):
-    from wheel_team.agents.base import role_tools
+    from portfolio_management.agents.base import role_tools
 
     cfg = council_config(tmp_path)
     for role in ["portfolio_manager", "dalio", "buffett", "wheel_expert"]:
@@ -304,7 +304,7 @@ async def test_cancelled_peer_retains_status_and_cannot_be_completed_report(tmp_
 
 async def test_manager_continuity_read_is_attributed_and_read_only(tmp_path):
     from tests.thin.test_fact_check_team import Capture
-    from wheel_team.config import ContinuityConfig
+    from portfolio_management.config import ContinuityConfig
 
     cfg = council_config(tmp_path).model_copy(
         update={
@@ -374,7 +374,7 @@ async def test_manager_receives_peer_requested_original_research(tmp_path):
 
 
 async def test_manager_cannot_recursively_invoke_manager(tmp_path):
-    from wheel_team.agents.base import role_tools
+    from portfolio_management.agents.base import role_tools
 
     assert "consult_portfolio_manager" not in role_tools(
         "portfolio_manager", council_config(tmp_path)
@@ -408,8 +408,8 @@ async def test_failed_manager_preserves_actual_terminal_cause(tmp_path, terminal
 
 
 async def test_record_only_council_archives_without_lead_or_manager(tmp_path):
-    from wheel_team.config import ContinuityConfig
-    from wheel_team.owner_feedback import run_feedback
+    from portfolio_management.config import ContinuityConfig
+    from portfolio_management.owner_feedback import run_feedback
 
     cfg = council_config(tmp_path).model_copy(
         update={

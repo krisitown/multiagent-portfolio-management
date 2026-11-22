@@ -2,7 +2,7 @@
 
 from datetime import UTC, datetime
 
-from wheel_team.types import RoleContext, TeamResult
+from portfolio_management.types import RoleContext, TeamResult
 
 
 def fixed_clock() -> datetime:

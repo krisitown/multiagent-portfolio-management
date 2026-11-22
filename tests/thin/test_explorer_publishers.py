@@ -13,7 +13,7 @@ FIXTURES = Path(__file__).parents[1] / "fixtures" / "explorer"
 
 def publishers():
     try:
-        return importlib.import_module("wheel_team.adapters.explorer.publishers")
+        return importlib.import_module("portfolio_management.adapters.explorer.publishers")
     except ImportError:
         pytest.fail("the standalone direct-publisher collector is missing")
 

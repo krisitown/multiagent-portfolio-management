@@ -9,8 +9,8 @@ import pytest
 from tests.support.thin_sdk import ScriptModel, output
 from tests.thin.test_direct_text_handoff import CutoffModel, direct_config
 from tests.thin.test_entrypoint import snapshot
-from wheel_team.team import run_team
-from wheel_team.types import TeamDependencies, TeamRequest
+from portfolio_management.team import run_team
+from portfolio_management.types import TeamDependencies, TeamRequest
 
 
 class ContextModel(ScriptModel):
@@ -41,7 +41,7 @@ async def test_sdk_expert_receives_all_original_reports_without_reader_calls(
 ):
     # Catches missing automatic injection or altered originals/status,
     # or requiring passive files/reader tools before ordinary expert delivery.
-    import wheel_team.team as team
+    import portfolio_management.team as team
 
     failures = []
     original_write = team._write_json
@@ -182,8 +182,8 @@ async def test_owner_request_original_narrative_and_portfolio_are_inline(tmp_pat
     from tests.thin.test_research import Transport, api
     from tests.thin.test_research import config as research_config
     from tests.thin.test_vault import evidence
-    from wheel_team.contracts import EvidenceRecord, MarketResult
-    from wheel_team.vault import EvidenceStore
+    from portfolio_management.contracts import EvidenceRecord, MarketResult
+    from portfolio_management.vault import EvidenceStore
 
     market_source = EvidenceRecord.model_validate(
         evidence(
@@ -348,7 +348,7 @@ async def test_role_catalogs_keep_real_tools_and_hide_internal_handoff_tools(
 ):
     # Public/private reader bindings are tested separately; publications remain forbidden.
     from tests.thin.test_agents import context
-    from wheel_team.agents.base import build_role
+    from portfolio_management.agents.base import build_role
 
     forbidden = {
         "publish_idea",
